@@ -25,6 +25,8 @@
 		EF08E672170D1C4800BDA831 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF08E671170D1C4800BDA831 /* second@2x.png */; };
 		EF08E67B170D201B00BDA831 /* sproutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF08E67A170D201B00BDA831 /* sproutsViewController.m */; };
 		EF08E67E170D2AB800BDA831 /* sproutsActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF08E67D170D2AB800BDA831 /* sproutsActionViewController.m */; };
+		EFE058181714962A0033EE3E /* sprout_button.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE058171714962A0033EE3E /* sprout_button.png */; };
+		EFE0581B17149A370033EE3E /* feed.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE0581917149A370033EE3E /* feed.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		EF08E67A170D201B00BDA831 /* sproutsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sproutsViewController.m; sourceTree = "<group>"; };
 		EF08E67C170D2AB800BDA831 /* sproutsActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sproutsActionViewController.h; sourceTree = "<group>"; };
 		EF08E67D170D2AB800BDA831 /* sproutsActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sproutsActionViewController.m; sourceTree = "<group>"; };
+		EFE058171714962A0033EE3E /* sprout_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprout_button.png; sourceTree = "<group>"; };
+		EFE0581917149A370033EE3E /* feed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feed.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +138,9 @@
 		EF08E678170D1D9A00BDA831 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EFE058171714962A0033EE3E /* sprout_button.png */,
 				EF08E66F170D1C4800BDA831 /* second.png */,
+				EFE0581917149A370033EE3E /* feed.png */,
 				EF08E671170D1C4800BDA831 /* second@2x.png */,
 				EF08E668170D1C4800BDA831 /* first.png */,
 				EF08E66A170D1C4800BDA831 /* first@2x.png */,
@@ -203,6 +209,8 @@
 				EF08E66B170D1C4800BDA831 /* first@2x.png in Resources */,
 				EF08E670170D1C4800BDA831 /* second.png in Resources */,
 				EF08E672170D1C4800BDA831 /* second@2x.png in Resources */,
+				EFE058181714962A0033EE3E /* sprout_button.png in Resources */,
+				EFE0581B17149A370033EE3E /* feed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

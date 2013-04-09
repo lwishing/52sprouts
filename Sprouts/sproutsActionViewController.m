@@ -34,16 +34,11 @@
 
 
 - (IBAction)cancelButtonPressed:(UIButton *)sender {
-    [UIView animateWithDuration:0.2 animations:^{
-        self.view.alpha = 0.0;
-    } completion:^(BOOL finished){
-        [self.view removeFromSuperview];
-    }];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    sproutsViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"feed"];
-    [self presentViewController:controller animated:NO completion:nil];
-
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+
 
 - (void)didReceiveMemoryWarning
 {

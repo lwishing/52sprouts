@@ -32,11 +32,23 @@
 	// Do any additional setup after loading the view.
     
     // Programmatically add Sprout button to UI
-    UIButton* sproutButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    sproutButton.frame = CGRectMake(0.0, 0.0, 80.0, 80.0);
-    sproutButton.center = self.tabBar.center;
-    [sproutButton setTitle:@"Sprout" forState:UIControlStateNormal];
-    [sproutButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    UIButton* sproutButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *buttonImage = [UIImage imageNamed:@"sprout_button.png"];
+//    UIImage *highlightImage = [UIImage imageNamed:@"sprout_pressed.png"];
+    sproutButton.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
+    [sproutButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+//    [sproutButton setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
+    CGFloat heightDifference = buttonImage.size.height - self.tabBar.frame.size.height;
+    if (heightDifference < 0)
+        sproutButton.center = self.tabBar.center;
+    else
+    {
+        CGPoint center = self.tabBar.center;
+        center.y = center.y - heightDifference/2.0;
+        sproutButton.center = center;
+    }
+//    [sproutButton setTitle:@"Sprout" forState:UIControlStateNormal];
+//    [sproutButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [sproutButton addTarget:self action:@selector(sproutButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:sproutButton];
