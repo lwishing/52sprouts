@@ -1,19 +1,18 @@
 //
-//  sproutsActionViewController.m
+//  sproutsFeedViewController.m
 //  Sprouts
 //
-//  Created by Laura Wishingrad on 4/3/13.
+//  Created by Laura Wishingrad on 4/11/13.
 //  Copyright (c) 2013 Laura Wishingrad. All rights reserved.
 //
 
-#import "sproutsActionViewController.h"
-#import "sproutsViewController.h"
+#import "sproutsFeedViewController.h"
 
-@interface sproutsActionViewController ()
+@interface sproutsFeedViewController ()
 
 @end
 
-@implementation sproutsActionViewController
+@implementation sproutsFeedViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,17 +27,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    // Set background color to clear to make background image visible
-    self.view.backgroundColor = [UIColor clearColor];
-    
 }
-
-
-- (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 
 - (void)didReceiveMemoryWarning
 {

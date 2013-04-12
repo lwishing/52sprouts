@@ -1,19 +1,18 @@
 //
-//  sproutsActionViewController.m
+//  scheduleViewController.m
 //  Sprouts
 //
-//  Created by Laura Wishingrad on 4/3/13.
+//  Created by Laura Wishingrad on 4/9/13.
 //  Copyright (c) 2013 Laura Wishingrad. All rights reserved.
 //
 
-#import "sproutsActionViewController.h"
-#import "sproutsViewController.h"
+#import "scheduleViewController.h"
 
-@interface sproutsActionViewController ()
+@interface scheduleViewController ()
 
 @end
 
-@implementation sproutsActionViewController
+@implementation scheduleViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,14 +30,10 @@
     
     // Set background color to clear to make background image visible
     self.view.backgroundColor = [UIColor clearColor];
-    
 }
-
-
-- (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender {
+- (IBAction)backButtonPressed:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
 
 - (void)didReceiveMemoryWarning
 {

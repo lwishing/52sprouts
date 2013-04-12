@@ -1,19 +1,19 @@
 //
-//  sproutsActionViewController.m
+//  loginViewController.m
 //  Sprouts
 //
-//  Created by Laura Wishingrad on 4/3/13.
+//  Created by Laura Wishingrad on 4/10/13.
 //  Copyright (c) 2013 Laura Wishingrad. All rights reserved.
 //
 
-#import "sproutsActionViewController.h"
+#import "loginViewController.h"
 #import "sproutsViewController.h"
 
-@interface sproutsActionViewController ()
+@interface loginViewController ()
 
 @end
 
-@implementation sproutsActionViewController
+@implementation loginViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,17 +28,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    // Set background color to clear to make background image visible
-    self.view.backgroundColor = [UIColor clearColor];
-    
 }
-
-
-- (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)loginButtonPushed:(UIButton *)sender {
+    sproutsViewController *mainView = [[sproutsViewController alloc] init];
+    [self.navigationController pushViewController:mainView animated:YES];
 }
-
 
 - (void)didReceiveMemoryWarning
 {
