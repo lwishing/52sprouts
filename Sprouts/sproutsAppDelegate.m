@@ -7,11 +7,19 @@
 //
 
 #import "sproutsAppDelegate.h"
+#import <Parse/Parse.h>
 
 @implementation sproutsAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Parse keys
+    [Parse setApplicationId:@"rbVL4eTEwdq7DQ3UxDgnBp4G394L9cejopymUPhl"
+                  clientKey:@"AjBdyqrKELAXkL59vxk2oaDphjKyC1Vk230jAmi7"];
+    
+    // Track Parse stats
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     // Override point for customization after application launch.
     
     // Set background image for Nav bar on all views
