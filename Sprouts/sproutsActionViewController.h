@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface sproutsActionViewController : UIViewController
+@interface sproutsActionViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UILabel *ingredientOfTheWeek;
+@property (weak, nonatomic) IBOutlet UITextField *sproutTitle;
+@property (weak, nonatomic) IBOutlet UITextField *sproutDescription;
+@property (weak, nonatomic) IBOutlet UIImageView *sproutImage;
+
+- (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender;
+- (IBAction)shareButtonPressed:(UIBarButtonItem *)sender;
+
+- (IBAction)photoButtonPressed:(UIButton *)sender;
 
 @end

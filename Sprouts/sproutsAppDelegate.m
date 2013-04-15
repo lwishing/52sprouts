@@ -19,6 +19,10 @@
     UIImage *navBar = [UIImage imageNamed:@"nav_bar.png"];
     [[UINavigationBar appearance]setBackgroundImage:navBar forBarMetrics:UIBarMetricsDefault];
     
+    // Change the appearance of back button
+//    UIImage *backButtonImage = [[UIImage imageNamed:@"button_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 6)];
+//    [[UIBarButtonItem appearance] setBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:(0, 6, 0, 6)];
+    
     // Set background image for app
 //    _window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     

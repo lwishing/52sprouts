@@ -25,6 +25,21 @@
 		EF08E672170D1C4800BDA831 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF08E671170D1C4800BDA831 /* second@2x.png */; };
 		EF08E67B170D201B00BDA831 /* sproutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF08E67A170D201B00BDA831 /* sproutsViewController.m */; };
 		EF08E67E170D2AB800BDA831 /* sproutsActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF08E67D170D2AB800BDA831 /* sproutsActionViewController.m */; };
+		EF186F87171B8E10005E1949 /* schedule_day.png in Resources */ = {isa = PBXBuildFile; fileRef = EF186F85171B8E10005E1949 /* schedule_day.png */; };
+		EF186F88171B8E10005E1949 /* schedule_day@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF186F86171B8E10005E1949 /* schedule_day@2x.png */; };
+		EF186F8B171B9296005E1949 /* settingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF186F8A171B9296005E1949 /* settingsViewController.m */; };
+		EF186F98171B991C005E1949 /* sprout_description.png in Resources */ = {isa = PBXBuildFile; fileRef = EF186F94171B991C005E1949 /* sprout_description.png */; };
+		EF186F99171B991C005E1949 /* sprout_description@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF186F95171B991C005E1949 /* sprout_description@2x.png */; };
+		EF186F9A171B991C005E1949 /* sprout_title.png in Resources */ = {isa = PBXBuildFile; fileRef = EF186F96171B991C005E1949 /* sprout_title.png */; };
+		EF186F9B171B991C005E1949 /* sprout_title@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF186F97171B991C005E1949 /* sprout_title@2x.png */; };
+		EF186FA0171B997E005E1949 /* ingredients_button.png in Resources */ = {isa = PBXBuildFile; fileRef = EF186F9C171B997E005E1949 /* ingredients_button.png */; };
+		EF186FA1171B997E005E1949 /* ingredients_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF186F9D171B997E005E1949 /* ingredients_button@2x.png */; };
+		EF186FA2171B997E005E1949 /* photo_button.png in Resources */ = {isa = PBXBuildFile; fileRef = EF186F9E171B997E005E1949 /* photo_button.png */; };
+		EF186FA3171B997E005E1949 /* photo_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF186F9F171B997E005E1949 /* photo_button@2x.png */; };
+		EF186FA6171BA6D0005E1949 /* nav_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = EF186FA4171BA6D0005E1949 /* nav_bar.png */; };
+		EF186FA7171BA6D0005E1949 /* nav_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF186FA5171BA6D0005E1949 /* nav_bar@2x.png */; };
+		EF186FAA171BC83E005E1949 /* button_back.png in Resources */ = {isa = PBXBuildFile; fileRef = EF186FA8171BC83E005E1949 /* button_back.png */; };
+		EF186FAB171BC83E005E1949 /* button_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF186FA9171BC83E005E1949 /* button_back@2x.png */; };
 		EF1F98491715EC570046D023 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1F98481715EC570046D023 /* loginViewController.m */; };
 		EFA640EA17176C890028DE41 /* sproutsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA640E917176C890028DE41 /* sproutsFeedViewController.m */; };
 		EFA640ED1717842B0028DE41 /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA640EB1717842B0028DE41 /* banner.png */; };
@@ -35,11 +50,10 @@
 		EFA640FA17178E190028DE41 /* post_img@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA640F817178E190028DE41 /* post_img@2x.png */; };
 		EFA640FD17178F320028DE41 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA640FB17178F320028DE41 /* profile.png */; };
 		EFA640FE17178F320028DE41 /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA640FC17178F320028DE41 /* profile@2x.png */; };
+		EFA64135171B8B3C0028DE41 /* ingredientInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA64134171B8B3C0028DE41 /* ingredientInfoViewController.m */; };
 		EFE05827171533530033EE3E /* scheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE05826171533530033EE3E /* scheduleViewController.m */; };
 		EFE05A76171547EF0033EE3E /* feed.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE05A74171547EF0033EE3E /* feed.png */; };
 		EFE05A77171547EF0033EE3E /* feed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE05A75171547EF0033EE3E /* feed@2x.png */; };
-		EFE05A7A171549D20033EE3E /* nav_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE05A78171549D20033EE3E /* nav_bar.png */; };
-		EFE05A7B171549D20033EE3E /* nav_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE05A79171549D20033EE3E /* nav_bar@2x.png */; };
 		EFE05A7E17154BAB0033EE3E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE05A7C17154BAA0033EE3E /* background.png */; };
 		EFE05A7F17154BAB0033EE3E /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE05A7D17154BAB0033EE3E /* background@2x.png */; };
 		EFE05A82171550910033EE3E /* sprout_button.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE05A80171550900033EE3E /* sprout_button.png */; };
@@ -73,6 +87,22 @@
 		EF08E67A170D201B00BDA831 /* sproutsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sproutsViewController.m; sourceTree = "<group>"; };
 		EF08E67C170D2AB800BDA831 /* sproutsActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sproutsActionViewController.h; sourceTree = "<group>"; };
 		EF08E67D170D2AB800BDA831 /* sproutsActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sproutsActionViewController.m; sourceTree = "<group>"; };
+		EF186F85171B8E10005E1949 /* schedule_day.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = schedule_day.png; path = ../../../Desktop/schedule_day.png; sourceTree = "<group>"; };
+		EF186F86171B8E10005E1949 /* schedule_day@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "schedule_day@2x.png"; path = "../../../Desktop/schedule_day@2x.png"; sourceTree = "<group>"; };
+		EF186F89171B9296005E1949 /* settingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsViewController.h; sourceTree = "<group>"; };
+		EF186F8A171B9296005E1949 /* settingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsViewController.m; sourceTree = "<group>"; };
+		EF186F94171B991C005E1949 /* sprout_description.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sprout_description.png; path = ../../../Desktop/sprout_description.png; sourceTree = "<group>"; };
+		EF186F95171B991C005E1949 /* sprout_description@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sprout_description@2x.png"; path = "../../../Desktop/sprout_description@2x.png"; sourceTree = "<group>"; };
+		EF186F96171B991C005E1949 /* sprout_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sprout_title.png; path = ../../../Desktop/sprout_title.png; sourceTree = "<group>"; };
+		EF186F97171B991C005E1949 /* sprout_title@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sprout_title@2x.png"; path = "../../../Desktop/sprout_title@2x.png"; sourceTree = "<group>"; };
+		EF186F9C171B997E005E1949 /* ingredients_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ingredients_button.png; path = ../../../Desktop/ingredients_button.png; sourceTree = "<group>"; };
+		EF186F9D171B997E005E1949 /* ingredients_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ingredients_button@2x.png"; path = "../../../Desktop/ingredients_button@2x.png"; sourceTree = "<group>"; };
+		EF186F9E171B997E005E1949 /* photo_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = photo_button.png; path = ../../../Desktop/photo_button.png; sourceTree = "<group>"; };
+		EF186F9F171B997E005E1949 /* photo_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photo_button@2x.png"; path = "../../../Desktop/photo_button@2x.png"; sourceTree = "<group>"; };
+		EF186FA4171BA6D0005E1949 /* nav_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nav_bar.png; path = ../../../Desktop/nav_bar.png; sourceTree = "<group>"; };
+		EF186FA5171BA6D0005E1949 /* nav_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_bar@2x.png"; path = "../../../Desktop/nav_bar@2x.png"; sourceTree = "<group>"; };
+		EF186FA8171BC83E005E1949 /* button_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_back.png; path = ../../../Desktop/button_back.png; sourceTree = "<group>"; };
+		EF186FA9171BC83E005E1949 /* button_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_back@2x.png"; path = "../../../Desktop/button_back@2x.png"; sourceTree = "<group>"; };
 		EF1F98471715EC570046D023 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		EF1F98481715EC570046D023 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		EFA640E817176C890028DE41 /* sproutsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sproutsFeedViewController.h; sourceTree = "<group>"; };
@@ -85,12 +115,12 @@
 		EFA640F817178E190028DE41 /* post_img@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "post_img@2x.png"; sourceTree = "<group>"; };
 		EFA640FB17178F320028DE41 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		EFA640FC17178F320028DE41 /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile@2x.png"; sourceTree = "<group>"; };
+		EFA64133171B8B3C0028DE41 /* ingredientInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ingredientInfoViewController.h; sourceTree = "<group>"; };
+		EFA64134171B8B3C0028DE41 /* ingredientInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ingredientInfoViewController.m; sourceTree = "<group>"; };
 		EFE05825171533530033EE3E /* scheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scheduleViewController.h; sourceTree = "<group>"; };
 		EFE05826171533530033EE3E /* scheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scheduleViewController.m; sourceTree = "<group>"; };
 		EFE05A74171547EF0033EE3E /* feed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feed.png; sourceTree = "<group>"; };
 		EFE05A75171547EF0033EE3E /* feed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feed@2x.png"; sourceTree = "<group>"; };
-		EFE05A78171549D20033EE3E /* nav_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar.png; sourceTree = "<group>"; };
-		EFE05A79171549D20033EE3E /* nav_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar@2x.png"; sourceTree = "<group>"; };
 		EFE05A7C17154BAA0033EE3E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		EFE05A7D17154BAB0033EE3E /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		EFE05A80171550900033EE3E /* sprout_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprout_button.png; sourceTree = "<group>"; };
@@ -145,12 +175,16 @@
 				EF08E659170D1C4800BDA831 /* sproutsAppDelegate.h */,
 				EF08E65A170D1C4800BDA831 /* sproutsAppDelegate.m */,
 				EF08E662170D1C4800BDA831 /* MainStoryboard.storyboard */,
+				EFA64133171B8B3C0028DE41 /* ingredientInfoViewController.h */,
+				EFA64134171B8B3C0028DE41 /* ingredientInfoViewController.m */,
 				EFA640E817176C890028DE41 /* sproutsFeedViewController.h */,
 				EFA640E917176C890028DE41 /* sproutsFeedViewController.m */,
 				EF1F98471715EC570046D023 /* loginViewController.h */,
 				EF1F98481715EC570046D023 /* loginViewController.m */,
 				EFE05825171533530033EE3E /* scheduleViewController.h */,
 				EFE05826171533530033EE3E /* scheduleViewController.m */,
+				EF186F89171B9296005E1949 /* settingsViewController.h */,
+				EF186F8A171B9296005E1949 /* settingsViewController.m */,
 				EF08E67C170D2AB800BDA831 /* sproutsActionViewController.h */,
 				EF08E67D170D2AB800BDA831 /* sproutsActionViewController.m */,
 				EF08E679170D201B00BDA831 /* sproutsViewController.h */,
@@ -185,22 +219,34 @@
 				EFE05A7D17154BAB0033EE3E /* background@2x.png */,
 				EFA640EB1717842B0028DE41 /* banner.png */,
 				EFA640EC1717842B0028DE41 /* banner@2x.png */,
+				EF186FA8171BC83E005E1949 /* button_back.png */,
+				EF186FA9171BC83E005E1949 /* button_back@2x.png */,
 				EFE05A74171547EF0033EE3E /* feed.png */,
 				EFE05A75171547EF0033EE3E /* feed@2x.png */,
 				EF08E668170D1C4800BDA831 /* first.png */,
 				EF08E66A170D1C4800BDA831 /* first@2x.png */,
-				EFE05A78171549D20033EE3E /* nav_bar.png */,
-				EFE05A79171549D20033EE3E /* nav_bar@2x.png */,
+				EF186F9C171B997E005E1949 /* ingredients_button.png */,
+				EF186F9D171B997E005E1949 /* ingredients_button@2x.png */,
+				EF186FA4171BA6D0005E1949 /* nav_bar.png */,
+				EF186FA5171BA6D0005E1949 /* nav_bar@2x.png */,
+				EF186F9E171B997E005E1949 /* photo_button.png */,
+				EF186F9F171B997E005E1949 /* photo_button@2x.png */,
 				EFA640F717178E190028DE41 /* post_img.png */,
 				EFA640F817178E190028DE41 /* post_img@2x.png */,
 				EFA640FB17178F320028DE41 /* profile.png */,
 				EFA640FC17178F320028DE41 /* profile@2x.png */,
 				EFA640EF171787F00028DE41 /* schedule_button.png */,
 				EFA640F0171787F00028DE41 /* schedule_button@2x.png */,
+				EF186F85171B8E10005E1949 /* schedule_day.png */,
+				EF186F86171B8E10005E1949 /* schedule_day@2x.png */,
 				EF08E66F170D1C4800BDA831 /* second.png */,
 				EF08E671170D1C4800BDA831 /* second@2x.png */,
 				EFE05A80171550900033EE3E /* sprout_button.png */,
 				EFE05A81171550910033EE3E /* sprout_button@2x.png */,
+				EF186F94171B991C005E1949 /* sprout_description.png */,
+				EF186F95171B991C005E1949 /* sprout_description@2x.png */,
+				EF186F96171B991C005E1949 /* sprout_title.png */,
+				EF186F97171B991C005E1949 /* sprout_title@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -268,8 +314,6 @@
 				EF08E672170D1C4800BDA831 /* second@2x.png in Resources */,
 				EFE05A76171547EF0033EE3E /* feed.png in Resources */,
 				EFE05A77171547EF0033EE3E /* feed@2x.png in Resources */,
-				EFE05A7A171549D20033EE3E /* nav_bar.png in Resources */,
-				EFE05A7B171549D20033EE3E /* nav_bar@2x.png in Resources */,
 				EFE05A7E17154BAB0033EE3E /* background.png in Resources */,
 				EFE05A7F17154BAB0033EE3E /* background@2x.png in Resources */,
 				EFE05A82171550910033EE3E /* sprout_button.png in Resources */,
@@ -282,6 +326,20 @@
 				EFA640FA17178E190028DE41 /* post_img@2x.png in Resources */,
 				EFA640FD17178F320028DE41 /* profile.png in Resources */,
 				EFA640FE17178F320028DE41 /* profile@2x.png in Resources */,
+				EF186F87171B8E10005E1949 /* schedule_day.png in Resources */,
+				EF186F88171B8E10005E1949 /* schedule_day@2x.png in Resources */,
+				EF186F98171B991C005E1949 /* sprout_description.png in Resources */,
+				EF186F99171B991C005E1949 /* sprout_description@2x.png in Resources */,
+				EF186F9A171B991C005E1949 /* sprout_title.png in Resources */,
+				EF186F9B171B991C005E1949 /* sprout_title@2x.png in Resources */,
+				EF186FA0171B997E005E1949 /* ingredients_button.png in Resources */,
+				EF186FA1171B997E005E1949 /* ingredients_button@2x.png in Resources */,
+				EF186FA2171B997E005E1949 /* photo_button.png in Resources */,
+				EF186FA3171B997E005E1949 /* photo_button@2x.png in Resources */,
+				EF186FA6171BA6D0005E1949 /* nav_bar.png in Resources */,
+				EF186FA7171BA6D0005E1949 /* nav_bar@2x.png in Resources */,
+				EF186FAA171BC83E005E1949 /* button_back.png in Resources */,
+				EF186FAB171BC83E005E1949 /* button_back@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +359,8 @@
 				EFE05827171533530033EE3E /* scheduleViewController.m in Sources */,
 				EF1F98491715EC570046D023 /* loginViewController.m in Sources */,
 				EFA640EA17176C890028DE41 /* sproutsFeedViewController.m in Sources */,
+				EFA64135171B8B3C0028DE41 /* ingredientInfoViewController.m in Sources */,
+				EF186F8B171B9296005E1949 /* settingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

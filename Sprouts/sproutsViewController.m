@@ -58,7 +58,7 @@
 - (IBAction)sproutButtonPressed:(UIButton *)sender
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    sproutsActionViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"action"];
+    sproutsActionViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"actionNavigation"];
     [self setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:controller animated:YES completion:nil];
 }
