@@ -43,11 +43,19 @@
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
         if (!user) {
-            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+            if (!error) {
+                NSLog(@"Uh oh. The user cancelled the Facebook login.");
+            } else {
+                NSLog(@"Uh oh. An error occurred: %@", error);
+            }
         } else if (user.isNew) {
             NSLog(@"User signed up and logged in through Facebook!");
+            sproutsViewController *mainView = [[sproutsViewController alloc] init];
+            [self.navigationController pushViewController:mainView animated:YES];
         } else {
             NSLog(@"User logged in through Facebook!");
+            sproutsViewController *mainView = [[sproutsViewController alloc] init];
+            [self.navigationController pushViewController:mainView animated:YES];
         }
     }];
 }

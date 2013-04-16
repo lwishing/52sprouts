@@ -51,6 +51,38 @@
 //    [sproutButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [sproutButton addTarget:self action:@selector(sproutButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
+    
+    // Create request for user's Facebook data
+    FBRequest *request = [FBRequest requestForMe];
+    
+    // Send request to Facebook
+    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if (!error) {
+            // result is a dictionary
+            NSDictionary *userData = (NSDictionary *)result;
+
+            // show all data from Facebook
+            for (id key in userData) {
+                NSLog(@"key: %@, value: %@", key, [userData objectForKey:key]);
+            }
+            
+            // save user data to Parse
+            PFUser *currentUser = [PFUser currentUser];
+            [currentUser setObject:[userData objectForKey:@"first_name"] forKey:@"firstName"];
+            [currentUser setObject:[userData objectForKey:@"last_name"] forKey:@"lastName"];
+            [currentUser setObject:[userData objectForKey:@"email"] forKey:@"email"];
+            
+            NSString *facebookID = userData[@"id"];
+            [currentUser setObject:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID] forKey:@"profilePic"];
+            
+            [currentUser saveInBackground];
+
+        }
+    }];
+    
+    
+    
+    
     [self.view addSubview:sproutButton];
     
 }
