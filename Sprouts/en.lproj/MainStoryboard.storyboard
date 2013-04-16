@@ -402,7 +402,7 @@
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLP-3d-3ko">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="J4I-di-Mh0"/>
+                                            <constraint firstAttribute="height" constant="30" type="user" id="J4I-di-Mh0"/>
                                             <constraint firstAttribute="width" constant="150" id="Kei-4y-eTo"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -437,21 +437,22 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="vH6-p7-RAa" firstAttribute="leading" secondItem="Hj9-iB-uV8" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="2B9-kd-ItL"/>
+                                    <constraint firstItem="iLP-3d-3ko" firstAttribute="top" secondItem="Hj9-iB-uV8" secondAttribute="top" constant="243" type="user" id="9wm-gJ-YqB"/>
                                     <constraint firstItem="Hxe-M9-hU4" firstAttribute="trailing" secondItem="rH5-DY-FTe" secondAttribute="trailing" type="default" id="DvB-De-iLK"/>
                                     <constraint firstAttribute="trailing" secondItem="erN-Od-CL3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="GSD-mb-7Ze"/>
+                                    <constraint firstItem="2h0-tZ-t84" firstAttribute="bottom" secondItem="iLP-3d-3ko" secondAttribute="bottom" type="default" id="Gne-d1-GB8"/>
+                                    <constraint firstItem="2h0-tZ-t84" firstAttribute="top" secondItem="Hj9-iB-uV8" secondAttribute="top" constant="243" type="user" id="JAV-f5-HMZ"/>
                                     <constraint firstItem="2h0-tZ-t84" firstAttribute="trailing" secondItem="rH5-DY-FTe" secondAttribute="trailing" type="default" id="JdY-xX-85m"/>
                                     <constraint firstItem="erN-Od-CL3" firstAttribute="centerX" secondItem="Hxe-M9-hU4" secondAttribute="centerX" type="default" id="Oot-Ym-CzD"/>
                                     <constraint firstAttribute="trailing" secondItem="vH6-p7-RAa" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="RY3-1k-YfY"/>
                                     <constraint firstItem="vH6-p7-RAa" firstAttribute="top" secondItem="Hj9-iB-uV8" secondAttribute="top" constant="20" symbolic="YES" type="default" id="UVM-3T-h9Q"/>
                                     <constraint firstItem="erN-Od-CL3" firstAttribute="leading" secondItem="Hj9-iB-uV8" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Zhf-Iv-STh"/>
-                                    <constraint firstItem="2h0-tZ-t84" firstAttribute="bottom" secondItem="iLP-3d-3ko" secondAttribute="bottom" type="default" id="aLd-hh-NAM"/>
                                     <constraint firstAttribute="trailing" secondItem="DDi-gx-pbk" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="das-Vx-bpV"/>
                                     <constraint firstItem="1yX-X2-idV" firstAttribute="leading" secondItem="Hj9-iB-uV8" secondAttribute="leading" type="default" id="eKh-wq-iOz"/>
                                     <constraint firstItem="iLP-3d-3ko" firstAttribute="leading" secondItem="rH5-DY-FTe" secondAttribute="leading" type="default" id="hSQ-fV-K0v"/>
                                     <constraint firstItem="erN-Od-CL3" firstAttribute="top" secondItem="vH6-p7-RAa" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kFm-Pg-ShW"/>
                                     <constraint firstItem="rH5-DY-FTe" firstAttribute="top" secondItem="Hj9-iB-uV8" secondAttribute="top" constant="128" id="kkr-UO-seA"/>
-                                    <constraint firstAttribute="bottom" secondItem="iLP-3d-3ko" secondAttribute="bottom" constant="182" id="kuW-l2-zcF"/>
-                                    <constraint firstItem="2h0-tZ-t84" firstAttribute="top" secondItem="iLP-3d-3ko" secondAttribute="top" type="default" id="mGY-hg-IYO"/>
+                                    <constraint firstItem="2h0-tZ-t84" firstAttribute="top" secondItem="iLP-3d-3ko" secondAttribute="top" type="user" id="mGY-hg-IYO"/>
                                     <constraint firstItem="Hxe-M9-hU4" firstAttribute="top" secondItem="Hj9-iB-uV8" secondAttribute="top" constant="91" id="noK-l3-to9"/>
                                     <constraint firstItem="1yX-X2-idV" firstAttribute="top" secondItem="Hj9-iB-uV8" secondAttribute="top" constant="-46" id="sx1-q8-Pw6"/>
                                     <constraint firstItem="Hxe-M9-hU4" firstAttribute="leading" secondItem="rH5-DY-FTe" secondAttribute="leading" type="default" id="x7l-xR-acJ"/>
@@ -461,8 +462,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Hj9-iB-uV8" firstAttribute="top" secondItem="17" secondAttribute="top" type="default" id="3yW-9H-ubL"/>
-                            <constraint firstItem="Hj9-iB-uV8" firstAttribute="bottom" secondItem="17" secondAttribute="bottom" type="default" id="DkU-f1-LGc"/>
+                            <constraint firstItem="Hj9-iB-uV8" firstAttribute="top" secondItem="17" secondAttribute="top" type="user" id="3yW-9H-ubL"/>
+                            <constraint firstItem="Hj9-iB-uV8" firstAttribute="bottom" secondItem="17" secondAttribute="bottom" type="user" id="DkU-f1-LGc"/>
                             <constraint firstItem="Hj9-iB-uV8" firstAttribute="leading" secondItem="17" secondAttribute="leading" type="default" id="Tqw-q6-trH"/>
                             <constraint firstItem="Hj9-iB-uV8" firstAttribute="trailing" secondItem="17" secondAttribute="trailing" type="default" id="oG3-VD-ZQC"/>
                         </constraints>

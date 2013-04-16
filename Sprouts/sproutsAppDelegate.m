@@ -25,17 +25,18 @@
     
     // Override point for customization after application launch.
     
-    // Set background image for Nav bar on all views
+    // Nav bar appearance
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
     UIImage *navBar = [UIImage imageNamed:@"nav_bar.png"];
     [[UINavigationBar appearance]setBackgroundImage:navBar forBarMetrics:UIBarMetricsDefault];
     
-    // Change the appearance of back button
-//    UIImage *backButtonImage = [[UIImage imageNamed:@"button_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 6)];
-//    [[UIBarButtonItem appearance] setBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:(0, 6, 0, 6)];
+    // Nav bar back button appearance
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:(97/255.0) green:(71/255.0) blue:(39/255.0) alpha:1.0]];
     
-    // Set background image for app
-//    _window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    // Tab bar appearance
+    [[UITabBar appearance] setBackgroundImage: [UIImage imageNamed:@"tab_bar_background.png"]];
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"selected_menu_item.png"]];
+    
     
     return YES;
 }
