@@ -65,6 +65,7 @@
 		EFA640FD17178F320028DE41 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA640FB17178F320028DE41 /* profile.png */; };
 		EFA640FE17178F320028DE41 /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA640FC17178F320028DE41 /* profile@2x.png */; };
 		EFA64135171B8B3C0028DE41 /* ingredientInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA64134171B8B3C0028DE41 /* ingredientInfoViewController.m */; };
+		EFAE884C171DEA9C00CE67B6 /* addIngredientsToSproutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAE884B171DEA9C00CE67B6 /* addIngredientsToSproutViewController.m */; };
 		EFE05827171533530033EE3E /* scheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE05826171533530033EE3E /* scheduleViewController.m */; };
 		EFE05A76171547EF0033EE3E /* feed.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE05A74171547EF0033EE3E /* feed.png */; };
 		EFE05A77171547EF0033EE3E /* feed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE05A75171547EF0033EE3E /* feed@2x.png */; };
@@ -151,6 +152,8 @@
 		EFA640FC17178F320028DE41 /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile@2x.png"; sourceTree = "<group>"; };
 		EFA64133171B8B3C0028DE41 /* ingredientInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ingredientInfoViewController.h; sourceTree = "<group>"; };
 		EFA64134171B8B3C0028DE41 /* ingredientInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ingredientInfoViewController.m; sourceTree = "<group>"; };
+		EFAE884A171DEA9C00CE67B6 /* addIngredientsToSproutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addIngredientsToSproutViewController.h; sourceTree = "<group>"; };
+		EFAE884B171DEA9C00CE67B6 /* addIngredientsToSproutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addIngredientsToSproutViewController.m; sourceTree = "<group>"; };
 		EFE05825171533530033EE3E /* scheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scheduleViewController.h; sourceTree = "<group>"; };
 		EFE05826171533530033EE3E /* scheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scheduleViewController.m; sourceTree = "<group>"; };
 		EFE05A74171547EF0033EE3E /* feed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feed.png; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 				EF08E659170D1C4800BDA831 /* sproutsAppDelegate.h */,
 				EF08E65A170D1C4800BDA831 /* sproutsAppDelegate.m */,
 				EF08E662170D1C4800BDA831 /* MainStoryboard.storyboard */,
+				EFAE884A171DEA9C00CE67B6 /* addIngredientsToSproutViewController.h */,
+				EFAE884B171DEA9C00CE67B6 /* addIngredientsToSproutViewController.m */,
 				EFA64133171B8B3C0028DE41 /* ingredientInfoViewController.h */,
 				EFA64134171B8B3C0028DE41 /* ingredientInfoViewController.m */,
 				EFA640E817176C890028DE41 /* sproutsFeedViewController.h */,
@@ -429,6 +434,7 @@
 				EFA640EA17176C890028DE41 /* sproutsFeedViewController.m in Sources */,
 				EFA64135171B8B3C0028DE41 /* ingredientInfoViewController.m in Sources */,
 				EF186F8B171B9296005E1949 /* settingsViewController.m in Sources */,
+				EFAE884C171DEA9C00CE67B6 /* addIngredientsToSproutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
