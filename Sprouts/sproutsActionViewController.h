@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface sproutsActionViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate>
+@interface sproutsActionViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *ingredientOfTheWeek;
 @property (weak, nonatomic) IBOutlet UITextField *sproutTitle;
