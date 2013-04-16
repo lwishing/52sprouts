@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Laura Wishingrad. All rights reserved.
 //
 
-#import "sproutsFirstViewController.h"
+#import "feedViewController.h"
 #import "scheduleViewController.h"
 
-@interface sproutsFirstViewController ()
+@interface feedViewController ()
 
 @end
 
-@implementation sproutsFirstViewController
+@implementation feedViewController
 
 - (void)viewDidLoad
 {
