@@ -679,6 +679,9 @@
         </class>
         <class className="sproutsViewController" superclassName="UITabBarController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/sproutsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sproutButtonPressed:" candidateClass="UIButton"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
