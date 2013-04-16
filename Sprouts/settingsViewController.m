@@ -25,6 +25,10 @@
 
 - (void)viewDidLoad
 {
+    // Access PFUser
+    PFUser *currentUser = [PFUser currentUser];
+    self.profileName.text = [currentUser objectForKey:@"firstName"];
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
@@ -33,6 +37,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction)logoutPressed:(id)sender {
+    [PFUser logOut];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

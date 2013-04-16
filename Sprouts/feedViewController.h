@@ -1,5 +1,5 @@
 //
-//  sproutsSecondViewController.h
+//  sproutsFirstViewController.h
 //  Sprouts
 //
 //  Created by Laura Wishingrad on 4/3/13.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface sproutsSecondViewController : UIViewController
+@interface feedViewController : UIViewController
 
 @end

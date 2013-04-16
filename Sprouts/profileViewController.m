@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Laura Wishingrad. All rights reserved.
 //
 
-#import "sproutsSecondViewController.h"
+#import "profileViewController.h"
 
-@interface sproutsSecondViewController ()
+@interface profileViewController ()
 
 @end
 
-@implementation sproutsSecondViewController
+@implementation profileViewController
 
 - (void)viewDidLoad
 {
