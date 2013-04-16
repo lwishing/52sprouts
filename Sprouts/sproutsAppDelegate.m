@@ -37,6 +37,13 @@
     // Set background image for app
 //    _window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"main"];
+    } else {
+        self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"login"];
+    }
+    
     return YES;
 }
 
