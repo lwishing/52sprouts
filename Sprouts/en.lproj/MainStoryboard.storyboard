@@ -664,7 +664,7 @@
         <scene sceneID="zUO-bh-zJq">
             <objects>
                 <navigationController id="pB4-zg-4mK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" image="feed.png" id="7"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="feed_icon_deselected.png" id="7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Xn-R4-yRa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -683,7 +683,7 @@
         <scene sceneID="XZK-1Y-DUS">
             <objects>
                 <navigationController id="498-kO-C3X" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Me" image="second" id="21k-de-uvh"/>
+                    <tabBarItem key="tabBarItem" title="Me" image="me_icon_deselected.png" id="21k-de-uvh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VtS-uc-tm7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -721,12 +721,12 @@
     <resources>
         <image name="background.png" width="320" height="568"/>
         <image name="banner.png" width="320" height="115"/>
-        <image name="feed.png" width="16" height="17"/>
+        <image name="feed_icon_deselected.png" width="16" height="28"/>
         <image name="ingredients_button.png" width="150" height="27"/>
+        <image name="me_icon_deselected.png" width="27" height="26"/>
         <image name="photo_button.png" width="150" height="27"/>
         <image name="schedule_button.png" width="320" height="35"/>
         <image name="schedule_day.png" width="32" height="32"/>
-        <image name="second" width="16" height="16"/>
         <image name="sprout_description.png" width="300" height="70"/>
         <image name="sprout_title.png" width="300" height="37"/>
     </resources>
@@ -794,6 +794,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="XE6-Mb-rzK"/>
+        <segue reference="N1f-WF-pfe"/>
     </inferredMetricsTieBreakers>
 </document>
