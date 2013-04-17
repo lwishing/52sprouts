@@ -552,9 +552,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
-					"\"$(SRCROOT)/../FacebookSDK/build\"",
-					"\"$(SRCROOT)/../../Documents/FacebookSDK/build\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sprouts/Sprouts-Prefix.pch";
@@ -576,9 +573,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
-					"\"$(SRCROOT)/../FacebookSDK/build\"",
-					"\"$(SRCROOT)/../../Documents/FacebookSDK/build\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sprouts/Sprouts-Prefix.pch";
