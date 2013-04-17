@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface SproutsTabBarController : UITabBarController
+@interface SproutsTabBarController : UITabBarController <NSURLConnectionDelegate>
+
+@property (nonatomic, strong) NSMutableData *imageData;
 
 @end

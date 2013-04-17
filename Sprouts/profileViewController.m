@@ -21,6 +21,14 @@
     
     // Set background color to clear to make background image visible
     self.view.backgroundColor = [UIColor clearColor];
+    
+    // Access PFUser
+    PFUser *currentUser = [PFUser currentUser];
+    
+    // Load profile image
+    //    self.profileImage.image = [UIImage imageNamed:@"xxxxxx"]; // placeholder image
+    self.profileImage.file = (PFFile *)[currentUser objectForKey:@"profilePic"]; // remote image
+    [self.profileImage loadInBackground];
 }
 
 - (void)didReceiveMemoryWarning

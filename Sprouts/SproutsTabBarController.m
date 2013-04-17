@@ -71,8 +71,16 @@
             [currentUser setObject:[userData objectForKey:@"last_name"] forKey:@"lastName"];
             [currentUser setObject:[userData objectForKey:@"email"] forKey:@"email"];
             
-            NSString *facebookID = userData[@"id"];
-            [currentUser setObject:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID] forKey:@"profilePic"];
+            NSString *facebookId = userData[@"id"];
+            
+            // save profile pic
+            self.imageData = [[NSMutableData alloc] init];
+            NSURL *profilePictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?width=200&height=200", facebookId]];
+            NSURLRequest *profilePictureURLRequest = [NSURLRequest requestWithURL:profilePictureURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f]; // Facebook profile picture cache policy: Expires in 2 weeks
+            NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:profilePictureURLRequest delegate:self];
+            if (!urlConnection) {
+                NSLog(@"Failed to download picture");
+            }
             
             [currentUser saveInBackground];
 
@@ -83,6 +91,26 @@
     [self.view addSubview:sproutButton];
     
 }
+
+// Asynchronous image download + save to Parse
+
+// Called every time a chunk of the data is received
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [self.imageData appendData:data]; // Build the image
+}
+
+// Called when the entire image is finished downloading
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    // Set the image in the header imageView
+    PFFile *imageFile = [PFFile fileWithName:@"profile.png" data:self.imageData];
+    [imageFile saveInBackground];
+    PFUser *currentUser = [PFUser currentUser];
+    [currentUser setObject:imageFile forKey:@"profilePic"];
+    [currentUser saveInBackground];
+    
+}
+
+
 
 - (IBAction)sproutButtonPressed:(UIButton *)sender
 {

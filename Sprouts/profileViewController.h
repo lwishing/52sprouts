@@ -11,4 +11,6 @@
 
 @interface profileViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet PFImageView *profileImage;
+
 @end

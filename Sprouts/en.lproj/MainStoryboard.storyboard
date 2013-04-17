@@ -303,11 +303,19 @@
                                                 <segue destination="6L2-iP-Hlp" kind="push" id="J3V-vh-QfN"/>
                                             </connections>
                                         </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ply-lO-v2N" customClass="PFImageView">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="120" id="9mt-KD-Leb"/>
+                                                <constraint firstAttribute="width" constant="120" id="Uy3-5J-GLF"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <constraints>
+                                        <constraint firstItem="ply-lO-v2N" firstAttribute="leading" secondItem="0jg-FR-bpy" secondAttribute="leading" constant="47" id="Djh-NG-tkO"/>
                                         <constraint firstItem="6YE-Q9-62y" firstAttribute="top" secondItem="0jg-FR-bpy" secondAttribute="top" constant="48" id="RLO-OX-wyr"/>
                                         <constraint firstAttribute="trailing" secondItem="6YE-Q9-62y" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="VB9-cO-dxR"/>
+                                        <constraint firstItem="ply-lO-v2N" firstAttribute="centerY" secondItem="0jg-FR-bpy" secondAttribute="centerY" type="default" id="nPb-Zh-iQY"/>
                                     </constraints>
                                 </view>
                             </tableView>
@@ -323,6 +331,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="bzw-lb-VxX"/>
+                    <connections>
+                        <outlet property="profileImage" destination="ply-lO-v2N" id="Gy1-cE-KVu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ic-cS-IMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -729,11 +740,11 @@
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
+        <class className="PFImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFImageView.h"/>
+        </class>
         <class className="SproutsTabBarController" superclassName="UITabBarController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SproutsTabBarController.h"/>
-            <relationships>
-                <relationship kind="action" name="sproutButtonPressed:" candidateClass="UIButton"/>
-            </relationships>
         </class>
         <class className="WelcomeViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WelcomeViewController.h"/>
@@ -750,6 +761,9 @@
         </class>
         <class className="profileViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/profileViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="profileImage" candidateClass="PFImageView"/>
+            </relationships>
         </class>
         <class className="scheduleViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/scheduleViewController.h"/>
