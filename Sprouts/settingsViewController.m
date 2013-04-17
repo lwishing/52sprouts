@@ -28,11 +28,7 @@
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    // Access PFUser
-    PFUser *currentUser = [PFUser currentUser];
-    self.profileName.text = [currentUser objectForKey:@"firstName"];
-    
+        
 }
 
 - (void)didReceiveMemoryWarning

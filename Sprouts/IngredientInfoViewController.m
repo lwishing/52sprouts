@@ -24,9 +24,44 @@
 }
 
 - (void)viewDidLoad
-{
+{    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    //
+    //    // get Week object
+    //    PFQuery *queryWeek = [PFQuery queryWithClassName:@"Week"];
+    //    PFObject *week = [queryWeek getObjectWithId:@"2VMFZOMUiY"];
+    //
+    //    NSNumber *weekInt = [week objectForKey:@"week"];
+    //    NSLog(@"week: %@", weekInt);
+    //
+    //    NSDate *startDate = [week objectForKey:@"startDate"];
+    //    NSLog(@"startDate: %@", startDate);
+    //
+    //    NSDate *endDate = [week objectForKey:@"endDate"];
+    //    NSLog(@"endDate: %@", endDate);
+    //
+    //    // get ingredient object from the pointer in Week
+    //    PFObject *ingredient = [week objectForKey:@"ingredient"];
+    //    [ingredient fetchIfNeeded];
+    //
+    //    NSString *ingredientId = ingredient.objectId;
+    //    NSLog(@"ingredientId: %@", ingredientId);
+    //
+    //    NSString *ingredientName = [ingredient objectForKey:@"name"];
+    //    NSLog(@"ingredientName: %@", ingredientName);
+    //
+    //    NSString *ingredientDescription = [ingredient objectForKey:@"description"];
+    //    NSLog(@"ingredientDescription: %@", ingredientDescription);
+    //
+    //    NSArray *ingredientPreparation = [ingredient objectForKey:@"preparation"];
+    //    NSLog(@"ingredientPreparation: %@", ingredientPreparation);
+    //    NSString *prep1 = [ingredientPreparation objectAtIndex:0];
+    //    NSString *prep2 = [ingredientPreparation objectAtIndex:1];
+    //    NSLog(@"prep1: %@", prep1);
+    //    NSLog(@"prep2: %@", prep2);
+    //
 }
 
 - (void)didReceiveMemoryWarning

@@ -11,7 +11,6 @@
 
 @interface settingsViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UILabel *profileName;
 
 - (IBAction)logoutPressed:(id)sender;
 
