@@ -1,21 +1,19 @@
 //
-//  sproutsViewController.m
+//  SproutsTabBarController.m
 //  Sprouts
 //
 //  Created by Laura Wishingrad on 4/3/13.
 //  Copyright (c) 2013 Laura Wishingrad. All rights reserved.
 //
 
-#import "sproutsViewController.h"
+#import "SproutsTabBarController.h"
 #import "sproutsActionViewController.h"
 
-@interface sproutsViewController ()
-
+@interface SproutsTabBarController ()
+@property (nonatomic,strong) UINavigationController *navController;
 @end
 
-// This is a comment
-
-@implementation sproutsViewController
+@implementation SproutsTabBarController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,9 +28,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.navController = [[UINavigationController alloc] init];
         
     // Programmatically add Sprout button to UI
-    UIButton* sproutButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *sproutButton = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *buttonImage = [UIImage imageNamed:@"sprout_button.png"];
 //    UIImage *highlightImage = [UIImage imageNamed:@"sprout_pressed.png"];
     sproutButton.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
@@ -79,8 +78,6 @@
 
         }
     }];
-    
-    
     
     
     [self.view addSubview:sproutButton];

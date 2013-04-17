@@ -6,10 +6,11 @@
 //  Copyright (c) 2013 Laura Wishingrad. All rights reserved.
 //
 
-#import "sproutsAppDelegate.h"
+#import "AppDelegate.h"
 #import <Parse/Parse.h>
 
-@implementation sproutsAppDelegate
+
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -38,12 +39,12 @@
     [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"selected_menu_item.png"]];
     
     
-    PFUser *currentUser = [PFUser currentUser];
-    if (currentUser) {
-        self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"main"];
-    } else {
-        self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"login"];
-    }
+//    PFUser *currentUser = [PFUser currentUser];
+//    if (currentUser) {
+//        self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"main"];
+//    } else {
+//        self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"login"];
+//    }
     
     return YES;
 }

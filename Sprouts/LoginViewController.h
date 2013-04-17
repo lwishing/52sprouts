@@ -1,5 +1,5 @@
 //
-//  loginViewController.h
+//  LoginViewController.h
 //  Sprouts
 //
 //  Created by Laura Wishingrad on 4/10/13.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface loginViewController : UIViewController
+@interface LoginViewController : UIViewController
 
 @end

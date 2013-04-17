@@ -1,18 +1,18 @@
 //
-//  ingredientInfoViewController.m
+//  IngredientInfoViewController.m
 //  Sprouts
 //
 //  Created by Laura Wishingrad on 4/14/13.
 //  Copyright (c) 2013 Laura Wishingrad. All rights reserved.
 //
 
-#import "ingredientInfoViewController.h"
+#import "IngredientInfoViewController.h"
 
-@interface ingredientInfoViewController ()
+@interface IngredientInfoViewController ()
 
 @end
 
-@implementation ingredientInfoViewController
+@implementation IngredientInfoViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

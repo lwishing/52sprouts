@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Laura Wishingrad. All rights reserved.
 //
 
-#import "loginViewController.h"
-#import "sproutsViewController.h"
+#import "LoginViewController.h"
+#import "SproutsTabBarController.h"
 
-@interface loginViewController ()
+@interface LoginViewController ()
 
 @end
 
-@implementation loginViewController
+@implementation LoginViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,12 +50,14 @@
             }
         } else if (user.isNew) {
             NSLog(@"User signed up and logged in through Facebook!");
-            sproutsViewController *mainView = [[sproutsViewController alloc] init];
-            [self.navigationController pushViewController:mainView animated:YES];
+//            SproutsTabBarController *mainView = [[SproutsTabBarController alloc] init];
+//            [self.navigationController pushViewController:mainView animated:YES];
+            [self performSegueWithIdentifier:@"loginToMain" sender:self];
         } else {
             NSLog(@"User logged in through Facebook!");
-            sproutsViewController *mainView = [[sproutsViewController alloc] init];
-            [self.navigationController pushViewController:mainView animated:YES];
+//            SproutsTabBarController *mainView = [[SproutsTabBarController alloc] init];
+//            [self.navigationController pushViewController:mainView animated:YES];
+            [self performSegueWithIdentifier:@"loginToMain" sender:self];
         }
     }];
 }

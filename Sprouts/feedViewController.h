@@ -1,5 +1,5 @@
 //
-//  sproutsFirstViewController.h
+//  feedViewController.h
 //  Sprouts
 //
 //  Created by Laura Wishingrad on 4/3/13.

@@ -1,5 +1,5 @@
 //
-//  sproutsSecondViewController.m
+//  profileViewController.m
 //  Sprouts
 //
 //  Created by Laura Wishingrad on 4/3/13.

@@ -7,7 +7,7 @@
 //
 
 #import "sproutsActionViewController.h"
-#import "sproutsViewController.h"
+#import "SproutsTabBarController.h"
 
 @interface sproutsActionViewController ()
 
@@ -38,8 +38,6 @@
     self.view.backgroundColor = [UIColor clearColor];
     
 }
-
-
 
 
 - (void)didReceiveMemoryWarning

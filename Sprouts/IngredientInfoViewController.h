@@ -1,5 +1,5 @@
 //
-//  ingredientInfoViewController.h
+//  IngredientInfoViewController.h
 //  Sprouts
 //
 //  Created by Laura Wishingrad on 4/14/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ingredientInfoViewController : UIViewController
+@interface IngredientInfoViewController : UIViewController
 
 @end

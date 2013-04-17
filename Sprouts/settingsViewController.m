@@ -42,7 +42,7 @@
 
 - (IBAction)logoutPressed:(id)sender {
     [PFUser logOut];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self performSegueWithIdentifier:@"logout" sender:self];
 }
 
 @end

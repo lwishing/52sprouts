@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface sproutsViewController : UITabBarController
+@interface SproutsTabBarController : UITabBarController
 
 @end

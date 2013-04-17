@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tZQ-1O-uQp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dYr-ce-f7t">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -62,7 +62,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="FBh-Bu-Rdp">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="feedSprout" id="FBh-Bu-Rdp">
                                         <rect key="frame" x="0.0" y="137" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -91,7 +91,7 @@
         <!--Ingredient Info View Controller - Info-->
         <scene sceneID="sop-Cx-LLG">
             <objects>
-                <viewController storyboardIdentifier="ingredientInfo" id="ief-Gg-OiY" customClass="ingredientInfoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ingredientInfo" id="ief-Gg-OiY" customClass="IngredientInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KQn-Vb-fTx">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -357,6 +357,7 @@
                                 </state>
                                 <connections>
                                     <action selector="logoutPressed:" destination="6L2-iP-Hlp" eventType="touchUpInside" id="Udq-5Z-C7v"/>
+                                    <segue destination="dYr-ce-f7t" kind="modal" identifier="logout" id="k5h-dy-iKq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -561,7 +562,7 @@
         <!--Login View Controller-->
         <scene sceneID="owt-qD-iaT">
             <objects>
-                <viewController storyboardIdentifier="login" modalTransitionStyle="crossDissolve" id="tZQ-1O-uQp" customClass="loginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" modalTransitionStyle="crossDissolve" id="tZQ-1O-uQp" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P6x-9o-bi0">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -578,7 +579,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButtonPushed:" destination="tZQ-1O-uQp" eventType="touchUpInside" id="G6X-4A-jbb"/>
-                                    <segue destination="4" kind="modal" modalTransitionStyle="crossDissolve" id="FW7-hC-DrQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -592,15 +592,46 @@
                             <constraint firstAttribute="trailing" secondItem="9Eh-gd-NV4" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="znC-g4-HHI"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="1iz-fO-rb9"/>
+                    <connections>
+                        <segue destination="4" kind="modal" identifier="loginToMain" id="XE6-Mb-rzK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="39Y-Dx-0eP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1198" y="499"/>
+            <point key="canvasLocation" x="-1320" y="-242"/>
         </scene>
-        <!--Sprouts View Controller-->
+        <!--Welcome View Controller-->
+        <scene sceneID="wqc-qg-lUQ">
+            <objects>
+                <viewController storyboardIdentifier="Welcome" id="dYr-ce-f7t" customClass="WelcomeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zJy-cV-Feu">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="KPe-bk-Shx"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KPe-bk-Shx" firstAttribute="leading" secondItem="zJy-cV-Feu" secondAttribute="leading" type="default" id="Ic7-Xr-UJ6"/>
+                            <constraint firstItem="KPe-bk-Shx" firstAttribute="top" secondItem="zJy-cV-Feu" secondAttribute="top" type="default" id="PQd-Ia-dOg"/>
+                            <constraint firstItem="KPe-bk-Shx" firstAttribute="bottom" secondItem="zJy-cV-Feu" secondAttribute="bottom" type="default" id="WZ9-ee-Kss"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Gbj-Wd-3K5"/>
+                    <connections>
+                        <segue destination="tZQ-1O-uQp" kind="modal" identifier="toLogin" id="8tV-aJ-QNj"/>
+                        <segue destination="4" kind="modal" identifier="toMain" animates="NO" id="N1f-WF-pfe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J7H-o6-kaR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1858" y="499"/>
+        </scene>
+        <!--Sprouts Tab Bar Controller-->
         <scene sceneID="15">
             <objects>
-                <tabBarController storyboardIdentifier="main" id="4" customClass="sproutsViewController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="main" id="4" customClass="SproutsTabBarController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ZJw-v2-H8B"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5">
@@ -689,8 +720,23 @@
         <image name="sprout_title.png" width="300" height="37"/>
     </resources>
     <classes>
+        <class className="IngredientInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IngredientInfoViewController.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+        </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SproutsTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SproutsTabBarController.h"/>
+            <relationships>
+                <relationship kind="action" name="sproutButtonPressed:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="WelcomeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WelcomeViewController.h"/>
         </class>
         <class className="addIngredientsToSproutViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/addIngredientsToSproutViewController.h"/>
@@ -702,23 +748,11 @@
         <class className="feedViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/feedViewController.h"/>
         </class>
-        <class className="ingredientInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ingredientInfoViewController.h"/>
-        </class>
-        <class className="loginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/loginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="loginButtonPushed:" candidateClass="UIButton"/>
-            </relationships>
-        </class>
         <class className="profileViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/profileViewController.h"/>
         </class>
         <class className="scheduleViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/scheduleViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:" candidateClass="UIBarButtonItem"/>
-            </relationships>
         </class>
         <class className="settingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/settingsViewController.h"/>
@@ -739,13 +773,13 @@
                 <relationship kind="outlet" name="sproutTitle" candidateClass="UITextField"/>
             </relationships>
         </class>
-        <class className="sproutsViewController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/sproutsViewController.h"/>
-        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="XE6-Mb-rzK"/>
+    </inferredMetricsTieBreakers>
 </document>
