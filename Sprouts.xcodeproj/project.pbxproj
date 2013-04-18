@@ -57,7 +57,6 @@
 		EF08E67B170D201B00BDA831 /* SproutsTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF08E67A170D201B00BDA831 /* SproutsTabBarController.m */; };
 		EF08E67E170D2AB800BDA831 /* sproutsActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF08E67D170D2AB800BDA831 /* sproutsActionViewController.m */; };
 		EF186F8B171B9296005E1949 /* settingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF186F8A171B9296005E1949 /* settingsViewController.m */; };
-		EFA640EA17176C890028DE41 /* sproutsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA640E917176C890028DE41 /* sproutsFeedViewController.m */; };
 		EFA640ED1717842B0028DE41 /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA640EB1717842B0028DE41 /* banner.png */; };
 		EFA640EE1717842B0028DE41 /* banner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA640EC1717842B0028DE41 /* banner@2x.png */; };
 		EFA640F1171787F00028DE41 /* schedule_button.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA640EF171787F00028DE41 /* schedule_button.png */; };
@@ -153,8 +152,6 @@
 		EF08E67D170D2AB800BDA831 /* sproutsActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sproutsActionViewController.m; sourceTree = "<group>"; };
 		EF186F89171B9296005E1949 /* settingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsViewController.h; sourceTree = "<group>"; };
 		EF186F8A171B9296005E1949 /* settingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsViewController.m; sourceTree = "<group>"; };
-		EFA640E817176C890028DE41 /* sproutsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sproutsFeedViewController.h; sourceTree = "<group>"; };
-		EFA640E917176C890028DE41 /* sproutsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sproutsFeedViewController.m; sourceTree = "<group>"; };
 		EFA640EB1717842B0028DE41 /* banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner.png; sourceTree = "<group>"; };
 		EFA640EC1717842B0028DE41 /* banner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner@2x.png"; sourceTree = "<group>"; };
 		EFA640EF171787F00028DE41 /* schedule_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schedule_button.png; sourceTree = "<group>"; };
@@ -215,6 +212,102 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9CDB537517209EF3002F6E41 /* Add Sprout */ = {
+			isa = PBXGroup;
+			children = (
+				EF08E67C170D2AB800BDA831 /* sproutsActionViewController.h */,
+				EF08E67D170D2AB800BDA831 /* sproutsActionViewController.m */,
+				EFAE884A171DEA9C00CE67B6 /* addIngredientsToSproutViewController.h */,
+				EFAE884B171DEA9C00CE67B6 /* addIngredientsToSproutViewController.m */,
+			);
+			name = "Add Sprout";
+			sourceTree = "<group>";
+		};
+		9CDB537617209F20002F6E41 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				EF08E66C170D1C4800BDA831 /* profileViewController.h */,
+				EF08E66D170D1C4800BDA831 /* profileViewController.m */,
+			);
+			name = Me;
+			sourceTree = "<group>";
+		};
+		9CDB537717209F47002F6E41 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				9CDB537D1720A160002F6E41 /* Schedule */,
+				9CDB537C1720A154002F6E41 /* Ingredient Info */,
+				EF08E665170D1C4800BDA831 /* feedViewController.h */,
+				EF08E666170D1C4800BDA831 /* feedViewController.m */,
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
+		9CDB537817209F89002F6E41 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9C9E5C3C171E5325003A2594 /* WelcomeViewController.h */,
+				9C9E5C3D171E5325003A2594 /* WelcomeViewController.m */,
+				9C1DFA6D171E6A33006F5363 /* LoginViewController.h */,
+				9C1DFA6E171E6A33006F5363 /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		9CDB53791720A028002F6E41 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				93813C671720853C00199F12 /* Default@2x.png */,
+				93813C631720846E00199F12 /* Default.png */,
+				93813C641720846E00199F12 /* Default-568h@2x.png */,
+				9CE6EF80171D21C000EB1F99 /* Icon.png */,
+				9CE6EF7E171D21B900EB1F99 /* Icon@2x.png */,
+				EF08E678170D1D9A00BDA831 /* Assets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9CDB537A1720A060002F6E41 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9CDB537817209F89002F6E41 /* Login */,
+				9CDB537517209EF3002F6E41 /* Add Sprout */,
+				9CDB537717209F47002F6E41 /* Feed */,
+				9CDB537617209F20002F6E41 /* Me */,
+				9CDB537B1720A126002F6E41 /* Settings */,
+				EF08E679170D201B00BDA831 /* SproutsTabBarController.h */,
+				EF08E67A170D201B00BDA831 /* SproutsTabBarController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9CDB537B1720A126002F6E41 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				EF186F89171B9296005E1949 /* settingsViewController.h */,
+				EF186F8A171B9296005E1949 /* settingsViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		9CDB537C1720A154002F6E41 /* Ingredient Info */ = {
+			isa = PBXGroup;
+			children = (
+				EFA64133171B8B3C0028DE41 /* IngredientInfoViewController.h */,
+				EFA64134171B8B3C0028DE41 /* IngredientInfoViewController.m */,
+			);
+			name = "Ingredient Info";
+			sourceTree = "<group>";
+		};
+		9CDB537D1720A160002F6E41 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				EFE05825171533530033EE3E /* scheduleViewController.h */,
+				EFE05826171533530033EE3E /* scheduleViewController.m */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
 		EF08E63E170D1C4800BDA831 = {
 			isa = PBXGroup;
 			children = (
@@ -261,35 +354,14 @@
 		EF08E650170D1C4800BDA831 /* Sprouts */ = {
 			isa = PBXGroup;
 			children = (
-				EF08E678170D1D9A00BDA831 /* Images */,
+				9CDB537A1720A060002F6E41 /* Controllers */,
 				EF08E659170D1C4800BDA831 /* AppDelegate.h */,
 				EF08E65A170D1C4800BDA831 /* AppDelegate.m */,
-				EF08E662170D1C4800BDA831 /* MainStoryboard.storyboard */,
-				9C9E5C3C171E5325003A2594 /* WelcomeViewController.h */,
-				9C9E5C3D171E5325003A2594 /* WelcomeViewController.m */,
-				EFAE884A171DEA9C00CE67B6 /* addIngredientsToSproutViewController.h */,
-				EFAE884B171DEA9C00CE67B6 /* addIngredientsToSproutViewController.m */,
-				EFA64133171B8B3C0028DE41 /* IngredientInfoViewController.h */,
-				EFA64134171B8B3C0028DE41 /* IngredientInfoViewController.m */,
-				9C1DFA6D171E6A33006F5363 /* LoginViewController.h */,
-				9C1DFA6E171E6A33006F5363 /* LoginViewController.m */,
-				EFA640E817176C890028DE41 /* sproutsFeedViewController.h */,
-				EFA640E917176C890028DE41 /* sproutsFeedViewController.m */,
-				EFE05825171533530033EE3E /* scheduleViewController.h */,
-				EFE05826171533530033EE3E /* scheduleViewController.m */,
-				EF186F89171B9296005E1949 /* settingsViewController.h */,
-				EF186F8A171B9296005E1949 /* settingsViewController.m */,
-				EF08E67C170D2AB800BDA831 /* sproutsActionViewController.h */,
-				EF08E67D170D2AB800BDA831 /* sproutsActionViewController.m */,
-				EF08E679170D201B00BDA831 /* SproutsTabBarController.h */,
-				EF08E67A170D201B00BDA831 /* SproutsTabBarController.m */,
-				EF08E665170D1C4800BDA831 /* feedViewController.h */,
-				EF08E666170D1C4800BDA831 /* feedViewController.m */,
-				EF08E66C170D1C4800BDA831 /* profileViewController.h */,
-				EF08E66D170D1C4800BDA831 /* profileViewController.m */,
-				EF08E651170D1C4800BDA831 /* Supporting Files */,
 				8E45754A171F595000C635F2 /* Utility.h */,
 				8E45754B171F595000C635F2 /* Utility.m */,
+				EF08E662170D1C4800BDA831 /* MainStoryboard.storyboard */,
+				9CDB53791720A028002F6E41 /* Resources */,
+				EF08E651170D1C4800BDA831 /* Supporting Files */,
 			);
 			path = Sprouts;
 			sourceTree = "<group>";
@@ -308,12 +380,9 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EF08E678170D1D9A00BDA831 /* Images */ = {
+		EF08E678170D1D9A00BDA831 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				93813C671720853C00199F12 /* Default@2x.png */,
-				93813C631720846E00199F12 /* Default.png */,
-				93813C641720846E00199F12 /* Default-568h@2x.png */,
 				EFE05A7C17154BAA0033EE3E /* background.png */,
 				EFE05A7D17154BAB0033EE3E /* background@2x.png */,
 				EFA640EB1717842B0028DE41 /* banner.png */,
@@ -324,8 +393,6 @@
 				EFE0D203171E74C80084757F /* feed_icon_deselected@2x.png */,
 				EFE0D204171E74C80084757F /* feed_icon_selected.png */,
 				EFE0D205171E74C80084757F /* feed_icon_selected@2x.png */,
-				9CE6EF80171D21C000EB1F99 /* Icon.png */,
-				9CE6EF7E171D21B900EB1F99 /* Icon@2x.png */,
 				9CEDF25D171DE53000A25351 /* ingredients_button.png */,
 				9CEDF25E171DE53000A25351 /* ingredients_button@2x.png */,
 				EFE0D206171E74C90084757F /* me_icon_deselected.png */,
@@ -355,7 +422,7 @@
 				EFD3B8E6171E0AEC004991C9 /* tab_bar_background.png */,
 				EFD3B8E7171E0AEC004991C9 /* tab_bar_background@2x.png */,
 			);
-			name = Images;
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,7 +541,6 @@
 				EF08E67B170D201B00BDA831 /* SproutsTabBarController.m in Sources */,
 				EF08E67E170D2AB800BDA831 /* sproutsActionViewController.m in Sources */,
 				EFE05827171533530033EE3E /* scheduleViewController.m in Sources */,
-				EFA640EA17176C890028DE41 /* sproutsFeedViewController.m in Sources */,
 				EFA64135171B8B3C0028DE41 /* IngredientInfoViewController.m in Sources */,
 				EF186F8B171B9296005E1949 /* settingsViewController.m in Sources */,
 				EFAE884C171DEA9C00CE67B6 /* addIngredientsToSproutViewController.m in Sources */,
