@@ -33,6 +33,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [_sproutTitle becomeFirstResponder];
     
     // Set background color to clear to make background image visible
     self.view.backgroundColor = [UIColor clearColor];

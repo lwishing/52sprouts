@@ -20,8 +20,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    [self tabBarController];
-    
     // Set background color to clear to make background image visible
     self.view.backgroundColor = [UIColor clearColor];
         
