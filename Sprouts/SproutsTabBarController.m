@@ -8,6 +8,7 @@
 
 #import "SproutsTabBarController.h"
 #import "sproutsActionViewController.h"
+#import "Utility.h"
 
 @interface SproutsTabBarController ()
 @property (nonatomic,strong) UINavigationController *navController;
@@ -64,6 +65,13 @@
             for (id key in userData) {
                 NSLog(@"key: %@, value: %@", key, [userData objectForKey:key]);
             }
+            
+            // get current week
+            PFObject *week = [[[Utility alloc] init] getCurrentWeek];
+            
+            // get current ingredient
+            PFObject *ingredient = [week objectForKey:@"ingredient"];
+            [ingredient fetchIfNeeded];
             
             // save user data to Parse
             PFUser *currentUser = [PFUser currentUser];

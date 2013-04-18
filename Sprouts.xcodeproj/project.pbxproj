@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E45754C171F595000C635F2 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E45754B171F595000C635F2 /* Utility.m */; };
 		8E6AAF55171B598600E8F56E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6AAF54171B598600E8F56E /* Parse.framework */; };
 		8E6AAF57171B59FA00E8F56E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6AAF56171B59FA00E8F56E /* AudioToolbox.framework */; };
 		8E6AAF59171B5A0A00E8F56E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6AAF58171B5A0A00E8F56E /* CFNetwork.framework */; };
@@ -85,6 +86,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E45754A171F595000C635F2 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		8E45754B171F595000C635F2 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		8E6AAF54171B598600E8F56E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8E6AAF56171B59FA00E8F56E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8E6AAF58171B5A0A00E8F56E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -280,6 +283,8 @@
 				EF08E66C170D1C4800BDA831 /* profileViewController.h */,
 				EF08E66D170D1C4800BDA831 /* profileViewController.m */,
 				EF08E651170D1C4800BDA831 /* Supporting Files */,
+				8E45754A171F595000C635F2 /* Utility.h */,
+				8E45754B171F595000C635F2 /* Utility.m */,
 			);
 			path = Sprouts;
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 				EFAE884C171DEA9C00CE67B6 /* addIngredientsToSproutViewController.m in Sources */,
 				9C9E5C3E171E5325003A2594 /* WelcomeViewController.m in Sources */,
 				9C1DFA6F171E6C42006F5363 /* LoginViewController.m in Sources */,
+				8E45754C171F595000C635F2 /* Utility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
