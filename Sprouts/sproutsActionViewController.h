@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "SSTextView.h"
 
 @interface sproutsActionViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *ingredientOfTheWeek;
 @property (weak, nonatomic) IBOutlet UITextField *sproutTitle;
-@property (weak, nonatomic) IBOutlet UITextField *sproutDescription;
+@property (weak, nonatomic) IBOutlet SSTextView *sproutDescription;
 @property (weak, nonatomic) IBOutlet UIImageView *sproutImage;
+
 
 - (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender;
 - (IBAction)shareButtonPressed:(UIBarButtonItem *)sender;

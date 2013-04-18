@@ -423,7 +423,7 @@
                                         <color key="textColor" red="0.14117647707462311" green="0.32156863808631897" blue="0.24313727021217346" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="What'd you make?" minimumFontSize="17" background="sprout_title.png" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Hxe-M9-hU4">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder=" What'd you make?" minimumFontSize="17" background="sprout_title.png" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Hxe-M9-hU4">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="HBB-tv-Dw5"/>
                                             <constraint firstAttribute="height" constant="37" id="ML8-xk-i8w"/>
@@ -431,13 +431,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="line" placeholder="Add a tip or description" minimumFontSize="17" background="sprout_description.png" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="rH5-DY-FTe">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUh-wq-NmN" customClass="SSTextView">
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="116" id="d0Y-Yw-SgK"/>
+                                            <constraint firstAttribute="height" constant="118" id="qbq-Uy-qSZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDi-gx-pbk">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="72" id="768-Tg-TIo"/>
@@ -480,27 +481,27 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="wUh-wq-NmN" firstAttribute="leading" secondItem="Hxe-M9-hU4" secondAttribute="leading" type="default" id="0Eq-9m-5kc"/>
                                     <constraint firstItem="vH6-p7-RAa" firstAttribute="leading" secondItem="Hj9-iB-uV8" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="2B9-kd-ItL"/>
+                                    <constraint firstItem="wUh-wq-NmN" firstAttribute="leading" secondItem="iLP-3d-3ko" secondAttribute="leading" type="default" id="7LG-uV-qQO"/>
                                     <constraint firstItem="iLP-3d-3ko" firstAttribute="top" secondItem="Hj9-iB-uV8" secondAttribute="top" constant="243" type="user" id="9wm-gJ-YqB"/>
-                                    <constraint firstItem="Hxe-M9-hU4" firstAttribute="trailing" secondItem="rH5-DY-FTe" secondAttribute="trailing" type="default" id="DvB-De-iLK"/>
+                                    <constraint firstItem="wUh-wq-NmN" firstAttribute="trailing" secondItem="2h0-tZ-t84" secondAttribute="trailing" type="default" id="Bdy-7K-OIg"/>
                                     <constraint firstAttribute="trailing" secondItem="erN-Od-CL3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="GSD-mb-7Ze"/>
                                     <constraint firstItem="2h0-tZ-t84" firstAttribute="bottom" secondItem="iLP-3d-3ko" secondAttribute="bottom" type="default" id="Gne-d1-GB8"/>
                                     <constraint firstItem="2h0-tZ-t84" firstAttribute="top" secondItem="Hj9-iB-uV8" secondAttribute="top" constant="243" type="user" id="JAV-f5-HMZ"/>
-                                    <constraint firstItem="2h0-tZ-t84" firstAttribute="trailing" secondItem="rH5-DY-FTe" secondAttribute="trailing" type="default" id="JdY-xX-85m"/>
                                     <constraint firstItem="erN-Od-CL3" firstAttribute="centerX" secondItem="Hxe-M9-hU4" secondAttribute="centerX" type="default" id="Oot-Ym-CzD"/>
                                     <constraint firstAttribute="trailing" secondItem="vH6-p7-RAa" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="RY3-1k-YfY"/>
                                     <constraint firstItem="vH6-p7-RAa" firstAttribute="top" secondItem="Hj9-iB-uV8" secondAttribute="top" constant="20" symbolic="YES" type="default" id="UVM-3T-h9Q"/>
                                     <constraint firstItem="erN-Od-CL3" firstAttribute="leading" secondItem="Hj9-iB-uV8" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Zhf-Iv-STh"/>
+                                    <constraint firstItem="wUh-wq-NmN" firstAttribute="trailing" secondItem="Hxe-M9-hU4" secondAttribute="trailing" type="default" id="cBJ-Iv-4zA"/>
                                     <constraint firstAttribute="trailing" secondItem="DDi-gx-pbk" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="das-Vx-bpV"/>
                                     <constraint firstItem="1yX-X2-idV" firstAttribute="leading" secondItem="Hj9-iB-uV8" secondAttribute="leading" type="default" id="eKh-wq-iOz"/>
-                                    <constraint firstItem="iLP-3d-3ko" firstAttribute="leading" secondItem="rH5-DY-FTe" secondAttribute="leading" type="default" id="hSQ-fV-K0v"/>
+                                    <constraint firstItem="wUh-wq-NmN" firstAttribute="top" secondItem="Hj9-iB-uV8" secondAttribute="top" constant="128" id="jSy-0C-TYp"/>
                                     <constraint firstItem="erN-Od-CL3" firstAttribute="top" secondItem="vH6-p7-RAa" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kFm-Pg-ShW"/>
-                                    <constraint firstItem="rH5-DY-FTe" firstAttribute="top" secondItem="Hj9-iB-uV8" secondAttribute="top" constant="128" id="kkr-UO-seA"/>
                                     <constraint firstItem="2h0-tZ-t84" firstAttribute="top" secondItem="iLP-3d-3ko" secondAttribute="top" type="user" id="mGY-hg-IYO"/>
                                     <constraint firstItem="Hxe-M9-hU4" firstAttribute="top" secondItem="Hj9-iB-uV8" secondAttribute="top" constant="91" id="noK-l3-to9"/>
+                                    <constraint firstItem="DDi-gx-pbk" firstAttribute="top" secondItem="Hj9-iB-uV8" secondAttribute="top" constant="138" type="user" id="sH0-ub-oaH"/>
                                     <constraint firstItem="1yX-X2-idV" firstAttribute="top" secondItem="Hj9-iB-uV8" secondAttribute="top" constant="-46" id="sx1-q8-Pw6"/>
-                                    <constraint firstItem="Hxe-M9-hU4" firstAttribute="leading" secondItem="rH5-DY-FTe" secondAttribute="leading" type="default" id="x7l-xR-acJ"/>
-                                    <constraint firstItem="DDi-gx-pbk" firstAttribute="top" secondItem="Hj9-iB-uV8" secondAttribute="top" constant="138" id="zhX-OB-Ld1"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -528,7 +529,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ingredientOfTheWeek" destination="erN-Od-CL3" id="TxF-bc-9xb"/>
-                        <outlet property="sproutDescription" destination="rH5-DY-FTe" id="8ui-su-Vez"/>
+                        <outlet property="sproutDescription" destination="wUh-wq-NmN" id="TMR-bQ-as2"/>
                         <outlet property="sproutImage" destination="DDi-gx-pbk" id="21T-HH-hnG"/>
                         <outlet property="sproutTitle" destination="Hxe-M9-hU4" id="21X-Id-voF"/>
                     </connections>
@@ -734,9 +735,69 @@
         <image name="photo_button.png" width="150" height="27"/>
         <image name="schedule_button.png" width="320" height="35"/>
         <image name="schedule_day.png" width="32" height="32"/>
-        <image name="sprout_description.png" width="300" height="70"/>
         <image name="sprout_title.png" width="300" height="37"/>
     </resources>
+    <classes>
+        <class className="IngredientInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IngredientInfoViewController.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PFImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFImageView.h"/>
+        </class>
+        <class className="SSTextView" superclassName="UITextView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSTextView.h"/>
+        </class>
+        <class className="SproutsTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SproutsTabBarController.h"/>
+        </class>
+        <class className="WelcomeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WelcomeViewController.h"/>
+        </class>
+        <class className="addIngredientsToSproutViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/addIngredientsToSproutViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="doneButtonPressed:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="feedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/feedViewController.h"/>
+        </class>
+        <class className="profileViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/profileViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="profileImage" candidateClass="PFImageView"/>
+                <relationship kind="outlet" name="profileName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="scheduleViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/scheduleViewController.h"/>
+        </class>
+        <class className="settingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/settingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutPressed:"/>
+            </relationships>
+        </class>
+        <class className="sproutsActionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/sproutsActionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="photoButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="shareButtonPressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="ingredientOfTheWeek" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sproutDescription" candidateClass="SSTextView"/>
+                <relationship kind="outlet" name="sproutImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="sproutTitle" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

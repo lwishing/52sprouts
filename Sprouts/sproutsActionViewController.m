@@ -8,9 +8,12 @@
 
 #import "sproutsActionViewController.h"
 #import "SproutsTabBarController.h"
+#import "UIImage+ResizeAdditions.h"
 
 @interface sproutsActionViewController ()
-
+@property (nonatomic, strong) PFFile *photoFile;
+@property (nonatomic, assign) UIBackgroundTaskIdentifier fileUploadBackgroundTaskId;
+@property (nonatomic, assign) UIBackgroundTaskIdentifier photoPostBackgroundTaskId;
 @end
 
 @implementation sproutsActionViewController
@@ -19,6 +22,9 @@
 @synthesize sproutDescription = _sproutDescription;
 @synthesize sproutTitle = _sproutTitle;
 @synthesize sproutImage = _sproutImage;
+@synthesize photoFile;
+@synthesize fileUploadBackgroundTaskId;
+@synthesize photoPostBackgroundTaskId;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +40,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [_sproutTitle becomeFirstResponder];
+    
+    // Add placeholder
+    _sproutDescription.placeholder = @"Add Tip or Description";
     
     // Set background color to clear to make background image visible
     self.view.backgroundColor = [UIColor clearColor];
@@ -56,6 +65,76 @@
 - (IBAction)shareButtonPressed:(UIBarButtonItem *)sender {
     // Save image to the Camera Roll
     UIImageWriteToSavedPhotosAlbum(_sproutImage.image, nil, nil, nil);
+    
+    NSDictionary *userInfo = [NSDictionary dictionary];
+    NSString *trimmedComment = [self.sproutTitle.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if (trimmedComment.length != 0) {
+        userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                    trimmedComment,@"title",
+                    nil];
+    }
+    
+    if (!self.photoFile) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your photo" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
+        [alert show];
+        return;
+    }
+    
+    // file has finished uploading
+    
+    // create a Photo object
+    PFObject *photo = [PFObject objectWithClassName:@"Photo"];
+    [photo setObject:[PFUser currentUser] forKey:@"user"];
+    [photo setObject:self.photoFile forKey:@"image"];
+    
+    // photos are public, but may only be modified by the user who uploaded them
+    PFACL *photoACL = [PFACL ACLWithUser:[PFUser currentUser]];
+    [photoACL setPublicReadAccess:YES];
+    photo.ACL = photoACL;
+    
+    // Request a background execution task to allow us to finish uploading the photo even if the app is backgrounded
+    self.photoPostBackgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.photoPostBackgroundTaskId];
+    }];
+    
+    // save
+    [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"Photo uploaded");
+            
+            // userInfo might contain any caption which might have been posted by the uploader
+            if (userInfo) {
+                NSString *commentText = [userInfo objectForKey:@"title"];
+                
+                if (commentText && commentText.length != 0) {
+                    // Create and Save Sprout
+                    PFObject *comment = [PFObject objectWithClassName:@"Sprout"];
+                    [comment setObject:commentText forKey:@"title"];
+//                    [comment setObject:commentText forKey:@"content"];
+                    [comment setObject:photo forKey:@"photo"];
+                    [comment setObject:[PFUser currentUser] forKey:@"user"];
+//                    [comment setObject:photo forKey:@"ingredient"];
+//                    [comment setObject:photo forKey:@"week"];
+
+                    
+                    PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+                    [ACL setPublicReadAccess:YES];
+                    comment.ACL = ACL;
+                    
+                    [comment saveEventually];
+//                    [[PAPCache sharedCache] incrementCommentCountForPhoto:photo];
+                }
+            }
+            
+//            [[NSNotificationCenter defaultCenter] postNotificationName:PAPTabBarControllerDidFinishEditingPhotoNotification object:photo];
+        } else {
+            NSLog(@"Photo failed to save: %@", error);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your sprout" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
+            [alert show];
+        }
+        [[UIApplication sharedApplication] endBackgroundTask:self.photoPostBackgroundTaskId];
+    }];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -110,6 +189,47 @@
     // Dismiss UIImagePickerController
     [picker dismissViewControllerAnimated:YES completion:NULL];
     _sproutImage.image = editedImage;
+    [self shouldUploadImage:editedImage];
+}
+
+#pragma mark - ()
+
+- (BOOL)shouldUploadImage:(UIImage *)anImage {
+    UIImage *resizedImage = [anImage resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(560.0f, 560.0f) interpolationQuality:kCGInterpolationHigh];
+//    UIImage *thumbnailImage = [anImage thumbnailImage:86.0f transparentBorder:0.0f cornerRadius:10.0f interpolationQuality:kCGInterpolationDefault];
+    
+    // JPEG to decrease file size and enable faster uploads & downloads
+    NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8f);
+//    NSData *thumbnailImageData = UIImagePNGRepresentation(thumbnailImage);
+    
+    if (!imageData) {
+        return NO;
+    }
+    
+    self.photoFile = [PFFile fileWithData:imageData];
+//    self.thumbnailFile = [PFFile fileWithData:thumbnailImageData];
+    
+    // Request a background execution task to allow us to finish uploading the photo even if the app is backgrounded
+    self.fileUploadBackgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
+    }];
+    
+    NSLog(@"Requested background expiration task with id %d for Sprouts photo upload", self.fileUploadBackgroundTaskId);
+    [self.photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"Photo uploaded successfully");
+//            [self.thumbnailFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if (succeeded) {
+//                    NSLog(@"Thumbnail uploaded successfully");
+//                }
+            [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
+//            }];
+        } else {
+            [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
+        }
+    }];
+    
+    return YES;
 }
 
 @end
