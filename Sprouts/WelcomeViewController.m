@@ -27,6 +27,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    // [PFUser logOut];
+    
     // If not logged in, present login view controller
     if (![PFUser currentUser]) {
         NSLog(@"Not logged in!");

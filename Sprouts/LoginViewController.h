@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <NSURLConnectionDelegate>
+
+@property (nonatomic, strong) NSMutableData *imageData;
 
 @end
