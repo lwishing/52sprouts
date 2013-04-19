@@ -34,6 +34,9 @@
 		9CDB538C1720ADD1002F6E41 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		9CDB538D1720ADD1002F6E41 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		9CE5641B1720B9840008B5BA /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE5641A1720B9840008B5BA /* SSTextView.m */; };
+		9CE564221720C0DB0008B5BA /* UIImage+AlphaAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE5641D1720C0DB0008B5BA /* UIImage+AlphaAdditions.m */; };
+		9CE564231720C0DB0008B5BA /* UIImage+ResizeAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE5641F1720C0DB0008B5BA /* UIImage+ResizeAdditions.m */; };
+		9CE564241720C0DB0008B5BA /* UIImage+RoundedCornerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE564211720C0DB0008B5BA /* UIImage+RoundedCornerAdditions.m */; };
 		9CEDF269171DE53000A25351 /* button_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CEDF25B171DE53000A25351 /* button_back.png */; };
 		9CEDF26A171DE53000A25351 /* button_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CEDF25C171DE53000A25351 /* button_back@2x.png */; };
 		9CEDF26B171DE53000A25351 /* ingredients_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CEDF25D171DE53000A25351 /* ingredients_button.png */; };
@@ -119,14 +122,14 @@
 		9C1DFA6E171E6A33006F5363 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9C9E5C3C171E5325003A2594 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		9C9E5C3D171E5325003A2594 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
-		9CE564111720B8260008B5BA /* UIImage+AlphaAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIImage+AlphaAdditions.h"; path = "External/UIImage+AlphaAdditions.h"; sourceTree = "<group>"; };
-		9CE564121720B8270008B5BA /* UIImage+AlphaAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIImage+AlphaAdditions.m"; path = "External/UIImage+AlphaAdditions.m"; sourceTree = "<group>"; };
-		9CE564131720B8270008B5BA /* UIImage+ResizeAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIImage+ResizeAdditions.h"; path = "External/UIImage+ResizeAdditions.h"; sourceTree = "<group>"; };
-		9CE564141720B8270008B5BA /* UIImage+ResizeAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ResizeAdditions.m"; path = "External/UIImage+ResizeAdditions.m"; sourceTree = "<group>"; };
-		9CE564151720B8270008B5BA /* UIImage+RoundedCornerAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIImage+RoundedCornerAdditions.h"; path = "External/UIImage+RoundedCornerAdditions.h"; sourceTree = "<group>"; };
-		9CE564161720B8270008B5BA /* UIImage+RoundedCornerAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIImage+RoundedCornerAdditions.m"; path = "External/UIImage+RoundedCornerAdditions.m"; sourceTree = "<group>"; };
 		9CE564191720B9840008B5BA /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSTextView.h; path = ../External/SSTextView.h; sourceTree = "<group>"; };
 		9CE5641A1720B9840008B5BA /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSTextView.m; path = ../External/SSTextView.m; sourceTree = "<group>"; };
+		9CE5641C1720C0DB0008B5BA /* UIImage+AlphaAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+AlphaAdditions.h"; path = "External/UIImage+AlphaAdditions.h"; sourceTree = "<group>"; };
+		9CE5641D1720C0DB0008B5BA /* UIImage+AlphaAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+AlphaAdditions.m"; path = "External/UIImage+AlphaAdditions.m"; sourceTree = "<group>"; };
+		9CE5641E1720C0DB0008B5BA /* UIImage+ResizeAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ResizeAdditions.h"; path = "External/UIImage+ResizeAdditions.h"; sourceTree = "<group>"; };
+		9CE5641F1720C0DB0008B5BA /* UIImage+ResizeAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ResizeAdditions.m"; path = "External/UIImage+ResizeAdditions.m"; sourceTree = "<group>"; };
+		9CE564201720C0DB0008B5BA /* UIImage+RoundedCornerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+RoundedCornerAdditions.h"; path = "External/UIImage+RoundedCornerAdditions.h"; sourceTree = "<group>"; };
+		9CE564211720C0DB0008B5BA /* UIImage+RoundedCornerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+RoundedCornerAdditions.m"; path = "External/UIImage+RoundedCornerAdditions.m"; sourceTree = "<group>"; };
 		9CEDF25B171DE53000A25351 /* button_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_back.png; sourceTree = "<group>"; };
 		9CEDF25C171DE53000A25351 /* button_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_back@2x.png"; sourceTree = "<group>"; };
 		9CEDF25D171DE53000A25351 /* ingredients_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ingredients_button.png; sourceTree = "<group>"; };
@@ -333,12 +336,12 @@
 		9CDB538E1720ADE0002F6E41 /* UIImage+Additions */ = {
 			isa = PBXGroup;
 			children = (
-				9CE564111720B8260008B5BA /* UIImage+AlphaAdditions.h */,
-				9CE564121720B8270008B5BA /* UIImage+AlphaAdditions.m */,
-				9CE564131720B8270008B5BA /* UIImage+ResizeAdditions.h */,
-				9CE564141720B8270008B5BA /* UIImage+ResizeAdditions.m */,
-				9CE564151720B8270008B5BA /* UIImage+RoundedCornerAdditions.h */,
-				9CE564161720B8270008B5BA /* UIImage+RoundedCornerAdditions.m */,
+				9CE5641C1720C0DB0008B5BA /* UIImage+AlphaAdditions.h */,
+				9CE5641D1720C0DB0008B5BA /* UIImage+AlphaAdditions.m */,
+				9CE5641E1720C0DB0008B5BA /* UIImage+ResizeAdditions.h */,
+				9CE5641F1720C0DB0008B5BA /* UIImage+ResizeAdditions.m */,
+				9CE564201720C0DB0008B5BA /* UIImage+RoundedCornerAdditions.h */,
+				9CE564211720C0DB0008B5BA /* UIImage+RoundedCornerAdditions.m */,
 			);
 			name = "UIImage+Additions";
 			path = ..;
@@ -599,6 +602,9 @@
 				9CDB538C1720ADD1002F6E41 /* (null) in Sources */,
 				9CDB538D1720ADD1002F6E41 /* (null) in Sources */,
 				9CE5641B1720B9840008B5BA /* SSTextView.m in Sources */,
+				9CE564221720C0DB0008B5BA /* UIImage+AlphaAdditions.m in Sources */,
+				9CE564231720C0DB0008B5BA /* UIImage+ResizeAdditions.m in Sources */,
+				9CE564241720C0DB0008B5BA /* UIImage+RoundedCornerAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
