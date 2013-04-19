@@ -73,15 +73,29 @@
     NSString *trimmedDesc = [self.sproutDescription.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     //Photo
-    PFObject *photo = [NSNull null];
-    
-    if (!self.photoFile) {
+    if (!self.photoFile) { // no photo or file not uploaded
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your Sprout" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
 //        [alert show];
 //        return;
-        NSLog(@"Photo file not uploaded or No Photo used");
+        NSLog(@"No Photo used");
+        //Create and Save Sprout
+        NSLog(@"Let's make a Sprout!");
+        if (trimmedTitle && trimmedTitle.length != 0) {
+            PFObject *sprout = [PFObject objectWithClassName:@"Sprout"];
+            [sprout setObject:trimmedTitle forKey:@"title"];
+            [sprout setObject:trimmedDesc forKey:@"content"];
+            [sprout setObject:[PFUser currentUser] forKey:@"user"];
+            //        [sprout setObject:photo forKey:@"ingredient"];
+            //        [sprout setObject:photo forKey:@"week"];
+            
+            PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+            [ACL setPublicReadAccess:YES];
+            sprout.ACL = ACL;
+            
+            [sprout saveInBackground];
+        }
         
-    } else { // file has finished uploading
+    } else { // Yes, there's a photo
         // create a Photo object
         PFObject *photo = [PFObject objectWithClassName:@"Photo"];
         [photo setObject:[PFUser currentUser] forKey:@"user"];
@@ -101,6 +115,24 @@
         [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 NSLog(@"Photo uploaded");
+                //Create and Save Sprout
+                NSLog(@"Let's make a Sprout + Photo!");
+                if (trimmedTitle && trimmedTitle.length != 0) {
+                    PFObject *sprout = [PFObject objectWithClassName:@"Sprout"];
+                    [sprout setObject:trimmedTitle forKey:@"title"];
+                    [sprout setObject:trimmedDesc forKey:@"content"];
+                    [sprout setObject:photo forKey:@"photo"];
+                    [sprout setObject:[PFUser currentUser] forKey:@"user"];
+                    //        [sprout setObject:photo forKey:@"ingredient"];
+                    //        [sprout setObject:photo forKey:@"week"];
+                    
+                    
+                    PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+                    [ACL setPublicReadAccess:YES];
+                    sprout.ACL = ACL;
+                    
+                    [sprout saveInBackground];
+                }
                 //            [[NSNotificationCenter defaultCenter] postNotificationName:PAPTabBarControllerDidFinishEditingPhotoNotification object:photo];
             } else {
                 NSLog(@"Photo failed to save: %@", error);
@@ -109,25 +141,6 @@
             }
             [[UIApplication sharedApplication] endBackgroundTask:self.photoPostBackgroundTaskId];
         }];
-    }
-    
-    //Create and Save Sprout
-    NSLog(@"Let's make a Sprout!");
-    if (trimmedTitle && trimmedTitle.length != 0) {
-        PFObject *sprout = [PFObject objectWithClassName:@"Sprout"];
-        [sprout setObject:trimmedTitle forKey:@"title"];
-        [sprout setObject:trimmedDesc forKey:@"content"];
-        [sprout setObject:photo forKey:@"photo"];
-        [sprout setObject:[PFUser currentUser] forKey:@"user"];
-        //                    [sprout setObject:photo forKey:@"ingredient"];
-        //                    [sprout setObject:photo forKey:@"week"];
-        
-        
-        PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
-        [ACL setPublicReadAccess:YES];
-        sprout.ACL = ACL;
-
-        [sprout saveInBackground];
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
