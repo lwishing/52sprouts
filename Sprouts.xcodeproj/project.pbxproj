@@ -27,6 +27,9 @@
 		93813C601720835800199F12 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF08E660170D1C4800BDA831 /* Default-568h@2x.png */; };
 		93813C651720846E00199F12 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 93813C631720846E00199F12 /* Default.png */; };
 		93813C681720853C00199F12 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93813C671720853C00199F12 /* Default@2x.png */; };
+		93C84BBD17211FDE00601224 /* MuseoSans-300.otf in Resources */ = {isa = PBXBuildFile; fileRef = 93C84BBB17211FB000601224 /* MuseoSans-300.otf */; };
+		93C84BBE17211FE100601224 /* MuseoSans-500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 93C84BBC17211FB100601224 /* MuseoSans-500.otf */; };
+		93C84BC0172123E500601224 /* MuseoSans-700.otf in Resources */ = {isa = PBXBuildFile; fileRef = 93C84BBF172123E500601224 /* MuseoSans-700.otf */; };
 		9C1DFA6F171E6C42006F5363 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DFA6E171E6A33006F5363 /* LoginViewController.m */; };
 		9C9E5C3E171E5325003A2594 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9E5C3D171E5325003A2594 /* WelcomeViewController.m */; };
 		9CDB53841720A62A002F6E41 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -119,6 +122,9 @@
 		93813C631720846E00199F12 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		93813C641720846E00199F12 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		93813C671720853C00199F12 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		93C84BBB17211FB000601224 /* MuseoSans-300.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-300.otf"; sourceTree = "<group>"; };
+		93C84BBC17211FB100601224 /* MuseoSans-500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-500.otf"; sourceTree = "<group>"; };
+		93C84BBF172123E500601224 /* MuseoSans-700.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-700.otf"; sourceTree = "<group>"; };
 		9C1DFA6D171E6A33006F5363 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9C1DFA6E171E6A33006F5363 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9C9E5C3C171E5325003A2594 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
@@ -278,6 +284,9 @@
 		9CDB53791720A028002F6E41 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				93C84BBF172123E500601224 /* MuseoSans-700.otf */,
+				93C84BBB17211FB000601224 /* MuseoSans-300.otf */,
+				93C84BBC17211FB100601224 /* MuseoSans-500.otf */,
 				9359D91D1720A56B0036D1AB /* Icon.png */,
 				9359D91E1720A56B0036D1AB /* Icon@2x.png */,
 				93813C671720853C00199F12 /* Default@2x.png */,
@@ -579,6 +588,9 @@
 				93813C681720853C00199F12 /* Default@2x.png in Resources */,
 				9359D91F1720A56B0036D1AB /* Icon.png in Resources */,
 				9359D9201720A56B0036D1AB /* Icon@2x.png in Resources */,
+				93C84BBD17211FDE00601224 /* MuseoSans-300.otf in Resources */,
+				93C84BBE17211FE100601224 /* MuseoSans-500.otf in Resources */,
+				93C84BC0172123E500601224 /* MuseoSans-700.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
