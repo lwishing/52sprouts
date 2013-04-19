@@ -30,6 +30,12 @@
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
     UIImage *navBar = [UIImage imageNamed:@"nav_bar.png"];
     [[UINavigationBar appearance]setBackgroundImage:navBar forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                UITextAttributeTextColor: [UIColor colorWithRed:(43/255.0) green:(36/255.0) blue:(19/255.0) alpha:1.0],
+                          UITextAttributeTextShadowColor: [UIColor colorWithRed:(190/255.0) green:(155/255.0) blue:(101/255.0) alpha:1.0],
+                         UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)],
+                                     UITextAttributeFont: [UIFont fontWithName:@"MuseoSans-700" size:20.0f]
+     }];
     
     // Nav bar back button appearance
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:(97/255.0) green:(71/255.0) blue:(39/255.0) alpha:1.0]];

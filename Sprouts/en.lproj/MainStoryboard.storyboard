@@ -803,67 +803,6 @@
         <image name="schedule_day.png" width="32" height="32"/>
         <image name="sprout_title.png" width="300" height="37"/>
     </resources>
-    <classes>
-        <class className="IngredientInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IngredientInfoViewController.h"/>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PFImageView" superclassName="UIImageView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFImageView.h"/>
-        </class>
-        <class className="SSTextView" superclassName="UITextView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSTextView.h"/>
-        </class>
-        <class className="SproutsTabBarController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SproutsTabBarController.h"/>
-        </class>
-        <class className="WelcomeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WelcomeViewController.h"/>
-        </class>
-        <class className="addIngredientsToSproutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/addIngredientsToSproutViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButtonPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="doneButtonPressed:" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="feedViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/feedViewController.h"/>
-        </class>
-        <class className="profileViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/profileViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="profileImage" candidateClass="PFImageView"/>
-                <relationship kind="outlet" name="profileName" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="scheduleViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/scheduleViewController.h"/>
-        </class>
-        <class className="settingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/settingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logoutPressed:"/>
-            </relationships>
-        </class>
-        <class className="sproutsActionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/sproutsActionViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButtonPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="photoButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="shareButtonPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="ingredientOfTheWeek" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sproutDescription" candidateClass="SSTextView"/>
-                <relationship kind="outlet" name="sproutImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="sproutTitle" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
