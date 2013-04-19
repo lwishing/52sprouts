@@ -23,7 +23,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.52sprouts.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.52sprouts.Sprouts</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -51,6 +51,12 @@
 	<string>446288108785684</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>MuseoSans-300.otf</string>
+		<string>MuseoSans-500.otf</string>
+		<string>MuseoSans-700.otf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>
 	<key>UIPrerenderedIcon</key>
@@ -73,12 +79,6 @@
 			<false/>
 		</dict>
 	</dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>MuseoSans-300.otf</string>
-		<string>MuseoSans-500.otf</string>
-		<string>MuseoSans-700.otf</string>
-	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
