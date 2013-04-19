@@ -11,4 +11,6 @@
 
 @interface feedViewController : UIViewController
 
+@property (nonatomic, strong) PFQueryTableViewController *childView;
+
 @end

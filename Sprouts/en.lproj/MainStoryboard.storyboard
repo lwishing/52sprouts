@@ -12,74 +12,42 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uPi-He-T2f">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="2cT-ga-tlU">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jv-4N-K59">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="116" id="gBZ-qF-lb1"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <state key="normal" title="Button" image="banner.png">
-                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <state key="highlighted">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <segue destination="ief-Gg-OiY" kind="push" id="vnD-yf-FP6"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcu-Qb-nf0">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="36" id="JSB-Jc-hAM"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <state key="normal" title="Button" image="schedule_button.png">
-                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <state key="highlighted">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <segue destination="yBF-qb-Dkk" kind="push" id="0JM-Ro-T6G"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstItem="3jv-4N-K59" firstAttribute="top" secondItem="2cT-ga-tlU" secondAttribute="top" type="default" id="OEs-t6-kop"/>
-                                        <constraint firstItem="Hcu-Qb-nf0" firstAttribute="top" secondItem="2cT-ga-tlU" secondAttribute="top" type="default" id="XVb-dV-CWi"/>
-                                        <constraint firstItem="Hcu-Qb-nf0" firstAttribute="leading" secondItem="2cT-ga-tlU" secondAttribute="leading" type="default" id="XqP-jR-C3t"/>
-                                        <constraint firstItem="3jv-4N-K59" firstAttribute="trailing" secondItem="2cT-ga-tlU" secondAttribute="trailing" type="default" id="aiS-MB-nz7"/>
-                                        <constraint firstItem="Hcu-Qb-nf0" firstAttribute="trailing" secondItem="2cT-ga-tlU" secondAttribute="trailing" type="default" id="c9f-tK-9Ev"/>
-                                        <constraint firstItem="3jv-4N-K59" firstAttribute="leading" secondItem="2cT-ga-tlU" secondAttribute="leading" type="default" id="jKr-SR-WXq"/>
-                                    </constraints>
-                                </view>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="feedSprout" id="FBh-Bu-Rdp">
-                                        <rect key="frame" x="0.0" y="137" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jv-4N-K59">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="116" id="gBZ-qF-lb1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title=" " image="banner.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ief-Gg-OiY" kind="push" id="vnD-yf-FP6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcu-Qb-nf0">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="JSB-Jc-hAM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title=" " image="schedule_button.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="yBF-qb-Dkk" kind="push" id="0JM-Ro-T6G"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uPi-He-T2f" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="6mt-sx-xfO"/>
-                            <constraint firstItem="uPi-He-T2f" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="kwz-ch-ck8"/>
-                            <constraint firstItem="uPi-He-T2f" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="puk-el-xgR"/>
-                            <constraint firstItem="uPi-He-T2f" firstAttribute="bottom" secondItem="16" secondAttribute="bottom" type="default" id="q6p-gO-Ohc"/>
+                            <constraint firstItem="Hcu-Qb-nf0" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="5tp-dv-SGC"/>
+                            <constraint firstItem="Hcu-Qb-nf0" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="Ahs-Ma-0fo"/>
+                            <constraint firstItem="3jv-4N-K59" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="M8p-1I-74V"/>
+                            <constraint firstItem="Hcu-Qb-nf0" firstAttribute="baseline" secondItem="3jv-4N-K59" secondAttribute="baseline" type="default" id="Tns-6O-aFt"/>
+                            <constraint firstItem="3jv-4N-K59" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="cEc-kk-Ghp"/>
+                            <constraint firstItem="Hcu-Qb-nf0" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="ciq-9i-Ui0"/>
+                            <constraint firstItem="3jv-4N-K59" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="us2-5V-ixf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ingredient" id="VWz-bI-dhn"/>
@@ -110,6 +78,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7b-mz-f09" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="829" y="-247"/>
+        </scene>
+        <!--Feed Table View Controller - thefeed-->
+        <scene sceneID="DyA-Ld-CF4">
+            <objects>
+                <tableViewController storyboardIdentifier="thefeed" title="thefeed" id="Geg-RH-Zcq" customClass="FeedTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="46" sectionHeaderHeight="22" sectionFooterHeight="22" id="feK-WP-svo">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="feedItem" rowHeight="46" id="KUP-Ng-7cw">
+                                <rect key="frame" x="0.0" y="22" width="320" height="46"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="Geg-RH-Zcq" id="jTB-AQ-sST"/>
+                            <outlet property="delegate" destination="Geg-RH-Zcq" id="g5k-22-Dht"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ltF-AK-GJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="293" y="-912"/>
         </scene>
         <!--Schedule View Controller - Schedule-->
         <scene sceneID="iYA-Jc-YTE">
@@ -803,67 +801,6 @@
         <image name="schedule_day.png" width="32" height="32"/>
         <image name="sprout_title.png" width="300" height="37"/>
     </resources>
-    <classes>
-        <class className="IngredientInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IngredientInfoViewController.h"/>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PFImageView" superclassName="UIImageView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFImageView.h"/>
-        </class>
-        <class className="SSTextView" superclassName="UITextView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSTextView.h"/>
-        </class>
-        <class className="SproutsTabBarController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SproutsTabBarController.h"/>
-        </class>
-        <class className="WelcomeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WelcomeViewController.h"/>
-        </class>
-        <class className="addIngredientsToSproutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/addIngredientsToSproutViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButtonPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="doneButtonPressed:" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="feedViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/feedViewController.h"/>
-        </class>
-        <class className="profileViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/profileViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="profileImage" candidateClass="PFImageView"/>
-                <relationship kind="outlet" name="profileName" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="scheduleViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/scheduleViewController.h"/>
-        </class>
-        <class className="settingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/settingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logoutPressed:"/>
-            </relationships>
-        </class>
-        <class className="sproutsActionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/sproutsActionViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButtonPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="photoButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="shareButtonPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="ingredientOfTheWeek" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sproutDescription" candidateClass="SSTextView"/>
-                <relationship kind="outlet" name="sproutImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="sproutTitle" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
