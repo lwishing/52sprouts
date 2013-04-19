@@ -13,13 +13,12 @@
 - (PFObject *)getCurrentWeek {
     
     PFQuery *query = [PFQuery queryWithClassName:@"Week"];
-//    [query whereKey:@"week" equalTo:[NSNumber numberWithInt:1]];
     NSDate *date = [NSDate date];
     [query whereKey:@"startDate" lessThan:date];
     [query whereKey:@"endDate" greaterThan:date];
     
     PFObject *week = [query getFirstObject];
-    NSLog(@"got object");
+    
     return week;
 }
 
