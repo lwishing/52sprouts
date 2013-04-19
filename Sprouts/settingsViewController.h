@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface settingsViewController : UIViewController
+@interface settingsViewController : UITableViewController
 
 
 - (IBAction)logoutPressed:(id)sender;
