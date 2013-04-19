@@ -66,74 +66,69 @@
     // Save image to the Camera Roll
     UIImageWriteToSavedPhotosAlbum(_sproutImage.image, nil, nil, nil);
     
-    NSDictionary *userInfo = [NSDictionary dictionary];
-    NSString *trimmedComment = [self.sproutTitle.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    if (trimmedComment.length != 0) {
-        userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                    trimmedComment,@"title",
-                    nil];
-    }
+    // Title
+    NSString *trimmedTitle = [self.sproutTitle.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    // Description
+    NSString *trimmedDesc = [self.sproutDescription.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    //Photo
+    PFObject *photo = [NSNull null];
     
     if (!self.photoFile) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your photo" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
-        [alert show];
-        return;
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your Sprout" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
+//        [alert show];
+//        return;
+        NSLog(@"Photo file not uploaded or No Photo used");
+        
+    } else { // file has finished uploading
+        // create a Photo object
+        PFObject *photo = [PFObject objectWithClassName:@"Photo"];
+        [photo setObject:[PFUser currentUser] forKey:@"user"];
+        [photo setObject:self.photoFile forKey:@"image"];
+        
+        // Photos are public, but may only be modified by the user who uploaded them
+        PFACL *photoACL = [PFACL ACLWithUser:[PFUser currentUser]];
+        [photoACL setPublicReadAccess:YES];
+        photo.ACL = photoACL;
+        
+        // Request a background execution task to allow us to finish uploading the photo even if the app is backgrounded
+        self.photoPostBackgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+            [[UIApplication sharedApplication] endBackgroundTask:self.photoPostBackgroundTaskId];
+        }];
+        
+        // Save Photo in background
+        [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                NSLog(@"Photo uploaded");
+                //            [[NSNotificationCenter defaultCenter] postNotificationName:PAPTabBarControllerDidFinishEditingPhotoNotification object:photo];
+            } else {
+                NSLog(@"Photo failed to save: %@", error);
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your Photo" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
+                [alert show];
+            }
+            [[UIApplication sharedApplication] endBackgroundTask:self.photoPostBackgroundTaskId];
+        }];
     }
     
-    // file has finished uploading
-    
-    // create a Photo object
-    PFObject *photo = [PFObject objectWithClassName:@"Photo"];
-    [photo setObject:[PFUser currentUser] forKey:@"user"];
-    [photo setObject:self.photoFile forKey:@"image"];
-    
-    // photos are public, but may only be modified by the user who uploaded them
-    PFACL *photoACL = [PFACL ACLWithUser:[PFUser currentUser]];
-    [photoACL setPublicReadAccess:YES];
-    photo.ACL = photoACL;
-    
-    // Request a background execution task to allow us to finish uploading the photo even if the app is backgrounded
-    self.photoPostBackgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.photoPostBackgroundTaskId];
-    }];
-    
-    // save
-    [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            NSLog(@"Photo uploaded");
-            
-            // userInfo might contain any caption which might have been posted by the uploader
-            if (userInfo) {
-                NSString *commentText = [userInfo objectForKey:@"title"];
-                
-                if (commentText && commentText.length != 0) {
-                    // Create and Save Sprout
-                    PFObject *comment = [PFObject objectWithClassName:@"Sprout"];
-                    [comment setObject:commentText forKey:@"title"];
-//                    [comment setObject:commentText forKey:@"content"];
-                    [comment setObject:photo forKey:@"photo"];
-                    [comment setObject:[PFUser currentUser] forKey:@"user"];
-//                    [comment setObject:photo forKey:@"ingredient"];
-//                    [comment setObject:photo forKey:@"week"];
+    //Create and Save Sprout
+    NSLog(@"Let's make a Sprout!");
+    if (trimmedTitle && trimmedTitle.length != 0) {
+        PFObject *sprout = [PFObject objectWithClassName:@"Sprout"];
+        [sprout setObject:trimmedTitle forKey:@"title"];
+        [sprout setObject:trimmedDesc forKey:@"content"];
+        [sprout setObject:photo forKey:@"photo"];
+        [sprout setObject:[PFUser currentUser] forKey:@"user"];
+        //                    [sprout setObject:photo forKey:@"ingredient"];
+        //                    [sprout setObject:photo forKey:@"week"];
+        
+        
+        PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+        [ACL setPublicReadAccess:YES];
+        sprout.ACL = ACL;
 
-                    
-                    PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
-                    [ACL setPublicReadAccess:YES];
-                    comment.ACL = ACL;
-                    
-                    [comment saveEventually];
-//                    [[PAPCache sharedCache] incrementCommentCountForPhoto:photo];
-                }
-            }
-            
-//            [[NSNotificationCenter defaultCenter] postNotificationName:PAPTabBarControllerDidFinishEditingPhotoNotification object:photo];
-        } else {
-            NSLog(@"Photo failed to save: %@", error);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your sprout" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
-            [alert show];
-        }
-        [[UIApplication sharedApplication] endBackgroundTask:self.photoPostBackgroundTaskId];
-    }];
+        [sprout saveInBackground];
+    }
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -196,18 +191,15 @@
 
 - (BOOL)shouldUploadImage:(UIImage *)anImage {
     UIImage *resizedImage = [anImage resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(560.0f, 560.0f) interpolationQuality:kCGInterpolationHigh];
-//    UIImage *thumbnailImage = [anImage thumbnailImage:86.0f transparentBorder:0.0f cornerRadius:10.0f interpolationQuality:kCGInterpolationDefault];
-    
     // JPEG to decrease file size and enable faster uploads & downloads
+
     NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8f);
-//    NSData *thumbnailImageData = UIImagePNGRepresentation(thumbnailImage);
     
     if (!imageData) {
         return NO;
     }
     
     self.photoFile = [PFFile fileWithData:imageData];
-//    self.thumbnailFile = [PFFile fileWithData:thumbnailImageData];
     
     // Request a background execution task to allow us to finish uploading the photo even if the app is backgrounded
     self.fileUploadBackgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
@@ -217,13 +209,8 @@
     NSLog(@"Requested background expiration task with id %d for Sprouts photo upload", self.fileUploadBackgroundTaskId);
     [self.photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            NSLog(@"Photo uploaded successfully");
-//            [self.thumbnailFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//                if (succeeded) {
-//                    NSLog(@"Thumbnail uploaded successfully");
-//                }
+            NSLog(@"Photo uploaded successfully!");
             [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
-//            }];
         } else {
             [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
         }
