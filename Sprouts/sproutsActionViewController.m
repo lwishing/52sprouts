@@ -161,9 +161,40 @@
         case 1:
         {
             if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
-                picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+//              picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+                picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
                 picker.allowsEditing = YES;
+                
                 [self presentViewController:picker animated:YES completion:NULL];
+                
+                // Hack to scroll to the bottom of photo picker
+                /*
+                [self presentViewController:picker animated:YES completion:^() {
+                    // scroll to the end - hack
+                    UIView *imagePickerView = picker.view;
+                    
+                    UIView *view = [imagePickerView hitTest:CGPointMake(5,5) withEvent:nil];
+                    while (![view isKindOfClass:[UIScrollView class]] && view != nil) {
+                        // note: in iOS 5, the hit test view is already the scroll view. I don't want to rely on that though, who knows
+                        // what Apple might do with the ImagePickerController view structure. Searching backwards from the hit view
+                        // should always work though.
+                        //NSLog(@"passing %@", view);
+                        view = [view superview];
+                    }
+                    
+                    if ([view isKindOfClass:[UIScrollView class]]) {
+                        //NSLog(@"got a scroller!");
+                        UIScrollView *scrollView = (UIScrollView *) view;
+                        // check what it is scrolled to - this is the location of the initial display - very important as the image picker
+                        // actually slides under the navigation bar, but if there's only a few images we don't want this to happen.
+                        // The initial location is determined by status bar height and nav bar height - just get it from the picker
+                        CGPoint contentOffset = scrollView.contentOffset;
+                        CGFloat y = MAX(contentOffset.y, [scrollView contentSize].height-scrollView.frame.size.height);
+                        CGPoint bottomOffset = CGPointMake(0, y);
+                        [scrollView setContentOffset:bottomOffset animated:YES];
+                    }
+                }];
+                */
             }
         }
             break;
@@ -195,7 +226,6 @@
 - (BOOL)shouldUploadImage:(UIImage *)anImage {
     UIImage *resizedImage = [anImage resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(560.0f, 560.0f) interpolationQuality:kCGInterpolationHigh];
     // JPEG to decrease file size and enable faster uploads & downloads
-
     NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8f);
     
     if (!imageData) {

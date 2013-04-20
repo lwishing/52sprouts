@@ -30,7 +30,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.navController = [[UINavigationController alloc] init];
-        
+    
+    // Set TabBarItem selected image to be the same as unselected image (aka NO BLUE TINT)
+    for (UITabBarItem * barItem in self.tabBar.items) {
+        UIImage * image = barItem.image;
+        [barItem setFinishedSelectedImage:image withFinishedUnselectedImage:image];
+    }
+    
     // Programmatically add Sprout button to UI
     UIButton *sproutButton = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *buttonImage = [UIImage imageNamed:@"sprout_button.png"];
