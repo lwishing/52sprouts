@@ -51,6 +51,12 @@
 //    [sproutButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [sproutButton addTarget:self action:@selector(sproutButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
+    // Gesture - Swipe up to Sprout
+    UISwipeGestureRecognizer *swipeUpGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(sproutButtonPressed:)];
+    [swipeUpGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionUp];
+    [swipeUpGestureRecognizer setNumberOfTouchesRequired:1];
+    [sproutButton addGestureRecognizer:swipeUpGestureRecognizer];
+    
     // get current week
     PFObject *week = [[[Utility alloc] init] getCurrentWeek];
     NSNumber *weekInt = [week objectForKey:@"week"];

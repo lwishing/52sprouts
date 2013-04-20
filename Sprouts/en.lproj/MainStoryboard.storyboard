@@ -12,20 +12,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jv-4N-K59">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="116" id="gBZ-qF-lb1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title=" " image="banner.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ief-Gg-OiY" kind="push" id="vnD-yf-FP6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcu-Qb-nf0">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="scheduleBanner" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcu-Qb-nf0">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="JSB-Jc-hAM"/>
                                 </constraints>
@@ -42,15 +29,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Hcu-Qb-nf0" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="5tp-dv-SGC"/>
-                            <constraint firstItem="Hcu-Qb-nf0" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="Ahs-Ma-0fo"/>
-                            <constraint firstItem="3jv-4N-K59" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="M8p-1I-74V"/>
-                            <constraint firstItem="Hcu-Qb-nf0" firstAttribute="baseline" secondItem="3jv-4N-K59" secondAttribute="baseline" type="default" id="Tns-6O-aFt"/>
-                            <constraint firstItem="3jv-4N-K59" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="cEc-kk-Ghp"/>
                             <constraint firstItem="Hcu-Qb-nf0" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="ciq-9i-Ui0"/>
-                            <constraint firstItem="3jv-4N-K59" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="us2-5V-ixf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ingredient" id="VWz-bI-dhn"/>
+                    <connections>
+                        <outlet property="scheduleBanner" destination="Hcu-Qb-nf0" id="xdk-Sg-ZY4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
@@ -61,7 +46,7 @@
             <objects>
                 <viewController storyboardIdentifier="ingredientInfo" id="ief-Gg-OiY" customClass="IngredientInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KQn-Vb-fTx">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="GiA-Y8-qCV"/>
@@ -77,25 +62,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7b-mz-f09" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829" y="-247"/>
+            <point key="canvasLocation" x="829" y="-912"/>
         </scene>
         <!--Feed Table View Controller - thefeed-->
         <scene sceneID="DyA-Ld-CF4">
             <objects>
                 <tableViewController storyboardIdentifier="thefeed" title="thefeed" id="Geg-RH-Zcq" customClass="FeedTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="46" sectionHeaderHeight="22" sectionFooterHeight="22" id="feK-WP-svo">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="feK-WP-svo">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="9mi-NK-NOW">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="116"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="ingredientBanner" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jv-4N-K59">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title=" " image="banner.png">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <segue destination="ief-Gg-OiY" kind="push" id="vnD-yf-FP6"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="3jv-4N-K59" firstAttribute="bottom" secondItem="9mi-NK-NOW" secondAttribute="bottom" type="default" id="3c4-xq-UzS"/>
+                                <constraint firstItem="3jv-4N-K59" firstAttribute="leading" secondItem="9mi-NK-NOW" secondAttribute="leading" type="default" id="A5U-E8-BY6"/>
+                                <constraint firstItem="3jv-4N-K59" firstAttribute="top" secondItem="9mi-NK-NOW" secondAttribute="top" type="default" id="VWF-C0-U8e"/>
+                            </constraints>
+                        </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="feedItem" rowHeight="46" id="KUP-Ng-7cw">
-                                <rect key="frame" x="0.0" y="22" width="320" height="46"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="feedItem" rowHeight="50" id="KUP-Ng-7cw">
+                                <rect key="frame" x="0.0" y="138" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -104,6 +112,9 @@
                             <outlet property="delegate" destination="Geg-RH-Zcq" id="g5k-22-Dht"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="ingredientBanner" destination="3jv-4N-K59" id="UCe-eU-z02"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltF-AK-GJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -267,7 +278,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FRT-rk-lxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="831" y="-912"/>
+            <point key="canvasLocation" x="829" y="-242"/>
         </scene>
         <!--Profile View Controller - Profile-->
         <scene sceneID="bDD-wu-mx4">
@@ -677,7 +688,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="1iz-fO-rb9"/>
                     <connections>
-                        <segue destination="4" kind="modal" identifier="loginToMain" id="XE6-Mb-rzK"/>
+                        <segue destination="4" kind="modal" identifier="loginToMain" modalTransitionStyle="crossDissolve" id="XE6-Mb-rzK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="39Y-Dx-0eP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -704,7 +715,7 @@
                     <navigationItem key="navigationItem" id="Gbj-Wd-3K5"/>
                     <connections>
                         <segue destination="tZQ-1O-uQp" kind="modal" identifier="toLogin" id="8tV-aJ-QNj"/>
-                        <segue destination="4" kind="modal" identifier="toMain" animates="NO" id="N1f-WF-pfe"/>
+                        <segue destination="4" kind="modal" identifier="toMain" modalTransitionStyle="crossDissolve" id="N1f-WF-pfe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7H-o6-kaR" userLabel="First Responder" sceneMemberID="firstResponder"/>

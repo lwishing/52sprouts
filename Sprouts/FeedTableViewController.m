@@ -14,6 +14,8 @@
 
 @implementation FeedTableViewController
 
+@synthesize ingredientBanner = _ingredientBanner;
+
 - (id)initWithCoder:(NSCoder *)aCoder {
     self = [super initWithCoder:aCoder];
     if (self) {
@@ -26,7 +28,7 @@
         self.textKey = @"title";
         
         // Uncomment the following line to specify the key of a PFFile on the PFObject to display in the imageView of the default cell style
-//        self.imageKey = @"image";
+        // self.imageKey = @"image";
         
         // Whether the built-in pull-to-refresh is enabled
         self.pullToRefreshEnabled = YES;
@@ -44,6 +46,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    NSLog(@"Load THE FEED!");
 }
 
 - (void)didReceiveMemoryWarning

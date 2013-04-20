@@ -12,5 +12,6 @@
 @interface feedViewController : UIViewController
 
 @property (nonatomic, strong) PFQueryTableViewController *childView;
+@property (weak, nonatomic) IBOutlet UIButton *scheduleBanner;
 
 @end
