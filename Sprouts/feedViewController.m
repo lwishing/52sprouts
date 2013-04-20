@@ -41,14 +41,10 @@
     // instantiate and assign the child view controller to a property to have direct reference to it in
     self.childView=[self.storyboard instantiateViewControllerWithIdentifier:@"thefeed"];
     // configure your child view controller
-    self.childView.parseClassName=@"Sprout";
-    NSLog(@"sprout?");
     // add your child view controller to children array
     [self addChildViewController:self.childView];
     [self.childView didMoveToParentViewController:self];
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -72,7 +72,7 @@
     // Description
     NSString *trimmedDesc = [self.sproutDescription.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
-    //Photo
+    //Check photo
     if (!self.photoFile) { // no photo or file not uploaded
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your Sprout" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
 //        [alert show];
@@ -96,47 +96,37 @@
         }
         
     } else { // Yes, there's a photo
-        // create a Photo object
-        PFObject *photo = [PFObject objectWithClassName:@"Photo"];
-        [photo setObject:[PFUser currentUser] forKey:@"user"];
-        [photo setObject:self.photoFile forKey:@"image"];
+        //Create and Save Sprout
+        NSLog(@"Let's make a Sprout + Photo!");
+//        if (trimmedTitle && trimmedTitle.length != 0) {
+        PFObject *sprout = [PFObject objectWithClassName:@"Sprout"];
+        [sprout setObject:trimmedTitle forKey:@"title"];
+        [sprout setObject:trimmedDesc forKey:@"content"];
+        [sprout setObject:self.photoFile forKey:@"photo"];
+        [sprout setObject:[PFUser currentUser] forKey:@"user"];
+        //        [sprout setObject:photo forKey:@"ingredient"];
+        //        [sprout setObject:photo forKey:@"week"];
         
-        // Photos are public, but may only be modified by the user who uploaded them
-        PFACL *photoACL = [PFACL ACLWithUser:[PFUser currentUser]];
-        [photoACL setPublicReadAccess:YES];
-        photo.ACL = photoACL;
+        // Sprouts are public, but may only be modified by the user who uploaded them
+        PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+        [ACL setPublicReadAccess:YES];
+        sprout.ACL = ACL;
+            
+//        }
         
         // Request a background execution task to allow us to finish uploading the photo even if the app is backgrounded
         self.photoPostBackgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
             [[UIApplication sharedApplication] endBackgroundTask:self.photoPostBackgroundTaskId];
         }];
         
-        // Save Photo in background
-        [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        // Save Sprout in background
+        [sprout saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
-                NSLog(@"Photo uploaded");
-                //Create and Save Sprout
-                NSLog(@"Let's make a Sprout + Photo!");
-                if (trimmedTitle && trimmedTitle.length != 0) {
-                    PFObject *sprout = [PFObject objectWithClassName:@"Sprout"];
-                    [sprout setObject:trimmedTitle forKey:@"title"];
-                    [sprout setObject:trimmedDesc forKey:@"content"];
-                    [sprout setObject:photo forKey:@"photo"];
-                    [sprout setObject:[PFUser currentUser] forKey:@"user"];
-                    //        [sprout setObject:photo forKey:@"ingredient"];
-                    //        [sprout setObject:photo forKey:@"week"];
-                    
-                    
-                    PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
-                    [ACL setPublicReadAccess:YES];
-                    sprout.ACL = ACL;
-                    
-                    [sprout saveInBackground];
-                }
+                NSLog(@"Sprout uploaded");
                 //            [[NSNotificationCenter defaultCenter] postNotificationName:PAPTabBarControllerDidFinishEditingPhotoNotification object:photo];
             } else {
-                NSLog(@"Photo failed to save: %@", error);
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your Photo" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
+                NSLog(@"Sprout failed to save: %@", error);
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your Sprout" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
                 [alert show];
             }
             [[UIApplication sharedApplication] endBackgroundTask:self.photoPostBackgroundTaskId];

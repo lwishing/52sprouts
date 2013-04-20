@@ -27,16 +27,14 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    // [PFUser logOut];
-    
     // If not logged in, present login view controller
     if (![PFUser currentUser]) {
-        NSLog(@"Not logged in!");
+        NSLog(@"User not logged in.");
         [self performSegueWithIdentifier:@"toLogin" sender:self];
         return;
     }
     // Present UI
-    NSLog(@"User Logged in already...GO!!");
+    NSLog(@"User logged in already.");
     [self performSegueWithIdentifier:@"toMain" sender:self];
 }
 
