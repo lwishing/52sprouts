@@ -145,7 +145,7 @@
     PFFile *avatarFile = [[object objectForKey:@"user"] objectForKey:@"profilePic"];
     [avatarFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         // Now that the data is fetched, update the cell's image property.
-        cell.userAvatar.image = [[UIImage imageWithData:data] thumbnailImage:86.0f transparentBorder:0.0f cornerRadius:20.0f interpolationQuality:kCGInterpolationDefault];
+        cell.userAvatar.image = [[UIImage imageWithData:data] thumbnailImage:86.0f transparentBorder:0.0f cornerRadius:5.0f interpolationQuality:kCGInterpolationDefault];
     }];
     
     //Sprout

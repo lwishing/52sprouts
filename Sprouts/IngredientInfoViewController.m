@@ -14,18 +14,21 @@
 
 @implementation IngredientInfoViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize childView = _childView;
 
 - (void)viewDidLoad
 {    
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor clearColor];
+    
+    // configure chld view controller view's frame
+    self.childView.view.frame=CGRectMake( 0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height);
+    
+    // add child's view to view hierarchy
+    [self.view addSubview:self.childView.view];
+    
+    
 	// Do any additional setup after loading the view.
     
     //
@@ -62,6 +65,15 @@
     //    NSLog(@"prep1: %@", prep1);
     //    NSLog(@"prep2: %@", prep2);
     //
+}
+
+-(void)awakeFromNib {
+    // instantiate and assign the child view controller to a property to have direct reference to it in
+    self.childView=[self.storyboard instantiateViewControllerWithIdentifier:@"ingredientInfo"];
+    // configure your child view controller
+    // add your child view controller to children array
+    [self addChildViewController:self.childView];
+    [self.childView didMoveToParentViewController:self];
 }
 
 - (void)didReceiveMemoryWarning

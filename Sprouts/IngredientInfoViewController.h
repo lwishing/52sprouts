@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface IngredientInfoViewController : UIViewController
+
+@property (nonatomic, strong) PFQueryTableViewController *childView;
 
 @end

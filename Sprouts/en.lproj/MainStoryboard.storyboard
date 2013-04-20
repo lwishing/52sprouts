@@ -44,7 +44,7 @@
         <!--Ingredient Info View Controller - Info-->
         <scene sceneID="sop-Cx-LLG">
             <objects>
-                <viewController storyboardIdentifier="ingredientInfo" id="ief-Gg-OiY" customClass="IngredientInfoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ingredient" id="ief-Gg-OiY" customClass="IngredientInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KQn-Vb-fTx">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -63,6 +63,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7b-mz-f09" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="829" y="-912"/>
+        </scene>
+        <!--Ingredient Info Table View Controller-->
+        <scene sceneID="PzW-SH-ZbZ">
+            <objects>
+                <tableViewController storyboardIdentifier="ingredientInfo" id="UuM-WZ-bLN" customClass="ingredientInfoTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SLN-nU-BEb">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="in9-P5-ej7">
+                            <rect key="frame" x="0.0" y="66" width="320" height="548"/>
+                        </imageView>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IngredientInfoCell" id="s3Z-Ry-uGh">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UuM-WZ-bLN" id="8bP-Jy-1hH"/>
+                            <outlet property="delegate" destination="UuM-WZ-bLN" id="g3m-Wg-tFP"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nWE-a2-dDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="829" y="-1591"/>
         </scene>
         <!--Feed Table View Controller - thefeed-->
         <scene sceneID="DyA-Ld-CF4">
