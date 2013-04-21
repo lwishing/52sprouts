@@ -27,6 +27,10 @@
 		93813C601720835800199F12 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF08E660170D1C4800BDA831 /* Default-568h@2x.png */; };
 		93813C651720846E00199F12 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 93813C631720846E00199F12 /* Default.png */; };
 		93813C681720853C00199F12 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93813C671720853C00199F12 /* Default@2x.png */; };
+		93BE48B71723855500BD6CD0 /* login_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 93BE48B51723855500BD6CD0 /* login_background.png */; };
+		93BE48B81723855500BD6CD0 /* login_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93BE48B61723855500BD6CD0 /* login_background@2x.png */; };
+		93BE48BB172389B000BD6CD0 /* login_sprout.png in Resources */ = {isa = PBXBuildFile; fileRef = 93BE48B9172389B000BD6CD0 /* login_sprout.png */; };
+		93BE48BC172389B000BD6CD0 /* login_sprout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93BE48BA172389B000BD6CD0 /* login_sprout@2x.png */; };
 		93C7AA421722FEAD008FDD6E /* ingredientInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C7AA411722FEAD008FDD6E /* ingredientInfoTableViewController.m */; };
 		93C84BBD17211FDE00601224 /* MuseoSans-300.otf in Resources */ = {isa = PBXBuildFile; fileRef = 93C84BBB17211FB000601224 /* MuseoSans-300.otf */; };
 		93C84BBE17211FE100601224 /* MuseoSans-500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 93C84BBC17211FB100601224 /* MuseoSans-500.otf */; };
@@ -124,6 +128,10 @@
 		93813C631720846E00199F12 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		93813C641720846E00199F12 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		93813C671720853C00199F12 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		93BE48B51723855500BD6CD0 /* login_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_background.png; sourceTree = "<group>"; };
+		93BE48B61723855500BD6CD0 /* login_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_background@2x.png"; sourceTree = "<group>"; };
+		93BE48B9172389B000BD6CD0 /* login_sprout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_sprout.png; sourceTree = "<group>"; };
+		93BE48BA172389B000BD6CD0 /* login_sprout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_sprout@2x.png"; sourceTree = "<group>"; };
 		93C7AA401722FEAD008FDD6E /* ingredientInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ingredientInfoTableViewController.h; sourceTree = "<group>"; };
 		93C7AA411722FEAD008FDD6E /* ingredientInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ingredientInfoTableViewController.m; sourceTree = "<group>"; };
 		93C84BBB17211FB000601224 /* MuseoSans-300.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-300.otf"; sourceTree = "<group>"; };
@@ -457,6 +465,10 @@
 		EF08E678170D1D9A00BDA831 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				93BE48B9172389B000BD6CD0 /* login_sprout.png */,
+				93BE48BA172389B000BD6CD0 /* login_sprout@2x.png */,
+				93BE48B51723855500BD6CD0 /* login_background.png */,
+				93BE48B61723855500BD6CD0 /* login_background@2x.png */,
 				EFE05A7C17154BAA0033EE3E /* background.png */,
 				EFE05A7D17154BAB0033EE3E /* background@2x.png */,
 				EFA640EB1717842B0028DE41 /* banner.png */,
@@ -601,6 +613,10 @@
 				93C84BBD17211FDE00601224 /* MuseoSans-300.otf in Resources */,
 				93C84BBE17211FE100601224 /* MuseoSans-500.otf in Resources */,
 				93C84BC0172123E500601224 /* MuseoSans-700.otf in Resources */,
+				93BE48B71723855500BD6CD0 /* login_background.png in Resources */,
+				93BE48B81723855500BD6CD0 /* login_background@2x.png in Resources */,
+				93BE48BB172389B000BD6CD0 /* login_sprout.png in Resources */,
+				93BE48BC172389B000BD6CD0 /* login_sprout@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
