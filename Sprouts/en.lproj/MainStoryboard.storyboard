@@ -800,16 +800,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <color key="textColor" red="0.21568627450980393" green="0.5490196078431373" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="195" translatesAutoresizingMaskIntoConstraints="NO" id="qlm-uv-npl">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="195" id="MAg-Mz-OCI"/>
                                     <constraint firstAttribute="height" constant="63" type="user" id="eoM-A6-14N"/>
                                 </constraints>
-                                <string key="text">Mastering the kitchen, one vegetable at a time.</string>
+                                <string key="text">Mastering the kitchen, 
+one vegetable at a time.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.21568627450980393" green="0.5490196078431373" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" image="login_sprout.png" translatesAutoresizingMaskIntoConstraints="NO" id="hiF-aA-vn9">
                                 <constraints>
@@ -823,7 +828,6 @@
                             <constraint firstItem="30U-d4-ga6" firstAttribute="top" secondItem="P6x-9o-bi0" secondAttribute="top" constant="40" id="7jv-Nq-QI4"/>
                             <constraint firstItem="qlm-uv-npl" firstAttribute="centerX" secondItem="9Eh-gd-NV4" secondAttribute="centerX" type="default" id="7nl-vh-wAe"/>
                             <constraint firstItem="Pd9-xn-PpF" firstAttribute="bottom" secondItem="P6x-9o-bi0" secondAttribute="bottom" type="default" id="Api-Zh-aip"/>
-                            <constraint firstItem="9Eh-gd-NV4" firstAttribute="centerX" secondItem="P6x-9o-bi0" secondAttribute="centerX" type="default" id="Db6-LN-wYb"/>
                             <constraint firstItem="Pd9-xn-PpF" firstAttribute="top" secondItem="P6x-9o-bi0" secondAttribute="top" type="default" id="EfL-Mc-58Y"/>
                             <constraint firstAttribute="bottom" secondItem="9Eh-gd-NV4" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="FAz-Mo-UEp"/>
                             <constraint firstItem="hiF-aA-vn9" firstAttribute="centerX" secondItem="qlm-uv-npl" secondAttribute="centerX" type="default" id="MaM-5J-lYD"/>
@@ -837,6 +841,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="1iz-fO-rb9"/>
                     <connections>
+                        <outlet property="blurb" destination="qlm-uv-npl" id="Wvi-Px-cK5"/>
+                        <outlet property="sprouts" destination="30U-d4-ga6" id="Nbj-9I-oTQ"/>
                         <segue destination="4" kind="modal" identifier="loginToMain" modalTransitionStyle="crossDissolve" id="XE6-Mb-rzK"/>
                     </connections>
                 </viewController>
@@ -985,6 +991,11 @@
         </class>
         <class className="LoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loginButtonPushed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="blurb" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sprouts" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>

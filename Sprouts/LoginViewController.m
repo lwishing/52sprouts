@@ -15,6 +15,8 @@
 
 @implementation LoginViewController
 
+@synthesize sprouts, blurb;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,6 +30,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [sprouts setFont:[UIFont fontWithName:@"MuseoSans-500" size:42.0]];
+    [blurb setFont:[UIFont fontWithName:@"MuseoSans-500" size:17.0]];
+    
 }
 
 //- (IBAction)loginButtonPushed:(UIButton *)sender {
