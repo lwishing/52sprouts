@@ -30,6 +30,39 @@
     
     // Set background color to clear to make background image visible
     self.view.backgroundColor = [UIColor clearColor];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEEE, MMM d, ''yy, h:mm a"];
+    NSLog(@"Today: %@", [dateFormatter stringFromDate:[NSDate date]]);
+    
+    NSDate *today = [[NSDate alloc] init];
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
+    [offsetComponents setDay:1];
+    // Calculate when, according to Tom Lehrer, World War III will end
+    NSDate *tomorrow = [gregorian dateByAddingComponents:offsetComponents
+                                                  toDate:today options:0];
+    
+    NSLog(@"Tomorrow: %@", [dateFormatter stringFromDate:tomorrow]);
+    
+    
+    NSDateComponents *components =
+    [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit |
+                           NSDayCalendarUnit) fromDate: tomorrow];
+    tomorrow = [gregorian dateFromComponents:components];
+    
+    NSLog(@"Tomorrow normalized: %@", [dateFormatter stringFromDate:tomorrow]);
+    
+    NSDateComponents *offsetHour = [[NSDateComponents alloc] init];
+    [offsetHour setHour:11];
+    
+    NSDate *tomorrowNoon = [gregorian dateByAddingComponents:offsetHour
+                                                      toDate:tomorrow options:0];
+    
+    NSLog(@"Tomorrow 11am: %@", [dateFormatter stringFromDate:tomorrowNoon]);
+    
+    
 }
 - (IBAction)backButtonPressed:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
