@@ -32,8 +32,9 @@
                             <constraint firstItem="Hcu-Qb-nf0" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="ciq-9i-Ui0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Ingredient" id="VWz-bI-dhn"/>
+                    <navigationItem key="navigationItem" id="VWz-bI-dhn"/>
                     <connections>
+                        <outlet property="ingredientHeader" destination="VWz-bI-dhn" id="ctp-XO-dLH"/>
                         <outlet property="scheduleBanner" destination="Hcu-Qb-nf0" id="xdk-Sg-ZY4"/>
                     </connections>
                 </viewController>
@@ -729,7 +730,6 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="tintColor" red="0.43921571970000001" green="0.30196079609999998" blue="0.1411764771" alpha="1" colorSpace="deviceRGB"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
