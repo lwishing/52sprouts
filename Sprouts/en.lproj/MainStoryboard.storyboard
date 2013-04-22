@@ -330,6 +330,9 @@
                             <outlet property="delegate" destination="Geg-RH-Zcq" id="g5k-22-Dht"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="ingredientBanner" destination="Fma-xm-kL1" id="Ygs-WJ-tcm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltF-AK-GJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

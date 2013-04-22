@@ -12,5 +12,6 @@
 @interface Utility : NSObject
 
 - (PFObject *)getCurrentWeek;
+- (PFObject *)getCurrentIngredient:(PFObject *)week;
 
 @end

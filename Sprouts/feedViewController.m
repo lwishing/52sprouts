@@ -31,9 +31,9 @@
     PFObject *ingredient = [week objectForKey:@"ingredient"];
     [ingredient fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         NSString *ingredientName = [ingredient objectForKey:@"name"];
-        NSLog(@"ingredientName: %@", ingredientName);
         self.ingredientHeader.title = ingredientName;
     }];
+    
     
     // configure chld view controller view's frame
     self.childView.view.frame=CGRectMake( 0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height);
