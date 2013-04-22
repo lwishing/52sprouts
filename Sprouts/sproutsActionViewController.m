@@ -25,6 +25,7 @@
 @synthesize photoFile;
 @synthesize fileUploadBackgroundTaskId;
 @synthesize photoPostBackgroundTaskId;
+@synthesize sproutScrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,6 +48,18 @@
     // Set background color to clear to make background image visible
     self.view.backgroundColor = [UIColor clearColor];
     
+    _sproutDescription.contentInset = UIEdgeInsetsMake(-8,-8,-8,-8);
+    
+    float sizeOfContent = 0;
+    
+    for (int i = 0; i < [[sproutScrollView subviews] count]; i++) {
+        UIView *view =[[sproutScrollView subviews] objectAtIndex:i];
+        sizeOfContent += view.frame.size.height;
+    }
+    
+    
+    sproutScrollView.contentSize = CGSizeMake(sproutScrollView.frame.size.width, sizeOfContent);
+    sproutScrollView.contentInset= UIEdgeInsetsMake(0.0,0.0, 60.0,0.0);
 }
 
 

@@ -45,12 +45,12 @@
     //resizeable background image
     //UIImage *backgroundImage = [[UIImage imageNamed:@"contentBackground"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 0, 10, 0)];
     
-    UIImage *background = [UIImage imageNamed: @"contentBackground"];
-    UIImageView *backgroundView = [[UIImageView alloc] initWithImage: background];
+    //UIImage *background = [UIImage imageNamed: @"contentBackground"];
+    //UIImageView *backgroundView = [[UIImageView alloc] initWithImage: background];
     
-    [descriptionView addSubview: backgroundView];
+    //[descriptionView addSubview: backgroundView];
     
-    [descriptionView sendSubviewToBack:backgroundView];
+    //[descriptionView sendSubviewToBack:backgroundView];
     
     
     
