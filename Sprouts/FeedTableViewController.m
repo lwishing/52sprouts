@@ -9,6 +9,7 @@
 #import "FeedTableViewController.h"
 #import "FeedViewCell.h"
 #import "UIImage+ResizeAdditions.h"
+#import "Utility.h"
 
 @interface FeedTableViewController ()
 
@@ -55,6 +56,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    PFObject *week = [[[Utility alloc] init] getCurrentWeek];
+    PFObject *ingredient = [week objectForKey:@"ingredient"];
+    [ingredient fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        PFImageView *bannerImageView = [[PFImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 116.0)];
+        bannerImageView.file = (PFFile *)[ingredient objectForKey:@"photo"]; // remote image
+        [bannerImageView loadInBackground];
+    }];
     
     if (NSClassFromString(@"UIRefreshControl")) {
         // Use the new iOS 6 refresh control.
