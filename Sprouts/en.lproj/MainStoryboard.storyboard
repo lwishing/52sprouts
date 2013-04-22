@@ -48,53 +48,152 @@
                     <view key="view" contentMode="scaleToFill" id="KQn-Vb-fTx">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <userGuides>
+                            <userLayoutGuide location="18" affinity="minX"/>
+                        </userGuides>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="GiA-Y8-qCV"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1U-EC-rXm">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="header.png" translatesAutoresizingMaskIntoConstraints="NO" id="WVQ-Pb-Ppk"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ALL ABOUT BELL PEPPERS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUA-R7-D1G">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="4bt-vb-whE"/>
+                                            <constraint firstAttribute="width" constant="225" id="Zuf-cl-BGK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="WVQ-Pb-Ppk" firstAttribute="leading" secondItem="I1U-EC-rXm" secondAttribute="leading" type="default" id="5lh-ib-AVV"/>
+                                    <constraint firstItem="VUA-R7-D1G" firstAttribute="centerX" secondItem="WVQ-Pb-Ppk" secondAttribute="centerX" type="default" id="OY4-xt-hca"/>
+                                    <constraint firstItem="WVQ-Pb-Ppk" firstAttribute="top" secondItem="I1U-EC-rXm" secondAttribute="top" type="user" id="TMf-p9-7v3"/>
+                                    <constraint firstItem="VUA-R7-D1G" firstAttribute="top" secondItem="I1U-EC-rXm" secondAttribute="top" constant="5" id="VvV-yt-zmp"/>
+                                    <constraint firstItem="WVQ-Pb-Ppk" firstAttribute="bottom" secondItem="I1U-EC-rXm" secondAttribute="bottom" type="user" id="qgk-3q-7m1"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqJ-a4-kq2">
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wY-Qd-Q4J">
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <string key="text">Sweet pepper encompasses a wide variety of mild peppers that belong to the Capsicum family. The best known sweet peppers are bell peppers, so named for their bell-like shape. They have a mild, sweet flavor and crisp, juicy flesh. When young, the majority of bell peppers are a rich, bright green, but there are also yellow, orange, purple, red and brown bell peppers.</string>
+                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="7wY-Qd-Q4J" firstAttribute="leading" secondItem="cqJ-a4-kq2" secondAttribute="leading" type="default" id="2QJ-Um-MR1"/>
+                                    <constraint firstItem="7wY-Qd-Q4J" firstAttribute="trailing" secondItem="cqJ-a4-kq2" secondAttribute="trailing" type="default" id="ffR-Zr-Flb"/>
+                                    <constraint firstItem="7wY-Qd-Q4J" firstAttribute="top" secondItem="cqJ-a4-kq2" secondAttribute="top" type="default" id="gbD-2j-lT7"/>
+                                    <constraint firstItem="7wY-Qd-Q4J" firstAttribute="bottom" secondItem="cqJ-a4-kq2" secondAttribute="bottom" type="default" id="qUx-U0-UlL"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZH-hb-hCw">
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="July through December" translatesAutoresizingMaskIntoConstraints="NO" id="794-xz-qj2">
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="RgO-uG-rVf"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="In Season" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rxn-ii-Ngw">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="2nU-fb-SXU"/>
+                                            <constraint firstAttribute="width" constant="281" id="Cvc-th-NKy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="0.21568627450980393" green="0.5490196078431373" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Rxn-ii-Ngw" firstAttribute="top" secondItem="WZH-hb-hCw" secondAttribute="top" constant="8" id="6Xq-Jf-k5Z"/>
+                                    <constraint firstItem="Rxn-ii-Ngw" firstAttribute="leading" secondItem="WZH-hb-hCw" secondAttribute="leading" constant="7" id="Fdq-Rz-hxg"/>
+                                    <constraint firstItem="794-xz-qj2" firstAttribute="top" secondItem="WZH-hb-hCw" secondAttribute="top" constant="25" id="MH4-Y9-UTW"/>
+                                    <constraint firstItem="794-xz-qj2" firstAttribute="leading" secondItem="WZH-hb-hCw" secondAttribute="leading" type="default" id="lLK-jH-kiZ"/>
+                                    <constraint firstItem="794-xz-qj2" firstAttribute="trailing" secondItem="WZH-hb-hCw" secondAttribute="trailing" type="default" id="sdT-7N-JwX"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hc-fA-iwr">
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="When Buying" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZn-r7-CDV">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="281" id="Mzj-pZ-TkS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="0.2156862745" green="0.54901960780000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNS-bi-viP">
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="125" id="Oym-zF-pID"/>
+                                        </constraints>
+                                        <string key="text">Red peppers are mature green peppers (aging makes red peppers sweeter and more mellow than sharper, grassy tasting green); yellow and orange peppers are different, sweeter varieties. Look for firm peppers with shiny, wrinkle-free skins.</string>
+                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="MNS-bi-viP" firstAttribute="top" secondItem="2hc-fA-iwr" secondAttribute="top" constant="33" id="7D6-FJ-Wa6"/>
+                                    <constraint firstItem="CZn-r7-CDV" firstAttribute="top" secondItem="2hc-fA-iwr" secondAttribute="top" constant="9" id="PeW-xj-fGm"/>
+                                    <constraint firstItem="MNS-bi-viP" firstAttribute="trailing" secondItem="2hc-fA-iwr" secondAttribute="trailing" type="default" id="mFt-SL-D1h"/>
+                                    <constraint firstItem="MNS-bi-viP" firstAttribute="leading" secondItem="2hc-fA-iwr" secondAttribute="leading" type="default" id="vaq-5I-ibn"/>
+                                    <constraint firstItem="CZn-r7-CDV" firstAttribute="leading" secondItem="2hc-fA-iwr" secondAttribute="leading" constant="7" id="yw9-Aa-qFP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="WZH-hb-hCw" firstAttribute="top" secondItem="cqJ-a4-kq2" secondAttribute="bottom" constant="15" type="user" id="2AU-Th-UTx"/>
+                            <constraint firstAttribute="bottom" secondItem="2hc-fA-iwr" secondAttribute="bottom" constant="60" id="9KS-XQ-Gry"/>
+                            <constraint firstItem="I1U-EC-rXm" firstAttribute="top" secondItem="KQn-Vb-fTx" secondAttribute="top" constant="10" type="user" id="A41-qg-O2F"/>
+                            <constraint firstItem="cqJ-a4-kq2" firstAttribute="centerX" secondItem="I1U-EC-rXm" secondAttribute="centerX" type="default" id="DhD-eg-hLE"/>
+                            <constraint firstItem="cqJ-a4-kq2" firstAttribute="top" secondItem="I1U-EC-rXm" secondAttribute="bottom" constant="11" type="user" id="TRY-oZ-uhf"/>
+                            <constraint firstItem="I1U-EC-rXm" firstAttribute="trailing" secondItem="KQn-Vb-fTx" secondAttribute="trailing" type="default" id="VqJ-9V-W0R"/>
+                            <constraint firstItem="cqJ-a4-kq2" firstAttribute="leading" secondItem="KQn-Vb-fTx" secondAttribute="leading" constant="10" id="Xaz-pd-zVd"/>
+                            <constraint firstItem="2hc-fA-iwr" firstAttribute="trailing" secondItem="WZH-hb-hCw" secondAttribute="trailing" type="default" id="Y8E-X8-YUX"/>
+                            <constraint firstItem="2hc-fA-iwr" firstAttribute="leading" secondItem="WZH-hb-hCw" secondAttribute="leading" type="default" id="bKP-8Q-EUS"/>
+                            <constraint firstItem="I1U-EC-rXm" firstAttribute="leading" secondItem="KQn-Vb-fTx" secondAttribute="leading" type="default" id="cY9-ys-YYj"/>
                             <constraint firstItem="GiA-Y8-qCV" firstAttribute="top" secondItem="KQn-Vb-fTx" secondAttribute="top" type="default" id="eUG-sD-Ttj"/>
+                            <constraint firstItem="2hc-fA-iwr" firstAttribute="top" secondItem="WZH-hb-hCw" secondAttribute="bottom" constant="15" type="user" id="ghl-GC-S3n"/>
+                            <constraint firstItem="WZH-hb-hCw" firstAttribute="trailing" secondItem="cqJ-a4-kq2" secondAttribute="trailing" type="default" id="kTw-dD-Cvg"/>
                             <constraint firstItem="GiA-Y8-qCV" firstAttribute="bottom" secondItem="KQn-Vb-fTx" secondAttribute="bottom" type="default" id="mQA-qT-QyL"/>
+                            <constraint firstItem="WZH-hb-hCw" firstAttribute="leading" secondItem="cqJ-a4-kq2" secondAttribute="leading" type="default" id="qIq-yd-CSF"/>
+                            <constraint firstAttribute="bottom" secondItem="WZH-hb-hCw" secondAttribute="bottom" constant="235" type="user" id="rpK-LY-F6Q"/>
                             <constraint firstItem="GiA-Y8-qCV" firstAttribute="leading" secondItem="KQn-Vb-fTx" secondAttribute="leading" type="default" id="wkJ-Ak-vgE"/>
+                            <constraint firstAttribute="bottom" secondItem="cqJ-a4-kq2" secondAttribute="bottom" constant="310" type="user" id="xqx-D4-ZwH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Info" id="t8A-tv-CFR"/>
+                    <connections>
+                        <outlet property="buyingHeader" destination="CZn-r7-CDV" id="3Z5-k3-i18"/>
+                        <outlet property="buyingText" destination="MNS-bi-viP" id="X9m-e8-rZQ"/>
+                        <outlet property="buyingView" destination="2hc-fA-iwr" id="ysc-fI-ay5"/>
+                        <outlet property="descriptionText" destination="7wY-Qd-Q4J" id="ebD-3d-LhF"/>
+                        <outlet property="descriptionView" destination="cqJ-a4-kq2" id="l9k-st-SQm"/>
+                        <outlet property="headerText" destination="VUA-R7-D1G" id="SVK-Vf-osz"/>
+                        <outlet property="headerView" destination="I1U-EC-rXm" id="ALv-u8-iMV"/>
+                        <outlet property="seasonHeader" destination="Rxn-ii-Ngw" id="NkX-mh-jio"/>
+                        <outlet property="seasonText" destination="794-xz-qj2" id="4qZ-HG-XEC"/>
+                        <outlet property="seasonView" destination="794-xz-qj2" id="P9n-OU-ZwX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7b-mz-f09" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="829" y="-912"/>
-        </scene>
-        <!--Ingredient Info Table View Controller-->
-        <scene sceneID="PzW-SH-ZbZ">
-            <objects>
-                <tableViewController storyboardIdentifier="ingredientInfo" id="UuM-WZ-bLN" customClass="ingredientInfoTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SLN-nU-BEb">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="in9-P5-ej7">
-                            <rect key="frame" x="0.0" y="66" width="320" height="548"/>
-                        </imageView>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IngredientInfoCell" id="s3Z-Ry-uGh">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="UuM-WZ-bLN" id="8bP-Jy-1hH"/>
-                            <outlet property="delegate" destination="UuM-WZ-bLN" id="g3m-Wg-tFP"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nWE-a2-dDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="829" y="-1591"/>
         </scene>
         <!--Feed Table View Controller - thefeed-->
         <scene sceneID="DyA-Ld-CF4">
@@ -1025,6 +1124,7 @@ one vegetable at a time.</string>
         <image name="background.png" width="320" height="568"/>
         <image name="banner.png" width="320" height="115"/>
         <image name="feed_icon_deselected.png" width="16" height="28"/>
+        <image name="header.png" width="320" height="37"/>
         <image name="ingredients_button.png" width="150" height="27"/>
         <image name="login_sprout.png" width="114" height="151"/>
         <image name="me_icon_deselected.png" width="27" height="26"/>

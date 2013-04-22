@@ -14,19 +14,56 @@
 
 @implementation IngredientInfoViewController
 
-@synthesize childView = _childView;
+@synthesize headerView, descriptionView, seasonView, headerText, descriptionText, seasonText, seasonHeader, buyingText, buyingHeader;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {    
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor clearColor];
+    //set the fonts
+    [headerText setFont:[UIFont fontWithName:@"MuseoSans-500" size:14.0]];
+    [descriptionText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
+    [seasonHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
+    [seasonText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
+    [buyingHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
+    [buyingText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     
-    // configure chld view controller view's frame
-    self.childView.view.frame=CGRectMake( 0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height);
+    PFQuery *query = [PFQuery queryWithClassName:@"Ingredient"];
     
-    // add child's view to view hierarchy
-    [self.view addSubview:self.childView.view];
+    [query getObjectInBackgroundWithId:@"izH3jFduSU"
+                                 block:^(PFObject *ingredient, NSError *error) {
+                                     if (!error) {
+                                         
+                                         //set header text to ingredient name
+                                         [headerText setText:[NSString stringWithFormat:@"ALL ABOUT %@", [[ingredient objectForKey:@"name"] uppercaseString]]];
+                                         
+                                         //set description text
+                                         [descriptionText setText:[ingredient objectForKey:@"description"]];
+                                         
+                                         //set season text
+                                         [seasonText setText:[NSString stringWithFormat:@"%@ through %@", [ingredient objectForKey:@"seasonStart"], [ingredient objectForKey:@"seasonEnd"]]];
+                                         
+                                         //set when buying text
+                                         [buyingText setText:[ingredient objectForKey:@"whenBuying"]];
+                                         
+                                         // The get request succeeded. Log the score
+                                         NSLog(@"The ingredient is: %@", [ingredient objectForKey:@"name"]);
+                                     } else {
+                                         // Log details of our failure
+                                         NSLog(@"Error: %@", error);
+                                     }
+                                 }];
+    
+
     
     
 	// Do any additional setup after loading the view.
@@ -68,12 +105,7 @@
 }
 
 -(void)awakeFromNib {
-    // instantiate and assign the child view controller to a property to have direct reference to it in
-    self.childView=[self.storyboard instantiateViewControllerWithIdentifier:@"ingredientInfo"];
-    // configure your child view controller
-    // add your child view controller to children array
-    [self addChildViewController:self.childView];
-    [self.childView didMoveToParentViewController:self];
+
 }
 
 - (void)didReceiveMemoryWarning
