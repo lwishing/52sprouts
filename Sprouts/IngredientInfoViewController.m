@@ -30,6 +30,8 @@
 {    
     [super viewDidLoad];
     
+    //self.scrollView.contentSize = self.scrollView.frame.size;
+    
     //set the fonts
     [headerText setFont:[UIFont fontWithName:@"MuseoSans-500" size:14.0]];
     [descriptionText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
@@ -37,6 +39,19 @@
     [seasonText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [buyingHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
     [buyingText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
+    
+    [[headerView superview] bringSubviewToFront:headerView];
+    
+    //resizeable background image
+    //UIImage *backgroundImage = [[UIImage imageNamed:@"contentBackground"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 0, 10, 0)];
+    
+    UIImage *background = [UIImage imageNamed: @"contentBackground"];
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage: background];
+    
+    [descriptionView addSubview: backgroundView];
+    
+    [descriptionView sendSubviewToBack:backgroundView];
+    
     
     
     PFQuery *query = [PFQuery queryWithClassName:@"Ingredient"];
