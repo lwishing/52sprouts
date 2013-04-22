@@ -11,7 +11,4 @@
 
 @interface settingsViewController : UITableViewController
 
-
-- (IBAction)logoutPressed:(id)sender;
-
 @end

@@ -75,6 +75,9 @@
 		EF08E67B170D201B00BDA831 /* SproutsTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF08E67A170D201B00BDA831 /* SproutsTabBarController.m */; };
 		EF08E67E170D2AB800BDA831 /* sproutsActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF08E67D170D2AB800BDA831 /* sproutsActionViewController.m */; };
 		EF186F8B171B9296005E1949 /* settingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF186F8A171B9296005E1949 /* settingsViewController.m */; };
+		EF18B5A41724C63400F4ADC7 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF18B5A31724C63400F4ADC7 /* WebViewController.m */; };
+		EF9A06F81724FD1900D5E369 /* toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9A06F61724FD1900D5E369 /* toolbar.png */; };
+		EF9A06F91724FD1900D5E369 /* toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9A06F71724FD1900D5E369 /* toolbar@2x.png */; };
 		EFA640ED1717842B0028DE41 /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA640EB1717842B0028DE41 /* banner.png */; };
 		EFA640EE1717842B0028DE41 /* banner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA640EC1717842B0028DE41 /* banner@2x.png */; };
 		EFA640F1171787F00028DE41 /* schedule_button.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA640EF171787F00028DE41 /* schedule_button.png */; };
@@ -191,6 +194,10 @@
 		EF08E67D170D2AB800BDA831 /* sproutsActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sproutsActionViewController.m; sourceTree = "<group>"; };
 		EF186F89171B9296005E1949 /* settingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsViewController.h; sourceTree = "<group>"; };
 		EF186F8A171B9296005E1949 /* settingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsViewController.m; sourceTree = "<group>"; };
+		EF18B5A21724C63400F4ADC7 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = ../WebViewController.h; sourceTree = "<group>"; };
+		EF18B5A31724C63400F4ADC7 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = ../WebViewController.m; sourceTree = "<group>"; };
+		EF9A06F61724FD1900D5E369 /* toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar.png; sourceTree = "<group>"; };
+		EF9A06F71724FD1900D5E369 /* toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar@2x.png"; sourceTree = "<group>"; };
 		EFA640EB1717842B0028DE41 /* banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner.png; sourceTree = "<group>"; };
 		EFA640EC1717842B0028DE41 /* banner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner@2x.png"; sourceTree = "<group>"; };
 		EFA640EF171787F00028DE41 /* schedule_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schedule_button.png; sourceTree = "<group>"; };
@@ -330,6 +337,8 @@
 			children = (
 				EF186F89171B9296005E1949 /* settingsViewController.h */,
 				EF186F8A171B9296005E1949 /* settingsViewController.m */,
+				EF18B5A21724C63400F4ADC7 /* WebViewController.h */,
+				EF18B5A31724C63400F4ADC7 /* WebViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -507,6 +516,8 @@
 				9CEDF268171DE53000A25351 /* sprout_title@2x.png */,
 				EFD3B8E6171E0AEC004991C9 /* tab_bar_background.png */,
 				EFD3B8E7171E0AEC004991C9 /* tab_bar_background@2x.png */,
+				EF9A06F61724FD1900D5E369 /* toolbar.png */,
+				EF9A06F71724FD1900D5E369 /* toolbar@2x.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -617,6 +628,8 @@
 				93BE48B81723855500BD6CD0 /* login_background@2x.png in Resources */,
 				93BE48BB172389B000BD6CD0 /* login_sprout.png in Resources */,
 				93BE48BC172389B000BD6CD0 /* login_sprout@2x.png in Resources */,
+				EF9A06F81724FD1900D5E369 /* toolbar.png in Resources */,
+				EF9A06F91724FD1900D5E369 /* toolbar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +664,7 @@
 				9CE5642717211C2A0008B5BA /* FeedTableViewController.m in Sources */,
 				9C57872B1722977700E490A3 /* FeedViewCell.m in Sources */,
 				93C7AA421722FEAD008FDD6E /* ingredientInfoTableViewController.m in Sources */,
+				EF18B5A41724C63400F4ADC7 /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
