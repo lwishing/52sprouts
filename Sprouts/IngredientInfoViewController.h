@@ -11,6 +11,8 @@
 
 @interface IngredientInfoViewController : UIViewController
 
+//@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIView *descriptionView;
 @property (weak, nonatomic) IBOutlet UIView *buyingView;
