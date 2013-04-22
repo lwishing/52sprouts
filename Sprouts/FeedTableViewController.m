@@ -155,7 +155,7 @@
 //    cell.sproutImage.file = [object objectForKey:@"photo"];
     
     // Set your placeholder image first
-    cell.sproutImage.image = [UIImage imageNamed:@"Icon.png"];
+    cell.sproutImage.image = [UIImage imageNamed:@"loading_photo.png"];
     PFFile *imageFile = [object objectForKey:@"photo"];
     [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         // Now that the data is fetched, update the cell's image property.
