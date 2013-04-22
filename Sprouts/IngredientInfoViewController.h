@@ -11,6 +11,19 @@
 
 @interface IngredientInfoViewController : UIViewController
 
-@property (nonatomic, strong) PFQueryTableViewController *childView;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (weak, nonatomic) IBOutlet UIView *descriptionView;
+@property (weak, nonatomic) IBOutlet UIView *buyingView;
+@property (weak, nonatomic) IBOutlet UITextView *seasonView;
+
+@property (weak, nonatomic) IBOutlet UITextView *descriptionText;
+@property (weak, nonatomic) IBOutlet UILabel *headerText;
+@property (weak, nonatomic) IBOutlet UITextView *seasonText;
+@property (weak, nonatomic) IBOutlet UILabel *seasonHeader;
+@property (weak, nonatomic) IBOutlet UITextView *buyingText;
+@property (weak, nonatomic) IBOutlet UILabel *buyingHeader;
+
+
+//@property (weak, nonatomic) IBOutlet UIView *seasonView;
 
 @end

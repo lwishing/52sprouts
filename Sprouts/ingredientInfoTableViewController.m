@@ -42,6 +42,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -126,7 +129,6 @@
     
     return query;
 }
-
 
 
 // Override to customize the look of a cell representing an object. The default is to display
