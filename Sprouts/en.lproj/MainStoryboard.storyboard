@@ -32,7 +32,9 @@
                             <constraint firstItem="Hcu-Qb-nf0" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="ciq-9i-Ui0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="VWz-bI-dhn"/>
+                    <navigationItem key="navigationItem" id="VWz-bI-dhn">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="BA4-4y-u8o"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="ingredientHeader" destination="VWz-bI-dhn" id="ctp-XO-dLH"/>
                         <outlet property="scheduleBanner" destination="Hcu-Qb-nf0" id="xdk-Sg-ZY4"/>
@@ -68,7 +70,7 @@
                                         <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="WVQ-Pb-Ppk" firstAttribute="leading" secondItem="I1U-EC-rXm" secondAttribute="leading" type="default" id="5lh-ib-AVV"/>
                                     <constraint firstItem="VUA-R7-D1G" firstAttribute="centerX" secondItem="WVQ-Pb-Ppk" secondAttribute="centerX" type="default" id="OY4-xt-hca"/>
@@ -79,7 +81,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqJ-a4-kq2">
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wY-Qd-Q4J">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wY-Qd-Q4J">
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <string key="text">Sweet pepper encompasses a wide variety of mild peppers that belong to the Capsicum family. The best known sweet peppers are bell peppers, so named for their bell-like shape. They have a mild, sweet flavor and crisp, juicy flesh. When young, the majority of bell peppers are a rich, bright green, but there are also yellow, orange, purple, red and brown bell peppers.</string>
                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -97,10 +99,10 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZH-hb-hCw">
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="July through December" translatesAutoresizingMaskIntoConstraints="NO" id="794-xz-qj2">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="July through December" translatesAutoresizingMaskIntoConstraints="NO" id="794-xz-qj2">
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="29" id="RgO-uG-rVf"/>
+                                            <constraint firstAttribute="height" constant="35" id="Tlc-S2-xJr"/>
                                         </constraints>
                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -119,8 +121,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Rxn-ii-Ngw" firstAttribute="top" secondItem="WZH-hb-hCw" secondAttribute="top" constant="8" id="6Xq-Jf-k5Z"/>
+                                    <constraint firstItem="794-xz-qj2" firstAttribute="bottom" secondItem="WZH-hb-hCw" secondAttribute="bottom" type="default" id="FAB-bE-6Sq"/>
                                     <constraint firstItem="Rxn-ii-Ngw" firstAttribute="leading" secondItem="WZH-hb-hCw" secondAttribute="leading" constant="7" id="Fdq-Rz-hxg"/>
-                                    <constraint firstItem="794-xz-qj2" firstAttribute="top" secondItem="WZH-hb-hCw" secondAttribute="top" constant="25" id="MH4-Y9-UTW"/>
                                     <constraint firstItem="794-xz-qj2" firstAttribute="leading" secondItem="WZH-hb-hCw" secondAttribute="leading" type="default" id="lLK-jH-kiZ"/>
                                     <constraint firstItem="794-xz-qj2" firstAttribute="trailing" secondItem="WZH-hb-hCw" secondAttribute="trailing" type="default" id="sdT-7N-JwX"/>
                                 </constraints>
@@ -135,7 +137,7 @@
                                         <color key="textColor" red="0.2156862745" green="0.54901960780000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNS-bi-viP">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNS-bi-viP">
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="125" id="Oym-zF-pID"/>
@@ -159,9 +161,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WZH-hb-hCw" firstAttribute="top" secondItem="cqJ-a4-kq2" secondAttribute="bottom" constant="15" type="user" id="2AU-Th-UTx"/>
-                            <constraint firstAttribute="bottom" secondItem="2hc-fA-iwr" secondAttribute="bottom" constant="60" id="9KS-XQ-Gry"/>
+                            <constraint firstItem="WZH-hb-hCw" firstAttribute="top" secondItem="KQn-Vb-fTx" secondAttribute="top" constant="253" id="90g-bk-vN1"/>
                             <constraint firstItem="I1U-EC-rXm" firstAttribute="top" secondItem="KQn-Vb-fTx" secondAttribute="top" constant="10" type="user" id="A41-qg-O2F"/>
+                            <constraint firstAttribute="bottom" secondItem="2hc-fA-iwr" secondAttribute="bottom" constant="15" id="BVG-ef-MDH"/>
                             <constraint firstItem="cqJ-a4-kq2" firstAttribute="centerX" secondItem="I1U-EC-rXm" secondAttribute="centerX" type="default" id="DhD-eg-hLE"/>
+                            <constraint firstItem="2hc-fA-iwr" firstAttribute="top" secondItem="KQn-Vb-fTx" secondAttribute="top" constant="328" id="EkT-dX-hB1"/>
                             <constraint firstItem="cqJ-a4-kq2" firstAttribute="top" secondItem="I1U-EC-rXm" secondAttribute="bottom" constant="11" type="user" id="TRY-oZ-uhf"/>
                             <constraint firstItem="I1U-EC-rXm" firstAttribute="trailing" secondItem="KQn-Vb-fTx" secondAttribute="trailing" type="default" id="VqJ-9V-W0R"/>
                             <constraint firstItem="cqJ-a4-kq2" firstAttribute="leading" secondItem="KQn-Vb-fTx" secondAttribute="leading" constant="10" id="Xaz-pd-zVd"/>
@@ -169,13 +173,12 @@
                             <constraint firstItem="2hc-fA-iwr" firstAttribute="leading" secondItem="WZH-hb-hCw" secondAttribute="leading" type="default" id="bKP-8Q-EUS"/>
                             <constraint firstItem="I1U-EC-rXm" firstAttribute="leading" secondItem="KQn-Vb-fTx" secondAttribute="leading" type="default" id="cY9-ys-YYj"/>
                             <constraint firstItem="GiA-Y8-qCV" firstAttribute="top" secondItem="KQn-Vb-fTx" secondAttribute="top" type="default" id="eUG-sD-Ttj"/>
-                            <constraint firstItem="2hc-fA-iwr" firstAttribute="top" secondItem="WZH-hb-hCw" secondAttribute="bottom" constant="15" type="user" id="ghl-GC-S3n"/>
+                            <constraint firstItem="2hc-fA-iwr" firstAttribute="top" secondItem="WZH-hb-hCw" secondAttribute="bottom" constant="15" type="user" id="faK-PH-wFT"/>
                             <constraint firstItem="WZH-hb-hCw" firstAttribute="trailing" secondItem="cqJ-a4-kq2" secondAttribute="trailing" type="default" id="kTw-dD-Cvg"/>
                             <constraint firstItem="GiA-Y8-qCV" firstAttribute="bottom" secondItem="KQn-Vb-fTx" secondAttribute="bottom" type="default" id="mQA-qT-QyL"/>
                             <constraint firstItem="WZH-hb-hCw" firstAttribute="leading" secondItem="cqJ-a4-kq2" secondAttribute="leading" type="default" id="qIq-yd-CSF"/>
-                            <constraint firstAttribute="bottom" secondItem="WZH-hb-hCw" secondAttribute="bottom" constant="235" type="user" id="rpK-LY-F6Q"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2hc-fA-iwr" secondAttribute="bottom" constant="15" type="user" id="qL1-fb-x1Y"/>
                             <constraint firstItem="GiA-Y8-qCV" firstAttribute="leading" secondItem="KQn-Vb-fTx" secondAttribute="leading" type="default" id="wkJ-Ak-vgE"/>
-                            <constraint firstAttribute="bottom" secondItem="cqJ-a4-kq2" secondAttribute="bottom" constant="310" type="user" id="xqx-D4-ZwH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Info" id="t8A-tv-CFR"/>

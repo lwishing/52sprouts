@@ -22,8 +22,6 @@
 		8E6AAF71171D085B00E8F56E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6AAF70171D085B00E8F56E /* Accounts.framework */; };
 		8E6AAF73171D086500E8F56E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6AAF72171D086500E8F56E /* Social.framework */; };
 		8E6AAF75171D294400E8F56E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6AAF74171D294400E8F56E /* FacebookSDK.framework */; };
-		9308C5F317245C9100C24F84 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 9308C5F117245C9100C24F84 /* header.png */; };
-		9308C5F417245C9100C24F84 /* header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9308C5F217245C9100C24F84 /* header@2x.png */; };
 		9359D91F1720A56B0036D1AB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9359D91D1720A56B0036D1AB /* Icon.png */; };
 		9359D9201720A56B0036D1AB /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9359D91E1720A56B0036D1AB /* Icon@2x.png */; };
 		93813C601720835800199F12 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF08E660170D1C4800BDA831 /* Default-568h@2x.png */; };
@@ -39,6 +37,8 @@
 		93C84BC0172123E500601224 /* MuseoSans-700.otf in Resources */ = {isa = PBXBuildFile; fileRef = 93C84BBF172123E500601224 /* MuseoSans-700.otf */; };
 		9C1DFA6F171E6C42006F5363 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DFA6E171E6A33006F5363 /* LoginViewController.m */; };
 		9C57872B1722977700E490A3 /* FeedViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C57872A1722977700E490A3 /* FeedViewCell.m */; };
+		9C964B851725A8870082ED45 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 9308C5F117245C9100C24F84 /* header.png */; };
+		9C964B861725A8870082ED45 /* header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9308C5F217245C9100C24F84 /* header@2x.png */; };
 		9C9E5C3E171E5325003A2594 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9E5C3D171E5325003A2594 /* WelcomeViewController.m */; };
 		9CDB53841720A62A002F6E41 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		9CDB538B1720ADD1002F6E41 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -636,6 +636,8 @@
 				93BE48BC172389B000BD6CD0 /* login_sprout@2x.png in Resources */,
 				EF9A06F81724FD1900D5E369 /* toolbar.png in Resources */,
 				EF9A06F91724FD1900D5E369 /* toolbar@2x.png in Resources */,
+				9C964B851725A8870082ED45 /* header.png in Resources */,
+				9C964B861725A8870082ED45 /* header@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
