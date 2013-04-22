@@ -21,6 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 
+        
     }
     return self;
 }
@@ -29,6 +30,8 @@
 {    
     [super viewDidLoad];
     
+    //self.scrollView.contentSize = self.scrollView.frame.size;
+    
     //set the fonts
     [headerText setFont:[UIFont fontWithName:@"MuseoSans-500" size:14.0]];
     [descriptionText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
@@ -36,6 +39,20 @@
     [seasonText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [buyingHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
     [buyingText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
+    
+    [[headerView superview] bringSubviewToFront:headerView];
+    
+    //resizeable background image
+    //UIImage *backgroundImage = [[UIImage imageNamed:@"contentBackground"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 0, 10, 0)];
+    
+    UIImage *background = [UIImage imageNamed: @"contentBackground"];
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage: background];
+    
+    [descriptionView addSubview: backgroundView];
+    
+    [descriptionView sendSubviewToBack:backgroundView];
+    
+    
     
     PFQuery *query = [PFQuery queryWithClassName:@"Ingredient"];
     
@@ -49,11 +66,28 @@
                                          //set description text
                                          [descriptionText setText:[ingredient objectForKey:@"description"]];
                                          
+                                         //resize textframe to fit content
+                                         CGRect descriptionFrame = descriptionText.frame;
+                                         descriptionFrame.size.height = descriptionText.contentSize.height;
+                                         descriptionText.frame = descriptionFrame;
+                                         
                                          //set season text
                                          [seasonText setText:[NSString stringWithFormat:@"%@ through %@", [ingredient objectForKey:@"seasonStart"], [ingredient objectForKey:@"seasonEnd"]]];
                                          
+                                         CGRect seasonFrame = seasonText.frame;
+                                         seasonFrame.size.height = seasonText.contentSize.height;
+                                         seasonText.frame = seasonFrame;
+                                         
                                          //set when buying text
                                          [buyingText setText:[ingredient objectForKey:@"whenBuying"]];
+                                         
+                                         CGRect buyingFrame = buyingText.frame;
+                                         buyingFrame.size.height = buyingText.contentSize.height;
+                                         buyingText.frame = buyingFrame;
+                                    
+                                         
+                                         //set title bar's title to ingrediend
+                                         [self setTitle:[ingredient objectForKey:@"name"]]; 
                                          
                                          // The get request succeeded. Log the score
                                          NSLog(@"The ingredient is: %@", [ingredient objectForKey:@"name"]);
@@ -62,6 +96,7 @@
                                          NSLog(@"Error: %@", error);
                                      }
                                  }];
+    
     
 
     

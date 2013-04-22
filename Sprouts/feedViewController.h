@@ -13,5 +13,6 @@
 
 @property (nonatomic, strong) PFQueryTableViewController *childView;
 @property (weak, nonatomic) IBOutlet UIButton *scheduleBanner;
+@property (weak, nonatomic) IBOutlet UINavigationItem *ingredientHeader;
 
 @end
