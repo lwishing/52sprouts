@@ -21,6 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 
+        
     }
     return self;
 }
@@ -37,6 +38,7 @@
     [buyingHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
     [buyingText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Ingredient"];
     
     [query getObjectInBackgroundWithId:@"izH3jFduSU"
@@ -49,11 +51,28 @@
                                          //set description text
                                          [descriptionText setText:[ingredient objectForKey:@"description"]];
                                          
+                                         //resize textframe to fit content
+                                         CGRect descriptionFrame = descriptionText.frame;
+                                         descriptionFrame.size.height = descriptionText.contentSize.height;
+                                         descriptionText.frame = descriptionFrame;
+                                         
                                          //set season text
                                          [seasonText setText:[NSString stringWithFormat:@"%@ through %@", [ingredient objectForKey:@"seasonStart"], [ingredient objectForKey:@"seasonEnd"]]];
                                          
+                                         CGRect seasonFrame = seasonText.frame;
+                                         seasonFrame.size.height = seasonText.contentSize.height;
+                                         seasonText.frame = seasonFrame;
+                                         
                                          //set when buying text
                                          [buyingText setText:[ingredient objectForKey:@"whenBuying"]];
+                                         
+                                         CGRect buyingFrame = buyingText.frame;
+                                         buyingFrame.size.height = buyingText.contentSize.height;
+                                         buyingText.frame = buyingFrame;
+                                    
+                                         
+                                         //set title bar's title to ingrediend
+                                         [self setTitle:[ingredient objectForKey:@"name"]]; 
                                          
                                          // The get request succeeded. Log the score
                                          NSLog(@"The ingredient is: %@", [ingredient objectForKey:@"name"]);
@@ -62,6 +81,7 @@
                                          NSLog(@"Error: %@", error);
                                      }
                                  }];
+    
     
 
     
