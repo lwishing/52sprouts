@@ -9,9 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
-@interface Utility : NSObject
+@interface Utility : NSObject {
+    PFObject *currentWeek;
+    PFObject *currentIngredient;
+}
+
++ (Utility *) sharedInstance;
 
 - (PFObject *)getCurrentWeek;
-- (PFObject *)getCurrentIngredient:(PFObject *)week;
+- (PFObject *)getCurrentIngredient;
 
 @end

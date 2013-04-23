@@ -7,6 +7,7 @@
 //
 
 #import "IngredientInfoViewController.h"
+#import "Utility.h"
 
 @interface IngredientInfoViewController ()
 
@@ -52,53 +53,35 @@
     
     //[descriptionView sendSubviewToBack:backgroundView];
     
-    
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Ingredient"];
-    
-    [query getObjectInBackgroundWithId:@"izH3jFduSU"
-                                 block:^(PFObject *ingredient, NSError *error) {
-                                     if (!error) {
+    PFObject *ingredient = [[Utility sharedInstance] getCurrentIngredient];
                                          
-                                         //set header text to ingredient name
-                                         [headerText setText:[NSString stringWithFormat:@"ALL ABOUT %@", [[ingredient objectForKey:@"name"] uppercaseString]]];
-                                         
-                                         //set description text
-                                         [descriptionText setText:[ingredient objectForKey:@"description"]];
-                                         
-                                         //resize textframe to fit content
-                                         CGRect descriptionFrame = descriptionText.frame;
-                                         descriptionFrame.size.height = descriptionText.contentSize.height;
-                                         descriptionText.frame = descriptionFrame;
-                                         
-                                         //set season text
-                                         [seasonText setText:[NSString stringWithFormat:@"%@ through %@", [ingredient objectForKey:@"seasonStart"], [ingredient objectForKey:@"seasonEnd"]]];
-                                         
-                                         CGRect seasonFrame = seasonText.frame;
-                                         seasonFrame.size.height = seasonText.contentSize.height;
-                                         seasonText.frame = seasonFrame;
-                                         
-                                         //set when buying text
-                                         [buyingText setText:[ingredient objectForKey:@"whenBuying"]];
-                                         
-                                         CGRect buyingFrame = buyingText.frame;
-                                         buyingFrame.size.height = buyingText.contentSize.height;
-                                         buyingText.frame = buyingFrame;
-                                    
-                                         
-                                         //set title bar's title to ingrediend
-                                         [self setTitle:[ingredient objectForKey:@"name"]]; 
-                                         
-                                         // The get request succeeded. Log the score
-                                         NSLog(@"The ingredient is: %@", [ingredient objectForKey:@"name"]);
-                                     } else {
-                                         // Log details of our failure
-                                         NSLog(@"Error: %@", error);
-                                     }
-                                 }];
-    
-    
-
+     //set header text to ingredient name
+     [headerText setText:[NSString stringWithFormat:@"ALL ABOUT %@", [[ingredient objectForKey:@"name"] uppercaseString]]];
+     
+     //set description text
+     [descriptionText setText:[ingredient objectForKey:@"description"]];
+     
+     //resize textframe to fit content
+     CGRect descriptionFrame = descriptionText.frame;
+     descriptionFrame.size.height = descriptionText.contentSize.height;
+     descriptionText.frame = descriptionFrame;
+     
+     //set season text
+     [seasonText setText:[NSString stringWithFormat:@"%@ through %@", [ingredient objectForKey:@"seasonStart"], [ingredient objectForKey:@"seasonEnd"]]];
+     
+     CGRect seasonFrame = seasonText.frame;
+     seasonFrame.size.height = seasonText.contentSize.height;
+     seasonText.frame = seasonFrame;
+     
+     //set when buying text
+     [buyingText setText:[ingredient objectForKey:@"whenBuying"]];
+     
+     CGRect buyingFrame = buyingText.frame;
+     buyingFrame.size.height = buyingText.contentSize.height;
+     buyingText.frame = buyingFrame;
+     
+     //set title bar's title to ingredient
+     [self setTitle:[ingredient objectForKey:@"name"]]; 
     
     
 	// Do any additional setup after loading the view.

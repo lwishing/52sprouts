@@ -43,12 +43,9 @@
 	// Do any additional setup after loading the view.
     
     // Set ingredient of the week text
-    PFObject *week = [[[Utility alloc] init] getCurrentWeek];
-    PFObject *ingredient = [week objectForKey:@"ingredient"];
-    [ingredient fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        NSString *ingredientName = [ingredient objectForKey:@"name"];
-        _ingredientOfTheWeek.text = [ingredientName lowercaseString];
-    }];
+    PFObject *ingredient = [[Utility sharedInstance] getCurrentIngredient];
+    _ingredientOfTheWeek.text = [[ingredient objectForKey:@"name"] lowercaseString];
+
 
     [_sproutTitle becomeFirstResponder];
     

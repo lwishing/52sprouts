@@ -57,8 +57,8 @@
 {
     [super viewDidLoad];
     
-    PFObject *week = [[[Utility alloc] init] getCurrentWeek];
-    PFObject *ingredient = [week objectForKey:@"ingredient"];
+    Utility *util = [Utility sharedInstance];
+    PFObject *ingredient = [util getCurrentWeek];
     [ingredient fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         PFImageView *bannerImageView = [[PFImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 116.0)];
         bannerImageView.file = (PFFile *)[ingredient objectForKey:@"photo"]; // remote image

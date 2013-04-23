@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "Utility.h"
 
 
 @implementation AppDelegate
@@ -51,12 +52,12 @@
     [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"selected_menu_item.png"]];
     
     
-//    PFUser *currentUser = [PFUser currentUser];
-//    if (currentUser) {
-//        self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"main"];
-//    } else {
-//        self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"login"];
-//    }
+    // Utility - Get Current Week & Ingredient
+    Utility *util = [Utility sharedInstance];
+    NSString *week = [[util getCurrentWeek] objectForKey:@"week"];
+    NSString *ingredientName = [[util getCurrentIngredient] objectForKey:@"name"];
+    
+    NSLog(@"Week: %@, Ingredient: %@", week, ingredientName);
     
     return YES;
 }

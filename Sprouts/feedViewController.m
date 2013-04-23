@@ -27,13 +27,8 @@
     self.view.backgroundColor = [UIColor clearColor];
     
     // Set title to Ingredient of the Week
-    PFObject *week = [[[Utility alloc] init] getCurrentWeek];
-    PFObject *ingredient = [week objectForKey:@"ingredient"];
-    [ingredient fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        NSString *ingredientName = [ingredient objectForKey:@"name"];
-        self.ingredientHeader.title = ingredientName;
-    }];
-    
+    PFObject *ingredient = [[Utility sharedInstance] getCurrentIngredient];
+    self.ingredientHeader.title = [ingredient objectForKey:@"name"];
     
     // configure chld view controller view's frame
     self.childView.view.frame=CGRectMake( 0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height);

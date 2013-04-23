@@ -63,18 +63,6 @@
     [swipeUpGestureRecognizer setNumberOfTouchesRequired:1];
     [sproutButton addGestureRecognizer:swipeUpGestureRecognizer];
     
-    // get current week
-    PFObject *week = [[[Utility alloc] init] getCurrentWeek];
-    NSNumber *weekInt = [week objectForKey:@"week"];
-    NSLog(@"week: %@", weekInt);
-    
-    // get current ingredient
-    PFObject *ingredient = [week objectForKey:@"ingredient"];
-    [ingredient fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        NSString *ingredientName = [ingredient objectForKey:@"name"];
-        NSLog(@"ingredientName: %@", ingredientName);
-    }];
-    
     [self.view addSubview:sproutButton];
     
 }

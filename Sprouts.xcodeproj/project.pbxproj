@@ -64,6 +64,8 @@
 		9CEDF274171DE53000A25351 /* sprout_description@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CEDF266171DE53000A25351 /* sprout_description@2x.png */; };
 		9CEDF275171DE53000A25351 /* sprout_title.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CEDF267171DE53000A25351 /* sprout_title.png */; };
 		9CEDF276171DE53000A25351 /* sprout_title@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CEDF268171DE53000A25351 /* sprout_title@2x.png */; };
+		9CEE1BA6172608B4006C5D50 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 9308C5F117245C9100C24F84 /* header.png */; };
+		9CEE1BA7172608B7006C5D50 /* header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9308C5F217245C9100C24F84 /* header@2x.png */; };
 		EF08E64B170D1C4800BDA831 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF08E64A170D1C4800BDA831 /* UIKit.framework */; };
 		EF08E64D170D1C4800BDA831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF08E64C170D1C4800BDA831 /* Foundation.framework */; };
 		EF08E64F170D1C4800BDA831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF08E64E170D1C4800BDA831 /* CoreGraphics.framework */; };
@@ -177,7 +179,7 @@
 		9CEDF266171DE53000A25351 /* sprout_description@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sprout_description@2x.png"; sourceTree = "<group>"; };
 		9CEDF267171DE53000A25351 /* sprout_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprout_title.png; sourceTree = "<group>"; };
 		9CEDF268171DE53000A25351 /* sprout_title@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sprout_title@2x.png"; sourceTree = "<group>"; };
-		EF08E647170D1C4800BDA831 /* Sprouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sprouts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF08E647170D1C4800BDA831 /* 52 Sprouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "52 Sprouts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF08E64A170D1C4800BDA831 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EF08E64C170D1C4800BDA831 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EF08E64E170D1C4800BDA831 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -415,7 +417,7 @@
 		EF08E648170D1C4800BDA831 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EF08E647170D1C4800BDA831 /* Sprouts.app */,
+				EF08E647170D1C4800BDA831 /* 52 Sprouts.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -536,9 +538,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EF08E646170D1C4800BDA831 /* Sprouts */ = {
+		EF08E646170D1C4800BDA831 /* 52 Sprouts */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EF08E675170D1C4800BDA831 /* Build configuration list for PBXNativeTarget "Sprouts" */;
+			buildConfigurationList = EF08E675170D1C4800BDA831 /* Build configuration list for PBXNativeTarget "52 Sprouts" */;
 			buildPhases = (
 				EF08E643170D1C4800BDA831 /* Sources */,
 				EF08E644170D1C4800BDA831 /* Frameworks */,
@@ -548,9 +550,9 @@
 			);
 			dependencies = (
 			);
-			name = Sprouts;
+			name = "52 Sprouts";
 			productName = Sprouts;
-			productReference = EF08E647170D1C4800BDA831 /* Sprouts.app */;
+			productReference = EF08E647170D1C4800BDA831 /* 52 Sprouts.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -575,7 +577,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EF08E646170D1C4800BDA831 /* Sprouts */,
+				EF08E646170D1C4800BDA831 /* 52 Sprouts */,
 			);
 		};
 /* End PBXProject section */
@@ -645,6 +647,8 @@
 				93EFCB8D1725A9110089518F /* contentBackground@2x.png in Resources */,
 				93D841DE1725F4CD00FF8AF9 /* loading_photo.png in Resources */,
 				93D841DF1725F4CD00FF8AF9 /* loading_photo@2x.png in Resources */,
+				9CEE1BA6172608B4006C5D50 /* header.png in Resources */,
+				9CEE1BA7172608B7006C5D50 /* header@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,7 +832,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EF08E675170D1C4800BDA831 /* Build configuration list for PBXNativeTarget "Sprouts" */ = {
+		EF08E675170D1C4800BDA831 /* Build configuration list for PBXNativeTarget "52 Sprouts" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EF08E676170D1C4800BDA831 /* Debug */,
