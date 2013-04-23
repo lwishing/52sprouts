@@ -16,7 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIView *descriptionView;
 @property (weak, nonatomic) IBOutlet UIView *buyingView;
-@property (weak, nonatomic) IBOutlet UITextView *seasonView;
+@property (weak, nonatomic) IBOutlet UIView *seasonView;
+@property (weak, nonatomic) IBOutlet UIView *storingView;
 
 @property (weak, nonatomic) IBOutlet UITextView *descriptionText;
 @property (weak, nonatomic) IBOutlet UILabel *headerText;
@@ -25,7 +26,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *buyingText;
 @property (weak, nonatomic) IBOutlet UILabel *buyingHeader;
 
+@property (weak, nonatomic) IBOutlet UILabel *storingHeader;
+@property (weak, nonatomic) IBOutlet UITextView *storingText;
 
-//@property (weak, nonatomic) IBOutlet UIView *seasonView;
+
 
 @end

@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EF08E646170D1C4800BDA831"
-               BuildableName = "Sprouts.app"
-               BlueprintName = "Sprouts"
+               BuildableName = "52 Sprouts.app"
+               BlueprintName = "52 Sprouts"
                ReferencedContainer = "container:Sprouts.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EF08E646170D1C4800BDA831"
-            BuildableName = "Sprouts.app"
-            BlueprintName = "Sprouts"
+            BuildableName = "52 Sprouts.app"
+            BlueprintName = "52 Sprouts"
             ReferencedContainer = "container:Sprouts.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -52,8 +52,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EF08E646170D1C4800BDA831"
-            BuildableName = "Sprouts.app"
-            BlueprintName = "Sprouts"
+            BuildableName = "52 Sprouts.app"
+            BlueprintName = "52 Sprouts"
             ReferencedContainer = "container:Sprouts.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -70,8 +70,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EF08E646170D1C4800BDA831"
-            BuildableName = "Sprouts.app"
-            BlueprintName = "Sprouts"
+            BuildableName = "52 Sprouts.app"
+            BlueprintName = "52 Sprouts"
             ReferencedContainer = "container:Sprouts.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
