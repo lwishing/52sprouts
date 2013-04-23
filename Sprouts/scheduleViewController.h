@@ -13,7 +13,19 @@
 
 @property (nonatomic, strong) NSString* dayOfWeek;
 @property (nonatomic, strong) NSString* todayDate;
+@property (nonatomic, strong) NSDate* dayOneActual;
+@property (nonatomic, strong) NSDate* dayTwoActual;
+@property (nonatomic, strong) NSDate* dayThreeActual;
+@property (nonatomic, strong) NSDate* dayFourActual;
+@property (nonatomic, strong) NSDate* dayFiveActual;
+@property (nonatomic, strong) NSDate* daySixActual;
+@property (nonatomic, strong) NSDate* daySevenActual;
 
+
+@property (nonatomic, strong) PFObject* week;
+@property (nonatomic, strong) PFObject* ingredient;
+
+@property (strong, nonatomic) IBOutlet UILabel *scheduleMessage;
 
 @property (strong, nonatomic) IBOutlet UILabel *dayOneLabel;
 @property (strong, nonatomic) IBOutlet UILabel *dayTwoLabel;
@@ -41,6 +53,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *daySeven;
 
 - (IBAction)dayPressed:(UIButton *)sender;
+
+- (void)scheduleNotification: (NSDate *)input;
 
 
 @end

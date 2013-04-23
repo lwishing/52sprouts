@@ -17,7 +17,15 @@
 @implementation scheduleViewController
 
 @synthesize dayOfWeek;
-@synthesize todayDate;
+@synthesize week;
+@synthesize ingredient;
+@synthesize dayOneActual;
+@synthesize dayTwoActual;
+@synthesize dayThreeActual;
+@synthesize dayFourActual;
+@synthesize dayFiveActual;
+@synthesize daySixActual;
+@synthesize daySevenActual;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,17 +52,28 @@
     NSDateFormatter *buttonDate = [[NSDateFormatter alloc] init];
     [buttonDate setDateFormat:@"M/d"];
     
-    // get current week
-    PFObject *week = [[[Utility alloc] init] getCurrentWeek];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEEE, MMM d, ''yy, h:mm a"];
     
-    // create NSDate objects for each day of week
-    NSDate *dayOneActual = [week objectForKey:@"startDate"];
-    NSDate *dayTwoActual = [dayOneActual dateByAddingTimeInterval:60*60*24*1];
-    NSDate *dayThreeActual = [dayOneActual dateByAddingTimeInterval:60*60*24*2];
-    NSDate *dayFourActual = [dayOneActual dateByAddingTimeInterval:60*60*24*3];
-    NSDate *dayFiveActual = [dayOneActual dateByAddingTimeInterval:60*60*24*4];
-    NSDate *daySixActual = [dayOneActual dateByAddingTimeInterval:60*60*24*5];
-    NSDate *daySevenActual = [dayOneActual dateByAddingTimeInterval:60*60*24*6];
+    // get current week
+    week = [[Utility sharedInstance] getCurrentWeek];
+    ingredient = [[Utility sharedInstance] getCurrentIngredient];
+    
+    // create NSDate objects for each day of week, timed at 11am
+    dayOneActual = [[week objectForKey:@"startDate"] dateByAddingTimeInterval:60*60*11];
+    NSLog(@"Day 1: %@", [dateFormatter stringFromDate:dayOneActual]);
+    dayTwoActual = [dayOneActual dateByAddingTimeInterval:60*60*24*1];
+    NSLog(@"Day 2: %@", [dateFormatter stringFromDate:dayTwoActual]);
+    dayThreeActual = [dayOneActual dateByAddingTimeInterval:60*60*24*2];
+    NSLog(@"Day 3: %@", [dateFormatter stringFromDate:dayThreeActual]);
+    dayFourActual = [dayOneActual dateByAddingTimeInterval:60*60*24*3];
+    NSLog(@"Day 4: %@", [dateFormatter stringFromDate:dayFourActual]);
+    dayFiveActual = [dayOneActual dateByAddingTimeInterval:60*60*24*4];
+    NSLog(@"Day 5: %@", [dateFormatter stringFromDate:dayFiveActual]);
+    daySixActual = [dayOneActual dateByAddingTimeInterval:60*60*24*5];
+    NSLog(@"Day 6: %@", [dateFormatter stringFromDate:daySixActual]);
+    daySevenActual = [dayOneActual dateByAddingTimeInterval:60*60*24*6];
+    NSLog(@"Day 7: %@", [dateFormatter stringFromDate:daySevenActual]);
     
     // show date string below each button
     self.dayOneDate.text = [buttonDate stringFromDate:dayOneActual];
@@ -98,35 +117,6 @@
         [self.dayFive setEnabled:NO];
         [self.daySix setEnabled:NO];
     }
-
-    // day calculations
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEEE, MMM d, ''yy, h:mm a"];
-    NSLog(@"Today: %@", [dateFormatter stringFromDate:[NSDate date]]);
-    
-    NSDate *todaydate = [[NSDate alloc] init];
-    NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
-    [offsetComponents setDay:1];
-    NSDate *tomorrow = [gregorian dateByAddingComponents:offsetComponents
-                                                  toDate:todaydate options:0];
-    NSLog(@"Tomorrow: %@", [dateFormatter stringFromDate:tomorrow]);
-    
-    
-    NSDateComponents *components =
-    [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit |
-                           NSDayCalendarUnit) fromDate: tomorrow];
-    tomorrow = [gregorian dateFromComponents:components];
-    NSLog(@"Tomorrow normalized: %@", [dateFormatter stringFromDate:tomorrow]);
-    
-    NSDateComponents *offsetHour = [[NSDateComponents alloc] init];
-    [offsetHour setHour:11];
-    
-    NSDate *tomorrowNoon = [gregorian dateByAddingComponents:offsetHour
-                                                      toDate:tomorrow options:0];
-    NSLog(@"Tomorrow 11am: %@", [dateFormatter stringFromDate:tomorrowNoon]);
-    
     
 }
 - (IBAction)backButtonPressed:(UIBarButtonItem *)sender {
@@ -139,21 +129,63 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)scheduleNotification: (NSDate *)inputDate{
+    // reset notifications each time method is called
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = inputDate;
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    localNotification.alertBody = @"You're supposed to cook tomorrow!";
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEEE, MMM d, ''yy, h:mm a"];
+    NSLog(@"Notification scheduled for %@",[dateFormatter stringFromDate:inputDate]);
+}
+
+
 - (IBAction)dayPressed:(UIButton *)sender {
+    
+//    line of code below schedules a notification 10 seconds in future
+//    [self scheduleNotification:[NSDate dateWithTimeIntervalSinceNow:10]];
+    
     if ([[sender currentTitle] isEqualToString:@"dayOne"]) {
         NSLog(@"Button pressed: Tuesday");
+        [self scheduleNotification:[dayOneActual dateByAddingTimeInterval:-60*60*24*1]];
+        self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
+        
+        
     } else if ([[sender currentTitle] isEqualToString:@"dayTwo"]) {
         NSLog(@"Button pressed: Wednesday");
+        [self scheduleNotification:[dayTwoActual dateByAddingTimeInterval:-60*60*24*1]];
+        self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
+        
     } else if ([[sender currentTitle] isEqualToString:@"dayThree"]) {
         NSLog(@"Button pressed: Thursday");
+        [self scheduleNotification:[dayThreeActual dateByAddingTimeInterval:-60*60*24*1]];
+        self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
+        
     } else if ([[sender currentTitle] isEqualToString:@"dayFour"]) {
         NSLog(@"Button pressed: Friday");
+        [self scheduleNotification:[dayFourActual dateByAddingTimeInterval:-60*60*24*1]];
+        self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
+        
     } else if ([[sender currentTitle] isEqualToString:@"dayFive"]) {
         NSLog(@"Button pressed: Saturday");
+        [self scheduleNotification:[dayFiveActual dateByAddingTimeInterval:-60*60*24*1]];
+        self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
+        
     } else if ([[sender currentTitle] isEqualToString:@"daySix"]) {
         NSLog(@"Button pressed: Sunday");
+        [self scheduleNotification:[daySixActual dateByAddingTimeInterval:-60*60*24*1]];
+        self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
+        
     }else if ([[sender currentTitle] isEqualToString:@"daySeven"]) {
         NSLog(@"Button pressed: Monday");
+        [self scheduleNotification:[daySevenActual dateByAddingTimeInterval:-60*60*24*1]];
+        self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
+        
     }
 }
 @end
