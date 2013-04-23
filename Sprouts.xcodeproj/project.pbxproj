@@ -66,6 +66,8 @@
 		9CEDF276171DE53000A25351 /* sprout_title@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CEDF268171DE53000A25351 /* sprout_title@2x.png */; };
 		9CEE1BA6172608B4006C5D50 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 9308C5F117245C9100C24F84 /* header.png */; };
 		9CEE1BA7172608B7006C5D50 /* header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9308C5F217245C9100C24F84 /* header@2x.png */; };
+		9CEE1BB717267C29006C5D50 /* TTTTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEE1BB617267C29006C5D50 /* TTTTimeIntervalFormatter.m */; };
+		9CEE1BBB17267C64006C5D50 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEE1BBA17267C64006C5D50 /* MBProgressHUD.m */; };
 		EF08E64B170D1C4800BDA831 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF08E64A170D1C4800BDA831 /* UIKit.framework */; };
 		EF08E64D170D1C4800BDA831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF08E64C170D1C4800BDA831 /* Foundation.framework */; };
 		EF08E64F170D1C4800BDA831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF08E64E170D1C4800BDA831 /* CoreGraphics.framework */; };
@@ -179,6 +181,10 @@
 		9CEDF266171DE53000A25351 /* sprout_description@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sprout_description@2x.png"; sourceTree = "<group>"; };
 		9CEDF267171DE53000A25351 /* sprout_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprout_title.png; sourceTree = "<group>"; };
 		9CEDF268171DE53000A25351 /* sprout_title@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sprout_title@2x.png"; sourceTree = "<group>"; };
+		9CEE1BB517267C29006C5D50 /* TTTTimeIntervalFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTTimeIntervalFormatter.h; sourceTree = "<group>"; };
+		9CEE1BB617267C29006C5D50 /* TTTTimeIntervalFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTTimeIntervalFormatter.m; sourceTree = "<group>"; };
+		9CEE1BB917267C64006C5D50 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		9CEE1BBA17267C64006C5D50 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		EF08E647170D1C4800BDA831 /* 52 Sprouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "52 Sprouts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF08E64A170D1C4800BDA831 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EF08E64C170D1C4800BDA831 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -398,10 +404,32 @@
 		9CDB538F1720AE03002F6E41 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				9CEE1BB817267C64006C5D50 /* MBProgressHUD */,
+				9CEE1BB417267C29006C5D50 /* TTTTimeIntervalFormatter */,
 				9CDB538E1720ADE0002F6E41 /* UIImage+Additions */,
 			);
 			name = External;
 			path = Sprouts;
+			sourceTree = "<group>";
+		};
+		9CEE1BB417267C29006C5D50 /* TTTTimeIntervalFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				9CEE1BB517267C29006C5D50 /* TTTTimeIntervalFormatter.h */,
+				9CEE1BB617267C29006C5D50 /* TTTTimeIntervalFormatter.m */,
+			);
+			name = TTTTimeIntervalFormatter;
+			path = ../External/TTTTimeIntervalFormatter;
+			sourceTree = "<group>";
+		};
+		9CEE1BB817267C64006C5D50 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				9CEE1BB917267C64006C5D50 /* MBProgressHUD.h */,
+				9CEE1BBA17267C64006C5D50 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			path = ../External/MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		EF08E63E170D1C4800BDA831 = {
@@ -683,6 +711,8 @@
 				9CE5642717211C2A0008B5BA /* FeedTableViewController.m in Sources */,
 				9C57872B1722977700E490A3 /* FeedViewCell.m in Sources */,
 				EF18B5A41724C63400F4ADC7 /* WebViewController.m in Sources */,
+				9CEE1BB717267C29006C5D50 /* TTTTimeIntervalFormatter.m in Sources */,
+				9CEE1BBB17267C64006C5D50 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
