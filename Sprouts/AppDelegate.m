@@ -47,18 +47,13 @@
     // Nav bar back button appearance
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:(97/255.0) green:(71/255.0) blue:(39/255.0) alpha:1.0]];
     
-    // Tab bar appearance
-    [[UITabBar appearance] setBackgroundImage: [UIImage imageNamed:@"tab_bar_background.png"]];
-    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"selected_menu_item.png"]];
-    
-    
     // Utility - Get Current Week & Ingredient
     Utility *util = [Utility sharedInstance];
     NSString *week = [[util getCurrentWeek] objectForKey:@"week"];
     NSString *ingredientName = [[util getCurrentIngredient] objectForKey:@"name"];
-    
     NSLog(@"Week: %@, Ingredient: %@", week, ingredientName);
     
+
     return YES;
 }
 
