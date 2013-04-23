@@ -12,6 +12,8 @@
 @interface scheduleViewController : UIViewController
 
 @property (nonatomic, strong) NSString* dayOfWeek;
+@property (nonatomic, strong) NSString* todayDate;
+
 
 @property (strong, nonatomic) IBOutlet UILabel *dayOneLabel;
 @property (strong, nonatomic) IBOutlet UILabel *dayTwoLabel;
@@ -21,6 +23,15 @@
 @property (strong, nonatomic) IBOutlet UILabel *daySixLabel;
 @property (strong, nonatomic) IBOutlet UILabel *daySevenLabel;
 
+@property (strong, nonatomic) IBOutlet UILabel *dayOneDate;
+@property (strong, nonatomic) IBOutlet UILabel *dayTwoDate;
+@property (strong, nonatomic) IBOutlet UILabel *dayThreeDate;
+@property (strong, nonatomic) IBOutlet UILabel *dayFourDate;
+@property (strong, nonatomic) IBOutlet UILabel *dayFiveDate;
+@property (strong, nonatomic) IBOutlet UILabel *daySixDate;
+@property (strong, nonatomic) IBOutlet UILabel *daySevenDate;
+
+
 @property (strong, nonatomic) IBOutlet UIButton *dayOne;
 @property (strong, nonatomic) IBOutlet UIButton *dayTwo;
 @property (strong, nonatomic) IBOutlet UIButton *dayThree;
@@ -29,12 +40,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *daySix;
 @property (strong, nonatomic) IBOutlet UIButton *daySeven;
 
-- (IBAction)dayOnePressed:(UIButton *)sender;
-- (IBAction)dayTwoPressed:(UIButton *)sender;
-- (IBAction)dayThreePressed:(UIButton *)sender;
-- (IBAction)dayFourPressed:(UIButton *)sender;
-- (IBAction)dayFivePressed:(UIButton *)sender;
-- (IBAction)daySixPressed:(UIButton *)sender;
-- (IBAction)daySevenPressed:(UIButton *)sender;
+- (IBAction)dayPressed:(UIButton *)sender;
+
 
 @end
