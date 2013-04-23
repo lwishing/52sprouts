@@ -48,7 +48,10 @@
 
     // Keyboard up on load
     [_sproutTitle becomeFirstResponder];
-    [_sproutTitle setDelegate: self];
+    
+    // Set Delegates
+    [_sproutTitle setDelegate: (id)self];
+    [_sproutDescription setDelegate: (id)self];
     
     // Add placeholder
     _sproutDescription.placeholder = @"Add Tip or Description";
@@ -76,7 +79,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#define MAXLENGTH 40
 #pragma mark - UITextFieldDelegate
 - (BOOL)textField:(UITextField *) textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
@@ -88,8 +90,22 @@
     
     BOOL returnKey = [string rangeOfString: @"\n"].location != NSNotFound;
     
-    return newLength <= MAXLENGTH || returnKey;
+    return newLength <= 40 || returnKey;
 }
+
+#pragma mark - UITextViewDelegate
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)string{
+    NSUInteger oldLength = [textView.text length];
+    NSUInteger replacementLength = [string length];
+    NSUInteger rangeLength = range.length;
+    
+    NSUInteger newLength = oldLength - rangeLength + replacementLength;
+    
+    BOOL returnKey = [string rangeOfString: @"\n"].location != NSNotFound;
+    
+    return newLength <= 140 || returnKey;
+}
+
 
 // Cancel new Sprout
 - (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender {
