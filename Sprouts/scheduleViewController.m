@@ -17,6 +17,7 @@
 @implementation scheduleViewController
 
 @synthesize dayOfWeek;
+@synthesize todayDate;
 @synthesize week;
 @synthesize ingredient;
 @synthesize dayOneActual;
@@ -59,8 +60,18 @@
     week = [[Utility sharedInstance] getCurrentWeek];
     ingredient = [[Utility sharedInstance] getCurrentIngredient];
     
+    // get startDate of the week, and normalize it to Monday 12am for local time zone
+    NSDate *startDate = [week objectForKey:@"startDate"];
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components =
+    [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit |
+                           NSDayCalendarUnit) fromDate: startDate];
+    startDate = [gregorian dateFromComponents:components];
+    NSLog(@"startDate: %@", [dateFormatter stringFromDate:startDate]);
+
     // create NSDate objects for each day of week, timed at 11am
-    dayOneActual = [[week objectForKey:@"startDate"] dateByAddingTimeInterval:60*60*11];
+    dayOneActual = [startDate dateByAddingTimeInterval:60*60*11];
     NSLog(@"Day 1: %@", [dateFormatter stringFromDate:dayOneActual]);
     dayTwoActual = [dayOneActual dateByAddingTimeInterval:60*60*24*1];
     NSLog(@"Day 2: %@", [dateFormatter stringFromDate:dayTwoActual]);
@@ -85,7 +96,7 @@
     self.daySevenDate.text = [buttonDate stringFromDate:daySevenActual];
 
     
-    dayOfWeek = @"Tuesday";
+//    dayOfWeek = @"Tuesday";
     
     // disable buttons if day has passed
     if ([dayOfWeek isEqualToString:@"Tuesday"]) {
@@ -133,15 +144,21 @@
 - (void)scheduleNotification: (NSDate *)inputDate{
     // reset notifications each time method is called
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = inputDate;
-    localNotification.soundName = UILocalNotificationDefaultSoundName;
-    localNotification.alertBody = @"You're supposed to cook tomorrow!";
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEEE, MMM d, ''yy, h:mm a"];
-    NSLog(@"Notification scheduled for %@",[dateFormatter stringFromDate:inputDate]);
+    if ([inputDate compare:[NSDate date]] == NSOrderedAscending) {
+        NSLog(@"inputDate is before current time");
+    } else {
+        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = inputDate;
+        localNotification.soundName = UILocalNotificationDefaultSoundName;
+        localNotification.alertBody = @"Remember, you're supposed to cook tomorrow! Make sure to go get your ingredients.";
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"EEEE, MMM d, ''yy, h:mm a"];
+        NSLog(@"Notification scheduled for %@",[dateFormatter stringFromDate:inputDate]);
+    }
+    
 }
 
 
@@ -152,7 +169,8 @@
     
     if ([[sender currentTitle] isEqualToString:@"dayOne"]) {
         NSLog(@"Button pressed: Tuesday");
-        [self scheduleNotification:[dayOneActual dateByAddingTimeInterval:-60*60*24*1]];
+//        [self scheduleNotification:[dayOneActual dateByAddingTimeInterval:-60*60*24*1]];
+        [self scheduleNotification:[NSDate dateWithTimeIntervalSinceNow:10]];
         self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
         
         
