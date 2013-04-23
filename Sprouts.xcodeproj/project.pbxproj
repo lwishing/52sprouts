@@ -34,12 +34,12 @@
 		93C84BBD17211FDE00601224 /* MuseoSans-300.otf in Resources */ = {isa = PBXBuildFile; fileRef = 93C84BBB17211FB000601224 /* MuseoSans-300.otf */; };
 		93C84BBE17211FE100601224 /* MuseoSans-500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 93C84BBC17211FB100601224 /* MuseoSans-500.otf */; };
 		93C84BC0172123E500601224 /* MuseoSans-700.otf in Resources */ = {isa = PBXBuildFile; fileRef = 93C84BBF172123E500601224 /* MuseoSans-700.otf */; };
+		93D841DE1725F4CD00FF8AF9 /* loading_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D841DC1725F4CD00FF8AF9 /* loading_photo.png */; };
+		93D841DF1725F4CD00FF8AF9 /* loading_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D841DD1725F4CD00FF8AF9 /* loading_photo@2x.png */; };
 		93EFCB8C1725A9110089518F /* contentBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 93EFCB8A1725A9110089518F /* contentBackground.png */; };
 		93EFCB8D1725A9110089518F /* contentBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93EFCB8B1725A9110089518F /* contentBackground@2x.png */; };
 		9C1DFA6F171E6C42006F5363 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DFA6E171E6A33006F5363 /* LoginViewController.m */; };
 		9C57872B1722977700E490A3 /* FeedViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C57872A1722977700E490A3 /* FeedViewCell.m */; };
-		9C964B851725A8870082ED45 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 9308C5F117245C9100C24F84 /* header.png */; };
-		9C964B861725A8870082ED45 /* header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9308C5F217245C9100C24F84 /* header@2x.png */; };
 		9C9E5C3E171E5325003A2594 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9E5C3D171E5325003A2594 /* WelcomeViewController.m */; };
 		9CDB53841720A62A002F6E41 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		9CDB538B1720ADD1002F6E41 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -143,6 +143,8 @@
 		93C84BBB17211FB000601224 /* MuseoSans-300.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-300.otf"; sourceTree = "<group>"; };
 		93C84BBC17211FB100601224 /* MuseoSans-500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-500.otf"; sourceTree = "<group>"; };
 		93C84BBF172123E500601224 /* MuseoSans-700.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-700.otf"; sourceTree = "<group>"; };
+		93D841DC1725F4CD00FF8AF9 /* loading_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_photo.png; sourceTree = "<group>"; };
+		93D841DD1725F4CD00FF8AF9 /* loading_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_photo@2x.png"; sourceTree = "<group>"; };
 		93EFCB8A1725A9110089518F /* contentBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contentBackground.png; sourceTree = "<group>"; };
 		93EFCB8B1725A9110089518F /* contentBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contentBackground@2x.png"; sourceTree = "<group>"; };
 		9C1DFA6D171E6A33006F5363 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -477,6 +479,8 @@
 		EF08E678170D1D9A00BDA831 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				93D841DC1725F4CD00FF8AF9 /* loading_photo.png */,
+				93D841DD1725F4CD00FF8AF9 /* loading_photo@2x.png */,
 				93EFCB8A1725A9110089518F /* contentBackground.png */,
 				93EFCB8B1725A9110089518F /* contentBackground@2x.png */,
 				9308C5F117245C9100C24F84 /* header.png */,
@@ -639,6 +643,8 @@
 				EF9A06F91724FD1900D5E369 /* toolbar@2x.png in Resources */,
 				93EFCB8C1725A9110089518F /* contentBackground.png in Resources */,
 				93EFCB8D1725A9110089518F /* contentBackground@2x.png in Resources */,
+				93D841DE1725F4CD00FF8AF9 /* loading_photo.png in Resources */,
+				93D841DF1725F4CD00FF8AF9 /* loading_photo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

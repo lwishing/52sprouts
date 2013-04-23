@@ -22,4 +22,21 @@
     return week;
 }
 
+- (PFObject *)getCurrentIngredient:(PFObject *)week {
+    NSString *ingredientID = [week objectForKey:@"ingredient"];
+    PFQuery *ingredientQuery = [PFQuery queryWithClassName:@"Ingredient"];
+    [ingredientQuery whereKey:@"objectId" equalTo:ingredientID];
+    [ingredientQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d scores.", objects.count);
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    PFObject *ingredientObject = [ingredientQuery getFirstObject];
+    return ingredientObject;
+}
+
 @end
