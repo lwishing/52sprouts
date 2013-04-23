@@ -27,6 +27,7 @@
 @synthesize dayFiveActual;
 @synthesize daySixActual;
 @synthesize daySevenActual;
+@synthesize dayOne, dayTwo, dayThree, dayFour, dayFive, daySix, daySeven;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -166,6 +167,15 @@
     
 //    line of code below schedules a notification 10 seconds in future
 //    [self scheduleNotification:[NSDate dateWithTimeIntervalSinceNow:10]];
+    
+    [dayOne setSelected:NO];
+    [dayTwo setSelected:NO];
+    [dayThree setSelected:NO];
+    [dayFour setSelected:NO];
+    [dayFive setSelected:NO];
+    [daySix setSelected:NO];
+    [daySeven setSelected:NO];
+    [sender setSelected:YES];
     
     if ([[sender currentTitle] isEqualToString:@"dayOne"]) {
         NSLog(@"Button pressed: Tuesday");
