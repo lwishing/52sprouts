@@ -63,13 +63,13 @@
 
 - (IBAction)loadPrivacyPolicy:(id)sender {
     WebViewController *webViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
-    webViewController.theURL = [NSURL URLWithString:@"https://parse.com/about/privacy"];
+    webViewController.theURL = [NSURL URLWithString:@"http://52sprouts.com/privacy"];
     [self presentViewController:webViewController animated:YES completion:nil];
 }
 
 - (IBAction)loadTOS:(id)sender {
     WebViewController *webViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
-    webViewController.theURL = [NSURL URLWithString:@"https://parse.com/about/terms"];
+    webViewController.theURL = [NSURL URLWithString:@"http://52sprouts.com/terms"];
     [self presentViewController:webViewController animated:YES completion:nil];
 }
 
