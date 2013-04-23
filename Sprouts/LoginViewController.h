@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSMutableData *imageData;
 @property (weak, nonatomic) IBOutlet UILabel *sprouts;
 @property (weak, nonatomic) IBOutlet UILabel *blurb;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end

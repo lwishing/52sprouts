@@ -1280,9 +1280,14 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pd9-xn-PpF"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Eh-gd-NV4">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="fp5-um-fQM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Login with Facebook">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="43" minY="0.0" maxX="0.0" maxY="-3"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="Login with Facebook" backgroundImage="facebook_button.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -1329,19 +1334,21 @@ one vegetable at a time.</string>
                             <constraint firstItem="qlm-uv-npl" firstAttribute="centerX" secondItem="9Eh-gd-NV4" secondAttribute="centerX" type="default" id="7nl-vh-wAe"/>
                             <constraint firstItem="Pd9-xn-PpF" firstAttribute="bottom" secondItem="P6x-9o-bi0" secondAttribute="bottom" type="default" id="Api-Zh-aip"/>
                             <constraint firstItem="Pd9-xn-PpF" firstAttribute="top" secondItem="P6x-9o-bi0" secondAttribute="top" type="default" id="EfL-Mc-58Y"/>
-                            <constraint firstAttribute="bottom" secondItem="9Eh-gd-NV4" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="FAz-Mo-UEp"/>
                             <constraint firstItem="hiF-aA-vn9" firstAttribute="centerX" secondItem="qlm-uv-npl" secondAttribute="centerX" type="default" id="MaM-5J-lYD"/>
-                            <constraint firstItem="Pd9-xn-PpF" firstAttribute="centerX" secondItem="30U-d4-ga6" secondAttribute="centerX" type="default" id="NJu-ce-vFj"/>
                             <constraint firstItem="9Eh-gd-NV4" firstAttribute="leading" secondItem="P6x-9o-bi0" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Pka-sz-1fc"/>
                             <constraint firstItem="hiF-aA-vn9" firstAttribute="centerX" secondItem="30U-d4-ga6" secondAttribute="centerX" type="default" id="TqL-Ts-IJe"/>
+                            <constraint firstItem="9Eh-gd-NV4" firstAttribute="centerX" secondItem="Pd9-xn-PpF" secondAttribute="centerX" type="default" id="UdY-9Q-bLB"/>
                             <constraint firstItem="hiF-aA-vn9" firstAttribute="top" secondItem="P6x-9o-bi0" secondAttribute="top" constant="117" id="aPp-Qx-ZqB"/>
                             <constraint firstItem="qlm-uv-npl" firstAttribute="top" secondItem="P6x-9o-bi0" secondAttribute="top" constant="285" type="user" id="atl-Tr-iUI"/>
+                            <constraint firstAttribute="bottom" secondItem="9Eh-gd-NV4" secondAttribute="bottom" constant="19" id="d6N-FO-2Vq"/>
+                            <constraint firstItem="Pd9-xn-PpF" firstAttribute="trailing" secondItem="P6x-9o-bi0" secondAttribute="trailing" type="default" id="du3-la-bXH"/>
                             <constraint firstItem="Pd9-xn-PpF" firstAttribute="leading" secondItem="P6x-9o-bi0" secondAttribute="leading" type="default" id="riF-xf-OiA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1iz-fO-rb9"/>
                     <connections>
                         <outlet property="blurb" destination="qlm-uv-npl" id="Wvi-Px-cK5"/>
+                        <outlet property="loginButton" destination="9Eh-gd-NV4" id="K4f-3U-ync"/>
                         <outlet property="sprouts" destination="30U-d4-ga6" id="Nbj-9I-oTQ"/>
                         <segue destination="4" kind="modal" identifier="loginToMain" modalTransitionStyle="crossDissolve" id="XE6-Mb-rzK"/>
                     </connections>
@@ -1458,6 +1465,7 @@ one vegetable at a time.</string>
     </scenes>
     <resources>
         <image name="background.png" width="320" height="568"/>
+        <image name="facebook_button.png" width="320" height="44"/>
         <image name="feed_icon_deselected.png" width="16" height="28"/>
         <image name="header.png" width="320" height="37"/>
         <image name="ingredients_button.png" width="150" height="27"/>
@@ -1467,6 +1475,151 @@ one vegetable at a time.</string>
         <image name="schedule_button.png" width="320" height="35"/>
         <image name="schedule_day.png" width="32" height="32"/>
     </resources>
+    <classes>
+        <class className="FeedTableViewController" superclassName="PFQueryTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="ingredientBanner" candidateClass="PFImageView"/>
+                <relationship kind="outlet" name="ingredientButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="FeedViewCell" superclassName="PFTableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="sproutDescription" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sproutImage" candidateClass="PFImageView"/>
+                <relationship kind="outlet" name="sproutTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sproutedAt" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userAvatar" candidateClass="PFImageView"/>
+                <relationship kind="outlet" name="userName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="IngredientInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IngredientInfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="buyingHeader" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="buyingText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="buyingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="descriptionText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="descriptionView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="headerText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="seasonHeader" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="seasonText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="seasonView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="blurb" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="sprouts" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PFImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFImageView.h"/>
+        </class>
+        <class className="PFQueryTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFQueryTableViewController.h"/>
+        </class>
+        <class className="PFTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFTableViewCell.h"/>
+        </class>
+        <class className="SSTextView" superclassName="UITextView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSTextView.h"/>
+        </class>
+        <class className="SproutsTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SproutsTabBarController.h"/>
+        </class>
+        <class className="WebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="action" name="openInSafari:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="WelcomeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WelcomeViewController.h"/>
+        </class>
+        <class className="addIngredientsToSproutViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/addIngredientsToSproutViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="doneButtonPressed:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="feedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/feedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="ingredientHeader" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="scheduleBanner" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="profileViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/profileViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="profileImage" candidateClass="PFImageView"/>
+                <relationship kind="outlet" name="profileName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="scheduleViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/scheduleViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dayPressed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dayFive" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dayFiveDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayFiveLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayFour" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dayFourDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayFourLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayOne" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dayOneDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayOneLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="daySeven" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="daySevenDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="daySevenLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="daySix" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="daySixDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="daySixLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayThree" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dayThreeDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayThreeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayTwo" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dayTwoDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayTwoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scheduleMessage" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="settingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/settingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loadPrivacyPolicy:"/>
+                <relationship kind="action" name="loadTOS:"/>
+                <relationship kind="action" name="loadTwitter:"/>
+                <relationship kind="action" name="loadWebsite:"/>
+                <relationship kind="action" name="logoutPressed:"/>
+            </relationships>
+        </class>
+        <class className="sproutsActionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/sproutsActionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="photoButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="shareButtonPressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="ingredientOfTheWeek" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sproutDescription" candidateClass="SSTextView"/>
+                <relationship kind="outlet" name="sproutImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="sproutScrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="sproutTitle" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
