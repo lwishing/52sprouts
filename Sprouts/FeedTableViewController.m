@@ -10,13 +10,14 @@
 #import "FeedViewCell.h"
 #import "UIImage+ResizeAdditions.h"
 #import "Utility.h"
+#import "TTTTimeIntervalFormatter.h"
 
 @interface FeedTableViewController ()
-
 @end
 
-@implementation FeedTableViewController
+static TTTTimeIntervalFormatter *timeFormatter;
 
+@implementation FeedTableViewController
 
 @synthesize ingredientButton = _ingredientButton;
 @synthesize ingredientBanner = _ingredientBanner;
@@ -25,6 +26,9 @@
     self = [super initWithCoder:aCoder];
     if (self) {
         // Customize the table
+        if (!timeFormatter) {
+            timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
+        }
         
         // The className to query on
         self.parseClassName = @"Sprout";
@@ -125,6 +129,15 @@
     [self.tableView reloadData];
 }
 
+// Infinite scroll
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentSize.height - scrollView.contentOffset.y < (self.view.bounds.size.height)) {
+        if (![self isLoading]) {
+            [self loadNextPage];
+        }
+    }
+}
+
  // Override to customize what kind of query to perform on the class. The default is to query for
  // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
@@ -176,7 +189,10 @@
     cell.sproutTitle.text = [object objectForKey:self.textKey];
     cell.sproutDescription.text = [object objectForKey:(@"content")];
     cell.sproutedAt.text = [dateFormatter stringFromDate:object.createdAt];
-//    cell.sproutImage.file = [object objectForKey:@"photo"];
+    
+    // Timestamp
+    NSString *timeString = [timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:object.createdAt];
+    cell.sproutedAt.text = timeString;
     
     // Set your placeholder image first
     cell.sproutImage.image = [UIImage imageNamed:@"loading_photo.png"];
