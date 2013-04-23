@@ -17,6 +17,8 @@
 
 @implementation FeedTableViewController
 
+
+@synthesize ingredientButton = _ingredientButton;
 @synthesize ingredientBanner = _ingredientBanner;
 
 - (id)initWithCoder:(NSCoder *)aCoder {
@@ -57,14 +59,19 @@
 {
     [super viewDidLoad];
     
-    Utility *util = [Utility sharedInstance];
-    PFObject *ingredient = [util getCurrentWeek];
-    [ingredient fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        PFImageView *bannerImageView = [[PFImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 116.0)];
-        bannerImageView.file = (PFFile *)[ingredient objectForKey:@"photo"]; // remote image
-        [bannerImageView loadInBackground];
-    }];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(sproutPosted:)
+                                                 name:@"sproutPosted"
+                                               object:nil];
     
+    // Load Ingredient
+    Utility *util = [Utility sharedInstance];
+    PFObject *ingredient = [util getCurrentIngredient];
+    
+    // Set Ingredient banner
+    _ingredientBanner.file = (PFFile *)[ingredient objectForKey:@"photo"];
+    [_ingredientBanner loadInBackground];
+        
     if (NSClassFromString(@"UIRefreshControl")) {
         // Use the new iOS 6 refresh control.
         UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -108,6 +115,14 @@
 - (void)refreshControlValueChanged:(UIRefreshControl *)refreshControl {
     // The user just pulled down the table view. Start loading data.
     [self loadObjects];
+}
+
+#pragma mark - ()
+// selector for when sprout is posted
+- (void)sproutPosted:(NSNotification *)note{
+    NSLog(@"Sprout! Let's reload the feed!");
+    [self loadObjects];
+    [self.tableView reloadData];
 }
 
  // Override to customize what kind of query to perform on the class. The default is to query for

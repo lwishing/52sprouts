@@ -10,6 +10,7 @@
 
 @interface FeedTableViewController : PFQueryTableViewController
 
-@property (weak, nonatomic) IBOutlet UIButton *ingredientBanner;
+@property (weak, nonatomic) IBOutlet UIButton *ingredientButton;
+@property (weak, nonatomic) IBOutlet PFImageView *ingredientBanner;
 
 @end

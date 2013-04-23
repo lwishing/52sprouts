@@ -222,23 +222,29 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="116"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="ingredientBanner" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fma-xm-kL1">
+                                <imageView autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36e-Qj-KCi" customClass="PFImageView"/>
+                                <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="ingredientBanner" contentHorizontalAlignment="fill" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fma-xm-kL1">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <state key="normal" title=" " image="banner.png">
+                                    <state key="normal" title=" ">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <segue destination="ief-Gg-OiY" kind="push" identifier="ingredientInfo" id="bBN-cv-PJp"/>
+                                        <segue destination="ief-Gg-OiY" kind="push" id="a57-j6-qFa"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="36e-Qj-KCi" firstAttribute="leading" secondItem="9mi-NK-NOW" secondAttribute="leading" type="default" id="C9w-st-Rg1"/>
+                                <constraint firstItem="36e-Qj-KCi" firstAttribute="top" secondItem="9mi-NK-NOW" secondAttribute="top" type="default" id="HWP-7c-GaK"/>
+                                <constraint firstItem="36e-Qj-KCi" firstAttribute="bottom" secondItem="9mi-NK-NOW" secondAttribute="bottom" type="default" id="I8f-DB-xgH"/>
                                 <constraint firstItem="Fma-xm-kL1" firstAttribute="top" secondItem="9mi-NK-NOW" secondAttribute="top" type="default" id="JDk-ZI-XhO"/>
                                 <constraint firstItem="Fma-xm-kL1" firstAttribute="leading" secondItem="9mi-NK-NOW" secondAttribute="leading" type="default" id="MrW-WK-Nhv"/>
                                 <constraint firstItem="Fma-xm-kL1" firstAttribute="trailing" secondItem="9mi-NK-NOW" secondAttribute="trailing" type="default" id="Y7h-u6-hsL"/>
                                 <constraint firstItem="Fma-xm-kL1" firstAttribute="bottom" secondItem="9mi-NK-NOW" secondAttribute="bottom" type="default" id="avC-WX-0sC"/>
+                                <constraint firstItem="36e-Qj-KCi" firstAttribute="trailing" secondItem="9mi-NK-NOW" secondAttribute="trailing" type="default" id="zCI-Np-5cG"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -345,7 +351,8 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="ingredientBanner" destination="Fma-xm-kL1" id="Ygs-WJ-tcm"/>
+                        <outlet property="ingredientBanner" destination="36e-Qj-KCi" id="WZd-Id-59M"/>
+                        <outlet property="ingredientButton" destination="Fma-xm-kL1" id="tB7-ZR-lOE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltF-AK-GJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1347,7 +1354,6 @@ one vegetable at a time.</string>
     </scenes>
     <resources>
         <image name="background.png" width="320" height="568"/>
-        <image name="banner.png" width="320" height="115"/>
         <image name="feed_icon_deselected.png" width="16" height="28"/>
         <image name="header.png" width="320" height="37"/>
         <image name="ingredients_button.png" width="150" height="27"/>

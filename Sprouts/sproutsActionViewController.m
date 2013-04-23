@@ -43,6 +43,7 @@
 	// Do any additional setup after loading the view.
     
     // Set ingredient of the week text
+    PFObject *week = [[Utility sharedInstance] getCurrentWeek];
     PFObject *ingredient = [[Utility sharedInstance] getCurrentIngredient];
     _ingredientOfTheWeek.text = [[ingredient objectForKey:@"name"] lowercaseString];
 
@@ -105,13 +106,15 @@
             [sprout setObject:trimmedTitle forKey:@"title"];
             [sprout setObject:trimmedDesc forKey:@"content"];
             [sprout setObject:[PFUser currentUser] forKey:@"user"];
-            //        [sprout setObject:photo forKey:@"ingredient"];
-            //        [sprout setObject:photo forKey:@"week"];
+            [sprout setObject:[[Utility sharedInstance] getCurrentIngredient] forKey:@"ingredient"];
+            [sprout setObject:[[Utility sharedInstance] getCurrentWeek] forKey:@"week"];
             
             PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
             [ACL setPublicReadAccess:YES];
             sprout.ACL = ACL;
             
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"sproutPosted"
+                                                                object:sprout];
             [sprout saveInBackground];
         }
         
@@ -124,8 +127,8 @@
         [sprout setObject:trimmedDesc forKey:@"content"];
         [sprout setObject:self.photoFile forKey:@"photo"];
         [sprout setObject:[PFUser currentUser] forKey:@"user"];
-        //        [sprout setObject:photo forKey:@"ingredient"];
-        //        [sprout setObject:photo forKey:@"week"];
+        [sprout setObject:[[Utility sharedInstance] getCurrentIngredient] forKey:@"ingredient"];
+        [sprout setObject:[[Utility sharedInstance] getCurrentWeek] forKey:@"week"];
         
         // Sprouts are public, but may only be modified by the user who uploaded them
         PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
@@ -143,7 +146,8 @@
         [sprout saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 NSLog(@"Sprout uploaded");
-                //            [[NSNotificationCenter defaultCenter] postNotificationName:PAPTabBarControllerDidFinishEditingPhotoNotification object:photo];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"sproutPosted"
+                                                                    object:sprout];
             } else {
                 NSLog(@"Sprout failed to save: %@", error);
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your Sprout" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
