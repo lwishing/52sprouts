@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface settingsViewController : UITableViewController
+@interface settingsViewController : UITableViewController <UITableViewDelegate>
 
 @end
