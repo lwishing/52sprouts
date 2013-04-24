@@ -24,6 +24,7 @@
 
 @property (nonatomic, strong) PFObject* week;
 @property (nonatomic, strong) PFObject* ingredient;
+@property (nonatomic, strong) PFUser* currentUser;
 
 @property (strong, nonatomic) IBOutlet UILabel *scheduleMessage;
 

@@ -16,18 +16,11 @@
 
 @implementation scheduleViewController
 
-@synthesize dayOfWeek;
-@synthesize todayDate;
-@synthesize week;
-@synthesize ingredient;
-@synthesize dayOneActual;
-@synthesize dayTwoActual;
-@synthesize dayThreeActual;
-@synthesize dayFourActual;
-@synthesize dayFiveActual;
-@synthesize daySixActual;
-@synthesize daySevenActual;
+@synthesize dayOfWeek, todayDate;
+@synthesize week, ingredient;
+@synthesize dayOneActual, dayTwoActual, dayThreeActual, dayFourActual, dayFiveActual, daySixActual, daySevenActual;
 @synthesize dayOne, dayTwo, dayThree, dayFour, dayFive, daySix, daySeven;
+@synthesize currentUser;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -60,6 +53,8 @@
     // get current week
     week = [[Utility sharedInstance] getCurrentWeek];
     ingredient = [[Utility sharedInstance] getCurrentIngredient];
+    [[PFUser currentUser] refresh];
+    currentUser = [PFUser currentUser];
     
     // get startDate of the week, and normalize it to Monday 12am for local time zone
     NSDate *startDate = [week objectForKey:@"startDate"];
@@ -96,8 +91,46 @@
     self.daySixDate.text = [buttonDate stringFromDate:daySixActual];
     self.daySevenDate.text = [buttonDate stringFromDate:daySevenActual];
 
+    // check user's scheduledDay, reset if from past week
+    NSDate *scheduled = [currentUser objectForKey:@"scheduledDay"];
+    NSLog(@"scheduledDay: %@", [dateFormatter stringFromDate:scheduled]);
+    if (scheduled == nil) {
+        NSLog(@"schelduledDate is null");
+    } else {
+        NSLog(@"else");
+        if ([scheduled compare:startDate] == NSOrderedAscending) {
+            NSLog(@"scheduledDay is before startDate, resetting scheduledDay");
+            [currentUser setObject:[NSNull null] forKey:@"scheduledDay"];
+            [currentUser saveInBackground];
+        } else {
+            NSLog(@"scheduledDay is current");
+            if ([[weekday stringFromDate:scheduled] isEqualToString:@"Tuesday"]) {
+                [dayOne setSelected:YES];
+                self.scheduleMessage.text = @"You're currently scheduled to cook on Tuesday.";
+            } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Wednesday"]) {
+                [dayTwo setSelected:YES];
+                self.scheduleMessage.text = @"You're currently scheduled to cook on Wednesday.";
+            } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Thursday"]) {
+                [dayThree setSelected:YES];
+                self.scheduleMessage.text = @"You're currently scheduled to cook on Thursday.";
+            } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Friday"]) {
+                [dayFour setSelected:YES];
+                self.scheduleMessage.text = @"You're currently scheduled to cook on Friday.";
+            } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Saturday"]) {
+                [dayFive setSelected:YES];
+                self.scheduleMessage.text = @"You're currently scheduled to cook on Saturday.";
+            } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Sunday"]) {
+                [daySix setSelected:YES];
+                self.scheduleMessage.text = @"You're currently scheduled to cook on Sunday.";
+            } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Monday"]) {
+                [daySeven setSelected:YES];
+                self.scheduleMessage.text = @"You're currently scheduled to cook on Monday.";
+            }
+        }
+    }
     
-//    dayOfWeek = @"Tuesday";
+    
+//    dayOfWeek = @"Friday";
     
     // disable buttons if day has passed
     if ([dayOfWeek isEqualToString:@"Tuesday"]) {
@@ -143,30 +176,40 @@
 
 
 - (void)scheduleNotification: (NSDate *)inputDate{
+    
     // reset notifications each time method is called
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
+    // if reminder time has passed, don't sent a notification
     if ([inputDate compare:[NSDate date]] == NSOrderedAscending) {
         NSLog(@"inputDate is before current time");
+        self.scheduleMessage.text = @"That's coming up quick! \nMake sure you have your ingredients ready.";
+        
+    // otherwise, schedule a notification
     } else {
         UILocalNotification* localNotification = [[UILocalNotification alloc] init];
         localNotification.fireDate = inputDate;
         localNotification.soundName = UILocalNotificationDefaultSoundName;
-        localNotification.alertBody = @"Remember, you're supposed to cook tomorrow! Make sure to go get your ingredients.";
+        NSString *ingredientName = [[ingredient objectForKey:@"name"] lowercaseString];
+        localNotification.alertBody = [NSString stringWithFormat:@"Remember, you're supposed to cook %@ tomorrow! Make sure to go get your ingredients.", ingredientName];
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"EEEE, MMM d, ''yy, h:mm a"];
         NSLog(@"Notification scheduled for %@",[dateFormatter stringFromDate:inputDate]);
+        self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
     }
+    
+    // save scheduled day to Parse
+    [currentUser setObject:[inputDate dateByAddingTimeInterval:60*60*24*1] forKey:@"scheduledDay"];
+    [currentUser saveInBackground];
     
 }
 
 
 - (IBAction)dayPressed:(UIButton *)sender {
     
-//    line of code below schedules a notification 10 seconds in future
-//    [self scheduleNotification:[NSDate dateWithTimeIntervalSinceNow:10]];
+//    NSString *scheduledDay = [currentUser objectForKey:@"scheduledDay"];
     
     [dayOne setSelected:NO];
     [dayTwo setSelected:NO];
@@ -177,45 +220,39 @@
     [daySeven setSelected:NO];
     [sender setSelected:YES];
     
+    
+    self.scheduleMessage.text = nil;
+    
     if ([[sender currentTitle] isEqualToString:@"dayOne"]) {
         NSLog(@"Button pressed: Tuesday");
-//        [self scheduleNotification:[dayOneActual dateByAddingTimeInterval:-60*60*24*1]];
-        [self scheduleNotification:[NSDate dateWithTimeIntervalSinceNow:10]];
-        self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
-        
+        [self scheduleNotification:[dayOneActual dateByAddingTimeInterval:-60*60*24*1]];
+//        [self scheduleNotification:[NSDate dateWithTimeIntervalSinceNow:10]];
         
     } else if ([[sender currentTitle] isEqualToString:@"dayTwo"]) {
         NSLog(@"Button pressed: Wednesday");
         [self scheduleNotification:[dayTwoActual dateByAddingTimeInterval:-60*60*24*1]];
-        self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
         
     } else if ([[sender currentTitle] isEqualToString:@"dayThree"]) {
         NSLog(@"Button pressed: Thursday");
         [self scheduleNotification:[dayThreeActual dateByAddingTimeInterval:-60*60*24*1]];
-        self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
         
     } else if ([[sender currentTitle] isEqualToString:@"dayFour"]) {
         NSLog(@"Button pressed: Friday");
         [self scheduleNotification:[dayFourActual dateByAddingTimeInterval:-60*60*24*1]];
-        self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
         
     } else if ([[sender currentTitle] isEqualToString:@"dayFive"]) {
         NSLog(@"Button pressed: Saturday");
         [self scheduleNotification:[dayFiveActual dateByAddingTimeInterval:-60*60*24*1]];
-        self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
         
     } else if ([[sender currentTitle] isEqualToString:@"daySix"]) {
         NSLog(@"Button pressed: Sunday");
         [self scheduleNotification:[daySixActual dateByAddingTimeInterval:-60*60*24*1]];
-        self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
         
     }else if ([[sender currentTitle] isEqualToString:@"daySeven"]) {
         NSLog(@"Button pressed: Monday");
         [self scheduleNotification:[daySevenActual dateByAddingTimeInterval:-60*60*24*1]];
-        self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
         
     }
 }
+    
 @end
-
-
