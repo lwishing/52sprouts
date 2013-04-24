@@ -44,8 +44,11 @@
                                      UITextAttributeFont: [UIFont fontWithName:@"MuseoSans-700" size:20.0f]
      }];
     
-    // Nav bar back button appearance
-    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:(97/255.0) green:(71/255.0) blue:(39/255.0) alpha:1.0]];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:                    [UIFont fontWithName:@"MuseoSans-300" size:12.0f], UITextAttributeFont,nil] forState:UIControlStateNormal];
+    
+    // UI bar button appearance
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:(43/255.0) green:(36/255.0) blue:(19/255.0) alpha:1.0]];
+    //[[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:(108/255.0) green:(79/255.0) blue:(43/255.0) alpha:1.0]];
     
     // Utility - Get Current Week & Ingredient
     Utility *util = [Utility sharedInstance];

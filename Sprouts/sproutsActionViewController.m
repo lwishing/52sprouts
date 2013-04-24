@@ -45,6 +45,7 @@
     // Set ingredient of the week text
     PFObject *ingredient = [[Utility sharedInstance] getCurrentIngredient];
     _ingredientOfTheWeek.text = [[ingredient objectForKey:@"name"] lowercaseString];
+    _ingredientOfTheWeek.textColor = [UIColor colorWithRed:(53/255.0) green:(135/255.0) blue:(93/255.0) alpha:1.0];
 
     // Keyboard up on load
     [_sproutTitle becomeFirstResponder];
@@ -195,6 +196,14 @@
     // Create UIActionSheet with options to Take Photo or Choose Existing
     UIActionSheet *photoOptions = [[UIActionSheet alloc]initWithTitle:@"Add a photo to your Sprout" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Photo", @"Choose Existing", nil];
     [photoOptions showInView:self.view];
+}
+
+- (void)willPresentActionSheet:(UIActionSheet *)actionSheet {
+    for (UIView *_currentView in actionSheet.subviews) {
+        if ([_currentView isKindOfClass:[UILabel class]]) {
+            [((UILabel *)_currentView) setFont:[UIFont fontWithName:@"MuseoSans-300" size:15.0f]];
+        }
+    }
 }
  
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {

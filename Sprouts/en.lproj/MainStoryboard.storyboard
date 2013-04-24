@@ -666,7 +666,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="bzw-lb-VxX">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="GJY-wK-Uc7">
+                        <barButtonItem key="rightBarButtonItem" image="settings.png" id="GJY-wK-Uc7">
                             <connections>
                                 <segue destination="nkX-lj-UWc" kind="push" id="zCF-ee-qfz"/>
                             </connections>
@@ -675,6 +675,7 @@
                     <connections>
                         <outlet property="profileImage" destination="ply-lO-v2N" id="Gy1-cE-KVu"/>
                         <outlet property="profileName" destination="NUU-8f-NUU" id="fTx-3p-VfT"/>
+                        <outlet property="settingsButton" destination="GJY-wK-Uc7" id="85s-BG-kHb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ic-cS-IMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -823,7 +824,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hGK-gC-n4X"/>
-                                    <barButtonItem systemItem="rewind" id="Taf-Ly-IoE">
+                                    <barButtonItem image="previous.png" id="Taf-Ly-IoE">
                                         <connections>
                                             <action selector="goBack" destination="KAE-W6-6Wj" id="Wct-FV-DPW"/>
                                         </connections>
@@ -833,7 +834,7 @@
                                             <action selector="reload" destination="KAE-W6-6Wj" id="YZE-Fs-bJY"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem systemItem="fastForward" id="Q2L-g5-37x">
+                                    <barButtonItem image="next.png" id="Q2L-g5-37x">
                                         <connections>
                                             <action selector="goForward" destination="KAE-W6-6Wj" id="n9F-P7-raM"/>
                                         </connections>
@@ -1275,10 +1276,13 @@ one vegetable at a time.</string>
         <image name="ingredients_button.png" width="150" height="27"/>
         <image name="login_sprout.png" width="114" height="151"/>
         <image name="me_icon_deselected.png" width="27" height="26"/>
+        <image name="next.png" width="13" height="20"/>
         <image name="photo_button.png" width="150" height="27"/>
+        <image name="previous.png" width="13" height="20"/>
         <image name="schedule_button.png" width="320" height="35"/>
         <image name="schedule_day.png" width="32" height="32"/>
         <image name="schedule_day_selected.png" width="36" height="36"/>
+        <image name="settings.png" width="20" height="20"/>
     </resources>
     <classes>
         <class className="FeedTableViewController" superclassName="PFQueryTableViewController">
@@ -1311,6 +1315,7 @@ one vegetable at a time.</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="blurb" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="sprouts" candidateClass="UILabel"/>
             </relationships>
         </class>
@@ -1363,6 +1368,7 @@ one vegetable at a time.</string>
             <relationships>
                 <relationship kind="outlet" name="profileImage" candidateClass="PFImageView"/>
                 <relationship kind="outlet" name="profileName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="settingsButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="scheduleViewController" superclassName="UIViewController">

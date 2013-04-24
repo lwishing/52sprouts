@@ -15,6 +15,8 @@
 
 @implementation profileViewController
 
+@synthesize settingsButton;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
