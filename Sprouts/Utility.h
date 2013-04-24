@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import <UIKit/UIKit.h>
 
 @interface Utility : NSObject {
     PFObject *currentWeek;
@@ -18,5 +19,11 @@
 
 - (PFObject *)getCurrentWeek;
 - (PFObject *)getCurrentIngredient;
+
+@end
+
+@interface UIView (UIView_Expanded)
+
+-(void)resizeToFitSubviews;
 
 @end
