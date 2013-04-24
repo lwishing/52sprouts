@@ -294,6 +294,7 @@
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="schedule_day_selected.png"/>
                                 <connections>
                                     <action selector="dayPressed:" destination="yBF-qb-Dkk" eventType="touchUpInside" id="E5c-Xj-Ssb"/>
                                 </connections>
@@ -308,6 +309,7 @@
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="schedule_day_selected.png"/>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -325,6 +327,7 @@
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="schedule_day_selected.png"/>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -339,6 +342,7 @@
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="schedule_day_selected.png"/>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -356,6 +360,7 @@
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="schedule_day_selected.png"/>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -373,6 +378,7 @@
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="schedule_day_selected.png"/>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -390,6 +396,7 @@
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="schedule_day_selected.png"/>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1077,9 +1084,14 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pd9-xn-PpF"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Eh-gd-NV4">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="fp5-um-fQM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Login with Facebook">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="43" minY="0.0" maxX="0.0" maxY="-3"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="Login with Facebook" backgroundImage="facebook_button.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -1126,19 +1138,21 @@ one vegetable at a time.</string>
                             <constraint firstItem="qlm-uv-npl" firstAttribute="centerX" secondItem="9Eh-gd-NV4" secondAttribute="centerX" type="default" id="7nl-vh-wAe"/>
                             <constraint firstItem="Pd9-xn-PpF" firstAttribute="bottom" secondItem="P6x-9o-bi0" secondAttribute="bottom" type="default" id="Api-Zh-aip"/>
                             <constraint firstItem="Pd9-xn-PpF" firstAttribute="top" secondItem="P6x-9o-bi0" secondAttribute="top" type="default" id="EfL-Mc-58Y"/>
-                            <constraint firstAttribute="bottom" secondItem="9Eh-gd-NV4" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="FAz-Mo-UEp"/>
                             <constraint firstItem="hiF-aA-vn9" firstAttribute="centerX" secondItem="qlm-uv-npl" secondAttribute="centerX" type="default" id="MaM-5J-lYD"/>
-                            <constraint firstItem="Pd9-xn-PpF" firstAttribute="centerX" secondItem="30U-d4-ga6" secondAttribute="centerX" type="default" id="NJu-ce-vFj"/>
                             <constraint firstItem="9Eh-gd-NV4" firstAttribute="leading" secondItem="P6x-9o-bi0" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Pka-sz-1fc"/>
                             <constraint firstItem="hiF-aA-vn9" firstAttribute="centerX" secondItem="30U-d4-ga6" secondAttribute="centerX" type="default" id="TqL-Ts-IJe"/>
+                            <constraint firstItem="9Eh-gd-NV4" firstAttribute="centerX" secondItem="Pd9-xn-PpF" secondAttribute="centerX" type="default" id="UdY-9Q-bLB"/>
                             <constraint firstItem="hiF-aA-vn9" firstAttribute="top" secondItem="P6x-9o-bi0" secondAttribute="top" constant="117" id="aPp-Qx-ZqB"/>
                             <constraint firstItem="qlm-uv-npl" firstAttribute="top" secondItem="P6x-9o-bi0" secondAttribute="top" constant="285" type="user" id="atl-Tr-iUI"/>
+                            <constraint firstAttribute="bottom" secondItem="9Eh-gd-NV4" secondAttribute="bottom" constant="19" id="d6N-FO-2Vq"/>
+                            <constraint firstItem="Pd9-xn-PpF" firstAttribute="trailing" secondItem="P6x-9o-bi0" secondAttribute="trailing" type="default" id="du3-la-bXH"/>
                             <constraint firstItem="Pd9-xn-PpF" firstAttribute="leading" secondItem="P6x-9o-bi0" secondAttribute="leading" type="default" id="riF-xf-OiA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1iz-fO-rb9"/>
                     <connections>
                         <outlet property="blurb" destination="qlm-uv-npl" id="Wvi-Px-cK5"/>
+                        <outlet property="loginButton" destination="9Eh-gd-NV4" id="K4f-3U-ync"/>
                         <outlet property="sprouts" destination="30U-d4-ga6" id="Nbj-9I-oTQ"/>
                         <segue destination="4" kind="modal" identifier="loginToMain" modalTransitionStyle="crossDissolve" id="XE6-Mb-rzK"/>
                     </connections>
@@ -1255,6 +1269,7 @@ one vegetable at a time.</string>
     </scenes>
     <resources>
         <image name="background.png" width="320" height="568"/>
+        <image name="facebook_button.png" width="320" height="44"/>
         <image name="feed_icon_deselected.png" width="16" height="28"/>
         <image name="header.png" width="320" height="37"/>
         <image name="ingredients_button.png" width="150" height="27"/>
@@ -1263,6 +1278,7 @@ one vegetable at a time.</string>
         <image name="photo_button.png" width="150" height="27"/>
         <image name="schedule_button.png" width="320" height="35"/>
         <image name="schedule_day.png" width="32" height="32"/>
+        <image name="schedule_day_selected.png" width="36" height="36"/>
     </resources>
     <classes>
         <class className="FeedTableViewController" superclassName="PFQueryTableViewController">
