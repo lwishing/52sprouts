@@ -14,5 +14,4 @@
 @property (weak, nonatomic) IBOutlet PFImageView *ingredientBanner;
 @property (weak, nonatomic) IBOutlet PFImageView *ingredientIcon;
 
-
 @end

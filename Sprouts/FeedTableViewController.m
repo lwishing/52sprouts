@@ -169,45 +169,65 @@ static TTTTimeIntervalFormatter *timeFormatter;
 // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
 // and the imageView being the imageKey in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
-    // A date formatter for the creation date.
-    static NSDateFormatter *dateFormatter = nil;
-	if (dateFormatter == nil) {
-		dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.timeStyle = NSDateFormatterMediumStyle;
-        dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-	}
     
-    FeedViewCell *cell = (FeedViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
-    
-    // Configure the cell
-    //User
-    cell.userName.text = [[object objectForKey:@"user"] objectForKey:@"firstName"];
-    // Set your placeholder image first
-    cell.userAvatar.image = [UIImage imageNamed:@"Icon.png"];
-    PFFile *avatarFile = [[object objectForKey:@"user"] objectForKey:@"profilePic"];
-    [avatarFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        // Now that the data is fetched, update the cell's image property.
-        cell.userAvatar.image = [[UIImage imageWithData:data] thumbnailImage:86.0f transparentBorder:0.0f cornerRadius:5.0f interpolationQuality:kCGInterpolationDefault];
-    }];
-    
-    //Sprout
-    cell.sproutTitle.text = [object objectForKey:self.textKey];
-    cell.sproutDescription.text = [object objectForKey:(@"content")];
-    cell.sproutedAt.text = [dateFormatter stringFromDate:object.createdAt];
-    
-    // Timestamp
-    NSString *timeString = [timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:object.createdAt];
-    cell.sproutedAt.text = timeString;
-    
-    // Set your placeholder image first
-    cell.sproutImage.image = [UIImage imageNamed:@"loading_photo.png"];
     PFFile *imageFile = [object objectForKey:@"photo"];
-    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        // Now that the data is fetched, update the cell's image property.
-        cell.sproutImage.image = [UIImage imageWithData:data];
-    }];
+    
+    if (imageFile != nil) {
+        FeedViewCell *cell = (FeedViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
+        
+        // Configure the cell
+        // User
+        cell.userName.text = [[object objectForKey:@"user"] objectForKey:@"firstName"];
+        // Set your placeholder image first
+        cell.userAvatar.image = [UIImage imageNamed:@"Icon.png"];
+        PFFile *avatarFile = [[object objectForKey:@"user"] objectForKey:@"profilePic"];
+        [avatarFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            // Now that the data is fetched, update the cell's image property.
+            cell.userAvatar.image = [[UIImage imageWithData:data] thumbnailImage:86.0f transparentBorder:0.0f cornerRadius:5.0f interpolationQuality:kCGInterpolationDefault];
+        }];
+        
+        // Sprout
+        cell.sproutTitle.text = [object objectForKey:self.textKey];
+        cell.sproutDescription.text = [object objectForKey:(@"content")];
+        
+        // Timestamp
+        NSString *timeString = [timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:object.createdAt];
+        cell.sproutedAt.text = timeString;
+        
+        // Set your placeholder image first
+        cell.sproutImage.image = [UIImage imageNamed:@"loading_photo.png"];
+        [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            // Now that the data is fetched, update the cell's image property.
+            cell.sproutImage.image = [UIImage imageWithData:data];
+        }];
+        
+       return cell;
+        
+    } else {
+//        NSLog(@"No picture, yo!");
+        FeedViewCell *cell = (FeedViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FeedCellNoImage"];
+        
+        // Configure the cell
+        // User
+        cell.userName.text = [[object objectForKey:@"user"] objectForKey:@"firstName"];
+        // Set your placeholder image first
+        cell.userAvatar.image = [UIImage imageNamed:@"Icon.png"];
+        PFFile *avatarFile = [[object objectForKey:@"user"] objectForKey:@"profilePic"];
+        [avatarFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            // Now that the data is fetched, update the cell's image property.
+            cell.userAvatar.image = [[UIImage imageWithData:data] thumbnailImage:86.0f transparentBorder:0.0f cornerRadius:5.0f interpolationQuality:kCGInterpolationDefault];
+        }];
+        
+        // Sprout
+        cell.sproutTitle.text = [object objectForKey:self.textKey];
+        cell.sproutDescription.text = [object objectForKey:(@"content")];
+        
+        // Timestamp
+        NSString *timeString = [timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:object.createdAt];
+        cell.sproutedAt.text = timeString;
+        return cell;
+    }
 
-    return cell;
 }
 
 /*
@@ -236,15 +256,22 @@ static TTTTimeIntervalFormatter *timeFormatter;
  }
  */
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    FeedViewCell *cell = (FeedViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-//    
-//    NSLog(@"%f",cell.frame.size.height);
-////    if 
-//    
-//    return cell.frame.size.height;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FeedViewCell *cell = (FeedViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+
+//    if (![cell.reuseIdentifier isEqualToString:@"PFTableViewCellNextPage"]) {
+//        if (cell.sproutImage.image) {
+//            NSLog(@"%f",cell.frame.size.height);
+//        } else {
+//            NSLog(@"NOPES");
+//            return 100.0;
+//        }
+//    }
+
+    return cell.frame.size.height;
+}
+
 
 
 #pragma mark - UITableViewDataSource
