@@ -93,39 +93,27 @@
     // check user's scheduledDay, reset if from past week
     NSDate *scheduled = [[PFUser currentUser] objectForKey:@"scheduledDay"];
     NSLog(@"scheduledDay: %@", [dateFormatter stringFromDate:scheduled]);
-    if (scheduled == nil) {
-        NSLog(@"schelduledDate is null");
-    } else {
-        NSLog(@"else");
-        if ([scheduled compare:startDate] == NSOrderedAscending) {
-            NSLog(@"scheduledDay is before startDate, resetting scheduledDay");
-            [currentUser setObject:[NSNull null] forKey:@"scheduledDay"];
-            [currentUser saveInBackground];
-        } else {
-            NSLog(@"scheduledDay is current");
-            if ([[weekday stringFromDate:scheduled] isEqualToString:@"Tuesday"]) {
-                [dayOne setSelected:YES];
-                self.scheduleMessage.text = @"You're currently scheduled to cook on Tuesday.";
-            } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Wednesday"]) {
-                [dayTwo setSelected:YES];
-                self.scheduleMessage.text = @"You're currently scheduled to cook on Wednesday.";
-            } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Thursday"]) {
-                [dayThree setSelected:YES];
-                self.scheduleMessage.text = @"You're currently scheduled to cook on Thursday.";
-            } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Friday"]) {
-                [dayFour setSelected:YES];
-                self.scheduleMessage.text = @"You're currently scheduled to cook on Friday.";
-            } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Saturday"]) {
-                [dayFive setSelected:YES];
-                self.scheduleMessage.text = @"You're currently scheduled to cook on Saturday.";
-            } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Sunday"]) {
-                [daySix setSelected:YES];
-                self.scheduleMessage.text = @"You're currently scheduled to cook on Sunday.";
-            } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Monday"]) {
-                [daySeven setSelected:YES];
-                self.scheduleMessage.text = @"You're currently scheduled to cook on Monday.";
-            }
-        }
+    if ([[weekday stringFromDate:scheduled] isEqualToString:@"Tuesday"]) {
+        [dayOne setSelected:YES];
+        self.scheduleMessage.text = @"You're currently scheduled to cook on Tuesday.";
+    } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Wednesday"]) {
+        [dayTwo setSelected:YES];
+        self.scheduleMessage.text = @"You're currently scheduled to cook on Wednesday.";
+    } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Thursday"]) {
+        [dayThree setSelected:YES];
+        self.scheduleMessage.text = @"You're currently scheduled to cook on Thursday.";
+    } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Friday"]) {
+        [dayFour setSelected:YES];
+        self.scheduleMessage.text = @"You're currently scheduled to cook on Friday.";
+    } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Saturday"]) {
+        [dayFive setSelected:YES];
+        self.scheduleMessage.text = @"You're currently scheduled to cook on Saturday.";
+    } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Sunday"]) {
+        [daySix setSelected:YES];
+        self.scheduleMessage.text = @"You're currently scheduled to cook on Sunday.";
+    } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Monday"]) {
+        [daySeven setSelected:YES];
+        self.scheduleMessage.text = @"You're currently scheduled to cook on Monday.";
     }
     
     
@@ -202,6 +190,10 @@
     // save scheduled day to Parse
     [currentUser setObject:[inputDate dateByAddingTimeInterval:60*60*24*1] forKey:@"scheduledDay"];
     [currentUser saveInBackground];
+    
+    // notify feedview to hide banner
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"dayScheduled"
+                                                        object:nil];
     
 }
 

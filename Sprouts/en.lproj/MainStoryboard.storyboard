@@ -34,8 +34,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="VWz-bI-dhn">
                         <barButtonItem key="backBarButtonItem" title="Back" id="BA4-4y-u8o"/>
+                        <barButtonItem key="rightBarButtonItem" image="calendar.png" id="gyN-yw-4Js">
+                            <connections>
+                                <segue destination="yBF-qb-Dkk" kind="push" id="YWS-F3-rnx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="calendarButton" destination="gyN-yw-4Js" id="K4K-sM-w3n"/>
                         <outlet property="ingredientHeader" destination="VWz-bI-dhn" id="ctp-XO-dLH"/>
                         <outlet property="scheduleBanner" destination="Hcu-Qb-nf0" id="xdk-Sg-ZY4"/>
                     </connections>
@@ -1364,6 +1370,7 @@ one vegetable at a time.</string>
     </scenes>
     <resources>
         <image name="background.png" width="320" height="568"/>
+        <image name="calendar.png" width="20" height="20"/>
         <image name="facebook_button.png" width="320" height="44"/>
         <image name="feed_icon_deselected.png" width="16" height="28"/>
         <image name="gear.png" width="20" height="20"/>
@@ -1454,6 +1461,7 @@ one vegetable at a time.</string>
         <class className="feedViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/feedViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="calendarButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="ingredientHeader" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="scheduleBanner" candidateClass="UIButton"/>
             </relationships>
@@ -1518,5 +1526,6 @@ one vegetable at a time.</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="XE6-Mb-rzK"/>
+        <segue reference="YWS-F3-rnx"/>
     </inferredMetricsTieBreakers>
 </document>
