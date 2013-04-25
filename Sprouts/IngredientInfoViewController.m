@@ -63,6 +63,7 @@
     descriptionText.text = [ingredient objectForKey:@"description"];
     [descriptionText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [descriptionText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    descriptionText.editable = NO;
     
     [descriptionView addSubview:descriptionText];
     
@@ -98,6 +99,7 @@
     seasonText.text = [NSString stringWithFormat:@"%@ through %@", [ingredient objectForKey:@"seasonStart"], [ingredient objectForKey:@"seasonEnd"]];
     [seasonText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [seasonText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    seasonText.editable = NO;
     
     [seasonView addSubview:seasonHeader];
     [seasonView addSubview:seasonText];
@@ -134,6 +136,7 @@
     buyingText.text = [ingredient objectForKey:@"whenBuying"];
     [buyingText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [buyingText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    buyingText.editable = NO;
     
     [buyingView addSubview:buyingHeader];
     [buyingView addSubview:buyingText];
@@ -170,6 +173,7 @@
     storingText.text = [ingredient objectForKey:@"storing"];
     [storingText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [storingText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    storingText.editable = NO;
     
     [storingView addSubview:storingHeader];
     [storingView addSubview:storingText];
@@ -206,6 +210,7 @@
     pairsText.text = [[ingredient objectForKey:@"pairsWith"] componentsJoinedByString:@", "];
     [pairsText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [pairsText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    pairsText.editable = NO;
     
     [pairsView addSubview:pairsHeader];
     [pairsView addSubview:pairsText];
@@ -242,6 +247,7 @@
     preparationText.text = [[ingredient objectForKey:@"preparation"] componentsJoinedByString:@", "];
     [preparationText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [preparationText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    preparationText.editable = NO;
     
     [preparationView addSubview:preparationHeader];
     [preparationView addSubview:preparationText];
@@ -278,6 +284,7 @@
     subsText.text = [[ingredient objectForKey:@"substitutes"] componentsJoinedByString:@", "];
     [subsText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [subsText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    subsText.editable = NO;
     
     [subsView addSubview:subsHeader];
     [subsView addSubview:subsText];
