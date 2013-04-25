@@ -53,7 +53,6 @@
     // get current week
     week = [[Utility sharedInstance] getCurrentWeek];
     ingredient = [[Utility sharedInstance] getCurrentIngredient];
-    [[PFUser currentUser] refresh];
     currentUser = [PFUser currentUser];
     
     // get startDate of the week, and normalize it to Monday 12am for local time zone
@@ -92,7 +91,7 @@
     self.daySevenDate.text = [buttonDate stringFromDate:daySevenActual];
 
     // check user's scheduledDay, reset if from past week
-    NSDate *scheduled = [currentUser objectForKey:@"scheduledDay"];
+    NSDate *scheduled = [[PFUser currentUser] objectForKey:@"scheduledDay"];
     NSLog(@"scheduledDay: %@", [dateFormatter stringFromDate:scheduled]);
     if (scheduled == nil) {
         NSLog(@"schelduledDate is null");
