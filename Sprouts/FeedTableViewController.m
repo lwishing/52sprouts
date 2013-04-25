@@ -148,9 +148,12 @@ static TTTTimeIntervalFormatter *timeFormatter;
  // Override to customize what kind of query to perform on the class. The default is to query for
  // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
+     // Query for Sprouts only related to the current ingredient
+     PFObject *ingredient = [[Utility sharedInstance] getCurrentIngredient];
      PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     [query includeKey:@"user"];
-     
+    [query whereKey:@"ingredient" equalTo:ingredient];
+    
      // If Pull To Refresh is enabled, query against the network by default.
      if (self.pullToRefreshEnabled) {
          query.cachePolicy = kPFCachePolicyNetworkOnly;
