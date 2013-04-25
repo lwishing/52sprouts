@@ -11,6 +11,7 @@
 #import "UIImage+ResizeAdditions.h"
 #import "Utility.h"
 #import "TTTTimeIntervalFormatter.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface FeedTableViewController ()
 @end
@@ -29,6 +30,7 @@ static TTTTimeIntervalFormatter *timeFormatter;
         // Customize the table
         if (!timeFormatter) {
             timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
+            [timeFormatter setUsesAbbreviatedCalendarUnits:YES];
         }
         
         // The className to query on
@@ -63,6 +65,7 @@ static TTTTimeIntervalFormatter *timeFormatter;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
     
     // Listen to "sproutPosted" event
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -100,7 +103,6 @@ static TTTTimeIntervalFormatter *timeFormatter;
         [self.refreshControl addTarget:self action:@selector(refreshControlValueChanged:) forControlEvents:UIControlEventValueChanged];
     }
     
-	// Do any additional setup after loading the view.
     // NSLog(@"Load THE FEED!");
 }
 
@@ -172,7 +174,7 @@ static TTTTimeIntervalFormatter *timeFormatter;
     
     PFFile *imageFile = [object objectForKey:@"photo"];
     
-    if (imageFile != nil) {
+    if (imageFile != nil) { // There's a picture!
         FeedViewCell *cell = (FeedViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
         
         // Configure the cell
@@ -189,6 +191,13 @@ static TTTTimeIntervalFormatter *timeFormatter;
         // Sprout
         cell.sproutTitle.text = [object objectForKey:self.textKey];
         cell.sproutDescription.text = [object objectForKey:(@"content")];
+
+        // Shadow
+        CALayer *sublayer = [cell.sproutDescription superview].layer;
+        sublayer.shadowOffset = CGSizeMake(0, 2);
+        sublayer.shadowRadius = 2.0;
+        sublayer.shadowColor = [UIColor grayColor].CGColor;
+        sublayer.shadowOpacity = 0.5;
         
         // Timestamp
         NSString *timeString = [timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:object.createdAt];
@@ -203,8 +212,7 @@ static TTTTimeIntervalFormatter *timeFormatter;
         
        return cell;
         
-    } else {
-//        NSLog(@"No picture, yo!");
+    } else { // No picture!
         FeedViewCell *cell = (FeedViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FeedCellNoImage"];
         
         // Configure the cell
@@ -221,6 +229,13 @@ static TTTTimeIntervalFormatter *timeFormatter;
         // Sprout
         cell.sproutTitle.text = [object objectForKey:self.textKey];
         cell.sproutDescription.text = [object objectForKey:(@"content")];
+        
+        // Shadow
+        CALayer *sublayer = [cell.sproutDescription superview].layer;
+        sublayer.shadowOffset = CGSizeMake(0, 2);
+        sublayer.shadowRadius = 2.0;
+        sublayer.shadowColor = [UIColor grayColor].CGColor;
+        sublayer.shadowOpacity = 0.5;
         
         // Timestamp
         NSString *timeString = [timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:object.createdAt];
@@ -259,16 +274,6 @@ static TTTTimeIntervalFormatter *timeFormatter;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FeedViewCell *cell = (FeedViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-
-//    if (![cell.reuseIdentifier isEqualToString:@"PFTableViewCellNextPage"]) {
-//        if (cell.sproutImage.image) {
-//            NSLog(@"%f",cell.frame.size.height);
-//        } else {
-//            NSLog(@"NOPES");
-//            return 100.0;
-//        }
-//    }
-
     return cell.frame.size.height;
 }
 
