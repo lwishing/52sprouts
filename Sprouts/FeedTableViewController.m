@@ -64,6 +64,7 @@ static TTTTimeIntervalFormatter *timeFormatter;
 {
     [super viewDidLoad];
     
+    // Listen to "sproutPosted" event
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(sproutPosted:)
                                                  name:@"sproutPosted"
@@ -100,25 +101,24 @@ static TTTTimeIntervalFormatter *timeFormatter;
     }
     
 	// Do any additional setup after loading the view.
-    NSLog(@"Load THE FEED!");
+    // NSLog(@"Load THE FEED!");
 }
 
 #pragma mark - PFQueryTableViewController
 
 - (void)objectsWillLoad {
     [super objectsWillLoad];
-    
     // This method is called before a PFQuery is fired to get more objects
 }
 
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
+    // This method is called every time objects are loaded from Parse via the PFQuery
     
     // Tell the refresh control that we're done loading objects.
     if (NSClassFromString(@"UIRefreshControl")) {
         [self.refreshControl endRefreshing];
     }
-    // This method is called every time objects are loaded from Parse via the PFQuery
 }
 
 - (void)refreshControlValueChanged:(UIRefreshControl *)refreshControl {
@@ -238,7 +238,12 @@ static TTTTimeIntervalFormatter *timeFormatter;
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 //{
-//    return [indexPath row] * 20;
+//    FeedViewCell *cell = (FeedViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+//    
+//    NSLog(@"%f",cell.frame.size.height);
+////    if 
+//    
+//    return cell.frame.size.height;
 //}
 
 

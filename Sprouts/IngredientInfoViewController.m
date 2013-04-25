@@ -7,6 +7,7 @@
 //
 
 #import "IngredientInfoViewController.h"
+#import <QuartzCore/QuartzCore.h>
 #import "Utility.h"
 
 @interface IngredientInfoViewController ()
@@ -300,6 +301,16 @@
     
     scrollView.contentSize=CGSizeMake(320, y);
     scrollView.contentInset= UIEdgeInsetsMake(0.0,0.0, 30.0,0.0);
+    
+    // shadow experiement
+    for (UIView *subview in [scrollView subviews]) {
+        CALayer *sublayer = subview.layer;
+
+        sublayer.shadowOffset = CGSizeMake(0, 2);
+        sublayer.shadowRadius = 2.0;
+        sublayer.shadowColor = [UIColor grayColor].CGColor;
+        sublayer.shadowOpacity = 0.5;
+    }
     
     //resizeable background image
     //UIImage *backgroundImage = [[UIImage imageNamed:@"contentBackground"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 0, 10, 0)];
