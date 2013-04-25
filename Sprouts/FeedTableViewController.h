@@ -12,5 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *ingredientButton;
 @property (weak, nonatomic) IBOutlet PFImageView *ingredientBanner;
+@property (weak, nonatomic) IBOutlet PFImageView *ingredientIcon;
+
 
 @end

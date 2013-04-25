@@ -44,7 +44,7 @@
                                      UITextAttributeFont: [UIFont fontWithName:@"MuseoSans-700" size:20.0f]
      }];
     
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:                    [UIFont fontWithName:@"MuseoSans-300" size:12.0f], UITextAttributeFont,nil] forState:UIControlStateNormal];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"MuseoSans-500" size:12.0f], UITextAttributeFont,nil] forState:UIControlStateNormal];
     
     // UI bar button appearance
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:(43/255.0) green:(36/255.0) blue:(19/255.0) alpha:1.0]];

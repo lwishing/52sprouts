@@ -21,6 +21,7 @@ static TTTTimeIntervalFormatter *timeFormatter;
 
 @synthesize ingredientButton = _ingredientButton;
 @synthesize ingredientBanner = _ingredientBanner;
+@synthesize ingredientIcon = _ingredientIcon;
 
 - (id)initWithCoder:(NSCoder *)aCoder {
     self = [super initWithCoder:aCoder];
@@ -72,9 +73,13 @@ static TTTTimeIntervalFormatter *timeFormatter;
     Utility *util = [Utility sharedInstance];
     PFObject *ingredient = [util getCurrentIngredient];
     
-    // Set Ingredient banner
+    // Set banner
     _ingredientBanner.file = (PFFile *)[ingredient objectForKey:@"photo"];
     [_ingredientBanner loadInBackground];
+    
+    // Set icon
+    _ingredientIcon.file = (PFFile *)[ingredient objectForKey:@"icon"];
+    [_ingredientIcon loadInBackground];
         
     if (NSClassFromString(@"UIRefreshControl")) {
         // Use the new iOS 6 refresh control.
