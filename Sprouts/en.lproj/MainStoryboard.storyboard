@@ -121,10 +121,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="9mi-NK-NOW">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="116"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="156"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36e-Qj-KCi" userLabel="Ingredient Banner" customClass="PFImageView"/>
+                                <imageView autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36e-Qj-KCi" userLabel="Ingredient Banner" customClass="PFImageView">
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="115" id="AhB-3R-C1d"/>
+                                    </constraints>
+                                </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="yav-At-VQC" customClass="PFImageView">
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="Lbe-at-0PH"/>
@@ -142,24 +146,49 @@
                                         <segue destination="ief-Gg-OiY" kind="push" id="a57-j6-qFa"/>
                                     </connections>
                                 </button>
+                                <view contentMode="scaleToFill" restorationIdentifier="header" translatesAutoresizingMaskIntoConstraints="NO" id="sbY-Yj-xZO">
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="header.png" translatesAutoresizingMaskIntoConstraints="NO" id="4lF-03-2a3"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="WHAT'S COOKING THIS WEEK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGV-3O-a8n">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="225" id="Ksf-CX-DKA"/>
+                                                <constraint firstAttribute="height" constant="21" id="sxT-C7-P8h"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="4lF-03-2a3" firstAttribute="top" secondItem="sbY-Yj-xZO" secondAttribute="top" type="default" id="KbK-Yu-dED"/>
+                                        <constraint firstItem="xGV-3O-a8n" firstAttribute="centerX" secondItem="4lF-03-2a3" secondAttribute="centerX" type="default" id="gys-Bg-XYS"/>
+                                        <constraint firstItem="xGV-3O-a8n" firstAttribute="top" secondItem="sbY-Yj-xZO" secondAttribute="top" constant="5" id="pvJ-yK-Dx5"/>
+                                        <constraint firstItem="4lF-03-2a3" firstAttribute="leading" secondItem="sbY-Yj-xZO" secondAttribute="leading" type="default" id="qt8-a4-Xtf"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="Fma-xm-kL1" firstAttribute="bottom" secondItem="36e-Qj-KCi" secondAttribute="bottom" type="default" id="0na-FU-2rV"/>
                                 <constraint firstItem="36e-Qj-KCi" firstAttribute="leading" secondItem="9mi-NK-NOW" secondAttribute="leading" type="default" id="C9w-st-Rg1"/>
-                                <constraint firstItem="yav-At-VQC" firstAttribute="centerX" secondItem="Fma-xm-kL1" secondAttribute="centerX" type="default" id="Clu-Ev-x4v"/>
-                                <constraint firstItem="36e-Qj-KCi" firstAttribute="top" secondItem="9mi-NK-NOW" secondAttribute="top" type="default" id="HWP-7c-GaK"/>
-                                <constraint firstItem="36e-Qj-KCi" firstAttribute="bottom" secondItem="9mi-NK-NOW" secondAttribute="bottom" type="default" id="I8f-DB-xgH"/>
-                                <constraint firstItem="Fma-xm-kL1" firstAttribute="top" secondItem="9mi-NK-NOW" secondAttribute="top" type="default" id="JDk-ZI-XhO"/>
+                                <constraint firstItem="sbY-Yj-xZO" firstAttribute="top" secondItem="9mi-NK-NOW" secondAttribute="top" constant="119" id="J4C-av-Aj4"/>
                                 <constraint firstItem="Fma-xm-kL1" firstAttribute="leading" secondItem="9mi-NK-NOW" secondAttribute="leading" type="default" id="MrW-WK-Nhv"/>
-                                <constraint firstItem="yav-At-VQC" firstAttribute="centerY" secondItem="Fma-xm-kL1" secondAttribute="centerY" type="default" id="Vq4-GI-vwI"/>
+                                <constraint firstItem="sbY-Yj-xZO" firstAttribute="leading" secondItem="9mi-NK-NOW" secondAttribute="leading" type="default" id="Mzj-Z9-XCC"/>
+                                <constraint firstItem="36e-Qj-KCi" firstAttribute="top" secondItem="9mi-NK-NOW" secondAttribute="top" type="default" id="NVT-pb-H5h"/>
                                 <constraint firstItem="Fma-xm-kL1" firstAttribute="trailing" secondItem="9mi-NK-NOW" secondAttribute="trailing" type="default" id="Y7h-u6-hsL"/>
-                                <constraint firstItem="Fma-xm-kL1" firstAttribute="bottom" secondItem="9mi-NK-NOW" secondAttribute="bottom" type="default" id="avC-WX-0sC"/>
+                                <constraint firstAttribute="bottom" secondItem="sbY-Yj-xZO" secondAttribute="bottom" constant="-12" id="bqB-U7-AHJ"/>
+                                <constraint firstItem="yav-At-VQC" firstAttribute="top" secondItem="9mi-NK-NOW" secondAttribute="top" constant="34" id="jeh-cu-fgC"/>
+                                <constraint firstItem="sbY-Yj-xZO" firstAttribute="trailing" secondItem="9mi-NK-NOW" secondAttribute="trailing" type="default" id="lAJ-xZ-GBY"/>
+                                <constraint firstItem="36e-Qj-KCi" firstAttribute="centerX" secondItem="yav-At-VQC" secondAttribute="centerX" type="default" id="o2S-bK-mbN"/>
+                                <constraint firstItem="Fma-xm-kL1" firstAttribute="top" secondItem="9mi-NK-NOW" secondAttribute="top" type="default" id="yWf-U2-nKG"/>
                                 <constraint firstItem="36e-Qj-KCi" firstAttribute="trailing" secondItem="9mi-NK-NOW" secondAttribute="trailing" type="default" id="zCI-Np-5cG"/>
                             </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedCell" rowHeight="395" id="KUP-Ng-7cw" customClass="FeedViewCell">
-                                <rect key="frame" x="0.0" y="138" width="320" height="395"/>
+                                <rect key="frame" x="0.0" y="178" width="320" height="395"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="394"/>
@@ -254,7 +283,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedCellNoImage" rowHeight="110" id="pMg-I4-z1E" customClass="FeedViewCell">
-                                <rect key="frame" x="0.0" y="533" width="320" height="110"/>
+                                <rect key="frame" x="0.0" y="573" width="320" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
