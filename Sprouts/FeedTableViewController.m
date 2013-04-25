@@ -23,6 +23,7 @@ static TTTTimeIntervalFormatter *timeFormatter;
 @synthesize ingredientButton = _ingredientButton;
 @synthesize ingredientBanner = _ingredientBanner;
 @synthesize ingredientIcon = _ingredientIcon;
+@synthesize header = _header;
 
 - (id)initWithCoder:(NSCoder *)aCoder {
     self = [super initWithCoder:aCoder];
@@ -143,6 +144,28 @@ static TTTTimeIntervalFormatter *timeFormatter;
             [self loadNextPage];
         }
     }
+    
+    /*
+    // Sticky header
+    CGRect floatingCellFrame = self.header.frame;
+    CGFloat floatingCellHeight = floatingCellFrame.size.height + self.ingredientBanner.frame.size.height;
+    
+    // when contentOffset is is more then cellHeight scroll floating cell
+    if (scrollView.contentOffset.y > floatingCellHeight) {
+        NSLog(@"%f",scrollView.contentOffset.y);
+        floatingCellFrame.origin.y = -scrollView.contentOffset.y + floatingCellHeight;
+        
+    // Need to add middle case for between floatingCellHeight and cell + banner height
+    } else if (scrollView.contentOffset.y < floatingCellHeight) {
+        floatingCellFrame.origin.y = floatingCellHeight;
+    
+    // when contentOffset is less then cellHeight stick it to the top of UITableView
+    } else if (scrollView.contentOffset.y < floatingCellHeight) {
+        floatingCellFrame.origin.y = 0;
+    }
+
+    self.header.frame = floatingCellFrame;
+     */
 }
 
  // Override to customize what kind of query to perform on the class. The default is to query for
