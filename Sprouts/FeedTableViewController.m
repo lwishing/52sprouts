@@ -219,11 +219,11 @@ static TTTTimeIntervalFormatter *timeFormatter;
         cell.sproutDescription.text = [object objectForKey:(@"content")];
 
         // Shadow
-        CALayer *sublayer = [cell.sproutDescription superview].layer;
-        sublayer.shadowOffset = CGSizeMake(0, 2);
-        sublayer.shadowRadius = 2.0;
-        sublayer.shadowColor = [UIColor grayColor].CGColor;
-        sublayer.shadowOpacity = 0.5;
+//        CALayer *sublayer = [cell.sproutDescription superview].layer;
+//        sublayer.shadowOffset = CGSizeMake(0, 2);
+//        sublayer.shadowRadius = 2.0;
+//        sublayer.shadowColor = [UIColor grayColor].CGColor;
+//        sublayer.shadowOpacity = 0.5;
         
         // Timestamp
         NSString *timeString = [timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:object.createdAt];
@@ -257,11 +257,11 @@ static TTTTimeIntervalFormatter *timeFormatter;
         cell.sproutDescription.text = [object objectForKey:(@"content")];
         
         // Shadow
-        CALayer *sublayer = [cell.sproutDescription superview].layer;
-        sublayer.shadowOffset = CGSizeMake(0, 2);
-        sublayer.shadowRadius = 2.0;
-        sublayer.shadowColor = [UIColor grayColor].CGColor;
-        sublayer.shadowOpacity = 0.5;
+//        CALayer *sublayer = [cell.sproutDescription superview].layer;
+//        sublayer.shadowOffset = CGSizeMake(0, 2);
+//        sublayer.shadowRadius = 2.0;
+//        sublayer.shadowColor = [UIColor grayColor].CGColor;
+//        sublayer.shadowOpacity = 0.5;
         
         // Timestamp
         NSString *timeString = [timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:object.createdAt];

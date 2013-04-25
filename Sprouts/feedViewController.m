@@ -60,7 +60,8 @@
     NSLog(@"scheduled: %@", [dateFormatter stringFromDate:scheduled]);
     
     // if scheduledDay is null, show the banner
-    if (scheduled == [NSNull null]) {
+//    if (scheduled == [NSNull null]) {
+    if ([scheduled isKindOfClass:[NSNull class]]) {
         NSLog(@"schelduledDate is null");
         // Bring Schedule Banner to front & make semi-transparent
         [[_scheduleBanner superview] bringSubviewToFront:_scheduleBanner];
