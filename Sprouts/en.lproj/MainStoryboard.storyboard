@@ -1044,8 +1044,8 @@
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What'd you make?" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Hxe-M9-hU4">
                                                 <constraints>
+                                                    <constraint firstAttribute="width" constant="280" id="BYL-gu-g2V"/>
                                                     <constraint firstAttribute="height" constant="37" id="MQ5-Ac-baz"/>
-                                                    <constraint firstAttribute="width" constant="280" id="mil-6i-hHS"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1055,6 +1055,7 @@
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="118" id="B3Z-t1-gwg"/>
+                                                    <constraint firstAttribute="width" constant="201" id="SeJ-aa-Fq2"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1109,7 +1110,7 @@
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="140" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1x-8k-Bya">
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="xKS-Tb-3AN"/>
+                                                    <constraint firstAttribute="height" constant="21" id="ArD-Ii-RLG"/>
                                                     <constraint firstAttribute="width" constant="27" id="zQX-WC-vKt"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1122,17 +1123,21 @@
                                             <constraint firstItem="Hxe-M9-hU4" firstAttribute="leading" secondItem="wUh-wq-NmN" secondAttribute="leading" type="default" id="3jU-mc-y5d"/>
                                             <constraint firstItem="2h0-tZ-t84" firstAttribute="trailing" secondItem="wHG-k9-ln4" secondAttribute="trailing" type="default" id="4kn-mv-Lfc"/>
                                             <constraint firstAttribute="height" constant="200" id="7Qh-78-xQC"/>
-                                            <constraint firstItem="DDi-gx-pbk" firstAttribute="top" secondItem="wHG-k9-ln4" secondAttribute="top" constant="67" id="81Q-7m-Bq1"/>
+                                            <constraint firstItem="DDi-gx-pbk" firstAttribute="top" secondItem="wHG-k9-ln4" secondAttribute="top" constant="92" id="7si-v4-pUR"/>
+                                            <constraint firstItem="Hxe-M9-hU4" firstAttribute="centerX" secondItem="wHG-k9-ln4" secondAttribute="centerX" type="default" id="90F-6K-5ep"/>
+                                            <constraint firstItem="d1x-8k-Bya" firstAttribute="trailing" secondItem="7RB-I4-Iwe" secondAttribute="trailing" type="default" id="9t2-Hb-n5A"/>
                                             <constraint firstItem="wUh-wq-NmN" firstAttribute="top" secondItem="wHG-k9-ln4" secondAttribute="top" constant="47" id="Btx-y7-JVI"/>
-                                            <constraint firstItem="Hxe-M9-hU4" firstAttribute="top" secondItem="wHG-k9-ln4" secondAttribute="top" constant="5" id="Ev9-3a-0IX"/>
-                                            <constraint firstItem="DDi-gx-pbk" firstAttribute="trailing" secondItem="Hxe-M9-hU4" secondAttribute="trailing" type="default" id="PoM-ZQ-RQV"/>
-                                            <constraint firstItem="iLP-3d-3ko" firstAttribute="top" secondItem="wHG-k9-ln4" secondAttribute="top" constant="172" id="Y32-x9-xmK"/>
+                                            <constraint firstItem="2h0-tZ-t84" firstAttribute="baseline" secondItem="iLP-3d-3ko" secondAttribute="baseline" type="default" id="FwD-Rn-ZFO"/>
+                                            <constraint firstItem="Hxe-M9-hU4" firstAttribute="leading" secondItem="wHG-k9-ln4" secondAttribute="leading" constant="10" id="Wvw-yU-gHb"/>
                                             <constraint firstItem="2h0-tZ-t84" firstAttribute="bottom" secondItem="iLP-3d-3ko" secondAttribute="bottom" type="default" id="Zub-pM-1ZT"/>
-                                            <constraint firstAttribute="width" constant="300" id="eBU-Af-9Bf"/>
+                                            <constraint firstItem="Hxe-M9-hU4" firstAttribute="top" secondItem="wHG-k9-ln4" secondAttribute="top" constant="5" id="bps-cM-85E"/>
+                                            <constraint firstItem="d1x-8k-Bya" firstAttribute="top" secondItem="wUh-wq-NmN" secondAttribute="top" type="default" id="cEn-lW-6Rz"/>
+                                            <constraint firstItem="DDi-gx-pbk" firstAttribute="leading" secondItem="wUh-wq-NmN" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="hi4-aj-NK9"/>
                                             <constraint firstItem="iLP-3d-3ko" firstAttribute="leading" secondItem="wHG-k9-ln4" secondAttribute="leading" type="default" id="jhf-Ox-0WP"/>
-                                            <constraint firstItem="Hxe-M9-hU4" firstAttribute="centerX" secondItem="wHG-k9-ln4" secondAttribute="centerX" type="default" id="qvz-Ul-bcf"/>
-                                            <constraint firstItem="wUh-wq-NmN" firstAttribute="trailing" secondItem="DDi-gx-pbk" secondAttribute="trailing" type="default" id="ucr-vf-jPn"/>
+                                            <constraint firstItem="Hxe-M9-hU4" firstAttribute="centerY" secondItem="7RB-I4-Iwe" secondAttribute="centerY" type="default" id="kBu-C5-Dv7"/>
+                                            <constraint firstItem="Hxe-M9-hU4" firstAttribute="trailing" secondItem="7RB-I4-Iwe" secondAttribute="trailing" type="default" id="q7I-Wc-WeQ"/>
                                             <constraint firstItem="2h0-tZ-t84" firstAttribute="top" secondItem="iLP-3d-3ko" secondAttribute="top" type="default" id="v4K-Lc-hbM"/>
+                                            <constraint firstItem="2h0-tZ-t84" firstAttribute="top" secondItem="DDi-gx-pbk" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="wxa-AH-FxL"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1560,13 +1565,6 @@ one vegetable at a time.</string>
         </class>
         <class className="settingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/settingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="loadPrivacyPolicy:"/>
-                <relationship kind="action" name="loadTOS:"/>
-                <relationship kind="action" name="loadTwitter:"/>
-                <relationship kind="action" name="loadWebsite:"/>
-                <relationship kind="action" name="logoutPressed:"/>
-            </relationships>
         </class>
         <class className="sproutsActionViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/sproutsActionViewController.h"/>
