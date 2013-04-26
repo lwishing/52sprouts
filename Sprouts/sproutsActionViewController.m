@@ -19,14 +19,7 @@
 
 @implementation sproutsActionViewController
 
-@synthesize ingredientOfTheWeek = _ingredientOfTheWeek;
-@synthesize sproutDescription = _sproutDescription;
-@synthesize sproutTitle = _sproutTitle;
-@synthesize sproutImage = _sproutImage;
-@synthesize photoFile;
-@synthesize fileUploadBackgroundTaskId;
-@synthesize photoPostBackgroundTaskId;
-@synthesize sproutScrollView;
+@synthesize ingredientOfTheWeek, sproutDescription, sproutTitle, sproutImage, photoFile, fileUploadBackgroundTaskId, photoPostBackgroundTaskId, sproutScrollView, shareButton, characterCountDescription, characterCountTitle;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,23 +37,26 @@
     
     // Set ingredient of the week text
     PFObject *ingredient = [[Utility sharedInstance] getCurrentIngredient];
-    _ingredientOfTheWeek.text = [[ingredient objectForKey:@"name"] lowercaseString];
-    _ingredientOfTheWeek.textColor = [UIColor colorWithRed:(53/255.0) green:(135/255.0) blue:(93/255.0) alpha:1.0];
+    ingredientOfTheWeek.text = [[ingredient objectForKey:@"name"] lowercaseString];
+    ingredientOfTheWeek.textColor = [UIColor colorWithRed:(53/255.0) green:(135/255.0) blue:(93/255.0) alpha:1.0];
 
     // Keyboard up on load
-    [_sproutTitle becomeFirstResponder];
+    [sproutTitle becomeFirstResponder];
+    
+    // Remove clear button from Title text field
+    sproutTitle.clearButtonMode = NO;
     
     // Set Delegates
-    [_sproutTitle setDelegate: (id)self];
-    [_sproutDescription setDelegate: (id)self];
+    [sproutTitle setDelegate: (id)self];
+    [sproutDescription setDelegate: (id)self];
     
     // Add placeholder
-    _sproutDescription.placeholder = @"Add Tip or Description";
+    sproutDescription.placeholder = @"Add Tip or Description";
     
     // Set background color to clear to make background image visible
     self.view.backgroundColor = [UIColor clearColor];
     
-    _sproutDescription.contentInset = UIEdgeInsetsMake(-8,-8,-8,-8);
+    sproutDescription.contentInset = UIEdgeInsetsMake(-8,-8,-8,-8);
     
     float sizeOfContent = 0;
     
@@ -71,6 +67,15 @@
     
     sproutScrollView.contentSize = CGSizeMake(sproutScrollView.frame.size.width, sizeOfContent);
     sproutScrollView.contentInset= UIEdgeInsetsMake(0.0,0.0, 60.0,0.0);
+    
+    // Disable share button
+    shareButton.enabled = NO;
+    
+    // Set fonts
+    [characterCountTitle setFont:[UIFont fontWithName:@"MuseoSans-300" size:12.0]];
+    [characterCountDescription setFont:[UIFont fontWithName:@"MuseoSans-300" size:12.0]];
+    [sproutTitle setFont:[UIFont fontWithName:@"MuseoSans-300" size:16.0]];
+    [sproutDescription setFont:[UIFont fontWithName:@"MuseoSans-300" size:16.0]];
 }
 
 
@@ -89,6 +94,16 @@
     
     NSUInteger newLength = oldLength - rangeLength + replacementLength;
     
+    if (newLength > 0) {
+        shareButton.enabled = YES;
+    }
+    
+    else {
+        shareButton.enabled = NO;
+    }
+
+    characterCountTitle.text = [NSString stringWithFormat:@"%d", (40 - newLength)];
+    
     BOOL returnKey = [string rangeOfString: @"\n"].location != NSNotFound;
     
     return newLength <= 40 || returnKey;
@@ -101,6 +116,8 @@
     NSUInteger rangeLength = range.length;
     
     NSUInteger newLength = oldLength - rangeLength + replacementLength;
+    
+    characterCountDescription.text = [NSString stringWithFormat:@"%d", (140 -  newLength)];
     
     BOOL returnKey = [string rangeOfString: @"\n"].location != NSNotFound;
     
@@ -116,7 +133,7 @@
 // Share new Sprout
 - (IBAction)shareButtonPressed:(UIBarButtonItem *)sender {
     // Save image to the Camera Roll
-    UIImageWriteToSavedPhotosAlbum(_sproutImage.image, nil, nil, nil);
+    UIImageWriteToSavedPhotosAlbum(sproutImage.image, nil, nil, nil);
     
     // Title
     NSString *trimmedTitle = [self.sproutTitle.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -250,7 +267,7 @@
     
     // Dismiss UIImagePickerController
     [picker dismissViewControllerAnimated:YES completion:NULL];
-    _sproutImage.image = editedImage;
+    sproutImage.image = editedImage;
     [self shouldUploadImage:editedImage];
 }
 

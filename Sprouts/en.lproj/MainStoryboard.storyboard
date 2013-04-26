@@ -1039,7 +1039,7 @@
                                     <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHG-k9-ln4">
                                         <userGuides>
                                             <userLayoutGuide location="10" affinity="minX"/>
-                                            <userLayoutGuide location="290" affinity="minX"/>
+                                            <userLayoutGuide location="291" affinity="minX"/>
                                         </userGuides>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What'd you make?" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Hxe-M9-hU4">
@@ -1092,12 +1092,30 @@
                                                     <action selector="photoButtonPressed:" destination="3" eventType="touchUpInside" id="uyR-68-kLW"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDi-gx-pbk">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="loading_photo.png" translatesAutoresizingMaskIntoConstraints="NO" id="DDi-gx-pbk">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="72" id="DiR-v2-pCa"/>
                                                     <constraint firstAttribute="height" constant="72" id="OjX-SS-vTp"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="40" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RB-I4-Iwe">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="QGb-jw-ptm"/>
+                                                    <constraint firstAttribute="height" constant="21" id="rlG-bS-liB"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="140" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1x-8k-Bya">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="xKS-Tb-3AN"/>
+                                                    <constraint firstAttribute="width" constant="27" id="zQX-WC-vKt"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1149,15 +1167,18 @@
                                 <action selector="cancelButtonPressed:" destination="3" id="Com-dq-w36"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Share" id="BxX-v2-01e">
-                            <color key="tintColor" red="0.43529415130615234" green="0.30196079611778259" blue="0.14117647707462311" alpha="1" colorSpace="deviceRGB"/>
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="8Do-sB-rdU">
+                            <color key="tintColor" red="0.43529415129999999" green="0.30196079609999998" blue="0.1411764771" alpha="1" colorSpace="deviceRGB"/>
                             <connections>
-                                <action selector="shareButtonPressed:" destination="3" id="oIY-ud-WY0"/>
+                                <action selector="shareButtonPressed:" destination="3" id="8CT-fz-u3J"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="characterCountDescription" destination="d1x-8k-Bya" id="WpS-1a-iZ6"/>
+                        <outlet property="characterCountTitle" destination="7RB-I4-Iwe" id="kLk-B4-Y6x"/>
                         <outlet property="ingredientOfTheWeek" destination="erN-Od-CL3" id="TxF-bc-9xb"/>
+                        <outlet property="shareButton" destination="8Do-sB-rdU" id="L0L-yJ-oBz"/>
                         <outlet property="sproutDescription" destination="wUh-wq-NmN" id="TMR-bQ-as2"/>
                         <outlet property="sproutImage" destination="DDi-gx-pbk" id="21T-HH-hnG"/>
                         <outlet property="sproutScrollView" destination="lGD-lf-cQg" id="s7P-iG-ord"/>
@@ -1408,6 +1429,7 @@ one vegetable at a time.</string>
         <image name="gear.png" width="20" height="20"/>
         <image name="header.png" width="320" height="37"/>
         <image name="ingredients_button.png" width="150" height="27"/>
+        <image name="loading_photo.png" width="300" height="300"/>
         <image name="login_sprout.png" width="114" height="151"/>
         <image name="me_icon_deselected.png" width="27" height="26"/>
         <image name="next.png" width="13" height="20"/>
@@ -1538,6 +1560,13 @@ one vegetable at a time.</string>
         </class>
         <class className="settingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/settingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loadPrivacyPolicy:"/>
+                <relationship kind="action" name="loadTOS:"/>
+                <relationship kind="action" name="loadTwitter:"/>
+                <relationship kind="action" name="loadWebsite:"/>
+                <relationship kind="action" name="logoutPressed:"/>
+            </relationships>
         </class>
         <class className="sproutsActionViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/sproutsActionViewController.h"/>
@@ -1545,7 +1574,10 @@ one vegetable at a time.</string>
                 <relationship kind="action" name="cancelButtonPressed:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="action" name="photoButtonPressed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="shareButtonPressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="characterCountDescription" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="characterCountTitle" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="ingredientOfTheWeek" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="sproutDescription" candidateClass="SSTextView"/>
                 <relationship kind="outlet" name="sproutImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="sproutScrollView" candidateClass="UIScrollView"/>
