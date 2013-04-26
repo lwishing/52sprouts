@@ -11,6 +11,8 @@
 
 @interface scheduleViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @property (nonatomic, strong) NSString* dayOfWeek;
 @property (nonatomic, strong) NSString* todayDate;
 @property (nonatomic, strong) NSDate* dayOneActual;
