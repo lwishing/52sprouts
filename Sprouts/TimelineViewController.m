@@ -233,9 +233,15 @@ static TTTTimeIntervalFormatter *timeFormatter;
             cell.userAvatar.image = [[UIImage imageWithData:data] thumbnailImage:86.0f transparentBorder:0.0f cornerRadius:5.0f interpolationQuality:kCGInterpolationDefault];
         }];
         
-        // Sprout
+        // Title
         cell.sproutTitle.text = [object objectForKey:self.textKey];
+        [cell.sproutTitle setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
+        [cell.sproutTitle setTextColor:[UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]];
+
+        // Description
         cell.sproutDescription.text = [object objectForKey:(@"content")];
+        [cell.sproutDescription setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
+        [cell.sproutDescription setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
 
         // Shadow
 //        CALayer *sublayer = [cell.sproutDescription superview].layer;
@@ -280,9 +286,16 @@ static TTTTimeIntervalFormatter *timeFormatter;
             cell.userAvatar.image = [[UIImage imageWithData:data] thumbnailImage:86.0f transparentBorder:0.0f cornerRadius:5.0f interpolationQuality:kCGInterpolationDefault];
         }];
         
-        // Sprout
+        // Title
         cell.sproutTitle.text = [object objectForKey:self.textKey];
+        [cell.sproutTitle setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
+        [cell.sproutTitle setTextColor:[UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]];
+        [cell.sproutTitle setAdjustsFontSizeToFitWidth:YES];
+        
+        // Description
         cell.sproutDescription.text = [object objectForKey:(@"content")];
+        [cell.sproutDescription setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
+        [cell.sproutDescription setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
         
         // Shadow
 //        CALayer *sublayer = [cell.sproutDescription superview].layer;
