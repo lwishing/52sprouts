@@ -16,6 +16,7 @@
 
 @implementation scheduleViewController
 
+@synthesize scrollView;
 @synthesize dayOfWeek, todayDate;
 @synthesize week, ingredient;
 @synthesize dayOneActual, dayTwoActual, dayThreeActual, dayFourActual, dayFiveActual, daySixActual, daySevenActual;
@@ -80,6 +81,14 @@
     NSLog(@"Day 6: %@", [dateFormatter stringFromDate:daySixActual]);
     daySevenActual = [dayOneActual dateByAddingTimeInterval:60*60*24*6];
     NSLog(@"Day 7: %@", [dateFormatter stringFromDate:daySevenActual]);
+    
+    dayOne.tag = 1;
+    dayTwo.tag = 2;
+    dayThree.tag = 3;
+    dayFour.tag = 4;
+    dayFive.tag = 5;
+    daySix.tag = 6;
+    daySeven.tag = 7;
     
     // show date string below each button
     self.dayOneDate.text = [buttonDate stringFromDate:dayOneActual];
@@ -150,6 +159,91 @@
         [self.daySix setEnabled:NO];
     }
     
+    
+    int padding = 15;
+    int x = 10;
+    int y = 230;
+    int width = 300;
+    int headerHeight = 24;
+    int inset = 8;
+    
+    //BUYING
+    
+    //container uiview
+    UIView *buyingView = [[UIView alloc] initWithFrame:CGRectMake(x, y + padding, width, 0)];
+    [buyingView setBackgroundColor:[UIColor whiteColor]];
+    
+    UILabel *buyingHeader = [[UILabel alloc] initWithFrame:CGRectMake(inset, inset, 280, headerHeight)];
+    buyingHeader.text = @"When Buying";
+    [buyingHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
+    [buyingHeader setTextColor:[UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]];
+    
+    //when buying text
+    UITextView *buyingText = [[UITextView alloc] initWithFrame:CGRectMake(0, inset + headerHeight, width, 0)];
+    buyingText.text = [ingredient objectForKey:@"whenBuying"];
+    [buyingText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
+    [buyingText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    buyingText.editable = NO;
+    
+    [buyingView addSubview:buyingHeader];
+    [buyingView addSubview:buyingText];
+    
+    //resize textview to fit the content
+    CGRect buyingFrame = buyingText.frame;
+    buyingFrame.size.height = buyingText.contentSize.height;
+    buyingText.frame = buyingFrame;
+    
+    //add container view to scrollview
+    [scrollView addSubview: buyingView];
+    
+    //resize containerview to fit everything
+    [buyingView resizeToFitSubviews];
+    
+    //adjust y to new start point
+    y += buyingView.frame.size.height + padding;
+    
+    NSLog(@"y postion: %i", y);
+    
+    //STORING
+    
+    //container uiview
+    UIView *storingView = [[UIView alloc] initWithFrame:CGRectMake(x, y + padding, width, 0)];
+    [storingView setBackgroundColor:[UIColor whiteColor]];
+    
+    UILabel *storingHeader = [[UILabel alloc] initWithFrame:CGRectMake(inset, inset, 280, headerHeight)];
+    storingHeader.text = @"Storing";
+    [storingHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
+    [storingHeader setTextColor:[UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]];
+    
+    //when buying text
+    UITextView *storingText = [[UITextView alloc] initWithFrame:CGRectMake(0, inset + headerHeight, width, 0)];
+    storingText.text = [ingredient objectForKey:@"storing"];
+    [storingText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
+    [storingText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    storingText.editable = NO;
+    
+    [storingView addSubview:storingHeader];
+    [storingView addSubview:storingText];
+    
+    //resize textview to fit the content
+    CGRect storingFrame = storingText.frame;
+    storingFrame.size.height = storingText.contentSize.height;
+    storingText.frame = storingFrame;
+    
+    //add container view to scrollview
+    [scrollView addSubview: storingView];
+    
+    //resize containerview to fit everything
+    [storingView resizeToFitSubviews];
+    
+    //adjust y to new start point
+    y += storingView.frame.size.height + padding;
+    
+    NSLog(@"y postion: %i", y);
+    
+    scrollView.contentSize=CGSizeMake(320, y);
+    scrollView.contentInset= UIEdgeInsetsMake(0.0,0.0, 30.0,0.0);
+    
 }
 - (IBAction)backButtonPressed:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -214,32 +308,32 @@
     
     self.scheduleMessage.text = nil;
     
-    if ([[sender currentTitle] isEqualToString:@"dayOne"]) {
+    if ([sender tag] == 1) {
         NSLog(@"Button pressed: Tuesday");
         [self scheduleNotification:[dayOneActual dateByAddingTimeInterval:-60*60*24*1]];
 //        [self scheduleNotification:[NSDate dateWithTimeIntervalSinceNow:10]];
         
-    } else if ([[sender currentTitle] isEqualToString:@"dayTwo"]) {
+    } else if ([sender tag] == 2) {
         NSLog(@"Button pressed: Wednesday");
         [self scheduleNotification:[dayTwoActual dateByAddingTimeInterval:-60*60*24*1]];
         
-    } else if ([[sender currentTitle] isEqualToString:@"dayThree"]) {
+    } else if ([sender tag] == 3) {
         NSLog(@"Button pressed: Thursday");
         [self scheduleNotification:[dayThreeActual dateByAddingTimeInterval:-60*60*24*1]];
         
-    } else if ([[sender currentTitle] isEqualToString:@"dayFour"]) {
+    } else if ([sender tag] == 4) {
         NSLog(@"Button pressed: Friday");
         [self scheduleNotification:[dayFourActual dateByAddingTimeInterval:-60*60*24*1]];
         
-    } else if ([[sender currentTitle] isEqualToString:@"dayFive"]) {
+    } else if ([sender tag] == 5) {
         NSLog(@"Button pressed: Saturday");
         [self scheduleNotification:[dayFiveActual dateByAddingTimeInterval:-60*60*24*1]];
         
-    } else if ([[sender currentTitle] isEqualToString:@"daySix"]) {
+    } else if ([sender tag] == 6) {
         NSLog(@"Button pressed: Sunday");
         [self scheduleNotification:[daySixActual dateByAddingTimeInterval:-60*60*24*1]];
         
-    }else if ([[sender currentTitle] isEqualToString:@"daySeven"]) {
+    } else if ([sender tag] == 7) {
         NSLog(@"Button pressed: Monday");
         [self scheduleNotification:[daySevenActual dateByAddingTimeInterval:-60*60*24*1]];
         
