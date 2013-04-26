@@ -31,7 +31,7 @@ static TTTTimeIntervalFormatter *timeFormatter;
         // Customize the table
         if (!timeFormatter) {
             timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
-            [timeFormatter setUsesAbbreviatedCalendarUnits:YES];
+//            [timeFormatter setUsesAbbreviatedCalendarUnits:YES];
         }
         
         // The className to query on
@@ -89,7 +89,11 @@ static TTTTimeIntervalFormatter *timeFormatter;
     if (NSClassFromString(@"UIRefreshControl")) {
         // Use the new iOS 6 refresh control.
         UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-        refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"What's Sprouting?"];
+        
+        UIFont *font = [UIFont fontWithName:@"MuseoSans-700" size:14.0];
+        NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:font
+                                                                    forKey:NSFontAttributeName];
+        refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"What's Sprouting?" attributes:attrsDictionary];
         refreshControl.tintColor = [UIColor colorWithRed:(53/255.0) green:(135/255.0) blue:(93/255.0) alpha:1.0];
         self.refreshControl = refreshControl;
         
@@ -135,6 +139,17 @@ static TTTTimeIntervalFormatter *timeFormatter;
     NSLog(@"Sprout! Let's reload the feed!");
     [self loadObjects];
     [self.tableView reloadData];
+}
+
+-(void) likeButtonPressed: (id) sender{
+    FeedViewCell *clickedCell = (FeedViewCell *)[[sender superview] superview];
+//    NSIndexPath *clickedButtonPath = [self.tableView indexPathForCell:clickedCell];
+    NSLog(@"LIKE: %@", clickedCell.sproutTitle.text);
+}
+
+-(void) commentButtonPressed: (id) sender{
+    FeedViewCell *clickedCell = (FeedViewCell *)[[sender superview] superview];
+    NSLog(@"COMMENT:%@", clickedCell.sproutTitle.text);
 }
 
 // Infinite scroll
@@ -235,6 +250,14 @@ static TTTTimeIntervalFormatter *timeFormatter;
             // Now that the data is fetched, update the cell's image property.
             cell.sproutImage.image = [UIImage imageWithData:data];
         }];
+        
+        // Like Button
+        UIButton *likeButton = (UIButton *)[cell viewWithTag:1];
+        [likeButton addTarget:self action:@selector(likeButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        
+        // Comment Button
+        UIButton *commentButton = (UIButton *)[cell viewWithTag:2];
+        [commentButton addTarget:self action:@selector(commentButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         
        return cell;
         
@@ -346,4 +369,9 @@ static TTTTimeIntervalFormatter *timeFormatter;
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)likePressed:(UIButton *)sender {
+}
+
+- (IBAction)commentPressed:(UIButton *)sender {
+}
 @end
