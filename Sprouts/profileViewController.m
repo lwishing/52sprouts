@@ -16,6 +16,7 @@
 @implementation profileViewController
 
 @synthesize settingsButton;
+@synthesize childView = _childView;
 
 - (void)viewDidLoad
 {
@@ -25,16 +26,20 @@
     // Set background color to clear to make background image visible
     self.view.backgroundColor = [UIColor clearColor];
     
-    // Access PFUser
-    PFUser *currentUser = [PFUser currentUser];
+    // configure chld view controller view's frame
+    self.childView.view.frame=CGRectMake( 0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height);
+    // add child's view to view hierarchy
+    [self.view addSubview:self.childView.view];
     
-    // Display name
-    self.profileName.text = [NSString stringWithFormat:@"%@%@%@",[currentUser objectForKey:@"firstName"],@" ",[currentUser objectForKey:@"lastName"]];
-    
-    // Load profile image
-    //    self.profileImage.image = [UIImage imageNamed:@"xxxxxx"]; // placeholder image
-    self.profileImage.file = (PFFile *)[currentUser objectForKey:@"profilePic"]; // remote image
-    [self.profileImage loadInBackground];
+}
+
+-(void)awakeFromNib {
+    // instantiate and assign the child view controller to a property to have direct reference to it in
+    self.childView=[self.storyboard instantiateViewControllerWithIdentifier:@"mefeed"];
+    // configure your child view controller
+    // add your child view controller to children array
+    [self addChildViewController:self.childView];
+    [self.childView didMoveToParentViewController:self];
     
 }
 
@@ -42,7 +47,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    // yay
 }
 
 @end

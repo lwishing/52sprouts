@@ -53,6 +53,8 @@
 		9CDB538B1720ADD1002F6E41 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		9CDB538C1720ADD1002F6E41 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		9CDB538D1720ADD1002F6E41 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		9CE128A7172A85F100472319 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE128A6172A85F100472319 /* TimelineViewController.m */; };
+		9CE128AA172A8D0B00472319 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE128A9172A8D0B00472319 /* ProfileTableViewController.m */; };
 		9CE5641B1720B9840008B5BA /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE5641A1720B9840008B5BA /* SSTextView.m */; };
 		9CE564221720C0DB0008B5BA /* UIImage+AlphaAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE5641D1720C0DB0008B5BA /* UIImage+AlphaAdditions.m */; };
 		9CE564231720C0DB0008B5BA /* UIImage+ResizeAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE5641F1720C0DB0008B5BA /* UIImage+ResizeAdditions.m */; };
@@ -82,8 +84,6 @@
 		EF08E655170D1C4800BDA831 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF08E653170D1C4800BDA831 /* InfoPlist.strings */; };
 		EF08E657170D1C4800BDA831 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF08E656170D1C4800BDA831 /* main.m */; };
 		EF08E65B170D1C4800BDA831 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF08E65A170D1C4800BDA831 /* AppDelegate.m */; };
-		EF08E65D170D1C4800BDA831 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EF08E65C170D1C4800BDA831 /* Default.png */; };
-		EF08E65F170D1C4800BDA831 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF08E65E170D1C4800BDA831 /* Default@2x.png */; };
 		EF08E664170D1C4800BDA831 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF08E662170D1C4800BDA831 /* MainStoryboard.storyboard */; };
 		EF08E667170D1C4800BDA831 /* feedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF08E666170D1C4800BDA831 /* feedViewController.m */; };
 		EF08E66E170D1C4800BDA831 /* profileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF08E66D170D1C4800BDA831 /* profileViewController.m */; };
@@ -183,6 +183,10 @@
 		9C57872A1722977700E490A3 /* FeedViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewCell.m; sourceTree = "<group>"; };
 		9C9E5C3C171E5325003A2594 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		9C9E5C3D171E5325003A2594 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		9CE128A5172A85F100472319 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
+		9CE128A6172A85F100472319 /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
+		9CE128A8172A8D0B00472319 /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
+		9CE128A9172A8D0B00472319 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
 		9CE564191720B9840008B5BA /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSTextView.h; path = ../External/SSTextView.h; sourceTree = "<group>"; };
 		9CE5641A1720B9840008B5BA /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSTextView.m; path = ../External/SSTextView.m; sourceTree = "<group>"; };
 		9CE5641C1720C0DB0008B5BA /* UIImage+AlphaAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+AlphaAdditions.h"; path = "External/UIImage+AlphaAdditions.h"; sourceTree = "<group>"; };
@@ -320,26 +324,21 @@
 			name = "Add Sprout";
 			sourceTree = "<group>";
 		};
-		9CDB537617209F20002F6E41 /* Me */ = {
+		9CDB537717209F47002F6E41 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				9CE128A5172A85F100472319 /* TimelineViewController.h */,
+				9CE128A6172A85F100472319 /* TimelineViewController.m */,
+				9CE5642517211C2A0008B5BA /* FeedTableViewController.h */,
+				9CE5642617211C2A0008B5BA /* FeedTableViewController.m */,
+				9CE128A8172A8D0B00472319 /* ProfileTableViewController.h */,
+				9CE128A9172A8D0B00472319 /* ProfileTableViewController.m */,
+				EF08E665170D1C4800BDA831 /* feedViewController.h */,
+				EF08E666170D1C4800BDA831 /* feedViewController.m */,
 				EF08E66C170D1C4800BDA831 /* profileViewController.h */,
 				EF08E66D170D1C4800BDA831 /* profileViewController.m */,
 			);
-			name = Me;
-			sourceTree = "<group>";
-		};
-		9CDB537717209F47002F6E41 /* Feed */ = {
-			isa = PBXGroup;
-			children = (
-				9CDB537D1720A160002F6E41 /* Schedule */,
-				9CDB537C1720A154002F6E41 /* Ingredient Info */,
-				EF08E665170D1C4800BDA831 /* feedViewController.h */,
-				EF08E666170D1C4800BDA831 /* feedViewController.m */,
-				9CE5642517211C2A0008B5BA /* FeedTableViewController.h */,
-				9CE5642617211C2A0008B5BA /* FeedTableViewController.m */,
-			);
-			name = Feed;
+			name = Timeline;
 			sourceTree = "<group>";
 		};
 		9CDB537817209F89002F6E41 /* Login */ = {
@@ -374,8 +373,9 @@
 			children = (
 				9CDB537817209F89002F6E41 /* Login */,
 				9CDB537517209EF3002F6E41 /* Add Sprout */,
-				9CDB537717209F47002F6E41 /* Feed */,
-				9CDB537617209F20002F6E41 /* Me */,
+				9CDB537D1720A160002F6E41 /* Schedule */,
+				9CDB537C1720A154002F6E41 /* Ingredient Info */,
+				9CDB537717209F47002F6E41 /* Timeline */,
 				9CDB537B1720A126002F6E41 /* Settings */,
 				EF08E679170D201B00BDA831 /* SproutsTabBarController.h */,
 				EF08E67A170D201B00BDA831 /* SproutsTabBarController.m */,
@@ -670,8 +670,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF08E655170D1C4800BDA831 /* InfoPlist.strings in Resources */,
-				EF08E65D170D1C4800BDA831 /* Default.png in Resources */,
-				EF08E65F170D1C4800BDA831 /* Default@2x.png in Resources */,
 				EF08E664170D1C4800BDA831 /* MainStoryboard.storyboard in Resources */,
 				EFE05A7E17154BAB0033EE3E /* background.png in Resources */,
 				EFE05A7F17154BAB0033EE3E /* background@2x.png in Resources */,
@@ -785,6 +783,8 @@
 				EF18B5A41724C63400F4ADC7 /* WebViewController.m in Sources */,
 				9CEE1BB717267C29006C5D50 /* TTTTimeIntervalFormatter.m in Sources */,
 				9CEE1BBB17267C64006C5D50 /* MBProgressHUD.m in Sources */,
+				9CE128A7172A85F100472319 /* TimelineViewController.m in Sources */,
+				9CE128AA172A8D0B00472319 /* ProfileTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

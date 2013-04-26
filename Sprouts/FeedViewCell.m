@@ -17,6 +17,7 @@
 @synthesize userName = _userName;
 @synthesize userAvatar = _userAvatar;
 
+@synthesize sproutObject = _sproutObject;
 
 - (id)initWithFrame:(CGRect)frame
 {

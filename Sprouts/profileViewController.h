@@ -11,8 +11,8 @@
 
 @interface profileViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UILabel *profileName;
-@property (strong, nonatomic) IBOutlet PFImageView *profileImage;
+@property (nonatomic, strong) PFQueryTableViewController *childView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
+
 
 @end

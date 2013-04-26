@@ -14,6 +14,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *sproutDescription;
 @property (weak, nonatomic) IBOutlet UILabel *sproutedAt;
 
+@property (weak, nonatomic) PFObject *sproutObject;
+
+
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet PFImageView *userAvatar;
 

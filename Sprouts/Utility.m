@@ -46,6 +46,25 @@ static Utility *_sharedInstance;
     return currentIngredient;
 }
 
+#pragma mark Activities
+
++ (PFQuery *)queryForActivitiesOnSprout:(PFObject *)sprout cachePolicy:(PFCachePolicy)cachePolicy {
+    PFQuery *queryLikes = [PFQuery queryWithClassName:@"Activity"];
+    [queryLikes whereKey:@"sprout" equalTo:sprout];
+    [queryLikes whereKey:@"type" equalTo:@"like"];
+    
+    PFQuery *queryComments = [PFQuery queryWithClassName:@"Activity"];
+    [queryComments whereKey:@"sprout" equalTo:sprout];
+    [queryComments whereKey:@"type" equalTo:@"comment"];
+    
+    PFQuery *query = [PFQuery orQueryWithSubqueries:[NSArray arrayWithObjects:queryLikes,queryComments,nil]];
+    [query setCachePolicy:cachePolicy];
+    [query includeKey:@"fromUser"];
+    [query includeKey:@"sprout"];
+    
+    return query;
+}
+
 @end
 
 @implementation UIView (UIView_Expanded)

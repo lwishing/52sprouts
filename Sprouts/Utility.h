@@ -19,7 +19,7 @@
 
 - (PFObject *)getCurrentWeek;
 - (PFObject *)getCurrentIngredient;
-
++ (PFQuery *) queryForActivitiesOnSprout:(PFObject *)photo cachePolicy:(PFCachePolicy)cachePolicy;
 @end
 
 @interface UIView (UIView_Expanded)
