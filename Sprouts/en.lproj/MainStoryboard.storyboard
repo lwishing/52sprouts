@@ -1570,58 +1570,20 @@
                                     <action selector="loginButtonPushed:" destination="tZQ-1O-uQp" eventType="touchUpInside" id="G6X-4A-jbb"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="52 Sprouts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30U-d4-ga6">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="208" id="cPx-YK-Gaj"/>
-                                    <constraint firstAttribute="height" constant="54" id="wBm-dA-UrX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                <color key="textColor" red="0.21568627450980393" green="0.5490196078431373" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="195" translatesAutoresizingMaskIntoConstraints="NO" id="qlm-uv-npl">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="195" id="1AK-5r-NMi"/>
-                                    <constraint firstAttribute="height" constant="63" id="SDW-OI-ZN5"/>
-                                </constraints>
-                                <string key="text">Mastering the kitchen, 
-one vegetable at a time.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.21568627450980393" green="0.5490196078431373" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="center" image="login_sprout.png" translatesAutoresizingMaskIntoConstraints="NO" id="hiF-aA-vn9">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="115" id="6ti-rc-76a"/>
-                                    <constraint firstAttribute="height" constant="150" id="MVE-4T-HOt"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hiF-aA-vn9" firstAttribute="centerX" secondItem="30U-d4-ga6" secondAttribute="centerX" type="default" id="3c2-DJ-W5U"/>
-                            <constraint firstItem="hiF-aA-vn9" firstAttribute="top" secondItem="P6x-9o-bi0" secondAttribute="top" constant="117" id="82O-8U-Rq6"/>
-                            <constraint firstItem="30U-d4-ga6" firstAttribute="top" secondItem="P6x-9o-bi0" secondAttribute="top" constant="40" id="Ccy-jC-wCt"/>
                             <constraint firstAttribute="trailing" secondItem="9Eh-gd-NV4" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="FRg-Le-eFk"/>
                             <constraint firstItem="9Eh-gd-NV4" firstAttribute="leading" secondItem="P6x-9o-bi0" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Gbw-wq-y8i"/>
                             <constraint firstItem="Pd9-xn-PpF" firstAttribute="top" secondItem="P6x-9o-bi0" secondAttribute="top" type="default" id="Rxx-Wx-4K3"/>
                             <constraint firstItem="Pd9-xn-PpF" firstAttribute="leading" secondItem="P6x-9o-bi0" secondAttribute="leading" type="default" id="W9x-cr-s5m"/>
                             <constraint firstItem="Pd9-xn-PpF" firstAttribute="bottom" secondItem="P6x-9o-bi0" secondAttribute="bottom" type="default" id="e0d-x2-ZWe"/>
-                            <constraint firstItem="qlm-uv-npl" firstAttribute="centerX" secondItem="hiF-aA-vn9" secondAttribute="centerX" type="default" id="ej3-YH-wNY"/>
-                            <constraint firstAttribute="bottom" secondItem="qlm-uv-npl" secondAttribute="bottom" constant="200" id="vWd-0d-iuD"/>
-                            <constraint firstItem="qlm-uv-npl" firstAttribute="centerX" secondItem="9Eh-gd-NV4" secondAttribute="centerX" type="default" id="weq-a4-5bJ"/>
                             <constraint firstAttribute="bottom" secondItem="9Eh-gd-NV4" secondAttribute="bottom" constant="19" id="x9m-hB-HTu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1iz-fO-rb9"/>
                     <connections>
-                        <outlet property="blurb" destination="qlm-uv-npl" id="Wvi-Px-cK5"/>
                         <outlet property="loginButton" destination="9Eh-gd-NV4" id="K4f-3U-ync"/>
-                        <outlet property="sprouts" destination="30U-d4-ga6" id="Nbj-9I-oTQ"/>
                         <segue destination="4" kind="modal" identifier="loginToMain" modalTransitionStyle="crossDissolve" id="XE6-Mb-rzK"/>
                     </connections>
                 </viewController>
@@ -1746,7 +1708,6 @@ one vegetable at a time.</string>
         <image name="heart_icon.png" width="16" height="14"/>
         <image name="ingredients_button.png" width="150" height="27"/>
         <image name="loading_photo.png" width="300" height="300"/>
-        <image name="login_sprout.png" width="114" height="151"/>
         <image name="me_icon_deselected.png" width="27" height="26"/>
         <image name="next.png" width="13" height="20"/>
         <image name="photo_button.png" width="150" height="27"/>
@@ -1788,6 +1749,7 @@ one vegetable at a time.</string>
         <class className="LoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
             <relationships>
+                <relationship kind="action" name="loginButtonPushed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="blurb" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="sprouts" candidateClass="UILabel"/>

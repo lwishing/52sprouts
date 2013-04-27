@@ -15,7 +15,7 @@
 
 @implementation LoginViewController
 
-@synthesize sprouts, blurb, loginButton;
+//@synthesize sprouts, blurb, loginButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,9 +31,90 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    // Create the scrollview with specific frame
+    ALScrollViewPaging *scrollView = [[ALScrollViewPaging alloc] initWithFrame:CGRectMake(0, 30, self.view.frame.size.width, 345)];
+    
+    
+    // Step 1
+    UIView *stepOne = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 345)];
+    
+    UITextView *sprouts = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 60)];
+    sprouts.text = @"52 Sprouts";
+    sprouts.textAlignment = NSTextAlignmentCenter;
     [sprouts setFont:[UIFont fontWithName:@"MuseoSans-500" size:42.0]];
-    [blurb setFont:[UIFont fontWithName:@"MuseoSans-500" size:17.0]];
-    [loginButton.titleLabel setFont:[UIFont fontWithName:@"MuseoSans-500" size:16.0]];
+    sprouts.backgroundColor = [UIColor clearColor];
+    sprouts.textColor = [UIColor colorWithRed:(53/255.0) green:(135/255.0) blue:(93/255.0) alpha:1.0];
+    [stepOne addSubview:sprouts];
+    
+    UIView *imageViewOne = [[UIView alloc] initWithFrame:CGRectMake(20, 60, (self.view.frame.size.width - 40), 175)];
+    [imageViewOne setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"step1.png"]]];
+    [stepOne addSubview:imageViewOne];
+    
+    UITextView *headerViewOne = [[UITextView alloc] initWithFrame:CGRectMake(10, 235, (self.view.frame.size.width - 20), 60)];
+    headerViewOne.text = @"Mastering the kitchen, one vegetable at a time";
+    [headerViewOne setFont:[UIFont fontWithName:@"MuseoSans-500" size:20.0]];
+    headerViewOne.backgroundColor = [UIColor clearColor];
+    [stepOne addSubview:headerViewOne];
+    
+    UITextView *subHeaderViewOne = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
+    subHeaderViewOne.text = @"Each week, we'll pick a vegetable that's in season and give you info to get you started.";
+    [subHeaderViewOne setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
+    subHeaderViewOne.backgroundColor = [UIColor clearColor];
+    [stepOne addSubview:subHeaderViewOne];
+    
+    
+    // Step 2
+    UIView *stepTwo = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 345)];
+    
+    UIView *imageViewTwo = [[UIView alloc] initWithFrame:CGRectMake(20, 0, (self.view.frame.size.width - 40), 235)];
+    [imageViewTwo setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"step2.png"]]];
+    [stepTwo addSubview:imageViewTwo];
+    
+    UITextView *headerViewTwo = [[UITextView alloc] initWithFrame:CGRectMake(10, 235, (self.view.frame.size.width - 20), 60)];
+    headerViewTwo.text = @"Sprout the vegetable of the week by leaving a recipe or tip";
+    [headerViewTwo setFont:[UIFont fontWithName:@"MuseoSans-500" size:20.0]];
+    headerViewTwo.backgroundColor = [UIColor clearColor];
+    [stepTwo addSubview:headerViewTwo];
+    
+    UITextView *subHeaderViewTwo = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
+    subHeaderViewTwo.text = @"Show us your expertise and learn from the 52Sprouts community.";
+    [subHeaderViewTwo setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
+    subHeaderViewTwo.backgroundColor = [UIColor clearColor];
+    [stepTwo addSubview:subHeaderViewTwo];
+    
+    
+    // Step 3
+    UIView *stepThree = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 345)];
+    
+    UIView *imageViewThree = [[UIView alloc] initWithFrame:CGRectMake(20, 0, (self.view.frame.size.width - 40), 235)];
+    [imageViewThree setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"step3.png"]]];
+    [stepThree addSubview:imageViewThree];
+    
+    UITextView *headerViewThree = [[UITextView alloc] initWithFrame:CGRectMake(10, 235, (self.view.frame.size.width - 20), 60)];
+    headerViewThree.text = @"Revisit past vegetables by browsing your own cookbook";
+    [headerViewThree setFont:[UIFont fontWithName:@"MuseoSans-500" size:20.0]];
+    headerViewThree.backgroundColor = [UIColor clearColor];
+    [stepThree addSubview:headerViewThree];
+    
+    UITextView *subHeaderViewThree = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
+    subHeaderViewThree.text = @"Recipes and tips you like get saved to your profile.";
+    [subHeaderViewThree setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
+    subHeaderViewThree.backgroundColor = [UIColor clearColor];
+    [stepThree addSubview:subHeaderViewThree];
+    
+    
+    NSArray *views = [[NSArray alloc] initWithObjects:stepOne, stepTwo, stepThree, nil];
+    
+    //add pages to scrollview
+    [scrollView addPages:views];
+    
+    //add scrollview to the view
+    [self.view addSubview:scrollView];
+    
+    scrollView.center = CGPointMake( self.view.bounds.size.width / 2, (self.view.bounds.size.height - 100) / 2);
+
+    
+    [scrollView setHasPageControl:YES];
     
 }
 
