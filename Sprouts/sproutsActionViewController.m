@@ -94,19 +94,22 @@
     
     NSUInteger newLength = oldLength - rangeLength + replacementLength;
     
+    // prevents issue of counter going to -1
+    if (newLength <= 30) {
+        characterCountTitle.text = [NSString stringWithFormat:@"%d", (30 -  newLength)];
+    } 
+    
+    // disables share button if there is no title
     if (newLength > 0) {
         shareButton.enabled = YES;
     }
-    
     else {
         shareButton.enabled = NO;
     }
-
-    characterCountTitle.text = [NSString stringWithFormat:@"%d", (40 - newLength)];
-    
+        
     BOOL returnKey = [string rangeOfString: @"\n"].location != NSNotFound;
     
-    return newLength <= 40 || returnKey;
+    return newLength <= 30 || returnKey;
 }
 
 #pragma mark - UITextViewDelegate
@@ -117,11 +120,19 @@
     
     NSUInteger newLength = oldLength - rangeLength + replacementLength;
     
-    characterCountDescription.text = [NSString stringWithFormat:@"%d", (140 -  newLength)];
+    // prevents issue of counter going to -1
+    if (newLength <= 140) {
+        characterCountDescription.text = [NSString stringWithFormat:@"%d", (140 -  newLength)];
+    }
     
     BOOL returnKey = [string rangeOfString: @"\n"].location != NSNotFound;
     
     return newLength <= 140 || returnKey;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    [self.sproutDescription becomeFirstResponder];
+    return YES;
 }
 
 
@@ -133,7 +144,9 @@
 // Share new Sprout
 - (IBAction)shareButtonPressed:(UIBarButtonItem *)sender {
     // Save image to the Camera Roll
-    UIImageWriteToSavedPhotosAlbum(sproutImage.image, nil, nil, nil);
+    if ([UIImage imageNamed:@"loading_photo.png"] != sproutImage.image) {
+        UIImageWriteToSavedPhotosAlbum(sproutImage.image, nil, nil, nil);
+    }
     
     // Title
     NSString *trimmedTitle = [self.sproutTitle.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];

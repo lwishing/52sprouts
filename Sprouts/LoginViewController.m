@@ -44,6 +44,7 @@
     [sprouts setFont:[UIFont fontWithName:@"MuseoSans-500" size:42.0]];
     sprouts.backgroundColor = [UIColor clearColor];
     sprouts.textColor = [UIColor colorWithRed:(53/255.0) green:(135/255.0) blue:(93/255.0) alpha:1.0];
+    [sprouts setUserInteractionEnabled:NO];
     [stepOne addSubview:sprouts];
     
     UIView *imageViewOne = [[UIView alloc] initWithFrame:CGRectMake(20, 60, (self.view.frame.size.width - 40), 175)];
@@ -54,12 +55,14 @@
     headerViewOne.text = @"Mastering the kitchen, one vegetable at a time";
     [headerViewOne setFont:[UIFont fontWithName:@"MuseoSans-500" size:20.0]];
     headerViewOne.backgroundColor = [UIColor clearColor];
+    [headerViewOne setUserInteractionEnabled:NO];
     [stepOne addSubview:headerViewOne];
     
     UITextView *subHeaderViewOne = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
     subHeaderViewOne.text = @"Each week, we'll pick a vegetable that's in season and give you info to get you started.";
     [subHeaderViewOne setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     subHeaderViewOne.backgroundColor = [UIColor clearColor];
+    [subHeaderViewOne setUserInteractionEnabled:NO];
     [stepOne addSubview:subHeaderViewOne];
     
     
@@ -74,12 +77,14 @@
     headerViewTwo.text = @"Sprout the vegetable of the week by leaving a recipe or tip";
     [headerViewTwo setFont:[UIFont fontWithName:@"MuseoSans-500" size:20.0]];
     headerViewTwo.backgroundColor = [UIColor clearColor];
+    [headerViewTwo setUserInteractionEnabled:NO];
     [stepTwo addSubview:headerViewTwo];
     
     UITextView *subHeaderViewTwo = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
     subHeaderViewTwo.text = @"Show us your expertise and learn from the 52Sprouts community.";
     [subHeaderViewTwo setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     subHeaderViewTwo.backgroundColor = [UIColor clearColor];
+    [subHeaderViewTwo setUserInteractionEnabled:NO];
     [stepTwo addSubview:subHeaderViewTwo];
     
     
@@ -94,12 +99,14 @@
     headerViewThree.text = @"Revisit past vegetables by browsing your own cookbook";
     [headerViewThree setFont:[UIFont fontWithName:@"MuseoSans-500" size:20.0]];
     headerViewThree.backgroundColor = [UIColor clearColor];
+    [headerViewThree setUserInteractionEnabled:NO];
     [stepThree addSubview:headerViewThree];
     
     UITextView *subHeaderViewThree = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
     subHeaderViewThree.text = @"Recipes and tips you like get saved to your profile.";
     [subHeaderViewThree setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     subHeaderViewThree.backgroundColor = [UIColor clearColor];
+    [subHeaderViewThree setUserInteractionEnabled:NO];
     [stepThree addSubview:subHeaderViewThree];
     
     
