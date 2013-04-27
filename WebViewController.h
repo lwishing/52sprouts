@@ -12,10 +12,8 @@
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) NSURL *theURL;
-@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) NSString *theTitle;
 
-- (IBAction)done:(id)sender;
 - (IBAction)openInSafari:(UIBarButtonItem *)sender;
-
 
 @end

@@ -81,7 +81,7 @@
     [stepTwo addSubview:headerViewTwo];
     
     UITextView *subHeaderViewTwo = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
-    subHeaderViewTwo.text = @"Show us your expertise and learn from the 52Sprouts community.";
+    subHeaderViewTwo.text = @"Show us your expertise and learn from the 52 Sprouts community.";
     [subHeaderViewTwo setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     subHeaderViewTwo.backgroundColor = [UIColor clearColor];
     [subHeaderViewTwo setUserInteractionEnabled:NO];
@@ -103,7 +103,7 @@
     [stepThree addSubview:headerViewThree];
     
     UITextView *subHeaderViewThree = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
-    subHeaderViewThree.text = @"Recipes and tips you like get saved to your profile.";
+    subHeaderViewThree.text = @"Recipes and tips you like get saved to your profile for later viewing.";
     [subHeaderViewThree setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     subHeaderViewThree.backgroundColor = [UIColor clearColor];
     [subHeaderViewThree setUserInteractionEnabled:NO];

@@ -14,16 +14,21 @@
 
 @implementation WebViewController
 @synthesize theURL = _theURL;
-@synthesize toolbar = _toolbar;
+@synthesize theTitle = _theTitle;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.toolbar setBackgroundImage:[UIImage imageNamed:@"toolbar.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    self.navigationItem.title = _theTitle;
     NSURLRequest *requestObject = [NSURLRequest requestWithURL:_theURL];
     [self.webView loadRequest:requestObject];
     NSLog(@"Loading: %@", _theURL);
+        
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"action.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(openInSafari:)];
+        
+    self.navigationItem.rightBarButtonItem = barButton;
+    
 }
 
 - (void)didReceiveMemoryWarning

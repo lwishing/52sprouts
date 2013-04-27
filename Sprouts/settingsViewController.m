@@ -8,6 +8,7 @@
 
 #import "settingsViewController.h"
 #import "WebViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface settingsViewController ()
 
@@ -31,7 +32,6 @@
 	// Do any additional setup after loading the view.
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
     [self.tableView setBackgroundView:imageView];
-        
 }
 
 - (void)didReceiveMemoryWarning
