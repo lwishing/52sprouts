@@ -15,5 +15,8 @@
 @property (weak, nonatomic) NSString *theTitle;
 
 - (IBAction)openInSafari:(UIBarButtonItem *)sender;
+- (IBAction)doneButtonPressed:(UIBarButtonItem *)sender;
+
+@property (weak, nonatomic) IBOutlet UIToolbar *theToolbar;
 
 @end

@@ -69,28 +69,29 @@
     WebViewController *webViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
     webViewController.theURL = [NSURL URLWithString:@"http://52sprouts.com/privacy"];
     webViewController.theTitle = @"Privacy Policy";
-    [self.navigationController pushViewController:webViewController animated:YES];
+    //[self.navigationController pushViewController:webViewController animated:YES];
+    [self presentViewController:webViewController animated:YES completion:nil];
 }
 
 - (IBAction)termsPressed:(id)sender {
     WebViewController *webViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
     webViewController.theURL = [NSURL URLWithString:@"http://52sprouts.com/terms"];
     webViewController.theTitle = @"Terms of Service";
-    [self.navigationController pushViewController:webViewController animated:YES];
+    [self presentViewController:webViewController animated:YES completion:nil];
 }
 
 - (IBAction)websitePressed:(id)sender {
     WebViewController *webViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
     webViewController.theURL = [NSURL URLWithString:@"http://52sprouts.com"];
     webViewController.theTitle = @"52sprouts.com";
-    [self.navigationController pushViewController:webViewController animated:YES];
+    [self presentViewController:webViewController animated:YES completion:nil];
 }
 
 - (IBAction)twitterPressed:(id)sender {
     WebViewController *webViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
     webViewController.theURL = [NSURL URLWithString:@"https://twitter.com/52sprouts"];
     webViewController.theTitle = @"@52sprouts";
-    [self.navigationController pushViewController:webViewController animated:YES];
+    [self presentViewController:webViewController animated:YES completion:nil];
 }
 
 - (IBAction)logoutPressed:(id)sender {

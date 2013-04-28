@@ -15,19 +15,22 @@
 @implementation WebViewController
 @synthesize theURL = _theURL;
 @synthesize theTitle = _theTitle;
+@synthesize theToolbar = _theToolbar;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.navigationItem.title = _theTitle;
+    //self.navigationItem.title = _theTitle;
     NSURLRequest *requestObject = [NSURLRequest requestWithURL:_theURL];
     [self.webView loadRequest:requestObject];
     NSLog(@"Loading: %@", _theURL);
+    
+    [_theToolbar setBackgroundImage:[UIImage imageNamed:@"nav_bar.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
         
-    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"action.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(openInSafari:)];
-        
-    self.navigationItem.rightBarButtonItem = barButton;
+//    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"action.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(openInSafari:)];
+    
+//    self.navigationItem.rightBarButtonItem = barButton;
     
 }
 
@@ -44,6 +47,10 @@
 - (IBAction)openInSafari:(UIBarButtonItem *)sender {
     UIActionSheet *openSafari = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Open Safari", nil];
     [openSafari showInView:self.view];
+}
+
+- (IBAction)doneButtonPressed:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {    
