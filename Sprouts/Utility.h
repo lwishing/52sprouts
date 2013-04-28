@@ -20,6 +20,10 @@
 - (PFObject *)getCurrentWeek;
 - (PFObject *)getCurrentIngredient;
 + (PFQuery *) queryForActivitiesOnSprout:(PFObject *)photo cachePolicy:(PFCachePolicy)cachePolicy;
+
++ (void)likeSproutInBackground:(id)photo block:(void (^)(BOOL succeeded, NSError *error))completionBlock;
++ (void)unlikeSproutInBackground:(id)photo block:(void (^)(BOOL succeeded, NSError *error))completionBlock;
+
 @end
 
 @interface UIView (UIView_Expanded)

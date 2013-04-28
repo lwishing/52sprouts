@@ -284,36 +284,31 @@
                                                 <constraint firstItem="EeK-fP-XE6" firstAttribute="centerX" secondItem="Tmc-2l-Fms" secondAttribute="centerX" type="default" id="cQW-So-B7H"/>
                                             </constraints>
                                         </view>
-                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vwz-Th-i8O" userLabel="Like">
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwz-Th-i8O" userLabel="Like">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="cdJ-78-lOY"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                             <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="-2"/>
                                             <inset key="imageEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            <state key="normal" image="heart_icon.png" backgroundImage="orange_button.png">
-                                                <attributedString key="attributedTitle">
-                                                    <fragment content="0">
-                                                        <attributes>
-                                                            <color key="NSColor" red="1" green="0.59215686274509804" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" size="11" name="AvenirNext-Bold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                            <state key="normal" title="0" image="heart_icon.png" backgroundImage="orange_button.png">
+                                                <color key="titleColor" red="1" green="0.59215686274509804" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="disabled">
+                                                <color key="titleColor" red="1" green="0.59215686270000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <state key="selected" image="filled_in_heart.png">
+                                                <color key="titleColor" red="1" green="0.59215686270000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                         </button>
-                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TFx-bM-hZC" userLabel="Comment">
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" restorationIdentifier="commentButton" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFx-bM-hZC" userLabel="Comment">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                             <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="-2"/>
                                             <inset key="imageEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            <state key="normal" image="comment_icon.png" backgroundImage="orange_button.png">
-                                                <attributedString key="attributedTitle">
-                                                    <fragment content="0">
-                                                        <attributes>
-                                                            <color key="NSColor" red="1" green="0.59215686274509804" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" size="11" name="AvenirNext-Bold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                            <state key="normal" title="0" image="comment_icon.png" backgroundImage="orange_button.png">
+                                                <color key="titleColor" red="1" green="0.59215686274509804" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
                                     </subviews>
@@ -322,23 +317,27 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Tmc-2l-Fms" secondAttribute="bottom" constant="1" id="8SI-Y1-OZf"/>
-                                    <constraint firstItem="ks9-6o-NIk" firstAttribute="top" secondItem="KUP-Ng-7cw" secondAttribute="top" constant="9" id="BfE-xq-tia"/>
+                                    <constraint firstItem="vwz-Th-i8O" firstAttribute="top" secondItem="ks9-6o-NIk" secondAttribute="top" type="default" id="GEv-Sl-mck"/>
                                     <constraint firstItem="Ww7-oT-m6m" firstAttribute="centerX" secondItem="KUP-Ng-7cw" secondAttribute="centerX" type="default" id="I0C-P3-7Dc"/>
+                                    <constraint firstItem="vwz-Th-i8O" firstAttribute="bottom" secondItem="TFx-bM-hZC" secondAttribute="bottom" type="default" id="JRI-jF-vRk"/>
                                     <constraint firstItem="cW5-Bo-OJj" firstAttribute="leading" secondItem="ks9-6o-NIk" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="L4z-o3-I5e"/>
-                                    <constraint firstAttribute="trailing" secondItem="vwz-Th-i8O" secondAttribute="trailing" constant="67" id="M3B-6N-7Pa"/>
+                                    <constraint firstItem="TFx-bM-hZC" firstAttribute="leading" secondItem="vwz-Th-i8O" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Oe2-l5-9Ao"/>
                                     <constraint firstItem="ks9-6o-NIk" firstAttribute="leading" secondItem="Ww7-oT-m6m" secondAttribute="leading" type="default" id="T6I-GC-gPv"/>
-                                    <constraint firstItem="Xpt-UD-pt5" firstAttribute="top" secondItem="KUP-Ng-7cw" secondAttribute="top" constant="21" id="bEU-ZZ-L61"/>
                                     <constraint firstItem="cW5-Bo-OJj" firstAttribute="top" secondItem="KUP-Ng-7cw" secondAttribute="top" constant="7" id="eYh-Oh-eKS"/>
-                                    <constraint firstItem="ks9-6o-NIk" firstAttribute="centerY" secondItem="vwz-Th-i8O" secondAttribute="centerY" type="default" id="fGd-cX-r0n"/>
                                     <constraint firstItem="Ww7-oT-m6m" firstAttribute="leading" secondItem="Tmc-2l-Fms" secondAttribute="leading" type="default" id="jz6-g6-wlo"/>
                                     <constraint firstItem="TFx-bM-hZC" firstAttribute="trailing" secondItem="Ww7-oT-m6m" secondAttribute="trailing" type="default" id="k2Z-qg-KB3"/>
                                     <constraint firstItem="Tmc-2l-Fms" firstAttribute="top" secondItem="KUP-Ng-7cw" secondAttribute="top" constant="343" id="ncR-p5-ZFs"/>
                                     <constraint firstItem="Tmc-2l-Fms" firstAttribute="trailing" secondItem="Ww7-oT-m6m" secondAttribute="trailing" type="default" id="nuv-Oa-NJP"/>
+                                    <constraint firstItem="Xpt-UD-pt5" firstAttribute="top" secondItem="KUP-Ng-7cw" secondAttribute="top" constant="20" type="default" id="o6X-Ew-PkE"/>
                                     <constraint firstItem="Ww7-oT-m6m" firstAttribute="top" secondItem="KUP-Ng-7cw" secondAttribute="top" constant="43" id="oox-uk-kGo"/>
                                     <constraint firstItem="Xpt-UD-pt5" firstAttribute="leading" secondItem="ks9-6o-NIk" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="rga-Gj-Zy8"/>
+                                    <constraint firstItem="vwz-Th-i8O" firstAttribute="baseline" secondItem="Xpt-UD-pt5" secondAttribute="baseline" type="default" id="rj8-KC-yiK"/>
+                                    <constraint firstItem="Xpt-UD-pt5" firstAttribute="bottom" secondItem="ks9-6o-NIk" secondAttribute="bottom" type="default" id="tMz-yf-jg8"/>
                                     <constraint firstItem="vwz-Th-i8O" firstAttribute="baseline" secondItem="TFx-bM-hZC" secondAttribute="baseline" type="default" id="yZ2-hK-2Md"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="commentButton" destination="TFx-bM-hZC" id="093-ix-2vS"/>
+                                    <outlet property="likeButton" destination="vwz-Th-i8O" id="Vyu-ho-VjZ"/>
                                     <outlet property="sproutDescription" destination="mU0-O2-lpe" id="2Ts-Tc-rff"/>
                                     <outlet property="sproutImage" destination="Ww7-oT-m6m" id="Ju7-SK-nFI"/>
                                     <outlet property="sproutTitle" destination="EeK-fP-XE6" id="VNy-rZ-82M"/>
@@ -446,21 +445,23 @@
                                 </view>
                                 <constraints>
                                     <constraint firstItem="ng6-aW-9TO" firstAttribute="centerX" secondItem="pMg-I4-z1E" secondAttribute="centerX" type="default" id="0qx-qk-XzU"/>
-                                    <constraint firstAttribute="trailing" secondItem="Kqy-h2-XQc" secondAttribute="trailing" constant="77" id="29y-I3-7vS"/>
                                     <constraint firstItem="6zi-Qw-JK4" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="21" id="AGb-sI-yhx"/>
                                     <constraint firstItem="Kqy-h2-XQc" firstAttribute="baseline" secondItem="Ceh-Fo-X0t" secondAttribute="baseline" type="default" id="BzN-O6-yxo"/>
-                                    <constraint firstItem="Kqy-h2-XQc" firstAttribute="centerY" secondItem="boN-G9-yFK" secondAttribute="centerY" type="default" id="LAu-Va-xSo"/>
                                     <constraint firstItem="boN-G9-yFK" firstAttribute="leading" secondItem="pMg-I4-z1E" secondAttribute="leading" constant="10" id="QDF-ex-Vob"/>
                                     <constraint firstItem="6zi-Qw-JK4" firstAttribute="leading" secondItem="boN-G9-yFK" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="QRo-zC-6VD"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ceh-Fo-X0t" secondAttribute="trailing" constant="20" type="default" id="SeW-dh-tDt"/>
                                     <constraint firstItem="2Ym-mj-QED" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="6" id="Zmj-Tb-Fbl"/>
                                     <constraint firstAttribute="bottom" secondItem="ng6-aW-9TO" secondAttribute="bottom" constant="11" id="dRI-8N-83j"/>
                                     <constraint firstItem="ng6-aW-9TO" firstAttribute="leading" secondItem="boN-G9-yFK" secondAttribute="leading" type="default" id="dbD-b3-3Ff"/>
                                     <constraint firstItem="2Ym-mj-QED" firstAttribute="leading" secondItem="boN-G9-yFK" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="mcs-0Z-4bq"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kqy-h2-XQc" secondAttribute="trailing" constant="67" id="tEq-G6-Ej9"/>
                                     <constraint firstItem="boN-G9-yFK" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="8" id="wCE-1F-2Fa"/>
-                                    <constraint firstItem="ng6-aW-9TO" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="41" id="zLr-pK-C7N"/>
+                                    <constraint firstItem="Ceh-Fo-X0t" firstAttribute="trailing" secondItem="ng6-aW-9TO" secondAttribute="trailing" type="default" id="xDw-kl-ljc"/>
+                                    <constraint firstItem="Kqy-h2-XQc" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="9" id="y9d-S5-x6c"/>
+                                    <constraint firstItem="ng6-aW-9TO" firstAttribute="top" secondItem="Kqy-h2-XQc" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="yPJ-1O-bPJ"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="commentButton" destination="Ceh-Fo-X0t" id="tQe-fe-q4i"/>
+                                    <outlet property="likeButton" destination="Kqy-h2-XQc" id="DXa-wC-7f9"/>
                                     <outlet property="sproutDescription" destination="POh-H5-zeE" id="49Y-a9-EZI"/>
                                     <outlet property="sproutTitle" destination="Fnf-v9-x71" id="a8e-Jo-g57"/>
                                     <outlet property="sproutedAt" destination="6zi-Qw-JK4" id="U9y-DZ-rjq"/>
@@ -1534,7 +1535,6 @@
                                             <constraint firstItem="d1x-8k-Bya" firstAttribute="top" secondItem="wUh-wq-NmN" secondAttribute="top" type="default" id="cEn-lW-6Rz"/>
                                             <constraint firstItem="DDi-gx-pbk" firstAttribute="leading" secondItem="wUh-wq-NmN" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="hi4-aj-NK9"/>
                                             <constraint firstItem="iLP-3d-3ko" firstAttribute="top" secondItem="wUh-wq-NmN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="iNN-zJ-3Og"/>
-                                            <constraint firstItem="iLP-3d-3ko" firstAttribute="baseline" secondItem="2h0-tZ-t84" secondAttribute="baseline" type="default" id="jSF-LE-MF3"/>
                                             <constraint firstItem="iLP-3d-3ko" firstAttribute="leading" secondItem="wHG-k9-ln4" secondAttribute="leading" type="default" id="jhf-Ox-0WP"/>
                                             <constraint firstItem="Hxe-M9-hU4" firstAttribute="centerY" secondItem="7RB-I4-Iwe" secondAttribute="centerY" type="default" id="kBu-C5-Dv7"/>
                                             <constraint firstItem="2h0-tZ-t84" firstAttribute="top" secondItem="9op-Rx-pQ7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="p0Q-WQ-uKr"/>
@@ -1796,6 +1796,7 @@
         <image name="comment_icon.png" width="15" height="14"/>
         <image name="facebook_button.png" width="320" height="44"/>
         <image name="feed_icon_deselected.png" width="16" height="28"/>
+        <image name="filled_in_heart.png" width="16" height="15"/>
         <image name="gear.png" width="20" height="20"/>
         <image name="header.png" width="320" height="37"/>
         <image name="heart_icon.png" width="16" height="14"/>
@@ -1810,6 +1811,167 @@
         <image name="small_sprout.png" width="36" height="48"/>
         <image name="table_cell.png" width="310" height="44"/>
     </resources>
+    <classes>
+        <class className="FeedTableViewController" superclassName="TimelineViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="header" candidateClass="UIView"/>
+                <relationship kind="outlet" name="ingredientBanner" candidateClass="PFImageView"/>
+                <relationship kind="outlet" name="ingredientButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="ingredientHeaderView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="ingredientIcon" candidateClass="PFImageView"/>
+            </relationships>
+        </class>
+        <class className="FeedViewCell" superclassName="PFTableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="commentButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="likeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="sproutDescription" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sproutImage" candidateClass="PFImageView"/>
+                <relationship kind="outlet" name="sproutTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sproutedAt" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userAvatar" candidateClass="PFImageView"/>
+                <relationship kind="outlet" name="userName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="IngredientInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IngredientInfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="headerText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PFImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFImageView.h"/>
+        </class>
+        <class className="PFQueryTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFQueryTableViewController.h"/>
+        </class>
+        <class className="PFTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFTableViewCell.h"/>
+        </class>
+        <class className="ProfileTableViewController" superclassName="TimelineViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="profileImage" candidateClass="PFImageView"/>
+                <relationship kind="outlet" name="profileName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SSTextView" superclassName="UITextView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSTextView.h"/>
+        </class>
+        <class className="SettingsButtonsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsButtonsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutPressed:"/>
+                <relationship kind="action" name="privacyPressed:"/>
+                <relationship kind="action" name="termsPressed:"/>
+                <relationship kind="action" name="twitterPressed:"/>
+                <relationship kind="action" name="websitePressed:"/>
+                <relationship kind="outlet" name="contactLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="logoutButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="privacyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="sproutImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="termsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="termsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="twitterButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="websiteButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="SproutsTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SproutsTabBarController.h"/>
+        </class>
+        <class className="TimelineViewController" superclassName="PFQueryTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineViewController.h"/>
+        </class>
+        <class className="WebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="openInSafari:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="WelcomeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WelcomeViewController.h"/>
+        </class>
+        <class className="addIngredientsToSproutViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/addIngredientsToSproutViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="doneButtonPressed:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="feedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/feedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="calendarButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="ingredientHeader" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="scheduleBanner" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="profileViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/profileViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="settingsButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="scheduleViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/scheduleViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dayPressed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dayFive" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dayFiveDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayFiveLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayFour" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dayFourDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayFourLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayOne" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dayOneDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayOneLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="daySeven" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="daySevenDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="daySevenLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="daySix" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="daySixDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="daySixLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayThree" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dayThreeDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayThreeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayTwo" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dayTwoDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayTwoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scheduleMessage" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="sproutsActionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/sproutsActionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="photoButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="shareButtonPressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="characterCountDescription" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="characterCountTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ingredientOfTheWeek" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="sproutDescription" candidateClass="SSTextView"/>
+                <relationship kind="outlet" name="sproutImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="sproutScrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="sproutTitle" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
