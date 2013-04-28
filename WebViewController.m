@@ -16,17 +16,26 @@
 @synthesize theURL = _theURL;
 @synthesize theTitle = _theTitle;
 @synthesize theToolbar = _theToolbar;
+@synthesize toolbarLabel = _toolbarLabel;
+@synthesize toolbarLabelView = _toolbarLabelView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     //self.navigationItem.title = _theTitle;
+    _toolbarLabel.text = _theTitle;
+    [_toolbarLabel setTextColor:[UIColor colorWithRed:(43/255.0) green:(36/255.0) blue:(19/255.0) alpha:1.0]];
+    [_toolbarLabel setShadowColor:[UIColor colorWithRed:(190/255.0) green:(155/255.0) blue:(101/255.0) alpha:1.0]];
+    [_toolbarLabel setShadowOffset:CGSizeMake(0.0f, 1.0f)];
+    [_toolbarLabel setFont:[UIFont fontWithName:@"MuseoSans-700" size:20.0f]];
+    [_toolbarLabel setBackgroundColor:[UIColor clearColor]];
+    [_toolbarLabelView setBackgroundColor:[UIColor clearColor]];
     NSURLRequest *requestObject = [NSURLRequest requestWithURL:_theURL];
     [self.webView loadRequest:requestObject];
     NSLog(@"Loading: %@", _theURL);
     
-    [_theToolbar setBackgroundImage:[UIImage imageNamed:@"nav_bar.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    [_theToolbar setBackgroundImage:[UIImage imageNamed:@"toolbar.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
         
 //    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"action.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(openInSafari:)];
     

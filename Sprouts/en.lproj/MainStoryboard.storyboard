@@ -502,7 +502,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="297" translatesAutoresizingMaskIntoConstraints="NO" id="Vod-ei-RKn">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="296" translatesAutoresizingMaskIntoConstraints="NO" id="Vod-ei-RKn">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="68" id="YgL-oF-jsz"/>
                                                 </constraints>
@@ -1360,13 +1360,33 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANs-Il-BK2">
+                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.49999999999999961"/>
                                 <items>
                                     <barButtonItem title="Done" id="BUY-af-GpI">
                                         <connections>
                                             <action selector="doneButtonPressed:" destination="bEp-Ub-iLK" id="Dsh-qe-OqN"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="vC3-lM-6cM"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cUw-yj-K1p"/>
+                                    <barButtonItem style="plain" id="2Qy-RT-X1R">
+                                        <view key="customView" contentMode="scaleToFill" id="Rb9-MN-YrX">
+                                            <rect key="frame" x="84" y="6" width="152" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQk-l1-1DW">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="BQk-l1-1DW" firstAttribute="centerY" secondItem="Rb9-MN-YrX" secondAttribute="centerY" type="default" id="hjC-fF-SmA"/>
+                                                <constraint firstItem="BQk-l1-1DW" firstAttribute="centerX" secondItem="Rb9-MN-YrX" secondAttribute="centerX" type="default" id="rTM-Lr-Jw9"/>
+                                            </constraints>
+                                        </view>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tbk-11-bDj"/>
                                     <barButtonItem systemItem="action" id="vqJ-rt-c19">
                                         <connections>
                                             <action selector="openInSafari:" destination="bEp-Ub-iLK" id="7WJ-9Q-5hN"/>
@@ -1388,6 +1408,8 @@
                     </view>
                     <connections>
                         <outlet property="theToolbar" destination="ANs-Il-BK2" id="MiI-qi-Seg"/>
+                        <outlet property="toolbarLabel" destination="BQk-l1-1DW" id="Oeo-ut-8UC"/>
+                        <outlet property="toolbarLabelView" destination="Rb9-MN-YrX" id="oKo-QQ-2dE"/>
                         <outlet property="webView" destination="eOA-Km-cIH" id="8Fy-z7-hLA"/>
                     </connections>
                 </viewController>
@@ -1526,7 +1548,6 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="iLP-3d-3ko" firstAttribute="baseline" secondItem="2h0-tZ-t84" secondAttribute="baseline" type="default" id="2RY-UO-WPX"/>
                                             <constraint firstItem="9op-Rx-pQ7" firstAttribute="trailing" secondItem="DDi-gx-pbk" secondAttribute="trailing" type="default" id="3S1-q7-OmE"/>
                                             <constraint firstItem="Hxe-M9-hU4" firstAttribute="leading" secondItem="wUh-wq-NmN" secondAttribute="leading" type="default" id="3jU-mc-y5d"/>
                                             <constraint firstItem="2h0-tZ-t84" firstAttribute="trailing" secondItem="wHG-k9-ln4" secondAttribute="trailing" type="default" id="4kn-mv-Lfc"/>
@@ -1833,6 +1854,8 @@
         <class className="FeedViewCell" superclassName="PFTableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedViewCell.h"/>
             <relationships>
+                <relationship kind="outlet" name="commentButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="likeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="sproutDescription" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="sproutImage" candidateClass="PFImageView"/>
                 <relationship kind="outlet" name="sproutTitle" candidateClass="UILabel"/>
@@ -1900,16 +1923,16 @@
         </class>
         <class className="TimelineViewController" superclassName="PFQueryTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
-            </relationships>
         </class>
         <class className="WebViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
             <relationships>
+                <relationship kind="action" name="done:"/>
                 <relationship kind="action" name="doneButtonPressed:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="action" name="openInSafari:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="theToolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="toolbarLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="toolbarLabelView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>

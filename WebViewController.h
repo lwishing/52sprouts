@@ -18,5 +18,7 @@
 - (IBAction)doneButtonPressed:(UIBarButtonItem *)sender;
 
 @property (weak, nonatomic) IBOutlet UIToolbar *theToolbar;
+@property (weak, nonatomic) IBOutlet UILabel *toolbarLabel;
+@property (weak, nonatomic) IBOutlet UIView *toolbarLabelView;
 
 @end
