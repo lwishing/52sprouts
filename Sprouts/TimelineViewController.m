@@ -211,7 +211,6 @@
         for (PFObject *activity in objects) {
             if ([[[activity objectForKey:@"fromUser"] objectId] isEqualToString:[[PFUser currentUser] objectId]]) {
                 if ([[activity objectForKey:@"type"] isEqualToString:@"like"]) {
-                    NSLog(@"Activity:%@",[[activity objectForKey:@"fromUser"] objectId]);
                     isLikedByCurrentUser = YES;
                 }
             }
