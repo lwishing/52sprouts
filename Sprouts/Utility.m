@@ -65,6 +65,73 @@ static Utility *_sharedInstance;
     return query;
 }
 
+#pragma mark Like Sprouts
+
++ (void)likeSproutInBackground:(id)sprout block:(void (^)(BOOL succeeded, NSError *error))completionBlock {
+    PFQuery *queryExistingLikes = [PFQuery queryWithClassName:@"Activity"];
+    [queryExistingLikes whereKey:@"sprout" equalTo:sprout];
+    [queryExistingLikes whereKey:@"type" equalTo:@"like"];
+    [queryExistingLikes whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+    [queryExistingLikes setCachePolicy:kPFCachePolicyNetworkOnly];
+    [queryExistingLikes findObjectsInBackgroundWithBlock:^(NSArray *activities, NSError *error) {
+        if (!error) {
+            for (PFObject *activity in activities) {
+                [activity delete];
+            }
+        }
+        
+        // proceed to creating new like
+        PFObject *likeActivity = [PFObject objectWithClassName:@"Activity"];
+        [likeActivity setObject:@"like" forKey:@"type"];
+        [likeActivity setObject:[PFUser currentUser] forKey:@"fromUser"];
+        [likeActivity setObject:[sprout objectForKey:@"user"] forKey:@"toUser"];
+        [likeActivity setObject:sprout forKey:@"sprout"];
+        
+        PFACL *likeACL = [PFACL ACLWithUser:[PFUser currentUser]];
+        [likeACL setPublicReadAccess:YES];
+        likeActivity.ACL = likeACL;
+        
+        [likeActivity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (completionBlock) {
+                completionBlock(succeeded,error);
+            }     
+            
+            //NOTIFICATION CENTER FILL IN
+//            [[NSNotificationCenter defaultCenter] postNotificationName:PAPUtilityUserLikedUnlikedPhotoCallbackFinishedNotification object:photo userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:succeeded] forKey:PAPPhotoDetailsViewControllerUserLikedUnlikedPhotoNotificationUserInfoLikedKey]];
+            
+        }];
+    }];
+    
+}
+
++ (void)unlikeSproutInBackground:(id)sprout block:(void (^)(BOOL succeeded, NSError *error))completionBlock {
+    PFQuery *queryExistingLikes = [PFQuery queryWithClassName:@"Activity"];
+    [queryExistingLikes whereKey:@"sprout" equalTo:sprout];
+    [queryExistingLikes whereKey:@"type" equalTo:@"like"];
+    [queryExistingLikes whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+    [queryExistingLikes setCachePolicy:kPFCachePolicyNetworkOnly];
+    [queryExistingLikes findObjectsInBackgroundWithBlock:^(NSArray *activities, NSError *error) {
+        if (!error) {
+            for (PFObject *activity in activities) {
+//                [activity delete];
+               [activity deleteInBackground];
+            }
+            
+            if (completionBlock) {
+                completionBlock(YES,nil);
+            }         
+            
+            //NOTIFICATION CENTER FILL IN
+//                [[NSNotificationCenter defaultCenter] postNotificationName:PAPUtilityUserLikedUnlikedPhotoCallbackFinishedNotification object:photo userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:PAPPhotoDetailsViewControllerUserLikedUnlikedPhotoNotificationUserInfoLikedKey]];
+            
+        } else {
+            if (completionBlock) {
+                completionBlock(NO,error);
+            }
+        }
+    }];  
+}
+
 @end
 
 @implementation UIView (UIView_Expanded)

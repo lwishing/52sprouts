@@ -7,9 +7,8 @@
 //
 
 #import <Parse/Parse.h>
+#import "FeedViewCell.h"
 
-@interface TimelineViewController : PFQueryTableViewController
-
-@property (weak, nonatomic) IBOutlet UIView *headerView;
+@interface TimelineViewController : PFQueryTableViewController <FeedViewCellDelegate>
 
 @end

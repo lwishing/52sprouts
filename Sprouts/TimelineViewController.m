@@ -7,29 +7,21 @@
 //
 
 #import "TimelineViewController.h"
-#import "FeedViewCell.h"
 #import "UIImage+ResizeAdditions.h"
-#import "Utility.h"
 #import "TTTTimeIntervalFormatter.h"
+#import "Utility.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface TimelineViewController ()
 @end
 
-static TTTTimeIntervalFormatter *timeFormatter;
-
 @implementation TimelineViewController
-
-@synthesize headerView = _headerView;
 
 - (id)initWithCoder:(NSCoder *)aCoder {
     self = [super initWithCoder:aCoder];
     if (self) {
         // Customize the table
-        if (!timeFormatter) {
-            timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
-//            [timeFormatter setUsesAbbreviatedCalendarUnits:YES];
-        }
+
         
         // The className to query on
         self.parseClassName = @"Sprout";
@@ -65,6 +57,11 @@ static TTTTimeIntervalFormatter *timeFormatter;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLikeOrUnlikePhoto:) name:PAPPhotoDetailsViewControllerUserLikedUnlikedPhotoNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLikeOrUnlikePhoto:) name:PAPUtilityUserLikedUnlikedPhotoCallbackFinishedNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidCommentOnPhoto:) name:PAPPhotoDetailsViewControllerUserCommentedOnPhotoNotification object:nil];
+    
+    
     // Listen to "sproutPosted" event
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(sproutPosted:)
@@ -92,8 +89,6 @@ static TTTTimeIntervalFormatter *timeFormatter;
         // Call refreshControlValueChanged: when the user pulls the table view down.
         [self.refreshControl addTarget:self action:@selector(refreshControlValueChanged:) forControlEvents:UIControlEventValueChanged];
     }
-    
-    // NSLog(@"Load THE FEED!");
 }
 
 #pragma mark - PFQueryTableViewController
@@ -116,29 +111,6 @@ static TTTTimeIntervalFormatter *timeFormatter;
 - (void)refreshControlValueChanged:(UIRefreshControl *)refreshControl {
     // The user just pulled down the table view. Start loading data.
     [self loadObjects];
-}
-
-#pragma mark - ()
-// selector for when sprout is posted
-- (void)sproutPosted:(NSNotification *)note{
-    NSLog(@"Sprout! Let's reload the feed!");
-    [self loadObjects];
-    [self.tableView reloadData];
-}
-
--(void) likeButtonPressed: (id) sender{
-    PFUser *currentUser = [PFUser currentUser];
-    FeedViewCell *clickedCell = (FeedViewCell *)[[sender superview] superview];
-//    NSIndexPath *clickedButtonPath = [self.tableView indexPathForCell:clickedCell];
-    NSLog(@"LIKE: %@", clickedCell.sproutTitle.text);
-    NSLog(@"LIKE: %@", [[clickedCell.sproutObject objectForKey:@"user"] objectForKey:@"firstName"]);
-    NSLog(@"CurrUser: %@", [currentUser objectForKey:@"firstName"]);
-
-}
-
--(void) commentButtonPressed: (id) sender{
-    FeedViewCell *clickedCell = (FeedViewCell *)[[sender superview] superview];
-    NSLog(@"COMMENT:%@", clickedCell.sproutTitle.text);
 }
 
 // Infinite scroll
@@ -203,113 +175,78 @@ static TTTTimeIntervalFormatter *timeFormatter;
 // and the imageView being the imageKey in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     
-    // Get all activity on sprout
-    PFQuery *query = [Utility queryForActivitiesOnSprout:object cachePolicy:kPFCachePolicyNetworkOnly];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (error) {
-            return;
-        }
-        
-        // List what's going on
-        for (PFObject *activity in objects) {
-            NSLog(@"Activity:%@",[activity objectForKey:@"type"]);
-        }
-    }];
-    
+    FeedViewCell *cell = [[FeedViewCell alloc] init];
     PFFile *imageFile = [object objectForKey:@"photo"];
     
     if (imageFile != nil) { // There's a picture!
-        FeedViewCell *cell = (FeedViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
-        
-        // Configure the cell
-        cell.sproutObject = object;
-        // User
-        cell.userName.text = [[object objectForKey:@"user"] objectForKey:@"firstName"];
-        // Set your placeholder image first
-        cell.userAvatar.image = [UIImage imageNamed:@"Icon.png"];
-        PFFile *avatarFile = [[object objectForKey:@"user"] objectForKey:@"profilePic"];
-        [avatarFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-            // Now that the data is fetched, update the cell's image property.
-            cell.userAvatar.image = [[UIImage imageWithData:data] thumbnailImage:86.0f transparentBorder:0.0f cornerRadius:5.0f interpolationQuality:kCGInterpolationDefault];
-        }];
-        
-        // Title
-        cell.sproutTitle.text = [object objectForKey:self.textKey];
-        [cell.sproutTitle setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
-        [cell.sproutTitle setTextColor:[UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]];
-
-        // Description
-        cell.sproutDescription.text = [object objectForKey:(@"content")];
-        [cell.sproutDescription setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
-        [cell.sproutDescription setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
-
-        // Shadow
-//        CALayer *sublayer = [cell.sproutDescription superview].layer;
-//        sublayer.shadowOffset = CGSizeMake(0, 2);
-//        sublayer.shadowRadius = 2.0;
-//        sublayer.shadowColor = [UIColor grayColor].CGColor;
-//        sublayer.shadowOpacity = 0.5;
-        
-        // Timestamp
-        NSString *timeString = [timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:object.createdAt];
-        cell.sproutedAt.text = timeString;
-        
+        cell = (FeedViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
         // Set your placeholder image first
         cell.sproutImage.image = [UIImage imageNamed:@"loading_photo.png"];
         [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             // Now that the data is fetched, update the cell's image property.
             cell.sproutImage.image = [UIImage imageWithData:data];
         }];
+    } else { // No picture
+        cell = (FeedViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FeedCellNoImage"];
+    }
+    
+    // Set delegate & tags
+    cell.delegate = self;
+    cell.tag = indexPath.row;
+    cell.likeButton.tag = indexPath.row;
+    
+    // BUTTONS
+    cell.likeButton.alpha = 0.0f;
+    cell.commentButton.alpha = 0.0f;
+    
+    // Get all activity on Sprout
+    PFQuery *query = [Utility queryForActivitiesOnSprout:object cachePolicy:kPFCachePolicyNetworkOnly];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error) {
+            return;
+        }
         
-        // Like Button
-        UIButton *likeButton = (UIButton *)[cell viewWithTag:1];
-        [likeButton addTarget:self action:@selector(likeButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        BOOL isLikedByCurrentUser = NO;
+        // List what's going on
+        for (PFObject *activity in objects) {
+            if ([[[activity objectForKey:@"fromUser"] objectId] isEqualToString:[[PFUser currentUser] objectId]]) {
+                if ([[activity objectForKey:@"type"] isEqualToString:@"like"]) {
+                    isLikedByCurrentUser = YES;
+                }
+            }
+            
+        }
         
-        // Comment Button
-        UIButton *commentButton = (UIButton *)[cell viewWithTag:2];
-        [commentButton addTarget:self action:@selector(commentButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [cell setLikeStatus:isLikedByCurrentUser];
         
-       return cell;
-        
-    } else { // No picture!
-        FeedViewCell *cell = (FeedViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FeedCellNoImage"];
-        
-        // Configure the cell
-        cell.sproutObject = object;
-        // User
-        cell.userName.text = [[object objectForKey:@"user"] objectForKey:@"firstName"];
-        // Set your placeholder image first
-        cell.userAvatar.image = [UIImage imageNamed:@"Icon.png"];
-        PFFile *avatarFile = [[object objectForKey:@"user"] objectForKey:@"profilePic"];
-        [avatarFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-            // Now that the data is fetched, update the cell's image property.
-            cell.userAvatar.image = [[UIImage imageWithData:data] thumbnailImage:86.0f transparentBorder:0.0f cornerRadius:5.0f interpolationQuality:kCGInterpolationDefault];
+        PFQuery *queryExistingLikes = [PFQuery queryWithClassName:@"Activity"];
+        [queryExistingLikes whereKey:@"sprout" equalTo:object];
+        [queryExistingLikes whereKey:@"type" equalTo:@"like"];
+        [queryExistingLikes setCachePolicy:kPFCachePolicyNetworkOnly];
+        [queryExistingLikes countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
+            if (!error) {
+                // The count request succeeded. Log the count
+                [cell.likeButton setTitle:[[NSNumber numberWithInt:count] stringValue] forState:UIControlStateNormal];
+            } else {
+                // The request failed
+                [cell.likeButton setTitle:@"0" forState:UIControlStateNormal];
+            }
         }];
         
-        // Title
-        cell.sproutTitle.text = [object objectForKey:self.textKey];
-        [cell.sproutTitle setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
-        [cell.sproutTitle setTextColor:[UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]];
-        [cell.sproutTitle setAdjustsFontSizeToFitWidth:YES];
+        [cell.commentButton setTitle:@"0" forState:UIControlStateNormal];
         
-        // Description
-        cell.sproutDescription.text = [object objectForKey:(@"content")];
-        [cell.sproutDescription setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
-        [cell.sproutDescription setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
-        
-        // Shadow
-//        CALayer *sublayer = [cell.sproutDescription superview].layer;
-//        sublayer.shadowOffset = CGSizeMake(0, 2);
-//        sublayer.shadowRadius = 2.0;
-//        sublayer.shadowColor = [UIColor grayColor].CGColor;
-//        sublayer.shadowOpacity = 0.5;
-        
-        // Timestamp
-        NSString *timeString = [timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:object.createdAt];
-        cell.sproutedAt.text = timeString;
-        return cell;
-    }
-
+        if (cell.likeButton.alpha < 1.0f || cell.commentButton.alpha < 1.0f) {
+            [UIView animateWithDuration:0.100f animations:^{
+                cell.likeButton.alpha = 1.0f;
+                cell.commentButton.alpha = 1.0f;
+            }];
+        }
+    }];
+    
+    // CELL
+    [cell setSproutObject:object];
+    
+   return cell;
 }
 
 /*
@@ -379,9 +316,87 @@ static TTTTimeIntervalFormatter *timeFormatter;
  }
  */
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - FeedViewCellDelegate
+
+//- (void)feedViewCell:(FeedViewCell *)feedViewCell didTapUserButton:(UIButton *)button user:(PFUser *)user:
+//    PAPAccountViewController *accountViewController = [[PAPAccountViewController alloc] initWithStyle:UITableViewStylePlain];
+//    [accountViewController setUser:user];
+//    [self.navigationController pushViewController:accountViewController animated:YES];
+//}
+
+- (void)feedViewCell:(FeedViewCell *)feedViewCell didTapLikeSproutButton:(UIButton *)button sprout:(PFObject *)sprout {
+    [feedViewCell shouldEnableLikeButton:NO];
+    
+    BOOL liked = !button.selected;
+    [feedViewCell setLikeStatus:liked];
+    
+    NSString *originalButtonTitle = button.titleLabel.text;
+    
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    
+    NSNumber *likeCount = [numberFormatter numberFromString:button.titleLabel.text];
+    if (liked) {
+        likeCount = [NSNumber numberWithInt:[likeCount intValue] + 1];
+//        [[PAPCache sharedCache] incrementLikerCountForPhoto:photo];
+    } else {
+        if ([likeCount intValue] > 0) {
+            likeCount = [NSNumber numberWithInt:[likeCount intValue] - 1];
+        }
+//        [[PAPCache sharedCache] decrementLikerCountForPhoto:photo];
+    }
+    
+//    [[PAPCache sharedCache] setPhotoIsLikedByCurrentUser:photo liked:liked];
+    
+    [button setTitle:[numberFormatter stringFromNumber:likeCount] forState:UIControlStateNormal];
+    
+    if (liked) {
+        NSLog(@"LIKED!");
+        [Utility likeSproutInBackground:sprout block:^(BOOL succeeded, NSError *error) {
+            FeedViewCell *actualFeedCell = (FeedViewCell *)[self tableView:self.tableView viewForHeaderInSection:button.tag];
+            [actualFeedCell shouldEnableLikeButton:YES];
+            [actualFeedCell setLikeStatus:succeeded];
+            
+            if (!succeeded) {
+                [actualFeedCell.likeButton setTitle:originalButtonTitle forState:UIControlStateNormal];
+            }
+        }];
+    } else {
+        NSLog(@"UNLIKED!");
+        [Utility unlikeSproutInBackground:sprout block:^(BOOL succeeded, NSError *error) {
+            FeedViewCell *actualFeedCell = (FeedViewCell *)[self tableView:self.tableView viewForHeaderInSection:button.tag];
+            [actualFeedCell shouldEnableLikeButton:YES];
+            [actualFeedCell setLikeStatus:!succeeded];
+            
+            if (!succeeded) {
+                [actualFeedCell.likeButton setTitle:originalButtonTitle forState:UIControlStateNormal];
+            }
+        }];
+    }
 }
+
+- (void) feedViewCell:(FeedViewCell *)feedViewCell didTapCommentOnSproutButton:(UIButton *)button sprout:(PFObject *)sprout {
+//    PAPPhotoDetailsViewController *photoDetailsVC = [[PAPPhotoDetailsViewController alloc] initWithPhoto:photo];
+//    [self.navigationController pushViewController:photoDetailsVC animated:YES];
+    NSLog(@"Comment button!");
+}
+
+#pragma mark - ()
+// selector for when sprout is posted
+- (void)sproutPosted:(NSNotification *)note{
+    NSLog(@"Sprout! Let's reload the feed!");
+    [self loadObjects];
+    [self.tableView reloadData];
+}
+
+- (void)userDidLikeOrUnlikeSprout:(NSNotification *)note {
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+}
+
+- (void)userDidCommentOnSprout:(NSNotification *)note {
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+}
+
 @end

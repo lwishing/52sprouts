@@ -81,7 +81,7 @@
     //adjust y to new start point
     y += descriptionView.frame.size.height;
     
-    NSLog(@"y postion: %i", y);
+//    NSLog(@"y postion: %i", y);
     
     //SEASON
     
@@ -118,7 +118,7 @@
     //adjust y to new start point
     y += seasonView.frame.size.height + padding;
     
-    NSLog(@"y postion: %i", y);
+//    NSLog(@"y postion: %i", y);
     
     //BUYING
     
@@ -155,7 +155,7 @@
     //adjust y to new start point
     y += buyingView.frame.size.height + padding;
     
-    NSLog(@"y postion: %i", y);
+//    NSLog(@"y postion: %i", y);
     
     //STORING
     
@@ -192,7 +192,7 @@
     //adjust y to new start point
     y += storingView.frame.size.height + padding;
     
-    NSLog(@"y postion: %i", y);
+//    NSLog(@"y postion: %i", y);
     
     //PAIRS WITH
     
@@ -229,7 +229,7 @@
     //adjust y to new start point
     y += pairsView.frame.size.height + padding;
     
-    NSLog(@"y postion: %i", y);
+//    NSLog(@"y postion: %i", y);
     
     //PREPARATION
     
@@ -266,7 +266,7 @@
     //adjust y to new start point
     y += preparationView.frame.size.height + padding;
     
-    NSLog(@"y postion: %i", y);
+//    NSLog(@"y postion: %i", y);
     
     //SUBSTITUTES
     
@@ -303,7 +303,7 @@
     //adjust y to new start point
     y += subsView.frame.size.height + padding;
     
-    NSLog(@"y postion: %i", y);
+//    NSLog(@"y postion: %i", y);
 
     
     scrollView.contentSize=CGSizeMake(320, y);
