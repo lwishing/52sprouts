@@ -7,7 +7,7 @@
 //
 
 #import "IngredientInfoViewController.h"
-#import <QuartzCore/QuartzCore.h>
+//#import <QuartzCore/QuartzCore.h>
 #import "Utility.h"
 
 @interface IngredientInfoViewController ()
@@ -50,21 +50,19 @@
     
     //set title bar
     [self setTitle:[ingredient objectForKey:@"name"]];
-    
-    
+
     //DESCRIPTION
     
     //container uiview
     UIView *descriptionView = [[UIView alloc] initWithFrame:CGRectMake(x, y, width, 0)];
-    [descriptionView setBackgroundColor:[UIColor whiteColor]];
-    
+
     //description text
     UITextView *descriptionText = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, width, 0)];
     descriptionText.text = [ingredient objectForKey:@"description"];
     [descriptionText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [descriptionText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
     [descriptionText setUserInteractionEnabled:NO];
-    
+
     [descriptionView addSubview:descriptionText];
     
     //resize textview to fit the content
@@ -319,47 +317,8 @@
 //        sublayer.shadowOpacity = 0.5;
 //    }
     
-    //resizeable background image
-    //UIImage *backgroundImage = [[UIImage imageNamed:@"contentBackground"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 0, 10, 0)];
     
-    
-	// Do any additional setup after loading the view.
-    
-    //
-    //    // get Week object
-    //    PFQuery *queryWeek = [PFQuery queryWithClassName:@"Week"];
-    //    PFObject *week = [queryWeek getObjectWithId:@"2VMFZOMUiY"];
-    //
-    //    NSNumber *weekInt = [week objectForKey:@"week"];
-    //    NSLog(@"week: %@", weekInt);
-    //
-    //    NSDate *startDate = [week objectForKey:@"startDate"];
-    //    NSLog(@"startDate: %@", startDate);
-    //
-    //    NSDate *endDate = [week objectForKey:@"endDate"];
-    //    NSLog(@"endDate: %@", endDate);
-    //
-    //    // get ingredient object from the pointer in Week
-    //    PFObject *ingredient = [week objectForKey:@"ingredient"];
-    //    [ingredient fetchIfNeeded];
-    //
-    //    NSString *ingredientId = ingredient.objectId;
-    //    NSLog(@"ingredientId: %@", ingredientId);
-    //
-    //    NSString *ingredientName = [ingredient objectForKey:@"name"];
-    //    NSLog(@"ingredientName: %@", ingredientName);
-    //
-    //    NSString *ingredientDescription = [ingredient objectForKey:@"description"];
-    //    NSLog(@"ingredientDescription: %@", ingredientDescription);
-    //
-    //    NSArray *ingredientPreparation = [ingredient objectForKey:@"preparation"];
-    //    NSLog(@"ingredientPreparation: %@", ingredientPreparation);
-    //    NSString *prep1 = [ingredientPreparation objectAtIndex:0];
-    //    NSString *prep2 = [ingredientPreparation objectAtIndex:1];
-    //    NSLog(@"prep1: %@", prep1);
-    //    NSLog(@"prep2: %@", prep2);
-    //
-}
+	}
 
 -(void)awakeFromNib {
     
