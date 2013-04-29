@@ -162,7 +162,7 @@
     
     int padding = 15;
     int x = 10;
-    int y = 230;
+    int y = 20;
     int width = 300;
     int headerHeight = 24;
     int inset = 8;
@@ -240,6 +240,41 @@
     y += storingView.frame.size.height + padding;
     
     NSLog(@"y postion: %i", y);
+    
+    //PREPARATION
+    
+    //container uiview
+    UIView *preparationView = [[UIView alloc] initWithFrame:CGRectMake(x, y + padding, width, 0)];
+    [preparationView setBackgroundColor:[UIColor whiteColor]];
+    
+    UILabel *preparationHeader = [[UILabel alloc] initWithFrame:CGRectMake(inset, inset, 280, headerHeight)];
+    preparationHeader.text = @"Preparation";
+    [preparationHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
+    [preparationHeader setTextColor:[UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]];
+    
+    //when buying text
+    UITextView *preparationText = [[UITextView alloc] initWithFrame:CGRectMake(0, inset + headerHeight, width, 0)];
+    preparationText.text = [[ingredient objectForKey:@"preparation"] componentsJoinedByString:@", "];
+    [preparationText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
+    [preparationText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    [preparationText setUserInteractionEnabled:NO];
+    
+    [preparationView addSubview:preparationHeader];
+    [preparationView addSubview:preparationText];
+    
+    //resize textview to fit the content
+    CGRect preparationFrame = preparationText.frame;
+    preparationFrame.size.height = preparationText.contentSize.height;
+    preparationText.frame = preparationFrame;
+    
+    //add container view to scrollview
+    [scrollView addSubview: preparationView];
+    
+    //resize containerview to fit everything
+    [preparationView resizeToFitSubviews];
+    
+    //adjust y to new start point
+    y += preparationView.frame.size.height + padding;
     
     scrollView.contentSize=CGSizeMake(320, y);
     scrollView.contentInset= UIEdgeInsetsMake(0.0,0.0, 30.0,0.0);
