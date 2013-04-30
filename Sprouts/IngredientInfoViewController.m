@@ -23,7 +23,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        
     }
     return self;
 }
@@ -316,7 +315,7 @@
     scrollView.contentSize=CGSizeMake(320, y);
     scrollView.contentInset= UIEdgeInsetsMake(0.0,0.0, 30.0,0.0);
     
-    // shadow experiement
+    // shadow experiment
     for (UIView *subview in [scrollView subviews]) {
         
         if(![subview isKindOfClass:[UIImageView class]]){
@@ -336,7 +335,7 @@
     }
     
     
-	}
+}
 
 -(void)awakeFromNib {
     
