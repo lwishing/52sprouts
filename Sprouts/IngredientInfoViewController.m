@@ -7,7 +7,7 @@
 //
 
 #import "IngredientInfoViewController.h"
-//#import <QuartzCore/QuartzCore.h>
+#import <QuartzCore/QuartzCore.h>
 #import "Utility.h"
 
 @interface IngredientInfoViewController ()
@@ -50,11 +50,13 @@
     
     //set title bar
     [self setTitle:[ingredient objectForKey:@"name"]];
+    
 
     //DESCRIPTION
     
     //container uiview
     UIView *descriptionView = [[UIView alloc] initWithFrame:CGRectMake(x, y, width, 0)];
+    [descriptionView setBackgroundColor:[UIColor whiteColor]];
 
     //description text
     UITextView *descriptionText = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, width, 0)];
@@ -62,6 +64,7 @@
     [descriptionText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [descriptionText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
     [descriptionText setUserInteractionEnabled:NO];
+    [descriptionText setBackgroundColor:[UIColor clearColor]];
 
     [descriptionView addSubview:descriptionText];
     
@@ -98,6 +101,7 @@
     [seasonText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [seasonText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
     [seasonText setUserInteractionEnabled:NO];
+    [seasonText setBackgroundColor:[UIColor clearColor]];
     
     [seasonView addSubview:seasonHeader];
     [seasonView addSubview:seasonText];
@@ -135,6 +139,7 @@
     [buyingText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [buyingText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
     [buyingText setUserInteractionEnabled:NO];
+    [buyingText setBackgroundColor:[UIColor clearColor]];
     
     [buyingView addSubview:buyingHeader];
     [buyingView addSubview:buyingText];
@@ -172,6 +177,7 @@
     [storingText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [storingText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
     [storingText setUserInteractionEnabled:NO];
+    [storingText setBackgroundColor:[UIColor clearColor]];
     
     [storingView addSubview:storingHeader];
     [storingView addSubview:storingText];
@@ -209,6 +215,7 @@
     [pairsText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [pairsText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
     [pairsText setUserInteractionEnabled:NO];
+    [pairsText setBackgroundColor:[UIColor clearColor]];
     
     [pairsView addSubview:pairsHeader];
     [pairsView addSubview:pairsText];
@@ -246,6 +253,7 @@
     [preparationText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [preparationText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
     [preparationText setUserInteractionEnabled:NO];
+    [preparationText setBackgroundColor:[UIColor clearColor]];
     
     [preparationView addSubview:preparationHeader];
     [preparationView addSubview:preparationText];
@@ -283,6 +291,7 @@
     [subsText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [subsText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
     [subsText setUserInteractionEnabled:NO];
+    [subsText setBackgroundColor:[UIColor clearColor]];
     
     [subsView addSubview:subsHeader];
     [subsView addSubview:subsText];
@@ -308,14 +317,23 @@
     scrollView.contentInset= UIEdgeInsetsMake(0.0,0.0, 30.0,0.0);
     
     // shadow experiement
-//    for (UIView *subview in [scrollView subviews]) {
-//        CALayer *sublayer = subview.layer;
-//
-//        sublayer.shadowOffset = CGSizeMake(0, 2);
-//        sublayer.shadowRadius = 2.0;
-//        sublayer.shadowColor = [UIColor grayColor].CGColor;
-//        sublayer.shadowOpacity = 0.5;
-//    }
+    for (UIView *subview in [scrollView subviews]) {
+        
+        if(![subview isKindOfClass:[UIImageView class]]){
+        
+        NSLog(@"view: %@", subview.description);
+        
+        CALayer *sublayer = subview.layer;
+        
+        sublayer.cornerRadius = 5;
+        
+        sublayer.shadowColor = [UIColor grayColor].CGColor;
+        sublayer.shadowOffset = CGSizeMake(0, 0);
+        sublayer.shadowRadius = 2.0;
+        sublayer.shadowOpacity = .5;
+        sublayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:subview.bounds cornerRadius:5].CGPath; // make sure you set that for better performance
+        }
+    }
     
     
 	}
