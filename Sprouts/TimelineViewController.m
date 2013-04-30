@@ -57,9 +57,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLikeOrUnlikePhoto:) name:PAPPhotoDetailsViewControllerUserLikedUnlikedPhotoNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLikeOrUnlikePhoto:) name:PAPUtilityUserLikedUnlikedPhotoCallbackFinishedNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidCommentOnPhoto:) name:PAPPhotoDetailsViewControllerUserCommentedOnPhotoNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLikeOrUnlikeSprout:) name:@"userLikedOrUnlikedOnSproutNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLikeOrUnlikeSprout:) name:@"userLikedOrUnlikedOnSproutCallbackFinishedNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidCommentOnSprout:) name:@"userCommentedOnSproutNotification" object:nil];
     
     
     // Listen to "sproutPosted" event
@@ -226,10 +226,16 @@
         [queryExistingLikes countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
             if (!error) {
                 // The count request succeeded. Log the count
-                [cell.likeButton setTitle:[[NSNumber numberWithInt:count] stringValue] forState:UIControlStateNormal];
+                NSNumber *likeCount = [NSNumber numberWithInt:count];
+                if (likeCount > 0){
+                    [cell.likeButton setTitle:[likeCount stringValue] forState:UIControlStateNormal];
+                } else {
+                    [cell.likeButton setTitle:@"Yum" forState:UIControlStateNormal];
+                }
+
             } else {
                 // The request failed
-                [cell.likeButton setTitle:@"0" forState:UIControlStateNormal];
+                [cell.likeButton setTitle:@"Yum" forState:UIControlStateNormal];
             }
         }];
         
@@ -275,6 +281,7 @@
  }
  */
 
+/* Table Row Height */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FeedViewCell *cell = (FeedViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];

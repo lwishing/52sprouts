@@ -88,7 +88,6 @@ static TTTTimeIntervalFormatter *timeFormatter;
     //    sublayer.shadowRadius = 2.0;
     //    sublayer.shadowColor = [UIColor grayColor].CGColor;
     //    sublayer.shadowOpacity = 0.5;
-    
 }
 
 - (void)setLikeStatus:(BOOL)liked {

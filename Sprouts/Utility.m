@@ -94,10 +94,10 @@ static Utility *_sharedInstance;
         [likeActivity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (completionBlock) {
                 completionBlock(succeeded,error);
-            }     
+            }
             
-            //NOTIFICATION CENTER FILL IN
-//            [[NSNotificationCenter defaultCenter] postNotificationName:PAPUtilityUserLikedUnlikedPhotoCallbackFinishedNotification object:photo userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:succeeded] forKey:PAPPhotoDetailsViewControllerUserLikedUnlikedPhotoNotificationUserInfoLikedKey]];
+        // Notify other parts of the app that a Sprout was liked
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"userLikedOrUnlikedOnSproutCallbackFinishedNotification" object:sprout userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:succeeded] forKey:@"userLikedOrUnlikedOnSproutCallbackFinishedNotificationKey"]];
             
         }];
     }];
@@ -121,8 +121,8 @@ static Utility *_sharedInstance;
                 completionBlock(YES,nil);
             }         
             
-            //NOTIFICATION CENTER FILL IN
-//                [[NSNotificationCenter defaultCenter] postNotificationName:PAPUtilityUserLikedUnlikedPhotoCallbackFinishedNotification object:photo userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:PAPPhotoDetailsViewControllerUserLikedUnlikedPhotoNotificationUserInfoLikedKey]];
+            // Notify other parts of the app that a Sprout was unliked
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"userLikedOrUnlikedOnSproutCallbackFinishedNotification"object:sprout userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:@"userLikedOrUnlikedOnSproutCallbackFinishedNotificationKey"]];
             
         } else {
             if (completionBlock) {
