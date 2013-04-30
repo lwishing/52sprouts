@@ -21,7 +21,6 @@
     self = [super initWithCoder:aCoder];
     if (self) {
         // Customize the table
-
         
         // The className to query on
         self.parseClassName = @"Sprout";
@@ -91,6 +90,19 @@
     }
 }
 
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    static int index = -1;
+//    if (indexPath.row > index) {
+//        [tableView sendSubviewToBack:cell];
+//    }
+//    else {
+//        [tableView bringSubviewToFront:cell];
+//    }
+//    index = indexPath.row;
+//}
+
+
 #pragma mark - PFQueryTableViewController
 
 - (void)objectsWillLoad {
@@ -113,13 +125,15 @@
     [self loadObjects];
 }
 
-// Infinite scroll
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentSize.height - scrollView.contentOffset.y < (self.view.bounds.size.height)) {
-        if (![self isLoading]) {
-            [self loadNextPage];
-        }
-    }
+
+    // Infinite scroll
+//    if (scrollView.contentSize.height - scrollView.contentOffset.y < (self.view.bounds.size.height)) {
+//        if (![self isLoading]) {
+//            [self loadNextPage];
+//        }
+//    }
     
     /*
     // Sticky header
@@ -175,20 +189,23 @@
 // and the imageView being the imageKey in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     
-    FeedViewCell *cell = [[FeedViewCell alloc] init];
+    FeedViewCell *cell;
     PFFile *imageFile = [object objectForKey:@"photo"];
     
     if (imageFile != nil) { // There's a picture!
         cell = (FeedViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
-        // Set your placeholder image first
-        cell.sproutImage.image = [UIImage imageNamed:@"loading_photo.png"];
-        [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-            // Now that the data is fetched, update the cell's image property.
-            cell.sproutImage.image = [UIImage imageWithData:data];
-        }];
+        if (cell == nil) {
+            cell = [[FeedViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FeedCell"];
+        }
     } else { // No picture
         cell = (FeedViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FeedCellNoImage"];
+        if (cell == nil) {
+            cell = [[FeedViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FeedCellNoImage"];
+        }
     }
+ 
+    // CELL
+    [cell setSproutObject:object];
     
     // Set delegate & tags
     cell.delegate = self;
@@ -249,9 +266,7 @@
         }
     }];
     
-    // CELL
-    [cell setSproutObject:object];
-    
+   [self.tableView sendSubviewToBack:cell];
    return cell;
 }
 
