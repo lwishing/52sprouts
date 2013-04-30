@@ -289,7 +289,7 @@
                                                 <constraint firstAttribute="height" constant="24" id="cdJ-78-lOY"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="-2"/>
+                                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="-1"/>
                                             <inset key="imageEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <state key="normal" title="0" image="heart_icon.png" backgroundImage="orange_button.png">
                                                 <color key="titleColor" red="1" green="0.59215686274509804" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
@@ -436,17 +436,17 @@
                                 <constraints>
                                     <constraint firstItem="ng6-aW-9TO" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="41" id="00f-0A-ayg"/>
                                     <constraint firstItem="ng6-aW-9TO" firstAttribute="centerX" secondItem="pMg-I4-z1E" secondAttribute="centerX" type="default" id="0qx-qk-XzU"/>
+                                    <constraint firstItem="boN-G9-yFK" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="8" id="74v-jx-HaN"/>
                                     <constraint firstItem="6zi-Qw-JK4" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="21" id="AGb-sI-yhx"/>
                                     <constraint firstItem="Kqy-h2-XQc" firstAttribute="baseline" secondItem="Ceh-Fo-X0t" secondAttribute="baseline" type="default" id="BzN-O6-yxo"/>
+                                    <constraint firstItem="Kqy-h2-XQc" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="10" id="Jba-Kk-bnT"/>
                                     <constraint firstItem="boN-G9-yFK" firstAttribute="leading" secondItem="pMg-I4-z1E" secondAttribute="leading" constant="10" id="QDF-ex-Vob"/>
                                     <constraint firstItem="6zi-Qw-JK4" firstAttribute="leading" secondItem="boN-G9-yFK" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="QRo-zC-6VD"/>
                                     <constraint firstItem="2Ym-mj-QED" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="6" id="Zmj-Tb-Fbl"/>
                                     <constraint firstAttribute="bottom" secondItem="ng6-aW-9TO" secondAttribute="bottom" constant="11" id="dRI-8N-83j"/>
                                     <constraint firstItem="ng6-aW-9TO" firstAttribute="leading" secondItem="boN-G9-yFK" secondAttribute="leading" type="default" id="dbD-b3-3Ff"/>
-                                    <constraint firstItem="Kqy-h2-XQc" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="14" id="ejz-bB-wHN"/>
                                     <constraint firstItem="Ceh-Fo-X0t" firstAttribute="leading" secondItem="Kqy-h2-XQc" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="foB-Sg-pHd"/>
                                     <constraint firstItem="2Ym-mj-QED" firstAttribute="leading" secondItem="boN-G9-yFK" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="mcs-0Z-4bq"/>
-                                    <constraint firstItem="Kqy-h2-XQc" firstAttribute="bottom" secondItem="boN-G9-yFK" secondAttribute="bottom" type="default" id="t2g-U0-OIY"/>
                                     <constraint firstItem="Ceh-Fo-X0t" firstAttribute="trailing" secondItem="ng6-aW-9TO" secondAttribute="trailing" type="default" id="xDw-kl-ljc"/>
                                 </constraints>
                                 <connections>

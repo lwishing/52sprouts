@@ -57,6 +57,8 @@
 #pragma mark -
 #pragma mark Private helper methods
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 // Adds a rectangular path to the given context and rounds its corners by the given extents
 // Original author: BjÃ¶rn SÃ¥llarp. Used with permission. See: http://blog.sallarp.com/iphone-uiimage-round-corners/
 - (void)addRoundedRectToPath:(CGRect)rect context:(CGContextRef)context ovalWidth:(CGFloat)ovalWidth ovalHeight:(CGFloat)ovalHeight {
@@ -64,6 +66,8 @@
         CGContextAddRect(context, rect);
         return;
     }
+#pragma clang diagnostic pop    
+
     CGContextSaveGState(context);
     CGContextTranslateCTM(context, CGRectGetMinX(rect), CGRectGetMinY(rect));
     CGContextScaleCTM(context, ovalWidth, ovalHeight);
