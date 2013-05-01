@@ -24,6 +24,13 @@ static Utility *_sharedInstance;
         [query includeKey:@"ingredient"];
         currentWeek = [query getFirstObject];
         currentIngredient = [currentWeek objectForKey:@"ingredient"];
+        
+        bannerFont = [UIFont fontWithName:@"MuseoSans-500" size:14.0];
+        headerFont = [UIFont fontWithName:@"MuseoSans-300" size:20.0];
+        bodyFont = [UIFont fontWithName:@"MuseoSans-300" size:14.0];
+        
+        greenColor = [UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0];
+        greyColor = [UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0];
 	}
 	return self;
 }
@@ -44,6 +51,26 @@ static Utility *_sharedInstance;
 
 - (PFObject *)getCurrentIngredient {
     return currentIngredient;
+}
+
+- (UIFont *)bannerFont {
+    return bannerFont;
+}
+
+- (UIFont *)headerFont {
+    return headerFont;
+}
+
+- (UIFont *)bodyFont {
+    return bodyFont;
+}
+
+- (UIColor *)greenColor {
+    return greenColor;
+}
+
+- (UIColor *)greyColor {
+    return greyColor;
 }
 
 #pragma mark Activities

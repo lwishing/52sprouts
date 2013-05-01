@@ -13,12 +13,28 @@
 @interface Utility : NSObject {
     PFObject *currentWeek;
     PFObject *currentIngredient;
+    
+    UIFont *bannerFont;
+    UIFont *headerFont;
+    UIFont *bodyFont;
+    
+    UIColor *greenColor;
+    UIColor *greyColor;
+    
 }
 
 + (Utility *) sharedInstance;
 
 - (PFObject *)getCurrentWeek;
 - (PFObject *)getCurrentIngredient;
+
+- (UIFont *)bannerFont;
+- (UIFont *)headerFont;
+- (UIFont *)bodyFont;
+
+- (UIColor *)greenColor;
+- (UIColor *)greyColor;
+
 + (PFQuery *) queryForActivitiesOnSprout:(PFObject *)photo cachePolicy:(PFCachePolicy)cachePolicy;
 
 + (void)likeSproutInBackground:(id)photo block:(void (^)(BOOL succeeded, NSError *error))completionBlock;

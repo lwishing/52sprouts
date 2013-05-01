@@ -43,7 +43,7 @@
     PFObject *ingredient = [[Utility sharedInstance] getCurrentIngredient];
     
     //set the banner
-    [headerText setFont:[UIFont fontWithName:@"MuseoSans-500" size:14.0]];
+    [headerText setFont:[[Utility sharedInstance] bannerFont]];
     [[headerView superview] bringSubviewToFront:headerView];
     [headerText setText:[NSString stringWithFormat:@"ALL ABOUT %@", [[ingredient objectForKey:@"name"] uppercaseString]]];
     
@@ -60,8 +60,8 @@
     //description text
     UITextView *descriptionText = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, width, 0)];
     descriptionText.text = [ingredient objectForKey:@"description"];
-    [descriptionText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
-    [descriptionText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    [descriptionText setFont:[[Utility sharedInstance] bodyFont]];
+    [descriptionText setTextColor:[[Utility sharedInstance] greyColor]];
     [descriptionText setUserInteractionEnabled:NO];
     [descriptionText setBackgroundColor:[UIColor clearColor]];
 
@@ -81,7 +81,6 @@
     //adjust y to new start point
     y += descriptionView.frame.size.height;
     
-//    NSLog(@"y postion: %i", y);
     
     //SEASON
     
@@ -91,14 +90,14 @@
     
     UILabel *seasonHeader = [[UILabel alloc] initWithFrame:CGRectMake(inset, inset, 280, headerHeight)];
     seasonHeader.text = @"In Season";
-    [seasonHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
-    [seasonHeader setTextColor:[UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]];
+    [seasonHeader setFont:[[Utility sharedInstance] headerFont]];
+    [seasonHeader setTextColor:[[Utility sharedInstance] greenColor]];
     
     //season text
     UITextView *seasonText = [[UITextView alloc] initWithFrame:CGRectMake(0, inset + headerHeight, width, 0)];
     seasonText.text = [NSString stringWithFormat:@"%@ through %@", [ingredient objectForKey:@"seasonStart"], [ingredient objectForKey:@"seasonEnd"]];
-    [seasonText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
-    [seasonText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    [seasonText setFont:[[Utility sharedInstance] bodyFont]];
+    [seasonText setTextColor:[[Utility sharedInstance] greyColor]];
     [seasonText setUserInteractionEnabled:NO];
     [seasonText setBackgroundColor:[UIColor clearColor]];
     
@@ -119,7 +118,6 @@
     //adjust y to new start point
     y += seasonView.frame.size.height + padding;
     
-//    NSLog(@"y postion: %i", y);
     
     //BUYING
     
@@ -129,14 +127,14 @@
     
     UILabel *buyingHeader = [[UILabel alloc] initWithFrame:CGRectMake(inset, inset, 280, headerHeight)];
     buyingHeader.text = @"When Buying";
-    [buyingHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
-    [buyingHeader setTextColor:[UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]];
+    [buyingHeader setFont:[[Utility sharedInstance] headerFont]];
+    [buyingHeader setTextColor:[[Utility sharedInstance] greenColor]];
     
     //when buying text
     UITextView *buyingText = [[UITextView alloc] initWithFrame:CGRectMake(0, inset + headerHeight, width, 0)];
     buyingText.text = [ingredient objectForKey:@"whenBuying"];
-    [buyingText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
-    [buyingText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    [buyingText setFont:[[Utility sharedInstance] bodyFont]];
+    [buyingText setTextColor:[[Utility sharedInstance] greyColor]];
     [buyingText setUserInteractionEnabled:NO];
     [buyingText setBackgroundColor:[UIColor clearColor]];
     
@@ -167,14 +165,14 @@
     
     UILabel *storingHeader = [[UILabel alloc] initWithFrame:CGRectMake(inset, inset, 280, headerHeight)];
     storingHeader.text = @"Storing";
-    [storingHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
-    [storingHeader setTextColor:[UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]];
+    [storingHeader setFont:[[Utility sharedInstance] headerFont]];
+    [storingHeader setTextColor:[[Utility sharedInstance] greenColor]];
     
     //when buying text
     UITextView *storingText = [[UITextView alloc] initWithFrame:CGRectMake(0, inset + headerHeight, width, 0)];
     storingText.text = [ingredient objectForKey:@"storing"];
-    [storingText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
-    [storingText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    [storingText setFont:[[Utility sharedInstance] bodyFont]];
+    [storingText setTextColor:[[Utility sharedInstance] greyColor]];
     [storingText setUserInteractionEnabled:NO];
     [storingText setBackgroundColor:[UIColor clearColor]];
     
@@ -195,7 +193,6 @@
     //adjust y to new start point
     y += storingView.frame.size.height + padding;
     
-//    NSLog(@"y postion: %i", y);
     
     //PAIRS WITH
     
@@ -205,14 +202,14 @@
     
     UILabel *pairsHeader = [[UILabel alloc] initWithFrame:CGRectMake(inset, inset, 280, headerHeight)];
     pairsHeader.text = @"Pairs With";
-    [pairsHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
-    [pairsHeader setTextColor:[UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]];
+    [pairsHeader setFont:[[Utility sharedInstance] headerFont]];
+    [pairsHeader setTextColor:[[Utility sharedInstance] greenColor]];
     
     //when buying text
     UITextView *pairsText = [[UITextView alloc] initWithFrame:CGRectMake(0, inset + headerHeight, width, 0)];
     pairsText.text = [[ingredient objectForKey:@"pairsWith"] componentsJoinedByString:@", "];
-    [pairsText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
-    [pairsText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    [pairsText setFont:[[Utility sharedInstance] bodyFont]];
+    [pairsText setTextColor:[[Utility sharedInstance] greyColor]];
     [pairsText setUserInteractionEnabled:NO];
     [pairsText setBackgroundColor:[UIColor clearColor]];
     
@@ -233,8 +230,6 @@
     //adjust y to new start point
     y += pairsView.frame.size.height + padding;
     
-//    NSLog(@"y postion: %i", y);
-    
     //PREPARATION
     
     //container uiview
@@ -243,14 +238,14 @@
     
     UILabel *preparationHeader = [[UILabel alloc] initWithFrame:CGRectMake(inset, inset, 280, headerHeight)];
     preparationHeader.text = @"Preparation";
-    [preparationHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
-    [preparationHeader setTextColor:[UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]];
+    [preparationHeader setFont:[[Utility sharedInstance] headerFont]];
+    [preparationHeader setTextColor:[[Utility sharedInstance] greenColor]];
     
     //when buying text
     UITextView *preparationText = [[UITextView alloc] initWithFrame:CGRectMake(0, inset + headerHeight, width, 0)];
     preparationText.text = [[ingredient objectForKey:@"preparation"] componentsJoinedByString:@", "];
-    [preparationText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
-    [preparationText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    [preparationText setFont:[[Utility sharedInstance] bodyFont]];
+    [preparationText setTextColor:[[Utility sharedInstance] greyColor]];
     [preparationText setUserInteractionEnabled:NO];
     [preparationText setBackgroundColor:[UIColor clearColor]];
     
@@ -271,8 +266,6 @@
     //adjust y to new start point
     y += preparationView.frame.size.height + padding;
     
-//    NSLog(@"y postion: %i", y);
-    
     //SUBSTITUTES
     
     //container uiview
@@ -281,14 +274,14 @@
     
     UILabel *subsHeader = [[UILabel alloc] initWithFrame:CGRectMake(inset, inset, 280, headerHeight)];
     subsHeader.text = @"Substitutes";
-    [subsHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
-    [subsHeader setTextColor:[UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]];
+    [subsHeader setFont:[[Utility sharedInstance] headerFont]];
+    [subsHeader setTextColor:[[Utility sharedInstance] greenColor]];
     
     //when buying text
     UITextView *subsText = [[UITextView alloc] initWithFrame:CGRectMake(0, inset + headerHeight, width, 0)];
     subsText.text = [[ingredient objectForKey:@"substitutes"] componentsJoinedByString:@", "];
-    [subsText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
-    [subsText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    [subsText setFont:[[Utility sharedInstance] bodyFont]];
+    [subsText setTextColor:[[Utility sharedInstance] greyColor]];
     [subsText setUserInteractionEnabled:NO];
     [subsText setBackgroundColor:[UIColor clearColor]];
     
