@@ -107,6 +107,13 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    // Refresh week/ingredient when application becomes active
+    Utility *util = [Utility sharedInstance];
+    NSString *week = [[util getCurrentWeek] objectForKey:@"week"];
+    NSString *ingredientName = [[util getCurrentIngredient] objectForKey:@"name"];
+    NSLog(@"Week: %@, Ingredient: %@", week, ingredientName);
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

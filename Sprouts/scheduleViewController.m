@@ -17,7 +17,7 @@
 
 @implementation scheduleViewController
 
-@synthesize scrollView;
+@synthesize scrollView, tipsHeader, tipsBanner;
 @synthesize dayOfWeek, todayDate;
 @synthesize week, ingredient;
 @synthesize dayOneActual, dayTwoActual, dayThreeActual, dayFourActual, dayFiveActual, daySixActual, daySevenActual;
@@ -124,6 +124,10 @@
     } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Wednesday"]) {
         [daySeven setSelected:YES];
         self.scheduleMessage.text = @"You're currently scheduled to cook on Wednesday.";
+    } else {
+        scrollView.hidden = YES;
+        tipsHeader.hidden = YES;
+        tipsBanner.hidden = YES;
     }
     
     
@@ -360,6 +364,12 @@
         [self scheduleNotification:[daySevenActual dateByAddingTimeInterval:-60*60*24*1]];
         
     }
-}
     
+    // Show tips after scheduling
+    scrollView.hidden = NO;
+    tipsHeader.hidden = NO;
+    tipsBanner.hidden = NO;
+    
+}
+
 @end
