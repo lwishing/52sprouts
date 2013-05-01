@@ -38,76 +38,94 @@
     // Step 1
     UIView *stepOne = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 345)];
     
-    UITextView *sprouts = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 60)];
+    UILabel *sprouts = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 60)];
     sprouts.text = @"52 Sprouts";
     sprouts.textAlignment = NSTextAlignmentCenter;
     [sprouts setFont:[UIFont fontWithName:@"MuseoSans-500" size:42.0]];
     sprouts.backgroundColor = [UIColor clearColor];
-    sprouts.textColor = [UIColor colorWithRed:(53/255.0) green:(135/255.0) blue:(93/255.0) alpha:1.0];
+    sprouts.textColor = [UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0];
+    sprouts.shadowColor = [UIColor whiteColor];
+    sprouts.shadowOffset = CGSizeMake(0, 1);
     [sprouts setUserInteractionEnabled:NO];
     [stepOne addSubview:sprouts];
     
-    UIView *imageViewOne = [[UIView alloc] initWithFrame:CGRectMake(20, 60, (self.view.frame.size.width - 40), 175)];
-    [imageViewOne setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"step1.png"]]];
+    UIImageView *imageViewOne = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"step1.png"]];
+    imageViewOne.frame = CGRectMake(self.view.frame.size.width/2 - imageViewOne.frame.size.width/2, 80, imageViewOne.frame.size.width, imageViewOne.frame.size.height);
     [stepOne addSubview:imageViewOne];
     
-    UITextView *headerViewOne = [[UITextView alloc] initWithFrame:CGRectMake(10, 235, (self.view.frame.size.width - 20), 60)];
-    headerViewOne.text = @"Mastering the kitchen, one vegetable at a time";
-    [headerViewOne setFont:[UIFont fontWithName:@"MuseoSans-500" size:20.0]];
+    UILabel *headerViewOne = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - 95, 250, 190, 60)];
+    headerViewOne.textAlignment = NSTextAlignmentCenter;
+    headerViewOne.numberOfLines = 0; //allows as many lines as needed for UILabel
+    headerViewOne.text = @"Mastering the kitchen, one vegetable at a time.";
+    [headerViewOne setFont:[UIFont fontWithName:@"MuseoSans-500" size:16.0]];
+    headerViewOne.textColor = [UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0];
+    headerViewOne.shadowColor = [UIColor whiteColor];
+    headerViewOne.shadowOffset = CGSizeMake(0, 1);
     headerViewOne.backgroundColor = [UIColor clearColor];
     [headerViewOne setUserInteractionEnabled:NO];
     [stepOne addSubview:headerViewOne];
     
-    UITextView *subHeaderViewOne = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
-    subHeaderViewOne.text = @"Each week, we'll pick a vegetable that's in season and give you info to get you started.";
+    /*UITextView *subHeaderViewOne = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
+    subHeaderViewOne.text = @"  ";
     [subHeaderViewOne setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     subHeaderViewOne.backgroundColor = [UIColor clearColor];
     [subHeaderViewOne setUserInteractionEnabled:NO];
-    [stepOne addSubview:subHeaderViewOne];
+    [stepOne addSubview:subHeaderViewOne];*/
     
     
     // Step 2
     UIView *stepTwo = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 345)];
     
-    UIView *imageViewTwo = [[UIView alloc] initWithFrame:CGRectMake(20, 0, (self.view.frame.size.width - 40), 235)];
-    [imageViewTwo setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"step2.png"]]];
+    UIImageView *imageViewTwo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"step2.png"]];
+    imageViewTwo.frame = CGRectMake(self.view.frame.size.width/2 - imageViewTwo.frame.size.width/2, 0, imageViewTwo.frame.size.width, imageViewTwo.frame.size.height);
     [stepTwo addSubview:imageViewTwo];
     
-    UITextView *headerViewTwo = [[UITextView alloc] initWithFrame:CGRectMake(10, 235, (self.view.frame.size.width - 20), 60)];
-    headerViewTwo.text = @"Sprout the vegetable of the week by leaving a recipe or tip";
-    [headerViewTwo setFont:[UIFont fontWithName:@"MuseoSans-500" size:20.0]];
+    UILabel *headerViewTwo = [[UILabel alloc] initWithFrame:CGRectMake(10, 280, (self.view.frame.size.width - 20), 60)];
+    headerViewTwo.textAlignment = NSTextAlignmentCenter;
+    headerViewTwo.numberOfLines = 0;
+    headerViewTwo.text = @"Each week, we'll pick a vegetable that's in season and give you information to get you started.";
+    [headerViewTwo setFont:[UIFont fontWithName:@"MuseoSans-500" size:16.0]];
+    headerViewTwo.textColor = [UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0];
+    headerViewTwo.shadowColor = [UIColor whiteColor];
+    headerViewTwo.shadowOffset = CGSizeMake(0, 1);
     headerViewTwo.backgroundColor = [UIColor clearColor];
     [headerViewTwo setUserInteractionEnabled:NO];
     [stepTwo addSubview:headerViewTwo];
     
-    UITextView *subHeaderViewTwo = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
+    /*UITextView *subHeaderViewTwo = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
     subHeaderViewTwo.text = @"Show us your expertise and learn from the 52 Sprouts community.";
     [subHeaderViewTwo setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     subHeaderViewTwo.backgroundColor = [UIColor clearColor];
     [subHeaderViewTwo setUserInteractionEnabled:NO];
-    [stepTwo addSubview:subHeaderViewTwo];
+    [stepTwo addSubview:subHeaderViewTwo];*/
     
     
     // Step 3
     UIView *stepThree = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 345)];
     
-    UIView *imageViewThree = [[UIView alloc] initWithFrame:CGRectMake(20, 0, (self.view.frame.size.width - 40), 235)];
-    [imageViewThree setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"step3.png"]]];
+    UIImageView *imageViewThree = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"step3.png"]];
+    imageViewThree.frame = CGRectMake(self.view.frame.size.width/2 - imageViewThree.frame.size.width/2, 0, imageViewThree.frame.size.width, imageViewThree.frame.size.height);
     [stepThree addSubview:imageViewThree];
     
-    UITextView *headerViewThree = [[UITextView alloc] initWithFrame:CGRectMake(10, 235, (self.view.frame.size.width - 20), 60)];
-    headerViewThree.text = @"Revisit past vegetables by browsing your own cookbook";
-    [headerViewThree setFont:[UIFont fontWithName:@"MuseoSans-500" size:20.0]];
+    UILabel *headerViewThree = [[UILabel alloc] initWithFrame:CGRectMake(10, 280, (self.view.frame.size.width - 20), 60)];
+    headerViewThree.textAlignment = NSTextAlignmentCenter;
+    headerViewThree.numberOfLines = 0;
+    headerViewThree.text = @"Sprout your delicious creations, recipes, and tips to share and learn from the larger 52 Sprouts community.";
+    [headerViewThree setFont:[UIFont fontWithName:@"MuseoSans-500" size:16.0]];
+    headerViewThree.textColor = [UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0];
+    headerViewThree.shadowColor = [UIColor whiteColor];
+    headerViewThree.shadowOffset = CGSizeMake(0, 1);
     headerViewThree.backgroundColor = [UIColor clearColor];
     [headerViewThree setUserInteractionEnabled:NO];
+
     [stepThree addSubview:headerViewThree];
     
-    UITextView *subHeaderViewThree = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
+    /*UITextView *subHeaderViewThree = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
     subHeaderViewThree.text = @"Recipes and tips you like get saved to your profile for later viewing.";
     [subHeaderViewThree setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     subHeaderViewThree.backgroundColor = [UIColor clearColor];
     [subHeaderViewThree setUserInteractionEnabled:NO];
-    [stepThree addSubview:subHeaderViewThree];
+    [stepThree addSubview:subHeaderViewThree];*/
     
     
     NSArray *views = [[NSArray alloc] initWithObjects:stepOne, stepTwo, stepThree, nil];
