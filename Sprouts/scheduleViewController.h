@@ -29,6 +29,8 @@
 @property (nonatomic, strong) PFUser* currentUser;
 
 @property (strong, nonatomic) IBOutlet UILabel *scheduleMessage;
+@property (strong, nonatomic) IBOutlet UILabel *tipsHeader;
+@property (strong, nonatomic) IBOutlet UIImageView *tipsBanner;
 
 @property (strong, nonatomic) IBOutlet UILabel *dayOneLabel;
 @property (strong, nonatomic) IBOutlet UILabel *dayTwoLabel;
