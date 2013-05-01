@@ -7,6 +7,7 @@
 //
 
 #import "scheduleViewController.h"
+#import <QuartzCore/QuartzCore.h>
 #import "Utility.h"
 
 
@@ -102,55 +103,55 @@
     // check user's scheduledDay, reset if from past week
     NSDate *scheduled = [[PFUser currentUser] objectForKey:@"scheduledDay"];
     NSLog(@"scheduledDay: %@", [dateFormatter stringFromDate:scheduled]);
-    if ([[weekday stringFromDate:scheduled] isEqualToString:@"Tuesday"]) {
+    if ([[weekday stringFromDate:scheduled] isEqualToString:@"Thursday"]) {
         [dayOne setSelected:YES];
-        self.scheduleMessage.text = @"You're currently scheduled to cook on Tuesday.";
-    } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Wednesday"]) {
-        [dayTwo setSelected:YES];
-        self.scheduleMessage.text = @"You're currently scheduled to cook on Wednesday.";
-    } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Thursday"]) {
-        [dayThree setSelected:YES];
         self.scheduleMessage.text = @"You're currently scheduled to cook on Thursday.";
     } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Friday"]) {
-        [dayFour setSelected:YES];
+        [dayTwo setSelected:YES];
         self.scheduleMessage.text = @"You're currently scheduled to cook on Friday.";
     } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Saturday"]) {
-        [dayFive setSelected:YES];
+        [dayThree setSelected:YES];
         self.scheduleMessage.text = @"You're currently scheduled to cook on Saturday.";
     } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Sunday"]) {
-        [daySix setSelected:YES];
+        [dayFour setSelected:YES];
         self.scheduleMessage.text = @"You're currently scheduled to cook on Sunday.";
     } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Monday"]) {
-        [daySeven setSelected:YES];
+        [dayFive setSelected:YES];
         self.scheduleMessage.text = @"You're currently scheduled to cook on Monday.";
+    } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Tuesday"]) {
+        [daySix setSelected:YES];
+        self.scheduleMessage.text = @"You're currently scheduled to cook on Tuesday.";
+    } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Wednesday"]) {
+        [daySeven setSelected:YES];
+        self.scheduleMessage.text = @"You're currently scheduled to cook on Wednesday.";
     }
     
     
-//    dayOfWeek = @"Friday";
+//    dayOfWeek = @"Thursday";
     
     // disable buttons if day has passed
-    if ([dayOfWeek isEqualToString:@"Tuesday"]) {
-    } else if ([dayOfWeek isEqualToString:@"Wednesday"]) {
+    if ([dayOfWeek isEqualToString:@"Thursday"]) {
+    } else if ([dayOfWeek isEqualToString:@"Friday"]) {
         [self.dayOne setEnabled:NO];
-    } else if ([dayOfWeek isEqualToString:@"Thursday"]) {
+    } else if ([dayOfWeek isEqualToString:@"Saturday"]) {
         [self.dayOne setEnabled:NO];
         [self.dayTwo setEnabled:NO];
-    } else if ([dayOfWeek isEqualToString:@"Friday"]) {
+    } else if ([dayOfWeek isEqualToString:@"Sunday"]) {
         [self.dayOne setEnabled:NO];
         [self.dayTwo setEnabled:NO];
         [self.dayThree setEnabled:NO];
-    } else if ([dayOfWeek isEqualToString:@"Saturday"]) {
+    } else if ([dayOfWeek isEqualToString:@"Monday"]) {
         [self.dayOne setEnabled:NO];
         [self.dayTwo setEnabled:NO];
         [self.dayThree setEnabled:NO];
         [self.dayFour setEnabled:NO];
-    } else if ([dayOfWeek isEqualToString:@"Sunday"]) {
+    } else if ([dayOfWeek isEqualToString:@"Tuesday"]) {
         [self.dayOne setEnabled:NO];
         [self.dayTwo setEnabled:NO];
         [self.dayThree setEnabled:NO];
         [self.dayFour setEnabled:NO];
         [self.dayFive setEnabled:NO];
-    } else if ([dayOfWeek isEqualToString:@"Monday"]) {
+    } else if ([dayOfWeek isEqualToString:@"Wednesday"]) {
         [self.dayOne setEnabled:NO];
         [self.dayTwo setEnabled:NO];
         [self.dayThree setEnabled:NO];
@@ -183,7 +184,8 @@
     buyingText.text = [ingredient objectForKey:@"whenBuying"];
     [buyingText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [buyingText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
-    buyingText.editable = NO;
+    [buyingText setUserInteractionEnabled:NO];
+    [buyingText setBackgroundColor:[UIColor clearColor]];
     
     [buyingView addSubview:buyingHeader];
     [buyingView addSubview:buyingText];
@@ -202,7 +204,7 @@
     //adjust y to new start point
     y += buyingView.frame.size.height + padding;
     
-    NSLog(@"y postion: %i", y);
+    //    NSLog(@"y postion: %i", y);
     
     //STORING
     
@@ -220,7 +222,8 @@
     storingText.text = [ingredient objectForKey:@"storing"];
     [storingText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [storingText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
-    storingText.editable = NO;
+    [storingText setUserInteractionEnabled:NO];
+    [storingText setBackgroundColor:[UIColor clearColor]];
     
     [storingView addSubview:storingHeader];
     [storingView addSubview:storingText];
@@ -239,45 +242,29 @@
     //adjust y to new start point
     y += storingView.frame.size.height + padding;
     
-    NSLog(@"y postion: %i", y);
-    
-    //PREPARATION
-    
-    //container uiview
-    UIView *preparationView = [[UIView alloc] initWithFrame:CGRectMake(x, y + padding, width, 0)];
-    [preparationView setBackgroundColor:[UIColor whiteColor]];
-    
-    UILabel *preparationHeader = [[UILabel alloc] initWithFrame:CGRectMake(inset, inset, 280, headerHeight)];
-    preparationHeader.text = @"Preparation";
-    [preparationHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
-    [preparationHeader setTextColor:[UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]];
-    
-    //when buying text
-    UITextView *preparationText = [[UITextView alloc] initWithFrame:CGRectMake(0, inset + headerHeight, width, 0)];
-    preparationText.text = [[ingredient objectForKey:@"preparation"] componentsJoinedByString:@", "];
-    [preparationText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
-    [preparationText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
-    [preparationText setUserInteractionEnabled:NO];
-    
-    [preparationView addSubview:preparationHeader];
-    [preparationView addSubview:preparationText];
-    
-    //resize textview to fit the content
-    CGRect preparationFrame = preparationText.frame;
-    preparationFrame.size.height = preparationText.contentSize.height;
-    preparationText.frame = preparationFrame;
-    
-    //add container view to scrollview
-    [scrollView addSubview: preparationView];
-    
-    //resize containerview to fit everything
-    [preparationView resizeToFitSubviews];
-    
-    //adjust y to new start point
-    y += preparationView.frame.size.height + padding;
-    
     scrollView.contentSize=CGSizeMake(320, y);
     scrollView.contentInset= UIEdgeInsetsMake(0.0,0.0, 30.0,0.0);
+    
+    // shadow experiment
+    for (UIView *subview in [scrollView subviews]) {
+        
+        if(![subview isKindOfClass:[UIImageView class]]){
+            
+            NSLog(@"view: %@", subview.description);
+            
+            CALayer *sublayer = subview.layer;
+            
+            sublayer.cornerRadius = 5;
+            
+            sublayer.shadowColor = [UIColor grayColor].CGColor;
+            sublayer.shadowOffset = CGSizeMake(0, 0);
+            sublayer.shadowRadius = 2.0;
+            sublayer.shadowOpacity = .5;
+            sublayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:subview.bounds cornerRadius:5].CGPath; // make sure you set that for better performance
+        }
+    }
+
+    
     
 }
 - (IBAction)backButtonPressed:(UIBarButtonItem *)sender {
@@ -344,32 +331,32 @@
     self.scheduleMessage.text = nil;
     
     if ([sender tag] == 1) {
-        NSLog(@"Button pressed: Tuesday");
+        NSLog(@"Button pressed: Thursday");
         [self scheduleNotification:[dayOneActual dateByAddingTimeInterval:-60*60*24*1]];
 //        [self scheduleNotification:[NSDate dateWithTimeIntervalSinceNow:10]];
         
     } else if ([sender tag] == 2) {
-        NSLog(@"Button pressed: Wednesday");
+        NSLog(@"Button pressed: Friday");
         [self scheduleNotification:[dayTwoActual dateByAddingTimeInterval:-60*60*24*1]];
         
     } else if ([sender tag] == 3) {
-        NSLog(@"Button pressed: Thursday");
+        NSLog(@"Button pressed: Saturday");
         [self scheduleNotification:[dayThreeActual dateByAddingTimeInterval:-60*60*24*1]];
         
     } else if ([sender tag] == 4) {
-        NSLog(@"Button pressed: Friday");
+        NSLog(@"Button pressed: Sunday");
         [self scheduleNotification:[dayFourActual dateByAddingTimeInterval:-60*60*24*1]];
         
     } else if ([sender tag] == 5) {
-        NSLog(@"Button pressed: Saturday");
+        NSLog(@"Button pressed: Monday");
         [self scheduleNotification:[dayFiveActual dateByAddingTimeInterval:-60*60*24*1]];
         
     } else if ([sender tag] == 6) {
-        NSLog(@"Button pressed: Sunday");
+        NSLog(@"Button pressed: Tuesday");
         [self scheduleNotification:[daySixActual dateByAddingTimeInterval:-60*60*24*1]];
         
     } else if ([sender tag] == 7) {
-        NSLog(@"Button pressed: Monday");
+        NSLog(@"Button pressed: Wednesday");
         [self scheduleNotification:[daySevenActual dateByAddingTimeInterval:-60*60*24*1]];
         
     }
