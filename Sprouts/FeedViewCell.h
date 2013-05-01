@@ -24,7 +24,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet PFImageView *userAvatar;
 
-@property (nonatomic,weak) id <FeedViewCellDelegate> delegate;
+@property (weak, nonatomic) id <FeedViewCellDelegate> delegate;
+
+@property CGFloat height;
 
 /*!
  Configures the Like Button to match the given like status.

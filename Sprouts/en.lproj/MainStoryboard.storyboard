@@ -216,8 +216,124 @@
                             </constraints>
                         </view>
                         <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedCellNoImage" rowHeight="170" id="pMg-I4-z1E" customClass="FeedViewCell">
+                                <rect key="frame" x="0.0" y="178" width="320" height="170"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="169"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="boN-G9-yFK" userLabel="Avatar" customClass="PFImageView">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" type="user" id="1EW-gQ-Lyb"/>
+                                                <constraint firstAttribute="width" constant="30" id="9ab-dV-Sas"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="User" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ym-mj-QED">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Nzk-UP-KaZ"/>
+                                                <constraint firstAttribute="width" constant="149" id="XrM-JT-NWT"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="14"/>
+                                            <color key="textColor" red="0.20784313730000001" green="0.52941176469999995" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sprouted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zi-Qw-JK4">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="117" id="Y6x-nS-MiU"/>
+                                                <constraint firstAttribute="height" constant="21" id="qsl-6s-ENf"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ng6-aW-9TO" userLabel="Body">
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fnf-v9-x71">
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="280" type="user" id="gau-ex-ix6"/>
+                                                        <constraint firstAttribute="height" constant="20" type="user" id="u1F-k7-TtZ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
+                                                    <color key="textColor" red="0.20784313730000001" green="0.52941176469999995" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="qiu-BL-TAx">
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" priority="1" constant="15" type="user" id="0ti-6k-JRL"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="200" constant="15" type="user" id="b4w-DP-a64"/>
+                                                        <constraint firstAttribute="width" constant="280" type="user" id="e54-Z2-NC6"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="qiu-BL-TAx" firstAttribute="trailing" secondItem="Fnf-v9-x71" secondAttribute="trailing" type="user" id="2PT-GO-ReL"/>
+                                                <constraint firstItem="qiu-BL-TAx" firstAttribute="leading" secondItem="Fnf-v9-x71" secondAttribute="leading" type="user" id="D0d-4F-p9a"/>
+                                                <constraint firstItem="qiu-BL-TAx" firstAttribute="centerX" secondItem="ng6-aW-9TO" secondAttribute="centerX" type="default" id="Qh6-i3-dJF"/>
+                                                <constraint firstAttribute="bottom" secondItem="qiu-BL-TAx" secondAttribute="bottom" constant="10" type="user" id="atM-VL-Uxe"/>
+                                                <constraint firstItem="Fnf-v9-x71" firstAttribute="top" secondItem="ng6-aW-9TO" secondAttribute="top" constant="10" type="user" id="czX-ne-gki"/>
+                                                <constraint firstItem="qiu-BL-TAx" firstAttribute="top" secondItem="ng6-aW-9TO" secondAttribute="top" constant="40" type="user" id="uSF-Fb-NWp"/>
+                                            </constraints>
+                                        </view>
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqy-h2-XQc" userLabel="Like">
+                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="11"/>
+                                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="-2"/>
+                                            <inset key="imageEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <state key="normal" title="0" image="heart_icon.png" backgroundImage="orange_button.png">
+                                                <color key="titleColor" red="1" green="0.59215686274509804" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="selected" image="filled_in_heart.png"/>
+                                        </button>
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ceh-Fo-X0t" userLabel="Comment">
+                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="11"/>
+                                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="-2"/>
+                                            <inset key="imageEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <state key="normal" title="0" image="comment_icon.png" backgroundImage="orange_button.png">
+                                                <color key="titleColor" red="1" green="0.59215686274509804" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="selected">
+                                                <color key="titleColor" red="1" green="0.59215686270000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="ng6-aW-9TO" firstAttribute="centerX" secondItem="pMg-I4-z1E" secondAttribute="centerX" type="default" id="0qx-qk-XzU"/>
+                                    <constraint firstAttribute="bottom" secondItem="ng6-aW-9TO" secondAttribute="bottom" constant="10" type="user" id="13S-TY-olO"/>
+                                    <constraint firstItem="2Ym-mj-QED" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="8" id="2ly-Il-MoR"/>
+                                    <constraint firstItem="Kqy-h2-XQc" firstAttribute="baseline" secondItem="Ceh-Fo-X0t" secondAttribute="baseline" type="default" id="BzN-O6-yxo"/>
+                                    <constraint firstItem="boN-G9-yFK" firstAttribute="leading" secondItem="pMg-I4-z1E" secondAttribute="leading" constant="10" id="EuI-Db-bM8"/>
+                                    <constraint firstItem="Kqy-h2-XQc" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="13" id="Gp2-11-1TW"/>
+                                    <constraint firstItem="6zi-Qw-JK4" firstAttribute="leading" secondItem="boN-G9-yFK" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="QRo-zC-6VD"/>
+                                    <constraint firstItem="boN-G9-yFK" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="11" id="SCk-oK-ftZ"/>
+                                    <constraint firstItem="6zi-Qw-JK4" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="24" id="SjP-Q5-7Aw"/>
+                                    <constraint firstItem="ng6-aW-9TO" firstAttribute="leading" secondItem="boN-G9-yFK" secondAttribute="leading" type="default" id="dbD-b3-3Ff"/>
+                                    <constraint firstItem="Ceh-Fo-X0t" firstAttribute="leading" secondItem="Kqy-h2-XQc" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="foB-Sg-pHd"/>
+                                    <constraint firstItem="2Ym-mj-QED" firstAttribute="leading" secondItem="boN-G9-yFK" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="mcs-0Z-4bq"/>
+                                    <constraint firstItem="ng6-aW-9TO" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="50" type="user" id="vkZ-E0-VdT"/>
+                                    <constraint firstItem="Ceh-Fo-X0t" firstAttribute="trailing" secondItem="ng6-aW-9TO" secondAttribute="trailing" type="default" id="xDw-kl-ljc"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="commentButton" destination="Ceh-Fo-X0t" id="tQe-fe-q4i"/>
+                                    <outlet property="likeButton" destination="Kqy-h2-XQc" id="DXa-wC-7f9"/>
+                                    <outlet property="sproutDescription" destination="qiu-BL-TAx" id="VV6-Ip-A6h"/>
+                                    <outlet property="sproutTitle" destination="Fnf-v9-x71" id="a8e-Jo-g57"/>
+                                    <outlet property="sproutedAt" destination="6zi-Qw-JK4" id="U9y-DZ-rjq"/>
+                                    <outlet property="userAvatar" destination="boN-G9-yFK" id="SPx-JS-9Na"/>
+                                    <outlet property="userName" destination="2Ym-mj-QED" id="M7l-sT-upL"/>
+                                </connections>
+                            </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedCell" rowHeight="420" id="KUP-Ng-7cw" customClass="FeedViewCell">
-                                <rect key="frame" x="0.0" y="178" width="320" height="420"/>
+                                <rect key="frame" x="0.0" y="348" width="320" height="420"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="419"/>
@@ -225,8 +341,7 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sprouted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xpt-UD-pt5">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="UNm-xX-0RO"/>
-                                                <constraint firstAttribute="width" constant="150" id="VMX-s5-lfC"/>
+                                                <constraint firstAttribute="height" constant="21" id="rTY-kU-Pge"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -274,28 +389,25 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ww7-oT-m6m" userLabel="Sprout Image" customClass="PFImageView">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="300" id="XhP-5i-VNI"/>
-                                                <constraint firstAttribute="width" constant="300" id="y65-qL-fjU"/>
-                                            </constraints>
-                                        </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tmc-2l-Fms" userLabel="Description">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tmc-2l-Fms" userLabel="Body">
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EeK-fP-XE6">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ww7-oT-m6m" userLabel="Sprout Image" customClass="PFImageView"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeK-fP-XE6">
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="Ybw-n7-w3x"/>
-                                                        <constraint firstAttribute="width" constant="280" id="dR7-sX-Nmy"/>
+                                                        <constraint firstAttribute="height" constant="20" type="user" id="Ybw-n7-w3x"/>
+                                                        <constraint firstAttribute="width" constant="280" type="user" id="dR7-sX-Nmy"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
                                                     <color key="textColor" red="0.20784313725490194" green="0.52941176470588236" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mU0-O2-lpe">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="mU0-O2-lpe">
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="29" id="ow4-XI-xMG"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="200" constant="10" type="user" id="5S0-hm-jYn"/>
+                                                        <constraint firstAttribute="height" priority="1" constant="10" type="user" id="VlY-Bx-Jml"/>
+                                                        <constraint firstAttribute="width" constant="280" type="user" id="peZ-Rg-RKq"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -304,11 +416,16 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="mU0-O2-lpe" firstAttribute="top" secondItem="Tmc-2l-Fms" secondAttribute="top" constant="27" id="EWT-MG-hPa"/>
-                                                <constraint firstItem="mU0-O2-lpe" firstAttribute="trailing" secondItem="EeK-fP-XE6" secondAttribute="trailing" type="default" id="OjW-SA-bpj"/>
-                                                <constraint firstItem="EeK-fP-XE6" firstAttribute="leading" secondItem="mU0-O2-lpe" secondAttribute="leading" type="default" id="atg-jq-qAt"/>
-                                                <constraint firstItem="mU0-O2-lpe" firstAttribute="centerX" secondItem="Tmc-2l-Fms" secondAttribute="centerX" type="default" id="bA3-Qv-FOW"/>
-                                                <constraint firstItem="EeK-fP-XE6" firstAttribute="top" secondItem="Tmc-2l-Fms" secondAttribute="top" constant="8" id="u3V-Fl-ARt"/>
+                                                <constraint firstItem="Ww7-oT-m6m" firstAttribute="leading" secondItem="Tmc-2l-Fms" secondAttribute="leading" type="default" id="2cO-Aa-iH1"/>
+                                                <constraint firstItem="Ww7-oT-m6m" firstAttribute="top" secondItem="Tmc-2l-Fms" secondAttribute="top" type="default" id="2gG-S9-2RN"/>
+                                                <constraint firstItem="EeK-fP-XE6" firstAttribute="top" secondItem="Ww7-oT-m6m" secondAttribute="bottom" constant="10" type="user" id="A0n-VZ-pxb"/>
+                                                <constraint firstAttribute="bottom" secondItem="mU0-O2-lpe" secondAttribute="bottom" constant="10" type="user" id="CF8-N6-BQx"/>
+                                                <constraint firstItem="mU0-O2-lpe" firstAttribute="top" secondItem="Tmc-2l-Fms" secondAttribute="top" constant="340" type="user" id="Ecs-1W-Zfq"/>
+                                                <constraint firstItem="mU0-O2-lpe" firstAttribute="trailing" secondItem="EeK-fP-XE6" secondAttribute="trailing" type="user" id="OjW-SA-bpj"/>
+                                                <constraint firstItem="mU0-O2-lpe" firstAttribute="top" secondItem="EeK-fP-XE6" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="PNn-Kp-Lfz"/>
+                                                <constraint firstItem="EeK-fP-XE6" firstAttribute="leading" secondItem="mU0-O2-lpe" secondAttribute="leading" type="user" id="atg-jq-qAt"/>
+                                                <constraint firstItem="Ww7-oT-m6m" firstAttribute="trailing" secondItem="Tmc-2l-Fms" secondAttribute="trailing" type="default" id="fwO-2A-qld"/>
+                                                <constraint firstItem="EeK-fP-XE6" firstAttribute="centerX" secondItem="Ww7-oT-m6m" secondAttribute="centerX" type="default" id="yTN-MH-lB3"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -316,23 +433,22 @@
                                 </view>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Tmc-2l-Fms" firstAttribute="centerX" secondItem="KUP-Ng-7cw" secondAttribute="centerX" type="default" id="AJ0-FH-mYI"/>
+                                    <constraint firstItem="Tmc-2l-Fms" firstAttribute="centerX" secondItem="KUP-Ng-7cw" secondAttribute="centerX" type="default" id="0r4-14-RXk"/>
+                                    <constraint firstItem="ks9-6o-NIk" firstAttribute="leading" secondItem="KUP-Ng-7cw" secondAttribute="leading" constant="10" id="8zG-Ix-EgM"/>
                                     <constraint firstItem="vwz-Th-i8O" firstAttribute="top" secondItem="ks9-6o-NIk" secondAttribute="top" type="default" id="GEv-Sl-mck"/>
+                                    <constraint firstItem="Tmc-2l-Fms" firstAttribute="top" secondItem="ks9-6o-NIk" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="JMV-4R-bg8"/>
                                     <constraint firstItem="vwz-Th-i8O" firstAttribute="bottom" secondItem="TFx-bM-hZC" secondAttribute="bottom" type="default" id="JRI-jF-vRk"/>
                                     <constraint firstItem="cW5-Bo-OJj" firstAttribute="leading" secondItem="ks9-6o-NIk" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="L4z-o3-I5e"/>
                                     <constraint firstItem="TFx-bM-hZC" firstAttribute="leading" secondItem="vwz-Th-i8O" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Oe2-l5-9Ao"/>
-                                    <constraint firstAttribute="bottom" secondItem="Tmc-2l-Fms" secondAttribute="bottom" constant="11" id="Rpb-yS-b08"/>
-                                    <constraint firstItem="ks9-6o-NIk" firstAttribute="leading" secondItem="Ww7-oT-m6m" secondAttribute="leading" type="default" id="T6I-GC-gPv"/>
+                                    <constraint firstItem="Tmc-2l-Fms" firstAttribute="trailing" secondItem="TFx-bM-hZC" secondAttribute="trailing" type="default" id="RVs-en-69f"/>
+                                    <constraint firstItem="Xpt-UD-pt5" firstAttribute="trailing" secondItem="cW5-Bo-OJj" secondAttribute="trailing" type="default" id="T94-o0-xJI"/>
+                                    <constraint firstAttribute="bottom" secondItem="Tmc-2l-Fms" secondAttribute="bottom" constant="10" type="user" id="dDS-nO-1fy"/>
                                     <constraint firstItem="cW5-Bo-OJj" firstAttribute="top" secondItem="KUP-Ng-7cw" secondAttribute="top" constant="7" id="eYh-Oh-eKS"/>
-                                    <constraint firstItem="Ww7-oT-m6m" firstAttribute="leading" secondItem="Tmc-2l-Fms" secondAttribute="leading" type="default" id="jz6-g6-wlo"/>
-                                    <constraint firstItem="TFx-bM-hZC" firstAttribute="trailing" secondItem="Ww7-oT-m6m" secondAttribute="trailing" type="default" id="k2Z-qg-KB3"/>
-                                    <constraint firstItem="Tmc-2l-Fms" firstAttribute="top" secondItem="KUP-Ng-7cw" secondAttribute="top" constant="343" id="ncR-p5-ZFs"/>
-                                    <constraint firstItem="Tmc-2l-Fms" firstAttribute="trailing" secondItem="Ww7-oT-m6m" secondAttribute="trailing" type="default" id="nuv-Oa-NJP"/>
+                                    <constraint firstItem="Xpt-UD-pt5" firstAttribute="centerX" secondItem="cW5-Bo-OJj" secondAttribute="centerX" type="default" id="ful-HN-TTy"/>
+                                    <constraint firstItem="Tmc-2l-Fms" firstAttribute="top" secondItem="Xpt-UD-pt5" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="lLF-GA-nau"/>
                                     <constraint firstItem="Xpt-UD-pt5" firstAttribute="top" secondItem="KUP-Ng-7cw" secondAttribute="top" constant="20" type="default" id="o6X-Ew-PkE"/>
-                                    <constraint firstItem="Ww7-oT-m6m" firstAttribute="top" secondItem="KUP-Ng-7cw" secondAttribute="top" constant="43" id="oox-uk-kGo"/>
-                                    <constraint firstItem="Xpt-UD-pt5" firstAttribute="leading" secondItem="ks9-6o-NIk" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="rga-Gj-Zy8"/>
                                     <constraint firstItem="vwz-Th-i8O" firstAttribute="baseline" secondItem="Xpt-UD-pt5" secondAttribute="baseline" type="default" id="rj8-KC-yiK"/>
-                                    <constraint firstItem="Xpt-UD-pt5" firstAttribute="bottom" secondItem="ks9-6o-NIk" secondAttribute="bottom" type="default" id="tMz-yf-jg8"/>
+                                    <constraint firstItem="Tmc-2l-Fms" firstAttribute="leading" secondItem="ks9-6o-NIk" secondAttribute="leading" type="default" id="uez-ah-Gxr"/>
                                     <constraint firstItem="vwz-Th-i8O" firstAttribute="baseline" secondItem="TFx-bM-hZC" secondAttribute="baseline" type="default" id="yZ2-hK-2Md"/>
                                 </constraints>
                                 <connections>
@@ -344,119 +460,6 @@
                                     <outlet property="sproutedAt" destination="Xpt-UD-pt5" id="I62-Dj-tJR"/>
                                     <outlet property="userAvatar" destination="ks9-6o-NIk" id="T4C-4o-N86"/>
                                     <outlet property="userName" destination="cW5-Bo-OJj" id="dav-gf-wvV"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedCellNoImage" rowHeight="110" id="pMg-I4-z1E" customClass="FeedViewCell">
-                                <rect key="frame" x="0.0" y="598" width="320" height="110"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="boN-G9-yFK" userLabel="Avatar" customClass="PFImageView">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="1EW-gQ-Lyb"/>
-                                                <constraint firstAttribute="width" constant="30" id="9ab-dV-Sas"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="User" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ym-mj-QED">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="Nzk-UP-KaZ"/>
-                                                <constraint firstAttribute="width" constant="149" id="XrM-JT-NWT"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="14"/>
-                                            <color key="textColor" red="0.20784313730000001" green="0.52941176469999995" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sprouted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zi-Qw-JK4">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="117" id="Y6x-nS-MiU"/>
-                                                <constraint firstAttribute="height" constant="21" id="qsl-6s-ENf"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ng6-aW-9TO" userLabel="Description">
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fnf-v9-x71">
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="280" id="gau-ex-ix6"/>
-                                                        <constraint firstAttribute="height" constant="21" id="u1F-k7-TtZ"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
-                                                    <color key="textColor" red="0.20784313730000001" green="0.52941176469999995" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POh-H5-zeE">
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="29" id="Ken-9j-s90"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstItem="Fnf-v9-x71" firstAttribute="leading" secondItem="POh-H5-zeE" secondAttribute="leading" type="default" id="GuI-bP-HN7"/>
-                                                <constraint firstItem="POh-H5-zeE" firstAttribute="centerX" secondItem="ng6-aW-9TO" secondAttribute="centerX" type="default" id="WuF-SU-4Nz"/>
-                                                <constraint firstItem="Fnf-v9-x71" firstAttribute="top" secondItem="ng6-aW-9TO" secondAttribute="top" constant="8" id="nao-8A-LMl"/>
-                                                <constraint firstItem="POh-H5-zeE" firstAttribute="trailing" secondItem="Fnf-v9-x71" secondAttribute="trailing" type="default" id="pT3-78-Fll"/>
-                                                <constraint firstItem="POh-H5-zeE" firstAttribute="bottom" secondItem="ng6-aW-9TO" secondAttribute="bottom" type="default" id="uzH-af-84v"/>
-                                            </constraints>
-                                        </view>
-                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqy-h2-XQc" userLabel="Like">
-                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="11"/>
-                                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="-2"/>
-                                            <inset key="imageEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            <state key="normal" title="0" image="heart_icon.png" backgroundImage="orange_button.png">
-                                                <color key="titleColor" red="1" green="0.59215686274509804" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <state key="selected" image="filled_in_heart.png"/>
-                                        </button>
-                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ceh-Fo-X0t" userLabel="Comment">
-                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="11"/>
-                                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="-2"/>
-                                            <inset key="imageEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            <state key="normal" title="0" image="comment_icon.png" backgroundImage="orange_button.png">
-                                                <color key="titleColor" red="1" green="0.59215686274509804" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <state key="selected">
-                                                <color key="titleColor" red="1" green="0.59215686270000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstItem="ng6-aW-9TO" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="41" id="00f-0A-ayg"/>
-                                    <constraint firstItem="ng6-aW-9TO" firstAttribute="centerX" secondItem="pMg-I4-z1E" secondAttribute="centerX" type="default" id="0qx-qk-XzU"/>
-                                    <constraint firstItem="boN-G9-yFK" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="8" id="74v-jx-HaN"/>
-                                    <constraint firstItem="6zi-Qw-JK4" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="21" id="AGb-sI-yhx"/>
-                                    <constraint firstItem="Kqy-h2-XQc" firstAttribute="baseline" secondItem="Ceh-Fo-X0t" secondAttribute="baseline" type="default" id="BzN-O6-yxo"/>
-                                    <constraint firstItem="Kqy-h2-XQc" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="10" id="Jba-Kk-bnT"/>
-                                    <constraint firstItem="boN-G9-yFK" firstAttribute="leading" secondItem="pMg-I4-z1E" secondAttribute="leading" constant="10" id="QDF-ex-Vob"/>
-                                    <constraint firstItem="6zi-Qw-JK4" firstAttribute="leading" secondItem="boN-G9-yFK" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="QRo-zC-6VD"/>
-                                    <constraint firstItem="2Ym-mj-QED" firstAttribute="top" secondItem="pMg-I4-z1E" secondAttribute="top" constant="6" id="Zmj-Tb-Fbl"/>
-                                    <constraint firstAttribute="bottom" secondItem="ng6-aW-9TO" secondAttribute="bottom" constant="11" id="dRI-8N-83j"/>
-                                    <constraint firstItem="ng6-aW-9TO" firstAttribute="leading" secondItem="boN-G9-yFK" secondAttribute="leading" type="default" id="dbD-b3-3Ff"/>
-                                    <constraint firstItem="Ceh-Fo-X0t" firstAttribute="leading" secondItem="Kqy-h2-XQc" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="foB-Sg-pHd"/>
-                                    <constraint firstItem="2Ym-mj-QED" firstAttribute="leading" secondItem="boN-G9-yFK" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="mcs-0Z-4bq"/>
-                                    <constraint firstItem="Ceh-Fo-X0t" firstAttribute="trailing" secondItem="ng6-aW-9TO" secondAttribute="trailing" type="default" id="xDw-kl-ljc"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="commentButton" destination="Ceh-Fo-X0t" id="tQe-fe-q4i"/>
-                                    <outlet property="likeButton" destination="Kqy-h2-XQc" id="DXa-wC-7f9"/>
-                                    <outlet property="sproutDescription" destination="POh-H5-zeE" id="49Y-a9-EZI"/>
-                                    <outlet property="sproutTitle" destination="Fnf-v9-x71" id="a8e-Jo-g57"/>
-                                    <outlet property="sproutedAt" destination="6zi-Qw-JK4" id="U9y-DZ-rjq"/>
-                                    <outlet property="userAvatar" destination="boN-G9-yFK" id="SPx-JS-9Na"/>
-                                    <outlet property="userName" destination="2Ym-mj-QED" id="M7l-sT-upL"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

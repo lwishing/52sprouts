@@ -265,8 +265,7 @@
             }];
         }
     }];
-    
-   [self.tableView sendSubviewToBack:cell];
+
    return cell;
 }
 
@@ -300,7 +299,26 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FeedViewCell *cell = (FeedViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-    return cell.frame.size.height;
+  
+    CGFloat currentHeight = cell.frame.size.height;
+    
+    if (currentHeight == 44.0){
+        return currentHeight;
+    } else {
+            NSLog(@"Cell height: %f, %f", cell.frame.size.height, cell.height);
+//        CGFloat titleLabelHeight = [self sizeOfLabel:cell.sproutTitle withText:cell.sproutTitle.text].height;
+//        CGFloat descriptionLabelHeight = [self sizeOfLabel:cell.sproutDescription withText:cell.sproutDescription.text].height;
+//        CGFloat padding = cell.sproutDescription.frame.origin.y;
+//        
+//        CGFloat imageHeight = cell.sproutImage.bounds.size.height;
+//        CGFloat avatarHeight = cell.userAvatar.bounds.size.height;
+//        
+//            NSLog(@"Title: %f, Desc: %f, Padding: %f, Ava: %f, Img: %f", titleLabelHeight, descriptionLabelHeight, padding, avatarHeight, imageHeight);
+//        
+//        CGFloat combinedHeight = 30.0 + avatarHeight + imageHeight + titleLabelHeight + descriptionLabelHeight;
+//                NSLog(@"Combined Height: %f", combinedHeight);        
+        return MAX(cell.height+ 30.0, currentHeight);
+    }
 }
 
 #pragma mark - UITableViewDataSource

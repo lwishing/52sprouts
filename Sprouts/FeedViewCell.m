@@ -27,6 +27,7 @@ static TTTTimeIntervalFormatter *timeFormatter;
 @synthesize userName = _userName;
 @synthesize userAvatar = _userAvatar;
 
+@synthesize height;
 @synthesize delegate;
 
 
@@ -54,6 +55,7 @@ static TTTTimeIntervalFormatter *timeFormatter;
 
 - (void)setSproutObject:(PFObject *)sproutObject {
     _sproutObject = sproutObject;
+    height = 0.0;
     
     [_commentButton addTarget:self action:@selector(didTapCommentOnSproutButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_likeButton addTarget:self action:@selector(didTapLikeSproutButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -74,6 +76,8 @@ static TTTTimeIntervalFormatter *timeFormatter;
             _sproutImage.clipsToBounds = NO;
             [_sproutImage.layer setShadowPath:[[UIBezierPath bezierPathWithRect:_sproutImage.bounds] CGPath]];
         }];
+        
+        height += _sproutImage.image.size.height;
     }
     
     // User
@@ -96,22 +100,27 @@ static TTTTimeIntervalFormatter *timeFormatter;
     _sproutDescription.text = [sproutObject objectForKey:(@"content")];
     [_sproutDescription setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
     [_sproutDescription setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+
+    CGFloat descriptionLabelHeight = [self sizeOfLabel:_sproutDescription withText:_sproutDescription.text].height;
+    CGFloat titleLabelHeight = [self sizeOfLabel:_sproutTitle withText:_sproutTitle.text].height;
+    
+    _sproutDescription.numberOfLines = 0;
+    _sproutDescription.frame = CGRectMake(_sproutDescription.frame.origin.x, _sproutDescription.frame.origin.y, 280.0, descriptionLabelHeight);
+//    [_sproutDescription sizeToFit];
+    
+    NSLog(@"Title: %f, Desc %f", titleLabelHeight, descriptionLabelHeight);
+    height += titleLabelHeight + descriptionLabelHeight + 70.0;
+    NSLog(@"FeedCell: %f", height);
     
     // Timestamp
     NSString *timeString = [timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:sproutObject.createdAt];
     _sproutedAt.text = timeString;
+    NSLog(@"Timestamp %@", timeString);
     
-    // Shadow
-    CALayer *sublayer = [_sproutDescription superview].layer;
-    sublayer.shadowOffset = CGSizeMake(0, 2);
-    sublayer.shadowRadius = 2.0;
-    sublayer.shadowColor = [UIColor grayColor].CGColor;
-    sublayer.shadowOpacity = 0.5;
-    sublayer.masksToBounds = NO;
-    
-    CGRect shadowFrame = [_sproutDescription superview].layer.bounds;
-    CGPathRef shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
-    sublayer.shadowPath = shadowPath;
+}
+
+- (CGSize)sizeOfLabel:(UILabel *)label withText:(NSString *)text {
+    return [text sizeWithFont:label.font constrainedToSize:CGSizeMake(280.0, 5000.0) lineBreakMode:NSLineBreakByWordWrapping];
 }
 
 - (void)setLikeStatus:(BOOL)liked {
