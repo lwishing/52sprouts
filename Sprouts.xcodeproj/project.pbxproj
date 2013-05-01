@@ -59,6 +59,8 @@
 		9C56ED4F1729E63F00F1B9DB /* heart_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C56ED4B1729E63F00F1B9DB /* heart_icon@2x.png */; };
 		9C57872B1722977700E490A3 /* FeedViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C57872A1722977700E490A3 /* FeedViewCell.m */; };
 		9C9E5C3E171E5325003A2594 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9E5C3D171E5325003A2594 /* WelcomeViewController.m */; };
+		9CBC27171731942C00CBE8B3 /* Names.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC27141731942C00CBE8B3 /* Names.m */; };
+		9CBC27181731942C00CBE8B3 /* TITokenField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC27161731942C00CBE8B3 /* TITokenField.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9CDB53841720A62A002F6E41 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		9CDB538B1720ADD1002F6E41 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		9CDB538C1720ADD1002F6E41 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -209,6 +211,10 @@
 		9C949353172A989400CC2F85 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
 		9C9E5C3C171E5325003A2594 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		9C9E5C3D171E5325003A2594 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		9CBC27131731942C00CBE8B3 /* Names.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Names.h; sourceTree = "<group>"; };
+		9CBC27141731942C00CBE8B3 /* Names.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Names.m; sourceTree = "<group>"; };
+		9CBC27151731942C00CBE8B3 /* TITokenField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITokenField.h; sourceTree = "<group>"; };
+		9CBC27161731942C00CBE8B3 /* TITokenField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITokenField.m; sourceTree = "<group>"; };
 		9CE128A6172A85F100472319 /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 		9CE128A9172A8D0B00472319 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
 		9CE564191720B9840008B5BA /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSTextView.h; path = ../External/SSTextView.h; sourceTree = "<group>"; };
@@ -336,6 +342,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9CBC270C1731918300CBE8B3 /* TITokenField */ = {
+			isa = PBXGroup;
+			children = (
+				9CBC27131731942C00CBE8B3 /* Names.h */,
+				9CBC27141731942C00CBE8B3 /* Names.m */,
+				9CBC27151731942C00CBE8B3 /* TITokenField.h */,
+				9CBC27161731942C00CBE8B3 /* TITokenField.m */,
+			);
+			name = TITokenField;
+			sourceTree = "<group>";
+		};
 		9CDB537517209EF3002F6E41 /* Add Sprout */ = {
 			isa = PBXGroup;
 			children = (
@@ -465,6 +482,7 @@
 		9CDB538F1720AE03002F6E41 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				9CBC270C1731918300CBE8B3 /* TITokenField */,
 				F30240FC172B51DD00EBD5FA /* ALScrollViewPaging */,
 				9CEE1BB817267C64006C5D50 /* MBProgressHUD */,
 				9CEE1BB417267C29006C5D50 /* TTTTimeIntervalFormatter */,
@@ -839,6 +857,8 @@
 				9CE128AA172A8D0B00472319 /* ProfileTableViewController.m in Sources */,
 				F30240FF172B51FF00EBD5FA /* ALScrollViewPaging.m in Sources */,
 				F3024116172BA28D00EBD5FA /* SettingsButtonsViewController.m in Sources */,
+				9CBC27171731942C00CBE8B3 /* Names.m in Sources */,
+				9CBC27181731942C00CBE8B3 /* TITokenField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

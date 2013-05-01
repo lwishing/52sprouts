@@ -11,8 +11,6 @@
 #import "TTTTimeIntervalFormatter.h"
 #import <QuartzCore/QuartzCore.h>
 
-static TTTTimeIntervalFormatter *timeFormatter;
-
 @implementation FeedViewCell
 @synthesize sproutImage = _sproutImage;
 @synthesize sproutTitle = _sproutTitle;
@@ -36,10 +34,7 @@ static TTTTimeIntervalFormatter *timeFormatter;
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        if (!timeFormatter) {
-            timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
-//            [timeFormatter setUsesAbbreviatedCalendarUnits:YES];
-        }
+
     }
     return self;
 }
@@ -106,17 +101,29 @@ static TTTTimeIntervalFormatter *timeFormatter;
     
     _sproutDescription.numberOfLines = 0;
     _sproutDescription.frame = CGRectMake(_sproutDescription.frame.origin.x, _sproutDescription.frame.origin.y, 280.0, descriptionLabelHeight);
-//    [_sproutDescription sizeToFit];
     
-    NSLog(@"Title: %f, Desc %f", titleLabelHeight, descriptionLabelHeight);
-    height += titleLabelHeight + descriptionLabelHeight + 70.0;
-    NSLog(@"FeedCell: %f", height);
+//    NSLog(@"Title: %f, Desc %f", titleLabelHeight, descriptionLabelHeight);
+    height += titleLabelHeight + descriptionLabelHeight + 80.0;
+//    NSLog(@"FeedCell: %f", height);
     
     // Timestamp
-    NSString *timeString = [timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:sproutObject.createdAt];
+    TTTTimeIntervalFormatter *timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
+    NSString *timeString = [timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:_sproutObject.createdAt];
     _sproutedAt.text = timeString;
-    NSLog(@"Timestamp %@", timeString);
     
+    // Shadow
+    /*
+    CALayer *sublayer = [_sproutDescription superview].layer;
+    sublayer.shadowOffset = CGSizeMake(0, 2);
+    sublayer.shadowRadius = 2.0;
+    sublayer.shadowColor = [UIColor grayColor].CGColor;
+    sublayer.shadowOpacity = 0.5;
+    sublayer.masksToBounds = NO;
+    
+    CGRect shadowFrame = [_sproutDescription superview].layer.bounds;
+    CGPathRef shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
+    sublayer.shadowPath = shadowPath;
+     */
 }
 
 - (CGSize)sizeOfLabel:(UILabel *)label withText:(NSString *)text {

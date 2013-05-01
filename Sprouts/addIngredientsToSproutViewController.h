@@ -7,8 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TITokenField.h"
 
-@interface addIngredientsToSproutViewController : UIViewController
+@interface addIngredientsToSproutViewController : UIViewController <TITokenFieldDelegate, UITextViewDelegate> {
+    
+	TITokenFieldView * tokenFieldView;
+	UITextView * messageView;
+	
+	CGFloat keyboardHeight;
+}
+
 - (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender;
 - (IBAction)doneButtonPressed:(UIBarButtonItem *)sender;
 
