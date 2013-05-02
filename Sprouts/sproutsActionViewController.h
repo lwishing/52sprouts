@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 @property (weak, nonatomic) IBOutlet UILabel *characterCountTitle;
 @property (weak, nonatomic) IBOutlet UILabel *characterCountDescription;
+@property (weak, nonatomic) IBOutlet UIView *sproutView;
 
 
 - (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender;

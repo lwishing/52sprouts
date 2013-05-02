@@ -10,6 +10,7 @@
 #import "SproutsTabBarController.h"
 #import "UIImage+ResizeAdditions.h"
 #import "Utility.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface sproutsActionViewController ()
 @property (nonatomic, strong) PFFile *photoFile;
@@ -19,7 +20,7 @@
 
 @implementation sproutsActionViewController
 
-@synthesize ingredientOfTheWeek, sproutDescription, sproutTitle, sproutImage, photoFile, fileUploadBackgroundTaskId, photoPostBackgroundTaskId, sproutScrollView, shareButton, cancelButton, characterCountDescription, characterCountTitle;
+@synthesize ingredientOfTheWeek, sproutDescription, sproutTitle, sproutImage, photoFile, fileUploadBackgroundTaskId, photoPostBackgroundTaskId, sproutScrollView, shareButton, cancelButton, characterCountDescription, characterCountTitle, sproutView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -79,6 +80,19 @@
     [characterCountDescription setFont:[UIFont fontWithName:@"MuseoSans-300" size:12.0]];
     [sproutTitle setFont:[UIFont fontWithName:@"MuseoSans-300" size:16.0]];
     [sproutDescription setFont:[UIFont fontWithName:@"MuseoSans-300" size:16.0]];
+            
+    CALayer *sublayer = sproutView.layer;
+    
+    NSLog(@"Bounds: x:%f, y:%f,height:%f,width:%f",
+          sproutView.bounds.origin.x,sproutView.bounds.origin.y,
+          sproutView.bounds.size.height, sproutView.bounds.size.width);
+            
+    sublayer.cornerRadius = 5;
+    sublayer.shadowColor = [UIColor grayColor].CGColor;
+    sublayer.shadowOffset = CGSizeMake(0, 0);
+    sublayer.shadowRadius = 2.0;
+    sublayer.shadowOpacity = .5;
+    sublayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:sproutView.bounds cornerRadius:5].CGPath; // not sure why the bounds are 0 0 0 0
 }
 
 
