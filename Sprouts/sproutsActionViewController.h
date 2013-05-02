@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *sproutScrollView;
 @property (weak, nonatomic) IBOutlet UILabel *ingredientOfTheWeek;
 @property (weak, nonatomic) IBOutlet UITextField *sproutTitle;
+@property (weak, nonatomic) IBOutlet UILabel *shareText;
 @property (weak, nonatomic) IBOutlet SSTextView *sproutDescription;
 @property (weak, nonatomic) IBOutlet UIImageView *sproutImage;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;

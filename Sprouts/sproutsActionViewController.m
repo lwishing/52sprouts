@@ -20,7 +20,7 @@
 
 @implementation sproutsActionViewController
 
-@synthesize ingredientOfTheWeek, sproutDescription, sproutTitle, sproutImage, photoFile, fileUploadBackgroundTaskId, photoPostBackgroundTaskId, sproutScrollView, shareButton, cancelButton, characterCountDescription, characterCountTitle, sproutView;
+@synthesize ingredientOfTheWeek, sproutDescription, sproutTitle, sproutImage, photoFile, fileUploadBackgroundTaskId, photoPostBackgroundTaskId, sproutScrollView, shareButton, cancelButton, characterCountDescription, characterCountTitle, sproutView, shareText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,7 +39,10 @@
     // Set ingredient of the week text
     PFObject *ingredient = [[Utility sharedInstance] getCurrentIngredient];
     ingredientOfTheWeek.text = [[ingredient objectForKey:@"name"] lowercaseString];
-    ingredientOfTheWeek.textColor = [UIColor colorWithRed:(53/255.0) green:(135/255.0) blue:(93/255.0) alpha:1.0];
+    ingredientOfTheWeek.font = [[Utility sharedInstance] headerFont];
+    ingredientOfTheWeek.textColor = [[Utility sharedInstance] greenColor];
+    
+    shareText.font = [[Utility sharedInstance] headerFont];
 
     // Keyboard up on load
     [sproutTitle becomeFirstResponder];

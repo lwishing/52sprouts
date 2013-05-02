@@ -1441,7 +1441,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="i8P-Mv-1Te"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1449,7 +1449,7 @@
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erN-Od-CL3">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="BZO-dt-p8U"/>
+                                            <constraint firstAttribute="height" constant="23" id="QLG-pB-VgY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="0.011764705882352941" green="0.38039215686274508" blue="0.29019607843137257" alpha="1" colorSpace="calibratedRGB"/>
@@ -1568,26 +1568,26 @@
                                             <constraint firstItem="2h0-tZ-t84" firstAttribute="bottom" secondItem="iLP-3d-3ko" secondAttribute="bottom" type="default" id="Zub-pM-1ZT"/>
                                             <constraint firstItem="Hxe-M9-hU4" firstAttribute="top" secondItem="wHG-k9-ln4" secondAttribute="top" constant="5" id="bps-cM-85E"/>
                                             <constraint firstItem="d1x-8k-Bya" firstAttribute="top" secondItem="wUh-wq-NmN" secondAttribute="top" type="default" id="cEn-lW-6Rz"/>
+                                            <constraint firstAttribute="width" constant="300" id="gak-0r-IS8"/>
                                             <constraint firstItem="DDi-gx-pbk" firstAttribute="leading" secondItem="wUh-wq-NmN" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="hi4-aj-NK9"/>
                                             <constraint firstItem="iLP-3d-3ko" firstAttribute="top" secondItem="wUh-wq-NmN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="iNN-zJ-3Og"/>
                                             <constraint firstItem="iLP-3d-3ko" firstAttribute="leading" secondItem="wHG-k9-ln4" secondAttribute="leading" type="default" id="jhf-Ox-0WP"/>
                                             <constraint firstItem="Hxe-M9-hU4" firstAttribute="centerY" secondItem="7RB-I4-Iwe" secondAttribute="centerY" type="default" id="kBu-C5-Dv7"/>
                                             <constraint firstItem="2h0-tZ-t84" firstAttribute="top" secondItem="9op-Rx-pQ7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="p0Q-WQ-uKr"/>
-                                            <constraint firstItem="2h0-tZ-t84" firstAttribute="leading" secondItem="wHG-k9-ln4" secondAttribute="leading" constant="150" id="wqx-4p-oO6"/>
                                             <constraint firstItem="2h0-tZ-t84" firstAttribute="top" secondItem="DDi-gx-pbk" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="wxa-AH-FxL"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="vH6-p7-RAa" firstAttribute="top" secondItem="lGD-lf-cQg" secondAttribute="top" constant="15" id="8dq-4s-dd3"/>
                                     <constraint firstItem="erN-Od-CL3" firstAttribute="leading" secondItem="lGD-lf-cQg" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="B1S-fx-bTb"/>
                                     <constraint firstAttribute="trailing" secondItem="erN-Od-CL3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="IMo-7f-Kks"/>
-                                    <constraint firstItem="erN-Od-CL3" firstAttribute="top" secondItem="lGD-lf-cQg" secondAttribute="top" constant="35" id="JHK-o5-QeA"/>
                                     <constraint firstItem="vH6-p7-RAa" firstAttribute="leading" secondItem="lGD-lf-cQg" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="JRJ-HF-0IZ"/>
-                                    <constraint firstItem="vH6-p7-RAa" firstAttribute="centerX" secondItem="lGD-lf-cQg" secondAttribute="centerX" type="default" id="Roh-cE-Vin"/>
+                                    <constraint firstItem="wHG-k9-ln4" firstAttribute="centerX" secondItem="lGD-lf-cQg" secondAttribute="centerX" type="default" id="Plt-dG-b93"/>
+                                    <constraint firstItem="vH6-p7-RAa" firstAttribute="top" secondItem="lGD-lf-cQg" secondAttribute="top" constant="15" id="VmG-zy-ct5"/>
                                     <constraint firstItem="wHG-k9-ln4" firstAttribute="centerX" secondItem="erN-Od-CL3" secondAttribute="centerX" type="default" id="ZAI-Kw-iDC"/>
-                                    <constraint firstItem="wHG-k9-ln4" firstAttribute="top" secondItem="lGD-lf-cQg" secondAttribute="top" constant="68" id="aIr-mh-xYO"/>
-                                    <constraint firstAttribute="bottom" secondItem="wHG-k9-ln4" secondAttribute="bottom" constant="25" id="ebb-Zz-pOw"/>
+                                    <constraint firstItem="erN-Od-CL3" firstAttribute="top" secondItem="lGD-lf-cQg" secondAttribute="top" constant="37" id="a3c-jo-Tho"/>
+                                    <constraint firstAttribute="bottom" secondItem="wHG-k9-ln4" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="eh5-BY-Cvl"/>
+                                    <constraint firstItem="wHG-k9-ln4" firstAttribute="top" secondItem="lGD-lf-cQg" secondAttribute="top" constant="73" id="mtf-wz-cn4"/>
                                     <constraint firstAttribute="trailing" secondItem="vH6-p7-RAa" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="yWL-s7-mMw"/>
                                 </constraints>
                             </scrollView>
@@ -1622,6 +1622,7 @@
                         <outlet property="characterCountTitle" destination="7RB-I4-Iwe" id="kLk-B4-Y6x"/>
                         <outlet property="ingredientOfTheWeek" destination="erN-Od-CL3" id="TxF-bc-9xb"/>
                         <outlet property="shareButton" destination="8Do-sB-rdU" id="L0L-yJ-oBz"/>
+                        <outlet property="shareText" destination="vH6-p7-RAa" id="RDa-Dj-Pov"/>
                         <outlet property="sproutDescription" destination="wUh-wq-NmN" id="TMR-bQ-as2"/>
                         <outlet property="sproutImage" destination="DDi-gx-pbk" id="21T-HH-hnG"/>
                         <outlet property="sproutScrollView" destination="lGD-lf-cQg" id="s7P-iG-ord"/>
@@ -2050,6 +2051,7 @@
                 <relationship kind="outlet" name="characterCountTitle" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="ingredientOfTheWeek" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="shareText" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="sproutDescription" candidateClass="SSTextView"/>
                 <relationship kind="outlet" name="sproutImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="sproutScrollView" candidateClass="UIScrollView"/>
