@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet SSTextView *sproutDescription;
 @property (weak, nonatomic) IBOutlet UIImageView *sproutImage;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 @property (weak, nonatomic) IBOutlet UILabel *characterCountTitle;
 @property (weak, nonatomic) IBOutlet UILabel *characterCountDescription;
 

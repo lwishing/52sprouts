@@ -50,6 +50,10 @@
     
     //set title bar
     [self setTitle:[ingredient objectForKey:@"name"]];
+    
+    //back button
+    UIImage *backButtonHomeImage = [[UIImage imageNamed:@"back_arrow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12, 0, 4)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonHomeImage  forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 
     //DESCRIPTION
     

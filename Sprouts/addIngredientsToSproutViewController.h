@@ -17,6 +17,9 @@
 	CGFloat keyboardHeight;
 }
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+
 - (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender;
 - (IBAction)doneButtonPressed:(UIBarButtonItem *)sender;
 

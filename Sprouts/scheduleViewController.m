@@ -38,8 +38,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    // Set background color to clear to make background image visible
-    self.view.backgroundColor = [UIColor clearColor];
+    //back button
+    UIImage *backButtonHomeImage = [[UIImage imageNamed:@"back_arrow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12, 0, 4)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonHomeImage  forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     // figure out current day of the week  
     NSDateFormatter *weekday = [[NSDateFormatter alloc] init];

@@ -20,5 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *theToolbar;
 @property (weak, nonatomic) IBOutlet UILabel *toolbarLabel;
 @property (weak, nonatomic) IBOutlet UIView *toolbarLabelView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *safariButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 @end

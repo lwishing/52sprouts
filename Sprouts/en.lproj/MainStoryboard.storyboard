@@ -1411,6 +1411,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="doneButton" destination="BUY-af-GpI" id="tXe-Vl-KBP"/>
+                        <outlet property="safariButton" destination="vqJ-rt-c19" id="F6D-y4-YZY"/>
                         <outlet property="theToolbar" destination="ANs-Il-BK2" id="MiI-qi-Seg"/>
                         <outlet property="toolbarLabel" destination="BQk-l1-1DW" id="Oeo-ut-8UC"/>
                         <outlet property="toolbarLabelView" destination="Rb9-MN-YrX" id="oKo-QQ-2dE"/>
@@ -1615,6 +1617,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="RcU-OJ-WKh" id="R0c-5z-t2S"/>
                         <outlet property="characterCountDescription" destination="d1x-8k-Bya" id="WpS-1a-iZ6"/>
                         <outlet property="characterCountTitle" destination="7RB-I4-Iwe" id="kLk-B4-Y6x"/>
                         <outlet property="ingredientOfTheWeek" destination="erN-Od-CL3" id="TxF-bc-9xb"/>
@@ -1697,6 +1700,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Ingredients" id="c70-L2-hTt"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="aFe-aj-kXV" id="5Ys-h9-Kp3"/>
+                        <outlet property="doneButton" destination="5KU-Ii-NsM" id="Fs5-ao-HRw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nwm-Yq-axy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

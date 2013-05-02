@@ -15,6 +15,8 @@
 
 @implementation addIngredientsToSproutViewController
 
+@synthesize cancelButton, doneButton;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -29,7 +31,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-	[self.view setBackgroundColor:[UIColor clearColor]];
+	//buttons
+    UIImage *buttonImage = [[UIImage imageNamed:@"button_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+    [doneButton setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [cancelButton setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 	
 	tokenFieldView = [[TITokenFieldView alloc] initWithFrame:CGRectMake(0.0f, 108.0f, 2.0f, 20.0f)];
     

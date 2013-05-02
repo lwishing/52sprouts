@@ -18,13 +18,15 @@
 @synthesize childView = _childView;
 @synthesize scheduleBanner = _scheduleBanner;
 @synthesize ingredientHeader = _ingredientHeader;
+@synthesize calendarButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    // Set background color to clear to make background image visible
-    self.view.backgroundColor = [UIColor clearColor];
+    //buttons
+    UIImage *buttonImage = [[UIImage imageNamed:@"button_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+    [calendarButton setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     // Listen to "dayScheduled" event
     [[NSNotificationCenter defaultCenter] addObserver:self

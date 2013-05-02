@@ -19,7 +19,7 @@
 
 @implementation sproutsActionViewController
 
-@synthesize ingredientOfTheWeek, sproutDescription, sproutTitle, sproutImage, photoFile, fileUploadBackgroundTaskId, photoPostBackgroundTaskId, sproutScrollView, shareButton, characterCountDescription, characterCountTitle;
+@synthesize ingredientOfTheWeek, sproutDescription, sproutTitle, sproutImage, photoFile, fileUploadBackgroundTaskId, photoPostBackgroundTaskId, sproutScrollView, shareButton, cancelButton, characterCountDescription, characterCountTitle;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,8 +53,11 @@
     // Add placeholder
     sproutDescription.placeholder = @"Add Tip or Description";
     
-    // Set background color to clear to make background image visible
-    self.view.backgroundColor = [UIColor clearColor];
+    //buttons
+    UIImage *buttonImage = [[UIImage imageNamed:@"button_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+    [shareButton setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [cancelButton setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
     
     sproutDescription.contentInset = UIEdgeInsetsMake(-8,-8,-8,-8);
     

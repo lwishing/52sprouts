@@ -18,6 +18,7 @@
 @synthesize theToolbar = _theToolbar;
 @synthesize toolbarLabel = _toolbarLabel;
 @synthesize toolbarLabelView = _toolbarLabelView;
+@synthesize safariButton, doneButton;
 
 - (void)viewDidLoad
 {
@@ -37,9 +38,10 @@
     
     [_theToolbar setBackgroundImage:[UIImage imageNamed:@"toolbar.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
         
-//    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"action.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(openInSafari:)];
-    
-//    self.navigationItem.rightBarButtonItem = barButton;
+    //buttons
+    UIImage *buttonImage = [[UIImage imageNamed:@"button_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+    [safariButton setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [doneButton setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
 }
 
