@@ -30,14 +30,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
+
     int padding = 15;
     int x = 10;
     int y = 60;
     int width = 300;
     int headerHeight = 24;
     int inset = 8;
+    
+    //NSArray *objects = [[NSArray alloc] initWithObjects:@"name", @"description", @"seasonStart", @"seasonEnd", @"nutrients", @"whenBuying", @"storing", @"pairsWith", @"preparation", @"substitutes", nil];
     
     //get the ingrediend from the shared data
     PFObject *ingredient = [[Utility sharedInstance] getCurrentIngredient];
@@ -49,7 +50,6 @@
     
     //set title bar
     [self setTitle:[ingredient objectForKey:@"name"]];
-    
 
     //DESCRIPTION
     
@@ -117,6 +117,42 @@
     
     //adjust y to new start point
     y += seasonView.frame.size.height + padding;
+    
+    //NUTRIENT
+    
+    //container uiview
+    UIView *nutrientView = [[UIView alloc] initWithFrame:CGRectMake(x, y + padding, width, 0)];
+    [nutrientView setBackgroundColor:[UIColor whiteColor]];
+    
+    UILabel *nutrientHeader = [[UILabel alloc] initWithFrame:CGRectMake(inset, inset, 280, headerHeight)];
+    nutrientHeader.text = @"Nutrition Facts";
+    [nutrientHeader setFont:[[Utility sharedInstance] headerFont]];
+    [nutrientHeader setTextColor:[[Utility sharedInstance] greenColor]];
+    
+    //season text
+    UITextView *nutrientText = [[UITextView alloc] initWithFrame:CGRectMake(0, inset + headerHeight, width, 0)];
+    nutrientText.text = [ingredient objectForKey:@"nutrients"];
+    [nutrientText setFont:[[Utility sharedInstance] bodyFont]];
+    [nutrientText setTextColor:[[Utility sharedInstance] greyColor]];
+    [nutrientText setUserInteractionEnabled:NO];
+    [nutrientText setBackgroundColor:[UIColor clearColor]];
+    
+    [nutrientView addSubview:nutrientHeader];
+    [nutrientView addSubview:nutrientText];
+    
+    //resize textview to fit the content
+    CGRect nutrientFrame = nutrientText.frame;
+    nutrientFrame.size.height = nutrientText.contentSize.height;
+    nutrientText.frame = nutrientFrame;
+    
+    //add container view to scrollview
+    [scrollView addSubview: nutrientView];
+    
+    //resize containerview to fit everything
+    [nutrientView resizeToFitSubviews];
+    
+    //adjust y to new start point
+    y += nutrientView.frame.size.height + padding;
     
     
     //BUYING
