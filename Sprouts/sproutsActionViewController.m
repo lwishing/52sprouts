@@ -55,7 +55,7 @@
     [sproutDescription setDelegate: (id)self];
     
     // Add placeholder
-    sproutDescription.placeholder = @"Add Tip or Description";
+    sproutDescription.placeholder = @"Add tip, description, or recipe";
     
     //buttons
     UIImage *buttonImage = [[UIImage imageNamed:@"button_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(14, 4, 14, 4)];
@@ -81,23 +81,29 @@
     // Set fonts
     [characterCountTitle setFont:[UIFont fontWithName:@"MuseoSans-300" size:12.0]];
     [characterCountDescription setFont:[UIFont fontWithName:@"MuseoSans-300" size:12.0]];
-    [sproutTitle setFont:[UIFont fontWithName:@"MuseoSans-300" size:16.0]];
-    [sproutDescription setFont:[UIFont fontWithName:@"MuseoSans-300" size:16.0]];
-            
+    [sproutTitle setFont:[[Utility sharedInstance] bodyFont]];
+    [sproutDescription setFont:[[Utility sharedInstance] bodyFont]];
+}
+
+- (void) viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    
     CALayer *sublayer = sproutView.layer;
     
-    NSLog(@"Bounds: x:%f, y:%f,height:%f,width:%f",
-          sproutView.bounds.origin.x,sproutView.bounds.origin.y,
-          sproutView.bounds.size.height, sproutView.bounds.size.width);
-            
+    NSLog(@"Frame: %@",NSStringFromCGRect(sproutView.frame));
+    NSLog(@"Bounds: %@",NSStringFromCGRect(sproutView.bounds));
+    
     sublayer.cornerRadius = 5;
+    
+    sublayer.masksToBounds = NO;
     sublayer.shadowColor = [UIColor grayColor].CGColor;
     sublayer.shadowOffset = CGSizeMake(0, 0);
     sublayer.shadowRadius = 2.0;
     sublayer.shadowOpacity = .5;
-    sublayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:sproutView.bounds cornerRadius:5].CGPath; // not sure why the bounds are 0 0 0 0
-}
+    sublayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:sproutView.bounds cornerRadius:5].CGPath;
 
+}
 
 - (void)didReceiveMemoryWarning
 {

@@ -342,9 +342,6 @@
     //adjust y to new start point
     y += subsView.frame.size.height + padding;
     
-//    NSLog(@"y postion: %i", y);
-
-    
     scrollView.contentSize=CGSizeMake(320, y);
     scrollView.contentInset= UIEdgeInsetsMake(0.0,0.0, 30.0,0.0);
     
@@ -353,7 +350,7 @@
         
         if(![subview isKindOfClass:[UIImageView class]]){
         
-        NSLog(@"view: %@", subview.description);
+        //NSLog(@"view: %@", subview.description);
         
         CALayer *sublayer = subview.layer;
         
