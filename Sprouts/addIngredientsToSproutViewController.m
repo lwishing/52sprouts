@@ -8,6 +8,7 @@
 
 #import "addIngredientsToSproutViewController.h"
 #import "Names.h"
+#import "Utility.h"
 
 @interface addIngredientsToSproutViewController (Private)
     - (void)resizeViews;
@@ -15,7 +16,7 @@
 
 @implementation addIngredientsToSproutViewController
 
-@synthesize cancelButton, doneButton;
+@synthesize titleText, ingredientOfTheWeek, cancelButton, doneButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,13 +31,21 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    titleText.font = [[Utility sharedInstance] mediumFont];
+    
+    // Set ingredient of the week text
+    PFObject *ingredient = [[Utility sharedInstance] getCurrentIngredient];
+    ingredientOfTheWeek.text = [[ingredient objectForKey:@"name"] lowercaseString];
+    ingredientOfTheWeek.font = [[Utility sharedInstance] mediumFont];
+    ingredientOfTheWeek.textColor = [[Utility sharedInstance] greenColor];
     
 	//buttons
     UIImage *buttonImage = [[UIImage imageNamed:@"button_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(14, 4, 14, 4)];
     [doneButton setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [cancelButton setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 	
-	tokenFieldView = [[TITokenFieldView alloc] initWithFrame:CGRectMake(0.0f, 108.0f, 2.0f, 20.0f)];
+	tokenFieldView = [[TITokenFieldView alloc] initWithFrame:CGRectMake(0.0f, 117.0f, 2.0f, 20.0f)];
+    
     
 	[tokenFieldView setSourceArray:[Names listOfNames]];
 	[self.view addSubview:tokenFieldView];

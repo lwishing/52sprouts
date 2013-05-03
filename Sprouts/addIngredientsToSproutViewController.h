@@ -17,6 +17,9 @@
 	CGFloat keyboardHeight;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *ingredientOfTheWeek;
+@property (weak, nonatomic) IBOutlet UILabel *titleText;
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 

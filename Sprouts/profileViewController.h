@@ -11,8 +11,11 @@
 
 @interface profileViewController : UIViewController
 
-@property (nonatomic, strong) PFQueryTableViewController *childView;
+@property (nonatomic, strong) PFQueryTableViewController *sproutsView;
+@property (nonatomic, strong) PFQueryTableViewController *likesView;
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 
 
 @end

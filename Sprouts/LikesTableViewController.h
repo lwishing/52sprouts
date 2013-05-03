@@ -1,5 +1,5 @@
 //
-//  ProfileTableViewController.h
+//  LikesTableViewController.h
 //  Sprouts
 //
 //  Created by Gilbert Hernandez on 4/18/13.
@@ -8,7 +8,7 @@
 
 #import "TimelineViewController.h"
 
-@interface ProfileTableViewController : TimelineViewController
+@interface LikesTableViewController : TimelineViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *profileName;
 @property (strong, nonatomic) IBOutlet PFImageView *profileImage;

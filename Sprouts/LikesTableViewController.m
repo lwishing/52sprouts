@@ -1,19 +1,19 @@
 //
-//  ProfileTableViewController.m
+//  LikesTableViewController.m
 //  Sprouts
 //
 //  Created by Gilbert Hernandez on 4/18/13.
 //  Copyright (c) 2013 Laura Wishingrad. All rights reserved.
 //
 
-#import "ProfileTableViewController.h"
+#import "LikesTableViewController.h"
 #import "Utility.h"
 #import "UIImage+ResizeAdditions.h"
 
-@interface ProfileTableViewController ()
+@interface LikesTableViewController ()
 @end
 
-@implementation ProfileTableViewController
+@implementation LikesTableViewController
 
 @synthesize profileImage = _profileImage;
 @synthesize profileName = _profileName;
@@ -51,12 +51,13 @@
 // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
     
-    // Query for Sprouts only related to the current ingredient
-    PFObject *ingredient = [[Utility sharedInstance] getCurrentIngredient];
-    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    PFQuery *queryForLikes = [PFQuery queryWithClassName:@"Activity"];
+    [queryForLikes whereKey:@"type" equalTo:@"like"];
+    [queryForLikes whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Sprout"];
     [query includeKey:@"user"];
-    [query whereKey:@"ingredient" equalTo:ingredient];
-    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    [query whereKey:@"user" matchesKey:@"toUser" inQuery:queryForLikes];
     
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
