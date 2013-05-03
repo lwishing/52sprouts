@@ -94,12 +94,12 @@
     NSLog(@"Frame: %@",NSStringFromCGRect(sproutView.frame));
     NSLog(@"Bounds: %@",NSStringFromCGRect(sproutView.bounds));
     
-    sublayer.cornerRadius = 5;
+    sublayer.cornerRadius = 3;
     
     sublayer.masksToBounds = NO;
     sublayer.shadowColor = [UIColor grayColor].CGColor;
     sublayer.shadowOffset = CGSizeMake(0, 0);
-    sublayer.shadowRadius = 2.0;
+    sublayer.shadowRadius = 1.0;
     sublayer.shadowOpacity = .5;
     sublayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:sproutView.bounds cornerRadius:5].CGPath;
 

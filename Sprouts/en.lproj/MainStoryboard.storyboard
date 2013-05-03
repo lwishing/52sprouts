@@ -1560,8 +1560,7 @@
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="loading_photo.png" translatesAutoresizingMaskIntoConstraints="NO" id="DDi-gx-pbk">
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="72" id="DiR-v2-pCa"/>
-                                                    <constraint firstAttribute="height" constant="73" id="RvF-Fl-y22"/>
+                                                    <constraint firstAttribute="height" constant="73" id="ow7-Pl-y4l"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RB-I4-Iwe">
@@ -1583,6 +1582,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9op-Rx-pQ7">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="72" id="hkI-s9-bV3"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal">
                                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1595,29 +1597,33 @@
                                                     <action selector="photoButtonPressed:" destination="3" eventType="touchUpInside" id="q1F-g0-P8H"/>
                                                 </connections>
                                             </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="epJ-aE-fa8"/>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="9op-Rx-pQ7" firstAttribute="trailing" secondItem="DDi-gx-pbk" secondAttribute="trailing" type="default" id="3S1-q7-OmE"/>
-                                            <constraint firstItem="Hxe-M9-hU4" firstAttribute="leading" secondItem="wUh-wq-NmN" secondAttribute="leading" type="default" id="3jU-mc-y5d"/>
                                             <constraint firstItem="2h0-tZ-t84" firstAttribute="trailing" secondItem="wHG-k9-ln4" secondAttribute="trailing" type="default" id="4kn-mv-Lfc"/>
                                             <constraint firstAttribute="height" constant="200" id="7Qh-78-xQC"/>
                                             <constraint firstItem="d1x-8k-Bya" firstAttribute="trailing" secondItem="7RB-I4-Iwe" secondAttribute="trailing" type="default" id="9t2-Hb-n5A"/>
                                             <constraint firstItem="9op-Rx-pQ7" firstAttribute="leading" secondItem="wUh-wq-NmN" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="AgZ-2d-7TB"/>
-                                            <constraint firstItem="wUh-wq-NmN" firstAttribute="top" secondItem="wHG-k9-ln4" secondAttribute="top" constant="47" id="Btx-y7-JVI"/>
                                             <constraint firstItem="9op-Rx-pQ7" firstAttribute="top" secondItem="DDi-gx-pbk" secondAttribute="top" type="default" id="CdL-5G-xs2"/>
+                                            <constraint firstItem="epJ-aE-fa8" firstAttribute="centerX" secondItem="wHG-k9-ln4" secondAttribute="centerX" type="default" id="Cnu-4F-LJT"/>
                                             <constraint firstItem="7RB-I4-Iwe" firstAttribute="leading" secondItem="Hxe-M9-hU4" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="M1P-bv-L4u"/>
+                                            <constraint firstItem="epJ-aE-fa8" firstAttribute="trailing" secondItem="9op-Rx-pQ7" secondAttribute="trailing" type="default" id="Mvw-aS-f67"/>
+                                            <constraint firstItem="epJ-aE-fa8" firstAttribute="top" secondItem="wHG-k9-ln4" secondAttribute="top" constant="39" id="SBy-NP-UZU"/>
                                             <constraint firstItem="2h0-tZ-t84" firstAttribute="top" secondItem="wUh-wq-NmN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WXI-6G-PTr"/>
-                                            <constraint firstItem="Hxe-M9-hU4" firstAttribute="leading" secondItem="wHG-k9-ln4" secondAttribute="leading" constant="10" id="Wvw-yU-gHb"/>
                                             <constraint firstItem="2h0-tZ-t84" firstAttribute="bottom" secondItem="iLP-3d-3ko" secondAttribute="bottom" type="default" id="Zub-pM-1ZT"/>
-                                            <constraint firstItem="Hxe-M9-hU4" firstAttribute="top" secondItem="wHG-k9-ln4" secondAttribute="top" constant="5" id="bps-cM-85E"/>
-                                            <constraint firstItem="d1x-8k-Bya" firstAttribute="top" secondItem="wUh-wq-NmN" secondAttribute="top" type="default" id="cEn-lW-6Rz"/>
+                                            <constraint firstItem="Hxe-M9-hU4" firstAttribute="top" secondItem="wHG-k9-ln4" secondAttribute="top" constant="5" id="bK3-IC-Mae"/>
+                                            <constraint firstItem="epJ-aE-fa8" firstAttribute="leading" secondItem="Hxe-M9-hU4" secondAttribute="leading" type="default" id="cCS-UU-4Ad"/>
+                                            <constraint firstItem="DDi-gx-pbk" firstAttribute="trailing" secondItem="9op-Rx-pQ7" secondAttribute="trailing" type="default" id="gTt-Bc-9QD"/>
                                             <constraint firstAttribute="width" constant="300" id="gak-0r-IS8"/>
+                                            <constraint firstItem="d1x-8k-Bya" firstAttribute="top" secondItem="wUh-wq-NmN" secondAttribute="top" type="default" id="gjJ-Fp-p4r"/>
                                             <constraint firstItem="DDi-gx-pbk" firstAttribute="leading" secondItem="wUh-wq-NmN" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="hi4-aj-NK9"/>
                                             <constraint firstItem="iLP-3d-3ko" firstAttribute="top" secondItem="wUh-wq-NmN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="iNN-zJ-3Og"/>
                                             <constraint firstItem="iLP-3d-3ko" firstAttribute="leading" secondItem="wHG-k9-ln4" secondAttribute="leading" type="default" id="jhf-Ox-0WP"/>
+                                            <constraint firstItem="wUh-wq-NmN" firstAttribute="leading" secondItem="epJ-aE-fa8" secondAttribute="leading" type="default" id="ju1-3y-F5N"/>
                                             <constraint firstItem="Hxe-M9-hU4" firstAttribute="centerY" secondItem="7RB-I4-Iwe" secondAttribute="centerY" type="default" id="kBu-C5-Dv7"/>
                                             <constraint firstItem="2h0-tZ-t84" firstAttribute="top" secondItem="9op-Rx-pQ7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="p0Q-WQ-uKr"/>
+                                            <constraint firstItem="wUh-wq-NmN" firstAttribute="top" secondItem="wHG-k9-ln4" secondAttribute="top" constant="47" id="rUl-Kh-EQw"/>
                                             <constraint firstItem="2h0-tZ-t84" firstAttribute="top" secondItem="DDi-gx-pbk" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="wxa-AH-FxL"/>
                                         </constraints>
                                     </view>
@@ -1914,6 +1920,7 @@
         <image name="background_dark.png" width="320" height="388"/>
         <image name="calendar.png" width="20" height="20"/>
         <image name="comment_icon.png" width="15" height="14"/>
+        <image name="divider.png" width="290" height="1"/>
         <image name="facebook_button.png" width="320" height="44"/>
         <image name="feed_icon_deselected.png" width="16" height="28"/>
         <image name="filled_in_heart.png" width="16" height="15"/>
@@ -2057,7 +2064,6 @@
         <class className="scheduleViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/scheduleViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backButtonPressed:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="action" name="dayPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="dayFive" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="dayFiveDate" candidateClass="UILabel"/>
