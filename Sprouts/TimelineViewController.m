@@ -419,6 +419,7 @@
 
 - (void)userDidLikeOrUnlikeSprout:(NSNotification *)note {
     [self.tableView beginUpdates];
+//    [self loadObjects];
     [self.tableView endUpdates];
 }
 
