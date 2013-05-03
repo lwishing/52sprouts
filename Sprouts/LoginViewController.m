@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "SproutsTabBarController.h"
+#import "Utility.h"
 
 @interface LoginViewController ()
 
@@ -57,21 +58,13 @@
     headerViewOne.textAlignment = NSTextAlignmentCenter;
     headerViewOne.numberOfLines = 0; //allows as many lines as needed for UILabel
     headerViewOne.text = @"Mastering the kitchen, one vegetable at a time.";
-    [headerViewOne setFont:[UIFont fontWithName:@"MuseoSans-500" size:16.0]];
-    headerViewOne.textColor = [UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0];
+    [headerViewOne setFont:[[Utility sharedInstance] mediumFont]];
+    headerViewOne.textColor = [[Utility sharedInstance] greenColor];
     headerViewOne.shadowColor = [UIColor whiteColor];
     headerViewOne.shadowOffset = CGSizeMake(0, 1);
     headerViewOne.backgroundColor = [UIColor clearColor];
     [headerViewOne setUserInteractionEnabled:NO];
     [stepOne addSubview:headerViewOne];
-    
-    /*UITextView *subHeaderViewOne = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
-    subHeaderViewOne.text = @"  ";
-    [subHeaderViewOne setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
-    subHeaderViewOne.backgroundColor = [UIColor clearColor];
-    [subHeaderViewOne setUserInteractionEnabled:NO];
-    [stepOne addSubview:subHeaderViewOne];*/
-    
     
     // Step 2
     UIView *stepTwo = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 345)];
@@ -83,22 +76,14 @@
     UILabel *headerViewTwo = [[UILabel alloc] initWithFrame:CGRectMake(10, 280, (self.view.frame.size.width - 20), 60)];
     headerViewTwo.textAlignment = NSTextAlignmentCenter;
     headerViewTwo.numberOfLines = 0;
-    headerViewTwo.text = @"Each week, we'll pick a vegetable that's in season and give you information to get you started.";
-    [headerViewTwo setFont:[UIFont fontWithName:@"MuseoSans-500" size:16.0]];
-    headerViewTwo.textColor = [UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0];
+    headerViewTwo.text = @"Each week, we pick an in season vegetable to inspire you in the kitchen.";
+    [headerViewTwo setFont:[[Utility sharedInstance] mediumFont]];
+    headerViewTwo.textColor = [[Utility sharedInstance] greenColor];
     headerViewTwo.shadowColor = [UIColor whiteColor];
     headerViewTwo.shadowOffset = CGSizeMake(0, 1);
     headerViewTwo.backgroundColor = [UIColor clearColor];
     [headerViewTwo setUserInteractionEnabled:NO];
     [stepTwo addSubview:headerViewTwo];
-    
-    /*UITextView *subHeaderViewTwo = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
-    subHeaderViewTwo.text = @"Show us your expertise and learn from the 52 Sprouts community.";
-    [subHeaderViewTwo setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
-    subHeaderViewTwo.backgroundColor = [UIColor clearColor];
-    [subHeaderViewTwo setUserInteractionEnabled:NO];
-    [stepTwo addSubview:subHeaderViewTwo];*/
-    
     
     // Step 3
     UIView *stepThree = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 345)];
@@ -110,25 +95,39 @@
     UILabel *headerViewThree = [[UILabel alloc] initWithFrame:CGRectMake(10, 280, (self.view.frame.size.width - 20), 60)];
     headerViewThree.textAlignment = NSTextAlignmentCenter;
     headerViewThree.numberOfLines = 0;
-    headerViewThree.text = @"Sprout your delicious creations, recipes, and tips to share and learn from the larger 52 Sprouts community.";
-    [headerViewThree setFont:[UIFont fontWithName:@"MuseoSans-500" size:16.0]];
-    headerViewThree.textColor = [UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0];
+    headerViewThree.text = @"Commit to cooking at home by scheduling a day to cook in advance.";
+    [headerViewThree setFont:[[Utility sharedInstance] mediumFont]];
+    headerViewThree.textColor = [[Utility sharedInstance] greenColor];
     headerViewThree.shadowColor = [UIColor whiteColor];
     headerViewThree.shadowOffset = CGSizeMake(0, 1);
     headerViewThree.backgroundColor = [UIColor clearColor];
     [headerViewThree setUserInteractionEnabled:NO];
-
+    
     [stepThree addSubview:headerViewThree];
     
-    /*UITextView *subHeaderViewThree = [[UITextView alloc] initWithFrame:CGRectMake(10, 285, (self.view.frame.size.width - 20), 50)];
-    subHeaderViewThree.text = @"Recipes and tips you like get saved to your profile for later viewing.";
-    [subHeaderViewThree setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
-    subHeaderViewThree.backgroundColor = [UIColor clearColor];
-    [subHeaderViewThree setUserInteractionEnabled:NO];
-    [stepThree addSubview:subHeaderViewThree];*/
+    
+    // Step 4
+    UIView *stepFour = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 345)];
+    
+    UIImageView *imageViewFour = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"step4.png"]];
+    imageViewFour.frame = CGRectMake(self.view.frame.size.width/2 - imageViewThree.frame.size.width/2, 0, imageViewThree.frame.size.width, imageViewThree.frame.size.height);
+    [stepFour addSubview:imageViewFour];
+    
+    UILabel *headerViewFour = [[UILabel alloc] initWithFrame:CGRectMake(10, 280, (self.view.frame.size.width - 20), 60)];
+    headerViewFour.textAlignment = NSTextAlignmentCenter;
+    headerViewFour.numberOfLines = 0;
+    headerViewFour.text = @"Sprout your delicious creations to share with the 52 Sprouts community.";
+    [headerViewFour setFont:[[Utility sharedInstance] mediumFont]];
+    headerViewFour.textColor = [[Utility sharedInstance] greenColor];
+    headerViewFour.shadowColor = [UIColor whiteColor];
+    headerViewFour.shadowOffset = CGSizeMake(0, 1);
+    headerViewFour.backgroundColor = [UIColor clearColor];
+    [headerViewFour setUserInteractionEnabled:NO];
+
+    [stepFour addSubview:headerViewFour];
     
     
-    NSArray *views = [[NSArray alloc] initWithObjects:stepOne, stepTwo, stepThree, nil];
+    NSArray *views = [[NSArray alloc] initWithObjects:stepOne, stepTwo, stepThree, stepFour, nil];
     
     //add pages to scrollview
     [scrollView addPages:views];
