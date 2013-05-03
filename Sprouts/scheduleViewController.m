@@ -17,7 +17,7 @@
 
 @implementation scheduleViewController
 
-@synthesize scrollView, tipsHeader, tipsBanner;
+@synthesize scrollView, tipsHeader, tipsBanner, pickDayHeader, scheduleMessage;
 @synthesize dayOfWeek, todayDate;
 @synthesize week, ingredient;
 @synthesize dayOneActual, dayTwoActual, dayThreeActual, dayFourActual, dayFiveActual, daySixActual, daySevenActual;
@@ -37,6 +37,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    //setting fonts
+    [pickDayHeader setFont:[[Utility sharedInstance] mediumFont]];
+    [pickDayHeader setTextColor:[[Utility sharedInstance] darkGreyColor]];
+    [scheduleMessage setFont:[[Utility sharedInstance] mediumFont]];
+    [scheduleMessage setTextColor:[[Utility sharedInstance] darkGreyColor]];
     
     //back button
     UIImage *backButtonHomeImage = [[UIImage imageNamed:@"back_arrow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12, 0, 4)];
@@ -106,25 +112,25 @@
     NSLog(@"scheduledDay: %@", [dateFormatter stringFromDate:scheduled]);
     if ([[weekday stringFromDate:scheduled] isEqualToString:@"Thursday"]) {
         [dayOne setSelected:YES];
-        self.scheduleMessage.text = @"You're currently scheduled to cook on Thursday.";
+        self.scheduleMessage.text = @"You're set to cook on Thursday.";
     } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Friday"]) {
         [dayTwo setSelected:YES];
-        self.scheduleMessage.text = @"You're currently scheduled to cook on Friday.";
+        self.scheduleMessage.text = @"You're set to cook on Friday.";
     } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Saturday"]) {
         [dayThree setSelected:YES];
-        self.scheduleMessage.text = @"You're currently scheduled to cook on Saturday.";
+        self.scheduleMessage.text = @"You're set to cook on Saturday.";
     } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Sunday"]) {
         [dayFour setSelected:YES];
-        self.scheduleMessage.text = @"You're currently scheduled to cook on Sunday.";
+        self.scheduleMessage.text = @"You're set to cook on Sunday.";
     } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Monday"]) {
         [dayFive setSelected:YES];
-        self.scheduleMessage.text = @"You're currently scheduled to cook on Monday.";
+        self.scheduleMessage.text = @"You're set to cook on Monday.";
     } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Tuesday"]) {
         [daySix setSelected:YES];
-        self.scheduleMessage.text = @"You're currently scheduled to cook on Tuesday.";
+        self.scheduleMessage.text = @"You're set to cook on Tuesday.";
     } else if ([[weekday stringFromDate:scheduled] isEqualToString:@"Wednesday"]) {
         [daySeven setSelected:YES];
-        self.scheduleMessage.text = @"You're currently scheduled to cook on Wednesday.";
+        self.scheduleMessage.text = @"You're set to cook on Wednesday.";
     } else {
         scrollView.hidden = YES;
         tipsHeader.hidden = YES;
@@ -168,7 +174,7 @@
     
     int padding = 15;
     int x = 10;
-    int y = 20;
+    int y = 10;
     int width = 300;
     int headerHeight = 24;
     int inset = 8;
@@ -181,14 +187,14 @@
     
     UILabel *buyingHeader = [[UILabel alloc] initWithFrame:CGRectMake(inset, inset, 280, headerHeight)];
     buyingHeader.text = @"When Buying";
-    [buyingHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
-    [buyingHeader setTextColor:[UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]];
+    [buyingHeader setFont:[[Utility sharedInstance] headerFont]];
+    [buyingHeader setTextColor:[[Utility sharedInstance] greenColor]];
     
     //when buying text
     UITextView *buyingText = [[UITextView alloc] initWithFrame:CGRectMake(0, inset + headerHeight, width, 0)];
     buyingText.text = [ingredient objectForKey:@"whenBuying"];
-    [buyingText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
-    [buyingText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    [buyingText setFont:[[Utility sharedInstance] bodyFont]];
+    [buyingText setTextColor:[[Utility sharedInstance] greyColor]];
     [buyingText setUserInteractionEnabled:NO];
     [buyingText setBackgroundColor:[UIColor clearColor]];
     
@@ -209,8 +215,6 @@
     //adjust y to new start point
     y += buyingView.frame.size.height + padding;
     
-    //    NSLog(@"y postion: %i", y);
-    
     //STORING
     
     //container uiview
@@ -219,14 +223,14 @@
     
     UILabel *storingHeader = [[UILabel alloc] initWithFrame:CGRectMake(inset, inset, 280, headerHeight)];
     storingHeader.text = @"Storing";
-    [storingHeader setFont:[UIFont fontWithName:@"MuseoSans-300" size:20.0]];
-    [storingHeader setTextColor:[UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]];
+    [storingHeader setFont:[[Utility sharedInstance] headerFont]];
+    [storingHeader setTextColor:[[Utility sharedInstance] greenColor]];
     
     //when buying text
     UITextView *storingText = [[UITextView alloc] initWithFrame:CGRectMake(0, inset + headerHeight, width, 0)];
     storingText.text = [ingredient objectForKey:@"storing"];
-    [storingText setFont:[UIFont fontWithName:@"MuseoSans-300" size:14.0]];
-    [storingText setTextColor:[UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0]];
+    [storingText setFont:[[Utility sharedInstance] bodyFont]];
+    [storingText setTextColor:[[Utility sharedInstance] greyColor]];
     [storingText setUserInteractionEnabled:NO];
     [storingText setBackgroundColor:[UIColor clearColor]];
     
@@ -291,7 +295,7 @@
     // if reminder time has passed, don't sent a notification
     if ([inputDate compare:[NSDate date]] == NSOrderedAscending) {
         NSLog(@"inputDate is before current time");
-        self.scheduleMessage.text = @"That's coming up quick! \nMake sure you have your ingredients ready.";
+        self.scheduleMessage.text = @"That's coming up quick!";
         
     // otherwise, schedule a notification
     } else {
@@ -299,13 +303,13 @@
         localNotification.fireDate = inputDate;
         localNotification.soundName = UILocalNotificationDefaultSoundName;
         NSString *ingredientName = [[ingredient objectForKey:@"name"] lowercaseString];
-        localNotification.alertBody = [NSString stringWithFormat:@"Remember, you're supposed to cook %@ tomorrow! Make sure to go get your ingredients.", ingredientName];
+        localNotification.alertBody = [NSString stringWithFormat:@"You're cooking %@ tomorrow!", ingredientName];
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"EEEE, MMM d, ''yy, h:mm a"];
         NSLog(@"Notification scheduled for %@",[dateFormatter stringFromDate:inputDate]);
-        self.scheduleMessage.text = @"Yum! \nWe'll remind you the day before.";
+        self.scheduleMessage.text = @"Yum! We'll remind you the day before.";
     }
     
     // save scheduled day to Parse

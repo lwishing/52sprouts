@@ -15,11 +15,14 @@
     PFObject *currentIngredient;
     
     UIFont *bannerFont;
+    UIFont *mediumFont;
+    
     UIFont *headerFont;
     UIFont *bodyFont;
     
     UIColor *greenColor;
     UIColor *greyColor;
+    UIColor *darkGreyColor;
     
 }
 
@@ -29,11 +32,13 @@
 - (PFObject *)getCurrentIngredient;
 
 - (UIFont *)bannerFont;
+- (UIFont *)mediumFont;
 - (UIFont *)headerFont;
 - (UIFont *)bodyFont;
 
 - (UIColor *)greenColor;
 - (UIColor *)greyColor;
+- (UIColor *)darkGreyColor;
 
 + (PFQuery *) queryForActivitiesOnSprout:(PFObject *)photo cachePolicy:(PFCachePolicy)cachePolicy;
 

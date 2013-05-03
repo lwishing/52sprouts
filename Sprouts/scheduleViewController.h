@@ -28,6 +28,7 @@
 @property (nonatomic, strong) PFObject* ingredient;
 @property (nonatomic, strong) PFUser* currentUser;
 
+@property (weak, nonatomic) IBOutlet UILabel *pickDayHeader;
 @property (strong, nonatomic) IBOutlet UILabel *scheduleMessage;
 @property (strong, nonatomic) IBOutlet UILabel *tipsHeader;
 @property (strong, nonatomic) IBOutlet UIImageView *tipsBanner;

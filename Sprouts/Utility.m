@@ -26,11 +26,14 @@ static Utility *_sharedInstance;
         currentIngredient = [currentWeek objectForKey:@"ingredient"];
         
         bannerFont = [UIFont fontWithName:@"MuseoSans-500" size:14.0];
+        mediumFont = [UIFont fontWithName:@"MuseoSans-500" size:16.0];
+       
         headerFont = [UIFont fontWithName:@"MuseoSans-300" size:20.0];
         bodyFont = [UIFont fontWithName:@"MuseoSans-300" size:14.0];
         
         greenColor = [UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0];
         greyColor = [UIColor colorWithRed:(102/255.0) green:(102/255.0) blue:(102/255.0) alpha:1.0];
+        darkGreyColor = [UIColor colorWithRed:(51/255.0) green:(51/255.0) blue:(51/255.0) alpha:1.0];
 	}
 	return self;
 }
@@ -61,6 +64,10 @@ static Utility *_sharedInstance;
     return headerFont;
 }
 
+- (UIFont *)mediumFont {
+    return mediumFont;
+}
+
 - (UIFont *)bodyFont {
     return bodyFont;
 }
@@ -71,6 +78,10 @@ static Utility *_sharedInstance;
 
 - (UIColor *)greyColor {
     return greyColor;
+}
+
+- (UIColor*)darkGreyColor{
+    return darkGreyColor;
 }
 
 #pragma mark Activities

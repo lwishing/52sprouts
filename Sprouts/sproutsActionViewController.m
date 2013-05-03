@@ -36,13 +36,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    shareText.font = [[Utility sharedInstance] mediumFont];
+    
     // Set ingredient of the week text
     PFObject *ingredient = [[Utility sharedInstance] getCurrentIngredient];
     ingredientOfTheWeek.text = [[ingredient objectForKey:@"name"] lowercaseString];
-    ingredientOfTheWeek.font = [[Utility sharedInstance] headerFont];
+    ingredientOfTheWeek.font = [[Utility sharedInstance] mediumFont];
     ingredientOfTheWeek.textColor = [[Utility sharedInstance] greenColor];
-    
-    shareText.font = [[Utility sharedInstance] headerFont];
 
     // Keyboard up on load
     [sproutTitle becomeFirstResponder];
@@ -55,7 +55,7 @@
     [sproutDescription setDelegate: (id)self];
     
     // Add placeholder
-    sproutDescription.placeholder = @"Add tip, description, or recipe";
+    sproutDescription.placeholder = @"Description (e.g. a tip or recipe)";
     
     //buttons
     UIImage *buttonImage = [[UIImage imageNamed:@"button_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(14, 4, 14, 4)];
