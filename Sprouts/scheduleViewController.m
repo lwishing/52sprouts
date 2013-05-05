@@ -132,9 +132,10 @@
         [daySeven setSelected:YES];
         self.scheduleMessage.text = @"You're set to cook on Wednesday.";
     } else {
-        scrollView.hidden = YES;
-        tipsHeader.hidden = YES;
-        tipsBanner.hidden = YES;
+        scrollView.alpha = 0.0f;
+        tipsHeader.alpha = 0.0f;
+        tipsBanner.alpha = 0.0f;
+        self.scheduleMessage.alpha = 0.0f;
     }
     
     
@@ -371,9 +372,14 @@
     }
     
     // Show tips after scheduling
-    scrollView.hidden = NO;
-    tipsHeader.hidden = NO;
-    tipsBanner.hidden = NO;
+    if (scrollView.alpha < 1.0f || tipsHeader.alpha < 1.0f || tipsBanner.alpha < 1.0f || self.scheduleMessage.alpha < 1.0f) {
+        [UIView animateWithDuration:0.750f animations:^{
+            scrollView.alpha = 1.0f;
+            tipsHeader.alpha = 1.0f;
+            tipsBanner.alpha = 1.0f;
+            self.scheduleMessage.alpha = 1.0f;
+        }];
+    }
     
 }
 

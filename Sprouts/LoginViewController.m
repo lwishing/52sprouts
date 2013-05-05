@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 #import "SproutsTabBarController.h"
 #import "Utility.h"
+#import "MBProgressHUD.h"
+
 
 @interface LoginViewController ()
 
@@ -152,6 +154,9 @@
     // The permissions requested from the user
     NSArray *permissionsArray = @[ @"email"];
     
+    // Show loading HUD while loading Facebook data
+    [MBProgressHUD showHUDAddedTo:self.view.superview animated:YES];
+    
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
         if (!user) {
@@ -203,6 +208,9 @@
                     
                 }
             }];
+            
+            // Hide HUD after finishing Facebook load
+            [MBProgressHUD hideHUDForView:self.view.superview animated:YES];
             
             [self performSegueWithIdentifier:@"loginToMain" sender:self];
         }
