@@ -1555,7 +1555,12 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="loading_photo_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="DDi-gx-pbk"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="loading_photo_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="DDi-gx-pbk">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" type="user" id="dbi-Lq-HVU"/>
+                                                    <constraint firstAttribute="height" constant="50" type="user" id="vhN-Hf-2AF"/>
+                                                </constraints>
+                                            </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9op-Rx-pQ7">
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal">
@@ -1585,6 +1590,9 @@
                                                 <state key="highlighted">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="rTI-9h-qVJ" kind="modal" id="gs1-k3-std"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
