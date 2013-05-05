@@ -7,6 +7,7 @@
 //
 
 #import "WebViewController.h"
+#import "MBProgressHUD.h"
 
 @interface WebViewController ()
 
@@ -24,6 +25,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    // set UIWebViewDelegate
+    self.webView.delegate = self;
+    
     //self.navigationItem.title = _theTitle;
     _toolbarLabel.text = _theTitle;
     [_toolbarLabel setTextColor:[UIColor colorWithRed:(43/255.0) green:(36/255.0) blue:(19/255.0) alpha:1.0]];
@@ -86,10 +91,12 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [MBProgressHUD showHUDAddedTo:self.view.superview animated:YES];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [MBProgressHUD hideHUDForView:self.view.superview animated:YES];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
