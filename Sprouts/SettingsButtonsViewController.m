@@ -58,6 +58,28 @@
         sproutImage.hidden = NO;
     }
     
+    NSArray *buttons = [[NSArray alloc] initWithObjects: privacyButton, termsButton, websiteButton, twitterButton, nil];
+    
+    for (UIButton *button in buttons) {
+        
+        CALayer *shadowLayer = button.layer;
+        
+        shadowLayer.shadowColor = [UIColor grayColor].CGColor;
+        shadowLayer.shadowOffset = CGSizeMake(0, 0);
+        shadowLayer.shadowRadius = 1.0;
+        shadowLayer.shadowOpacity = .5;
+        shadowLayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:button.bounds cornerRadius:5].CGPath; // make sure you set that for better performance
+        
+        CALayer *sublayer = button.layer;
+            
+        sublayer.cornerRadius = 3;
+        sublayer.masksToBounds = YES;
+        //button.clipsToBounds = YES;
+    
+
+    }
+
+    
 }
 
 - (void)didReceiveMemoryWarning
