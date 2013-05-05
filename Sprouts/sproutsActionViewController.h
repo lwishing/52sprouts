@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *characterCountTitle;
 @property (weak, nonatomic) IBOutlet UILabel *characterCountDescription;
 @property (weak, nonatomic) IBOutlet UIView *sproutView;
+@property (weak, nonatomic) IBOutlet UIButton *addIngredients;
 
 
 - (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender;

@@ -20,7 +20,7 @@
 
 @implementation sproutsActionViewController
 
-@synthesize ingredientOfTheWeek, sproutDescription, sproutTitle, sproutImage, photoFile, fileUploadBackgroundTaskId, photoPostBackgroundTaskId, sproutScrollView, shareButton, cancelButton, characterCountDescription, characterCountTitle, sproutView, shareText;
+@synthesize ingredientOfTheWeek, sproutDescription, sproutTitle, sproutImage, photoFile, fileUploadBackgroundTaskId, photoPostBackgroundTaskId, sproutScrollView, shareButton, cancelButton, characterCountDescription, characterCountTitle, sproutView, shareText, addIngredients;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -62,6 +62,12 @@
     [shareButton setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [cancelButton setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
+    UIImage *ingredientButtonImage = [[UIImage imageNamed:@"grey_button"]
+                            resizableImageWithCapInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
+    
+    [addIngredients setBackgroundImage:ingredientButtonImage forState:UIControlStateNormal];
+    addIngredients.titleLabel.font = [[Utility sharedInstance] smallFont];
+     
     
     sproutDescription.contentInset = UIEdgeInsetsMake(-8,-8,-8,-8);
     

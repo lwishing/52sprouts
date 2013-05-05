@@ -19,6 +19,7 @@
     
     UIFont *headerFont;
     UIFont *bodyFont;
+    UIFont *smallFont;
     
     UIColor *greenColor;
     UIColor *greyColor;
@@ -33,6 +34,7 @@
 
 - (UIFont *)bannerFont;
 - (UIFont *)mediumFont;
+- (UIFont *)smallFont;
 - (UIFont *)headerFont;
 - (UIFont *)bodyFont;
 
