@@ -51,14 +51,13 @@
 // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
     
-    PFQuery *queryForLikes = [PFQuery queryWithClassName:@"Activity"];
-    [queryForLikes whereKey:@"type" equalTo:@"like"];
-    [queryForLikes whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+    PFQuery *query = [PFQuery queryWithClassName:@"Activity"];
+    [query whereKey:@"type" equalTo:@"like"];
+    [query whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+    [query includeKey:@"sprout"];
+    [query includeKey:@"sprout.user"];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Sprout"];
-    [query includeKey:@"user"];
-    [query whereKey:@"user" matchesKey:@"toUser" inQuery:queryForLikes];
-    
+
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
         query.cachePolicy = kPFCachePolicyNetworkOnly;
@@ -73,6 +72,14 @@
     [query orderByDescending:@"createdAt"];
     
     return query;
+}
+
+// Override to customize the look of a cell representing an object. The default is to display
+// a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
+// and the imageView being the imageKey in the object.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
+    
+    return [super tableView:tableView cellForRowAtIndexPath:indexPath object:[object objectForKey:@"sprout"]];
 }
 
 @end
