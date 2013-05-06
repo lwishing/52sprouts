@@ -311,6 +311,19 @@
     }
 }
 
+/* stack cells on top of each other in order */
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static int index = -1;
+    if (indexPath.row > index) {
+        [tableView sendSubviewToBack:cell];
+    }
+    else {
+        [tableView bringSubviewToFront:cell];
+    }
+    index = indexPath.row;
+}
+
 #pragma mark - UITableViewDataSource
 
 /*

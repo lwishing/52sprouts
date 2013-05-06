@@ -17,6 +17,7 @@
 @synthesize sproutTitle = _sproutTitle;
 @synthesize sproutDescription = _sproutDescription;
 @synthesize sproutedAt = _sproutedAt;
+@synthesize sproutBody = _sproutBody;
 
 @synthesize sproutObject = _sproutObject;
 
@@ -68,13 +69,13 @@
         [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             // Now that the data is fetched, update the cell's image property.
             _sproutImage.image = [UIImage imageWithData:data];
-            _sproutImage.layer.shadowColor = [UIColor grayColor].CGColor;
-            _sproutImage.layer.shadowOffset = CGSizeMake(0, 2);
-            _sproutImage.layer.shadowOpacity = 0.5;
-            _sproutImage.layer.shadowRadius = 2.0;
-            _sproutImage.layer.masksToBounds = NO;
-            _sproutImage.clipsToBounds = NO;
-            [_sproutImage.layer setShadowPath:[[UIBezierPath bezierPathWithRect:_sproutImage.bounds] CGPath]];
+//            _sproutImage.layer.shadowColor = [UIColor grayColor].CGColor;
+//            _sproutImage.layer.shadowOffset = CGSizeMake(0, 2);
+//            _sproutImage.layer.shadowOpacity = 0.5;
+//            _sproutImage.layer.shadowRadius = 2.0;
+            _sproutImage.layer.masksToBounds = YES;
+//            _sproutImage.clipsToBounds = NO;
+//            [_sproutImage.layer setShadowPath:[[UIBezierPath bezierPathWithRect:_sproutImage.bounds] CGPath]];
         }];
         
         height += _sproutImage.image.size.height;
@@ -122,27 +123,31 @@
     _sproutedAt.font = [util smallFont];
     _sproutedAt.textColor = [util greyColor];
     _sproutedAt.text = timeString;
-
     
-    // Shadow
-    /*
-    CALayer *sublayer = [_sproutDescription superview].layer;
-    sublayer.shadowOffset = CGSizeMake(0, 2);
-    sublayer.shadowRadius = 2.0;
-    sublayer.shadowColor = [UIColor grayColor].CGColor;
-    sublayer.shadowOpacity = 0.5;
-    sublayer.masksToBounds = NO;
+    // Rounded Corners + Drop Shadow
+    CALayer *sublayer = _sproutBody.layer;
+    sublayer.cornerRadius = 3.0f;
+    sublayer.masksToBounds = YES;
+//    sublayer.shadowOffset = CGSizeMake(0, 2);
+//    sublayer.shadowRadius = 2.0;
+//    sublayer.shadowColor = [UIColor grayColor].CGColor;
+//    sublayer.shadowOpacity = 0.5;
+//    CGRect shadowFrame = _sproutBody.layer.bounds;
+//    CGPathRef shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
+//    sublayer.shadowPath = shadowPath;
     
-    CGRect shadowFrame = [_sproutDescription superview].layer.bounds;
-    CGPathRef shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
-    sublayer.shadowPath = shadowPath;
-     */
 }
 
 - (CGSize)sizeOfLabel:(UILabel *)label withText:(NSString *)text {
     return [text sizeWithFont:label.font constrainedToSize:CGSizeMake(280.0, 5000.0) lineBreakMode:NSLineBreakByWordWrapping];
 }
 
+- (void)setFrame:(CGRect)frame {
+	[super setFrame:frame];
+	[self.layer setShadowPath:[[UIBezierPath bezierPathWithRect:self.bounds] CGPath]];
+}
+
+#pragma mark Event Handling
 - (void)setLikeStatus:(BOOL)liked {
     [self.likeButton setSelected:liked];
 //    if (liked) {
