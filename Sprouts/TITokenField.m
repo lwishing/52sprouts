@@ -7,6 +7,7 @@
 //
 
 #import "TITokenField.h"
+#import "Utility.h"
 #import <QuartzCore/QuartzCore.h>
 
 //==========================================================
@@ -63,8 +64,8 @@
 	[tokenField addTarget:self action:@selector(tokenFieldDidBeginEditing:) forControlEvents:UIControlEventEditingDidBegin];
 	[tokenField addTarget:self action:@selector(tokenFieldDidEndEditing:) forControlEvents:UIControlEventEditingDidEnd];
 	[tokenField addTarget:self action:@selector(tokenFieldTextDidChange:) forControlEvents:UIControlEventEditingChanged];
-	[tokenField addTarget:self action:@selector(tokenFieldFrameWillChange:) forControlEvents:TITokenFieldControlEventFrameWillChange];
-	[tokenField addTarget:self action:@selector(tokenFieldFrameDidChange:) forControlEvents:TITokenFieldControlEventFrameDidChange];
+	[tokenField addTarget:self action:@selector(tokenFieldFrameWillChange:) forControlEvents:(UIControlEvents)TITokenFieldControlEventFrameWillChange];
+	[tokenField addTarget:self action:@selector(tokenFieldFrameDidChange:) forControlEvents:(UIControlEvents)TITokenFieldControlEventFrameDidChange];
 	[tokenField setDelegate:self];
 	[self addSubview:tokenField];
 	[tokenField release];
@@ -98,8 +99,9 @@
 	else
 	{
 		resultsTable = [[UITableView alloc] initWithFrame:CGRectMake(0, tokenFieldBottom + 1, self.bounds.size.width, 10)];
-		[resultsTable setSeparatorColor:[UIColor colorWithWhite:0.85 alpha:1]];
-		[resultsTable setBackgroundColor:[UIColor colorWithRed:0.92 green:0.92 blue:0.92 alpha:1]];
+		[resultsTable setSeparatorColor:[UIColor colorWithWhite:0.90 alpha:1]];
+//		[resultsTable setBackgroundColor:[UIColor colorWithRed:0.92 green:0.92 blue:0.92 alpha:1]];
+        [resultsTable setBackgroundColor:[UIColor whiteColor]];
 		[resultsTable setDelegate:self];
 		[resultsTable setDataSource:self];
 		[resultsTable setHidden:YES];
@@ -203,6 +205,7 @@
 	if (!cell) cell = [[[UITableViewCell alloc] initWithStyle:(subtitle ? UITableViewCellStyleSubtitle : UITableViewCellStyleDefault) reuseIdentifier:CellIdentifier] autorelease];
 	
 	[cell.textLabel setText:[self searchResultStringForRepresentedObject:representedObject]];
+    cell.textLabel.font = [[Utility sharedInstance] mediumFont];
 	[cell.detailTextLabel setText:subtitle];
 	
     return cell;
@@ -424,9 +427,9 @@ NSString * const kTextHidden = @"\u200D"; // Zero-Width Joiner
 	[self addTarget:self action:@selector(didEndEditing) forControlEvents:UIControlEventEditingDidEnd];
 	[self addTarget:self action:@selector(didChangeText) forControlEvents:UIControlEventEditingChanged];
 	
-	[self.layer setShadowColor:[[UIColor blackColor] CGColor]];
-	[self.layer setShadowOpacity:0.6];
-	[self.layer setShadowRadius:12];
+//	[self.layer setShadowColor:[[UIColor blackColor] CGColor]];
+//	[self.layer setShadowOpacity:0.6];
+//	[self.layer setShadowRadius:12];
 	
 	[self setPromptText:@""]; //"To:"
 	[self setText:kTextEmpty];
@@ -720,10 +723,10 @@ NSString * const kTextHidden = @"\u200D"; // Zero-Width Joiner
 		// Animating this seems to invoke the triple-tap-delete-key-loop-problem-thing™
 		[UIView animateWithDuration:(animated ? 0.3 : 0) animations:^{
 			[self setFrame:((CGRect){self.frame.origin, {self.bounds.size.width, newHeight}})];
-			[self sendActionsForControlEvents:TITokenFieldControlEventFrameWillChange];
+			[self sendActionsForControlEvents:(UIControlEvents)TITokenFieldControlEventFrameWillChange];
 			
 		} completion:^(BOOL complete){
-			if (complete) [self sendActionsForControlEvents:TITokenFieldControlEventFrameDidChange];
+			if (complete) [self sendActionsForControlEvents:(UIControlEvents)TITokenFieldControlEventFrameDidChange];
 		}];
 	}
 }
@@ -933,7 +936,7 @@ NSString * const kTextHidden = @"\u200D"; // Zero-Width Joiner
 CGFloat const hTextPadding = 14;
 CGFloat const vTextPadding = 8;
 CGFloat const kDisclosureThickness = 2.5;
-UILineBreakMode const kLineBreakMode = UILineBreakModeTailTruncation;
+UILineBreakMode const kLineBreakMode = NSLineBreakByTruncatingTail;
 
 @interface TIToken (Private)
 CGPathRef CGPathCreateTokenPath(CGSize size, BOOL innerPath);

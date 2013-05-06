@@ -26,4 +26,6 @@
 - (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender;
 - (IBAction)doneButtonPressed:(UIBarButtonItem *)sender;
 
+@property (strong, nonatomic) IBOutlet TITokenFieldView *tokenFieldView;
+
 @end

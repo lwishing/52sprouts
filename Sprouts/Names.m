@@ -109,7 +109,7 @@
             @"ginger",
             @"granulated sugar",
             @"grape seed oil",
-            @"green beans"
+            @"green beans",
             @"green onion",
             @"heart of palm",
             @"hemp",
@@ -194,6 +194,7 @@
             @"tahini",
             @"taro",
             @"teff",
+            @"thyme",
             @"tomato",
             @"trout",
             @"tuna",
