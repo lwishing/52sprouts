@@ -13,9 +13,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *ingredientButton;
 @property (weak, nonatomic) IBOutlet PFImageView *ingredientBanner;
 @property (weak, nonatomic) IBOutlet PFImageView *ingredientIcon;
-@property (weak, nonatomic) IBOutlet UIView *header;
-
 @property (weak, nonatomic) IBOutlet UIView *ingredientHeaderView;
 
-
+@property (weak, nonatomic) IBOutlet UIView *header;
+@property (weak, nonatomic) IBOutlet UILabel *titleBanner;
 @end

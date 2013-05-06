@@ -18,9 +18,10 @@
 @synthesize ingredientButton = _ingredientButton;
 @synthesize ingredientBanner = _ingredientBanner;
 @synthesize ingredientIcon = _ingredientIcon;
-@synthesize header = _header;
-
 @synthesize ingredientHeaderView = _ingredientHeaderView;
+
+@synthesize header = _header;
+@synthesize titleBanner = _titleBanner;
 
 - (id)initWithCoder:(NSCoder *)aCoder {
     self = [super initWithCoder:aCoder];
@@ -37,13 +38,7 @@
     Utility *util = [Utility sharedInstance];
     PFObject *ingredient = [util getCurrentIngredient];
 
-    //top shadow
-
-
     // Set banner
-//    _ingredientBanner.file = (PFFile *)[ingredient objectForKey:@"photo"];
-//    [_ingredientBanner loadInBackground];
-    
     PFFile *bannerFile = (PFFile *)[ingredient objectForKey:@"photo"];
     [bannerFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         // Now that the data is fetched, update the cell's image property.
@@ -62,7 +57,15 @@
     _ingredientIcon.file = (PFFile *)[ingredient objectForKey:@"icon"];
     [_ingredientIcon loadInBackground];
     
-
+    // Set title
+    NSDateFormatter *titleDate = [[NSDateFormatter alloc] init];
+    [titleDate setDateFormat:@"M/d"];
+    PFObject *week = [util getCurrentWeek];
+    
+    NSString *text = [NSString stringWithFormat:@"WHAT'S COOKING %@ TO %@ ",
+                      [titleDate stringFromDate:[week objectForKey:@"startDate"]],
+                      [titleDate stringFromDate:[week objectForKey:@"endDate"]]];
+    _titleBanner.text = text;
 
 }
 

@@ -10,6 +10,7 @@
 #import "UIImage+ResizeAdditions.h"
 #import "TTTTimeIntervalFormatter.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Utility.h"
 
 @implementation FeedViewCell
 @synthesize sproutImage = _sproutImage;
@@ -49,11 +50,15 @@
 */
 
 - (void)setSproutObject:(PFObject *)sproutObject {
+    Utility *util = [Utility sharedInstance];
+    
     _sproutObject = sproutObject;
     height = 0.0;
     
-    [_commentButton addTarget:self action:@selector(didTapCommentOnSproutButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [_commentButton addTarget:self action:@selector(didTapCommentOnSproutButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
     [_likeButton addTarget:self action:@selector(didTapLikeSproutButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    _likeButton.titleLabel.font = [util smallFont];
 
     //Image
     PFFile *imageFile = [sproutObject objectForKey:@"photo"];    
@@ -76,7 +81,12 @@
     }
     
     // User
-    _userName.text = [[sproutObject objectForKey:@"user"] objectForKey:@"firstName"];
+    NSString *name = [NSString stringWithFormat:@"%@ %@.",
+                      [[sproutObject objectForKey:@"user"] objectForKey:@"firstName"],
+                      [[[sproutObject objectForKey:@"user"] objectForKey:@"lastName"] substringToIndex:1]];
+    _userName.text = name;
+    _userName.font = [util bodyFont];
+    _userName.textColor = [util darkGreyColor];
     
     // Set your placeholder image first
     _userAvatar.image = [UIImage imageNamed:@"Icon.png"];
@@ -109,7 +119,10 @@
     // Timestamp
     TTTTimeIntervalFormatter *timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
     NSString *timeString = [timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:_sproutObject.createdAt];
+    _sproutedAt.font = [util smallFont];
+    _sproutedAt.textColor = [util greyColor];
     _sproutedAt.text = timeString;
+
     
     // Shadow
     /*

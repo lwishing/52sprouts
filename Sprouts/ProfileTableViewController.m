@@ -51,12 +51,14 @@
 // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
     
-    // Query for Sprouts only related to the current ingredient
-    PFObject *ingredient = [[Utility sharedInstance] getCurrentIngredient];
+    // Query for all Sprouts by the current user
+
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     [query includeKey:@"user"];
-    [query whereKey:@"ingredient" equalTo:ingredient];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    
+//    PFObject *ingredient = [[Utility sharedInstance] getCurrentIngredient];
+//    [query whereKey:@"ingredient" equalTo:ingredient];
     
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {

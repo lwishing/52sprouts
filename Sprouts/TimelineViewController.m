@@ -85,6 +85,8 @@
         [imageView setImage:[UIImage imageNamed:@"background.png"]];
         self.tableView.backgroundView = imageView;
         
+        [self.tableView setSeparatorColor:[UIColor clearColor]];
+        
         // Call refreshControlValueChanged: when the user pulls the table view down.
         [self.refreshControl addTarget:self action:@selector(refreshControlValueChanged:) forControlEvents:UIControlEventValueChanged];
     }
@@ -213,8 +215,8 @@
     cell.likeButton.tag = indexPath.row;
     
     // BUTTONS
-    cell.likeButton.alpha = 0.0f;
-    cell.commentButton.alpha = 0.0f;
+//    cell.likeButton.titleLabel.alpha = 0.0f;
+//    cell.commentButton.titleLabel.alpha = 0.0f;
     
     // Get all activity on Sprout
     PFQuery *query = [Utility queryForActivitiesOnSprout:object cachePolicy:kPFCachePolicyNetworkOnly];
@@ -256,14 +258,14 @@
             }
         }];
         
-        [cell.commentButton setTitle:@"0" forState:UIControlStateNormal];
+//        [cell.commentButton setTitle:@"0" forState:UIControlStateNormal];
         
-        if (cell.likeButton.alpha < 1.0f || cell.commentButton.alpha < 1.0f) {
-            [UIView animateWithDuration:0.100f animations:^{
-                cell.likeButton.alpha = 1.0f;
-                cell.commentButton.alpha = 1.0f;
-            }];
-        }
+//        if (cell.likeButton.alpha < 1.0f || cell.commentButton.alpha < 1.0f) {
+//            [UIView animateWithDuration:0.100f animations:^{
+//                cell.likeButton.titleLabel.alpha = 1.0f;
+//                cell.commentButton.titleLabel.alpha = 1.0f;
+//            }];
+//        }
     }];
 
    return cell;
