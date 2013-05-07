@@ -171,13 +171,13 @@
 
 // Ingredients Received from Add Ingredients
 - (void) receiveIngredients:(NSNotification *) notification {
-    ingredientArray = [[notification userInfo] valueForKey:@"ingredients"];
-    NSLog(@"Received: %@", ingredientArray);
+    self.ingredientArray = [[notification userInfo] valueForKey:@"ingredients"];
+    NSLog(@"Received: %@", self.ingredientArray);
     
 //    ingredientList = [[DWTagList alloc] initWithFrame:CGRectMake(20.0f, 70.0f, 180.0f, 50.0f)];
     [ingredientList setAutomaticResize:YES];
     ingredientList.translatesAutoresizingMaskIntoConstraints = YES;
-    [ingredientList setTags:ingredientArray];
+    [ingredientList setTags:self.ingredientArray];
 //    [self.view addSubview:ingredientList];
 }
 
@@ -212,6 +212,9 @@
             PFObject *sprout = [PFObject objectWithClassName:@"Sprout"];
             [sprout setObject:trimmedTitle forKey:@"title"];
             [sprout setObject:trimmedDesc forKey:@"content"];
+            if (ingredientArray && ingredientArray != nil) {
+                [sprout setObject:ingredientArray forKey:@"ingredients"];
+            }
             [sprout setObject:[PFUser currentUser] forKey:@"user"];
             [sprout setObject:[[Utility sharedInstance] getCurrentIngredient] forKey:@"ingredient"];
             [sprout setObject:[[Utility sharedInstance] getCurrentWeek] forKey:@"week"];
@@ -232,6 +235,9 @@
         PFObject *sprout = [PFObject objectWithClassName:@"Sprout"];
         [sprout setObject:trimmedTitle forKey:@"title"];
         [sprout setObject:trimmedDesc forKey:@"content"];
+        if (ingredientArray && ingredientArray != nil) {
+            [sprout setObject:ingredientArray forKey:@"ingredients"];
+        }
         [sprout setObject:self.photoFile forKey:@"photo"];
         [sprout setObject:[PFUser currentUser] forKey:@"user"];
         [sprout setObject:[[Utility sharedInstance] getCurrentIngredient] forKey:@"ingredient"];

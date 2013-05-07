@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *characterCountDescription;
 @property (weak, nonatomic) IBOutlet UIView *sproutView;
 @property (weak, nonatomic) IBOutlet UIButton *addIngredients;
-@property (weak, nonatomic) NSArray *ingredientArray;
+@property (strong, nonatomic) NSArray *ingredientArray;
 @property (strong, nonatomic) IBOutlet DWTagList *ingredientList;
 
 - (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender;
