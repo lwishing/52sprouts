@@ -9,6 +9,7 @@
 #import "addIngredientsToSproutViewController.h"
 #import "Names.h"
 #import "Utility.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface addIngredientsToSproutViewController (Private)
     - (void)resizeViews;
@@ -16,7 +17,7 @@
 
 @implementation addIngredientsToSproutViewController
 
-@synthesize titleText, ingredientOfTheWeek, cancelButton, doneButton;
+@synthesize titleText, ingredientOfTheWeek, cancelButton, doneButton, tokenFieldView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,30 +45,21 @@
     [doneButton setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [cancelButton setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 	
-	tokenFieldView = [[TITokenFieldView alloc] initWithFrame:CGRectMake(0.0f, 117.0f, 2.0f, 20.0f)];
-    
+//    tokenFieldView = [[TITokenFieldView alloc]initWithFrame:CGRectMake(10.0, 117.0, self.view.frame.size.width-50.0, 17.0)];
     
 	[tokenFieldView setSourceArray:[Names listOfNames]];
-	[self.view addSubview:tokenFieldView];
-	
+//    tokenFieldView.tokenField.layer.cornerRadius = 10.0f;
+//	[self.view addSubview:tokenFieldView];
+//    tokenFieldView.tokenField.leftView = nil;
+//    tokenFieldView.tokenField.rightView = nil;
+
 	[tokenFieldView.tokenField setDelegate:self];
-	[tokenFieldView.tokenField addTarget:self action:@selector(tokenFieldFrameDidChange:) forControlEvents:TITokenFieldControlEventFrameDidChange];
+	[tokenFieldView.tokenField addTarget:self action:@selector(tokenFieldFrameDidChange:) forControlEvents:(UIControlEvents)TITokenFieldControlEventFrameDidChange];
 	[tokenFieldView.tokenField setTokenizingCharacters:[NSCharacterSet characterSetWithCharactersInString:@",;."]]; // Default is a comma
-	
-//	UIButton * addButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-//	[addButton addTarget:self action:@selector(showContactsPicker:) forControlEvents:UIControlEventTouchUpInside];
-//	[tokenFieldView.tokenField setRightView:addButton];
+    [tokenFieldView.tokenField setFont:[[Utility sharedInstance] smallFont]];
     
 	[tokenFieldView.tokenField addTarget:self action:@selector(tokenFieldChangedEditing:) forControlEvents:UIControlEventEditingDidBegin];
 	[tokenFieldView.tokenField addTarget:self action:@selector(tokenFieldChangedEditing:) forControlEvents:UIControlEventEditingDidEnd];
-	
-//	messageView = [[UITextView alloc] initWithFrame:tokenFieldView.contentView.bounds];
-//	[messageView setScrollEnabled:NO];
-//	[messageView setAutoresizingMask:UIViewAutoresizingNone];
-//	[messageView setDelegate:self];
-//	[messageView setFont:[UIFont systemFontOfSize:15]];
-//	[messageView setText:@"Some message. The whole view resizes as you type, not just the text view."];
-//	[tokenFieldView.contentView addSubview:messageView];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -135,8 +127,6 @@
 - (void)tokenFieldChangedEditing:(TITokenField *)tokenField {
 	// There's some kind of annoying bug where UITextFieldViewModeWhile/UnlessEditing doesn't do anything.
 	[tokenField setRightViewMode:(tokenField.editing ? UITextFieldViewModeAlways : UITextFieldViewModeNever)];
-    
-    NSLog(@"array: %@", [tokenField tokenTitles]);
 }
 
 - (void)tokenFieldFrameDidChange:(TITokenField *)tokenField {
@@ -177,5 +167,6 @@
 
 - (IBAction)doneButtonPressed:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"Tokens: %@", [tokenFieldView.tokenField tokenTitles]);
 }
 @end

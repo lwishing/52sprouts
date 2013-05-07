@@ -41,9 +41,20 @@
     [[UITabBarItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
 
     // Set TabBarItem selected image to be the same as unselected image / Offset Text
+    
+    //feed image
+    UIImage *feedSelected = [UIImage imageNamed:@"feed_icon_selected"];
+    UIImage *feedDeselected = [UIImage imageNamed:@"feed_icon_deselected"];
+    
+    //me image
+    UIImage *meSelected = [UIImage imageNamed:@"me_icon_selected"];
+    UIImage *meDeselected = [UIImage imageNamed:@"me_icon_deselected"];
+    
+    [[self.tabBar.items objectAtIndex:0] setFinishedSelectedImage:feedSelected withFinishedUnselectedImage:feedDeselected];
+    
+    [[self.tabBar.items objectAtIndex:2] setFinishedSelectedImage:meSelected withFinishedUnselectedImage:meDeselected];
+    
     for (UITabBarItem * barItem in self.tabBar.items) {
-        UIImage * image = barItem.image;
-        [barItem setFinishedSelectedImage:image withFinishedUnselectedImage:image];
         [barItem setTitlePositionAdjustment:UIOffsetMake(0.0, -1.0)];
     }
     

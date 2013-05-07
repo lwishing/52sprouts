@@ -26,6 +26,7 @@
 
 @property (weak, nonatomic) id <FeedViewCellDelegate> delegate;
 
+@property (weak, nonatomic) IBOutlet UIView *sproutBody;
 @property CGFloat height;
 
 /*!

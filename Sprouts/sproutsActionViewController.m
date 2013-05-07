@@ -176,7 +176,7 @@
 // Share new Sprout
 - (IBAction)shareButtonPressed:(UIBarButtonItem *)sender {
     // Save image to the Camera Roll
-    if ([UIImage imageNamed:@"loading_photo.png"] != sproutImage.image) {
+    if ([UIImage imageNamed:@"loading_photo_small.png"] != sproutImage.image) {
         UIImageWriteToSavedPhotosAlbum(sproutImage.image, nil, nil, nil);
     }
     

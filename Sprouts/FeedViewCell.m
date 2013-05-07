@@ -10,12 +10,14 @@
 #import "UIImage+ResizeAdditions.h"
 #import "TTTTimeIntervalFormatter.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Utility.h"
 
 @implementation FeedViewCell
 @synthesize sproutImage = _sproutImage;
 @synthesize sproutTitle = _sproutTitle;
 @synthesize sproutDescription = _sproutDescription;
 @synthesize sproutedAt = _sproutedAt;
+@synthesize sproutBody = _sproutBody;
 
 @synthesize sproutObject = _sproutObject;
 
@@ -49,11 +51,15 @@
 */
 
 - (void)setSproutObject:(PFObject *)sproutObject {
+    Utility *util = [Utility sharedInstance];
+    
     _sproutObject = sproutObject;
     height = 0.0;
     
-    [_commentButton addTarget:self action:@selector(didTapCommentOnSproutButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [_commentButton addTarget:self action:@selector(didTapCommentOnSproutButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
     [_likeButton addTarget:self action:@selector(didTapLikeSproutButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    _likeButton.titleLabel.font = [util smallFont];
 
     //Image
     PFFile *imageFile = [sproutObject objectForKey:@"photo"];    
@@ -63,20 +69,25 @@
         [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             // Now that the data is fetched, update the cell's image property.
             _sproutImage.image = [UIImage imageWithData:data];
-            _sproutImage.layer.shadowColor = [UIColor grayColor].CGColor;
-            _sproutImage.layer.shadowOffset = CGSizeMake(0, 2);
-            _sproutImage.layer.shadowOpacity = 0.5;
-            _sproutImage.layer.shadowRadius = 2.0;
-            _sproutImage.layer.masksToBounds = NO;
-            _sproutImage.clipsToBounds = NO;
-            [_sproutImage.layer setShadowPath:[[UIBezierPath bezierPathWithRect:_sproutImage.bounds] CGPath]];
+//            _sproutImage.layer.shadowColor = [UIColor grayColor].CGColor;
+//            _sproutImage.layer.shadowOffset = CGSizeMake(0, 2);
+//            _sproutImage.layer.shadowOpacity = 0.5;
+//            _sproutImage.layer.shadowRadius = 2.0;
+            _sproutImage.layer.masksToBounds = YES;
+//            _sproutImage.clipsToBounds = NO;
+//            [_sproutImage.layer setShadowPath:[[UIBezierPath bezierPathWithRect:_sproutImage.bounds] CGPath]];
         }];
         
         height += _sproutImage.image.size.height;
     }
     
     // User
-    _userName.text = [[sproutObject objectForKey:@"user"] objectForKey:@"firstName"];
+    NSString *name = [NSString stringWithFormat:@"%@ %@.",
+                      [[sproutObject objectForKey:@"user"] objectForKey:@"firstName"],
+                      [[[sproutObject objectForKey:@"user"] objectForKey:@"lastName"] substringToIndex:1]];
+    _userName.text = name;
+    _userName.font = [util bodyFont];
+    _userName.textColor = [util darkGreyColor];
     
     // Set your placeholder image first
     _userAvatar.image = [UIImage imageNamed:@"Icon.png"];
@@ -109,27 +120,34 @@
     // Timestamp
     TTTTimeIntervalFormatter *timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
     NSString *timeString = [timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:_sproutObject.createdAt];
+    _sproutedAt.font = [util smallFont];
+    _sproutedAt.textColor = [util greyColor];
     _sproutedAt.text = timeString;
     
-    // Shadow
-    /*
-    CALayer *sublayer = [_sproutDescription superview].layer;
-    sublayer.shadowOffset = CGSizeMake(0, 2);
-    sublayer.shadowRadius = 2.0;
-    sublayer.shadowColor = [UIColor grayColor].CGColor;
-    sublayer.shadowOpacity = 0.5;
-    sublayer.masksToBounds = NO;
+    // Rounded Corners + Drop Shadow
+    CALayer *sublayer = _sproutBody.layer;
+    sublayer.cornerRadius = 3.0f;
+    sublayer.masksToBounds = YES;
+//    sublayer.shadowOffset = CGSizeMake(0, 2);
+//    sublayer.shadowRadius = 2.0;
+//    sublayer.shadowColor = [UIColor grayColor].CGColor;
+//    sublayer.shadowOpacity = 0.5;
+//    CGRect shadowFrame = _sproutBody.layer.bounds;
+//    CGPathRef shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
+//    sublayer.shadowPath = shadowPath;
     
-    CGRect shadowFrame = [_sproutDescription superview].layer.bounds;
-    CGPathRef shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
-    sublayer.shadowPath = shadowPath;
-     */
 }
 
 - (CGSize)sizeOfLabel:(UILabel *)label withText:(NSString *)text {
     return [text sizeWithFont:label.font constrainedToSize:CGSizeMake(280.0, 5000.0) lineBreakMode:NSLineBreakByWordWrapping];
 }
 
+- (void)setFrame:(CGRect)frame {
+	[super setFrame:frame];
+	[self.layer setShadowPath:[[UIBezierPath bezierPathWithRect:self.bounds] CGPath]];
+}
+
+#pragma mark Event Handling
 - (void)setLikeStatus:(BOOL)liked {
     [self.likeButton setSelected:liked];
 //    if (liked) {
