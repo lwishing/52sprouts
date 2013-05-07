@@ -8,20 +8,25 @@
 #import "DWTagList.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define CORNER_RADIUS 10.0f
+#define CORNER_RADIUS 2.0f
 #define LABEL_MARGIN_DEFAULT 5.0f
 #define BOTTOM_MARGIN_DEFAULT 5.0f
-#define FONT_SIZE_DEFAULT 13.0f
-#define HORIZONTAL_PADDING_DEFAULT 7.0f
-#define VERTICAL_PADDING_DEFAULT 3.0f
-#define BACKGROUND_COLOR [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00]
-#define TEXT_COLOR [UIColor blackColor]
-#define TEXT_SHADOW_COLOR [UIColor whiteColor]
+#define FONT_SIZE_DEFAULT 12.0f
+#define HORIZONTAL_PADDING_DEFAULT 5.0f
+#define VERTICAL_PADDING_DEFAULT 2.0f
+//#define HORIZONTAL_PADDING_DEFAULT 7.0f
+//#define VERTICAL_PADDING_DEFAULT 3.0f
+//#define BACKGROUND_COLOR [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00]
+#define BACKGROUND_COLOR [UIColor colorWithRed:(55/255.0) green:(140/255.0) blue:(96/255.0) alpha:1.0]
+//#define TEXT_COLOR [UIColor blackColor]
+#define TEXT_COLOR [UIColor whiteColor]
+//#define TEXT_SHADOW_COLOR [UIColor whiteColor]
+#define TEXT_SHADOW_COLOR [UIColor grayColor]
 #define TEXT_SHADOW_OFFSET CGSizeMake(0.0f, 1.0f)
 #define BORDER_COLOR [UIColor lightGrayColor].CGColor
-#define BORDER_WIDTH 1.0f
+#define BORDER_WIDTH 0.0f
 #define HIGHLIGHTED_BACKGROUND_COLOR [UIColor colorWithRed:0.40 green:0.80 blue:1.00 alpha:0.5]
-#define DEFAULT_AUTOMATIC_RESIZE NO
+#define DEFAULT_AUTOMATIC_RESIZE YES
 
 @interface DWTagList()
 
@@ -42,7 +47,7 @@
         [self setClipsToBounds:YES];
         self.automaticResize = DEFAULT_AUTOMATIC_RESIZE;
         self.highlightedBackgroundColor = HIGHLIGHTED_BACKGROUND_COLOR;
-        self.font = [UIFont systemFontOfSize:FONT_SIZE_DEFAULT];
+        self.font = [UIFont fontWithName:@"MuseoSans-500" size:12.0];
         self.labelMargin = LABEL_MARGIN_DEFAULT;
         self.bottomMargin = BOTTOM_MARGIN_DEFAULT;
         self.horizontalPadding = HORIZONTAL_PADDING_DEFAULT;
@@ -57,7 +62,7 @@
         [self addSubview:view];
         [self setClipsToBounds:YES];
         self.highlightedBackgroundColor = HIGHLIGHTED_BACKGROUND_COLOR;
-        self.font = [UIFont systemFontOfSize:FONT_SIZE_DEFAULT];
+        self.font = [UIFont fontWithName:@"MuseoSans-500" size:12.0];
         self.labelMargin = LABEL_MARGIN_DEFAULT;
         self.bottomMargin = BOTTOM_MARGIN_DEFAULT;
         self.horizontalPadding = HORIZONTAL_PADDING_DEFAULT;
