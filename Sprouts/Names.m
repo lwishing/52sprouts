@@ -217,6 +217,7 @@
             @"green grapes",
             @"green onion",
             @"guava",
+            @"ham",
             @"hazelnut",
             @"hazelnut chocolate spread",
             @"heart of palm",
