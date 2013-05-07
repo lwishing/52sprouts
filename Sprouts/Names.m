@@ -57,7 +57,7 @@
             @"beef",
             @"beef broth",
             @"beets",
-            @"beet greens"
+            @"beet greens",
             @"bell peppers",
             @"bitter melon",
             @"blackberries",
@@ -69,7 +69,7 @@
             @"blue cheese",
             @"bok choy",
             @"boldo",
-            @"borage"
+            @"borage",
             @"bouillon cubes",
             @"bread",
             @"bread crumbs",
