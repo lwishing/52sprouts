@@ -125,9 +125,12 @@
     _sproutedAt.text = timeString;
     
     // Rounded Corners + Drop Shadow
-    CALayer *sublayer = _sproutBody.layer;
-    sublayer.cornerRadius = 3.0f;
-    sublayer.masksToBounds = YES;
+//    CALayer *sublayer = _sproutBody.layer;
+//    sublayer.cornerRadius = 3.0f;
+//    sublayer.masksToBounds = YES;
+//    sublayer.shouldRasterize = YES;
+//    sublayer.rasterizationScale = [[UIScreen mainScreen] scale];
+    
 //    sublayer.shadowOffset = CGSizeMake(0, 2);
 //    sublayer.shadowRadius = 2.0;
 //    sublayer.shadowColor = [UIColor grayColor].CGColor;

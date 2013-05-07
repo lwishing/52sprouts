@@ -20,7 +20,7 @@
 
 @implementation sproutsActionViewController
 
-@synthesize ingredientOfTheWeek, sproutDescription, sproutTitle, sproutImage, photoFile, fileUploadBackgroundTaskId, photoPostBackgroundTaskId, sproutScrollView, shareButton, cancelButton, characterCountDescription, characterCountTitle, sproutView, shareText, addIngredients;
+@synthesize ingredientOfTheWeek, sproutDescription, sproutTitle, sproutImage, photoFile, fileUploadBackgroundTaskId, photoPostBackgroundTaskId, sproutScrollView, shareButton, cancelButton, characterCountDescription, characterCountTitle, sproutView, shareText, addIngredients, ingredientArray, ingredientList;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +35,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveIngredients:) name:@"ingredientsAddedNotification" object:nil];
     
     shareText.font = [[Utility sharedInstance] mediumFont];
     
@@ -165,6 +166,19 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     [self.sproutDescription becomeFirstResponder];
     return YES;
+}
+
+
+// Ingredients Received from Add Ingredients
+- (void) receiveIngredients:(NSNotification *) notification {
+    ingredientArray = [[notification userInfo] valueForKey:@"ingredients"];
+    NSLog(@"Received: %@", ingredientArray);
+    
+//    ingredientList = [[DWTagList alloc] initWithFrame:CGRectMake(20.0f, 70.0f, 180.0f, 50.0f)];
+    [ingredientList setAutomaticResize:YES];
+    ingredientList.translatesAutoresizingMaskIntoConstraints = YES;
+    [ingredientList setTags:ingredientArray];
+//    [self.view addSubview:ingredientList];
 }
 
 

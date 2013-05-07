@@ -167,6 +167,10 @@
 
 - (IBAction)doneButtonPressed:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // Send Tokens to Add Sprout Scene
     NSLog(@"Tokens: %@", [tokenFieldView.tokenField tokenTitles]);
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[tokenFieldView.tokenField tokenTitles] forKey:@"ingredients"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ingredientsAddedNotification" object:nil userInfo:userInfo];
 }
 @end

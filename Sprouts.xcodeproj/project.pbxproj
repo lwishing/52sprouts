@@ -86,6 +86,7 @@
 		9C56ED4E1729E63F00F1B9DB /* heart_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C56ED4A1729E63F00F1B9DB /* heart_icon.png */; };
 		9C56ED4F1729E63F00F1B9DB /* heart_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C56ED4B1729E63F00F1B9DB /* heart_icon@2x.png */; };
 		9C57872B1722977700E490A3 /* FeedViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C57872A1722977700E490A3 /* FeedViewCell.m */; };
+		9C8D2B221738D661004B90D2 /* DWTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D2B211738D661004B90D2 /* DWTagList.m */; };
 		9C9E5C3E171E5325003A2594 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9E5C3D171E5325003A2594 /* WelcomeViewController.m */; };
 		9CBC27171731942C00CBE8B3 /* Names.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC27141731942C00CBE8B3 /* Names.m */; };
 		9CBC27181731942C00CBE8B3 /* TITokenField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC27161731942C00CBE8B3 /* TITokenField.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -245,6 +246,8 @@
 		9C56ED4B1729E63F00F1B9DB /* heart_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart_icon@2x.png"; sourceTree = "<group>"; };
 		9C5787291722977700E490A3 /* FeedViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewCell.h; sourceTree = "<group>"; };
 		9C57872A1722977700E490A3 /* FeedViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewCell.m; sourceTree = "<group>"; };
+		9C8D2B201738D661004B90D2 /* DWTagList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTagList.h; sourceTree = "<group>"; };
+		9C8D2B211738D661004B90D2 /* DWTagList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTagList.m; sourceTree = "<group>"; };
 		9C94934F172A989400CC2F85 /* FeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewController.h; sourceTree = "<group>"; };
 		9C949350172A989400CC2F85 /* feedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = feedViewController.h; sourceTree = "<group>"; };
 		9C949351172A989400CC2F85 /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
@@ -511,6 +514,8 @@
 		9CDB538F1720AE03002F6E41 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				9C8D2B201738D661004B90D2 /* DWTagList.h */,
+				9C8D2B211738D661004B90D2 /* DWTagList.m */,
 				9CBC270C1731918300CBE8B3 /* TITokenField */,
 				F30240FC172B51DD00EBD5FA /* ALScrollViewPaging */,
 				9CEE1BB817267C64006C5D50 /* MBProgressHUD */,
@@ -913,6 +918,7 @@
 				9CBC27171731942C00CBE8B3 /* Names.m in Sources */,
 				9CBC27181731942C00CBE8B3 /* TITokenField.m in Sources */,
 				9CBC271B1733B6D500CBE8B3 /* LikesTableViewController.m in Sources */,
+				9C8D2B221738D661004B90D2 /* DWTagList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

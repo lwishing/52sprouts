@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "SSTextView.h"
+#import "DWTagList.h"
 
 @interface sproutsActionViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
@@ -24,11 +25,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *characterCountDescription;
 @property (weak, nonatomic) IBOutlet UIView *sproutView;
 @property (weak, nonatomic) IBOutlet UIButton *addIngredients;
-
+@property (weak, nonatomic) NSArray *ingredientArray;
+@property (strong, nonatomic) IBOutlet DWTagList *ingredientList;
 
 - (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender;
 - (IBAction)shareButtonPressed:(UIBarButtonItem *)sender;
-
 - (IBAction)photoButtonPressed:(UIButton *)sender;
 
 @end
