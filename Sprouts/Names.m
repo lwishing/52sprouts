@@ -301,7 +301,7 @@
             @"oyster sauce",
             @"panch puran",
             @"paprika",
-            @"Parmesan cheese",
+            @"parmesan cheese",
             @"parsley",
             @"parsnip",
             @"passion fruit",
