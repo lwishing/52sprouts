@@ -174,11 +174,10 @@
     self.ingredientArray = [[notification userInfo] valueForKey:@"ingredients"];
     NSLog(@"Received: %@", self.ingredientArray);
     
-//    ingredientList = [[DWTagList alloc] initWithFrame:CGRectMake(20.0f, 70.0f, 180.0f, 50.0f)];
     [ingredientList setAutomaticResize:YES];
     ingredientList.translatesAutoresizingMaskIntoConstraints = YES;
     [ingredientList setTags:self.ingredientArray];
-//    [self.view addSubview:ingredientList];
+    NSLog(@"Ingredients H: %f / W: %f", [ingredientList fittedSize].height, [ingredientList fittedSize].width);
 }
 
 

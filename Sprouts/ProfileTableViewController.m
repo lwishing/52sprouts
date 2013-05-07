@@ -17,7 +17,7 @@
 
 @synthesize profileImage = _profileImage;
 @synthesize profileName = _profileName;
-@synthesize sproutCount = _sproutCount;
+@synthesize profileBanner = _profileBanner;
 
 - (id)initWithCoder:(NSCoder *)aCoder {
     self = [super initWithCoder:aCoder];
@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    Utility *util = [Utility sharedInstance];
     
     // Access PFUser
     PFUser *currentUser = [PFUser currentUser];
@@ -45,6 +46,8 @@
         // Now that the data is fetched, update the cell's image property.
         _profileImage.image = [[UIImage imageWithData:data] thumbnailImage:200.0f transparentBorder:0.0f cornerRadius:5.0f interpolationQuality:kCGInterpolationDefault];
     }];
+    
+    _profileBanner.font = [util bannerFont];
 }
 
 // Override to customize what kind of query to perform on the class. The default is to query for
