@@ -66,7 +66,7 @@
                       [titleDate stringFromDate:[week objectForKey:@"startDate"]],
                       [titleDate stringFromDate:[week objectForKey:@"endDate"]]];
     _titleBanner.text = text;
-
+    _titleBanner.font = [util bannerFont];
 }
 
 @end

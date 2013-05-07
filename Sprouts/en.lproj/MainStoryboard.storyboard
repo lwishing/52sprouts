@@ -164,8 +164,8 @@
                                     <constraints>
                                         <constraint firstItem="mNc-Wi-pp2" firstAttribute="leading" secondItem="egF-4W-dNl" secondAttribute="leading" type="default" id="5Xw-pt-VzE"/>
                                         <constraint firstItem="mNc-Wi-pp2" firstAttribute="top" secondItem="egF-4W-dNl" secondAttribute="top" constant="7" id="Ncy-zV-GrC"/>
-                                        <constraint firstItem="xJS-Ya-vtE" firstAttribute="centerY" secondItem="egF-4W-dNl" secondAttribute="centerY" type="default" id="X6P-95-DaR"/>
                                         <constraint firstItem="xJS-Ya-vtE" firstAttribute="centerX" secondItem="mNc-Wi-pp2" secondAttribute="centerX" type="default" id="XgE-DL-5CZ"/>
+                                        <constraint firstItem="xJS-Ya-vtE" firstAttribute="top" secondItem="egF-4W-dNl" secondAttribute="top" constant="12" id="ye7-n2-PtZ"/>
                                     </constraints>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="big_chevron.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q28-td-GIb"/>
@@ -908,14 +908,14 @@
                                 <constraint firstItem="T4r-sX-opy" firstAttribute="leading" secondItem="J2O-11-JHs" secondAttribute="leading" type="default" id="50w-K7-Xj9"/>
                                 <constraint firstItem="ZGY-PH-3Tz" firstAttribute="centerX" secondItem="NUU-8f-NUU" secondAttribute="centerX" type="default" id="9ZC-Pl-Sde"/>
                                 <constraint firstAttribute="bottom" secondItem="vmY-bz-ITl" secondAttribute="bottom" constant="6" id="FjN-Vh-b89"/>
+                                <constraint firstAttribute="bottom" secondItem="ZGY-PH-3Tz" secondAttribute="bottom" constant="17" id="Mpa-NM-Dyx"/>
                                 <constraint firstItem="ZGY-PH-3Tz" firstAttribute="centerX" secondItem="vmY-bz-ITl" secondAttribute="centerX" type="default" id="NAc-Nu-pwu"/>
                                 <constraint firstItem="T4r-sX-opy" firstAttribute="top" secondItem="J2O-11-JHs" secondAttribute="top" type="default" id="Ovm-L0-Ylc"/>
                                 <constraint firstItem="vmY-bz-ITl" firstAttribute="leading" secondItem="J2O-11-JHs" secondAttribute="leading" type="default" id="TGG-uT-oRP"/>
-                                <constraint firstAttribute="bottom" secondItem="NUU-8f-NUU" secondAttribute="bottom" constant="46" id="Tcc-L6-Ivr"/>
                                 <constraint firstItem="ply-lO-v2N" firstAttribute="top" secondItem="J2O-11-JHs" secondAttribute="top" constant="13" id="YXN-sw-okt"/>
-                                <constraint firstAttribute="bottom" secondItem="ZGY-PH-3Tz" secondAttribute="bottom" constant="18" id="rxr-u3-Jko"/>
                                 <constraint firstItem="T4r-sX-opy" firstAttribute="bottom" secondItem="J2O-11-JHs" secondAttribute="bottom" type="default" id="wVH-LY-AN2"/>
                                 <constraint firstItem="ply-lO-v2N" firstAttribute="centerX" secondItem="NUU-8f-NUU" secondAttribute="centerX" type="default" id="x6L-UK-JLv"/>
+                                <constraint firstItem="ZGY-PH-3Tz" firstAttribute="top" secondItem="NUU-8f-NUU" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xhM-8V-Ste"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -1142,6 +1142,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="profileBanner" destination="ZGY-PH-3Tz" id="L2D-Ew-WKv"/>
                         <outlet property="profileImage" destination="ply-lO-v2N" id="qhC-fc-s1c"/>
                         <outlet property="profileName" destination="NUU-8f-NUU" id="uXi-hY-Qo7"/>
                     </connections>
@@ -1875,15 +1876,15 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Qwr-LA-uyc" secondAttribute="bottom" constant="17" id="BpW-W8-oM4"/>
+                                <constraint firstItem="Qwr-LA-uyc" firstAttribute="top" secondItem="Qrj-Bz-w6Y" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="EiN-Kx-o6l"/>
                                 <constraint firstItem="NJc-He-FGZ" firstAttribute="leading" secondItem="L6M-d2-tfm" secondAttribute="leading" type="default" id="HeR-LJ-cOs"/>
                                 <constraint firstAttribute="bottom" secondItem="Qae-dc-x5j" secondAttribute="bottom" constant="6" id="KuS-3X-JPA"/>
                                 <constraint firstItem="Qwr-LA-uyc" firstAttribute="centerX" secondItem="Qae-dc-x5j" secondAttribute="centerX" type="default" id="Lri-dT-Tc4"/>
                                 <constraint firstItem="NJc-He-FGZ" firstAttribute="bottom" secondItem="L6M-d2-tfm" secondAttribute="bottom" type="default" id="Mnj-0P-S4t"/>
                                 <constraint firstItem="Qwr-LA-uyc" firstAttribute="centerX" secondItem="Qrj-Bz-w6Y" secondAttribute="centerX" type="default" id="SCN-5G-2vC"/>
                                 <constraint firstItem="fJ7-PR-pCv" firstAttribute="top" secondItem="L6M-d2-tfm" secondAttribute="top" constant="13" id="V7t-8p-5pb"/>
-                                <constraint firstAttribute="bottom" secondItem="Qwr-LA-uyc" secondAttribute="bottom" constant="18" id="Y9e-F4-jhS"/>
                                 <constraint firstItem="NJc-He-FGZ" firstAttribute="top" secondItem="L6M-d2-tfm" secondAttribute="top" type="default" id="gJ8-Al-Ep9"/>
-                                <constraint firstAttribute="bottom" secondItem="Qrj-Bz-w6Y" secondAttribute="bottom" constant="46" id="ofi-hj-iLV"/>
                                 <constraint firstItem="Qae-dc-x5j" firstAttribute="leading" secondItem="L6M-d2-tfm" secondAttribute="leading" type="default" id="wyt-tp-LhO"/>
                                 <constraint firstItem="fJ7-PR-pCv" firstAttribute="centerX" secondItem="Qrj-Bz-w6Y" secondAttribute="centerX" type="default" id="zHH-yj-Ayc"/>
                             </constraints>
@@ -2112,6 +2113,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="profileBanner" destination="Qwr-LA-uyc" id="YWx-XM-2AM"/>
                         <outlet property="profileImage" destination="fJ7-PR-pCv" id="yEZ-fk-T9N"/>
                         <outlet property="profileName" destination="Qrj-Bz-w6Y" id="hrQ-9p-bbO"/>
                     </connections>
@@ -2182,9 +2184,9 @@
         <class className="LikesTableViewController" superclassName="TimelineViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LikesTableViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="profileBanner" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="profileImage" candidateClass="PFImageView"/>
                 <relationship kind="outlet" name="profileName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sproutCount" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="LoginViewController" superclassName="UIViewController">
@@ -2208,9 +2210,9 @@
         <class className="ProfileTableViewController" superclassName="TimelineViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileTableViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="profileBanner" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="profileImage" candidateClass="PFImageView"/>
                 <relationship kind="outlet" name="profileName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sproutCount" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="SSTextView" superclassName="UITextView">
