@@ -117,6 +117,12 @@
     [self presentViewController:webViewController animated:YES completion:nil];
 }
 
+- (IBAction)feedbackPressed:(id)sender {
+    NSString *url = @"mailto:feedback@52sprouts.com?&subject=Feedback";
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
+}
+
+
 - (IBAction)logoutPressed:(id)sender {
     [PFUser logOut];
     [self performSegueWithIdentifier:@"logout" sender:self];

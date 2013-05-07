@@ -24,6 +24,7 @@
 - (IBAction)termsPressed:(id)sender;
 - (IBAction)websitePressed:(id)sender;
 - (IBAction)twitterPressed:(id)sender;
+- (IBAction)feedbackPressed:(id)sender;
 - (IBAction)logoutPressed:(id)sender;
 
 @end
