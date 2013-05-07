@@ -43,6 +43,7 @@
     [pickDayHeader setTextColor:[[Utility sharedInstance] darkGreyColor]];
     [scheduleMessage setFont:[[Utility sharedInstance] mediumFont]];
     [scheduleMessage setTextColor:[[Utility sharedInstance] darkGreyColor]];
+    [tipsHeader setFont:[[Utility sharedInstance] bannerFont]];
     
     //back button
     UIImage *backButtonHomeImage = [[UIImage imageNamed:@"back_arrow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12, 0, 4)];

@@ -1247,7 +1247,7 @@
                                     <action selector="feedbackPressed:" destination="JM1-Lw-Yoe" eventType="touchUpInside" id="wSo-fz-Jhm"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TERMS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPq-h0-kh3">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TERMS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPq-h0-kh3">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="KMc-97-Toc"/>
                                     <constraint firstAttribute="width" constant="60" id="LSD-Qc-RuM"/>
@@ -1257,7 +1257,7 @@
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="CONTACT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xn4-h4-mf2">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="CONTACT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xn4-h4-mf2">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="0q3-cN-fnZ"/>
                                     <constraint firstAttribute="width" constant="83" id="Yng-cu-E13"/>
