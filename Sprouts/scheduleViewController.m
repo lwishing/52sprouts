@@ -144,26 +144,32 @@
     
     // disable buttons if day has passed
     if ([dayOfWeek isEqualToString:@"Thursday"]) {
+        self.dayOneDate.text = @"Today";
     } else if ([dayOfWeek isEqualToString:@"Friday"]) {
         [self.dayOne setEnabled:NO];
+        self.dayTwoDate.text = @"Today";
     } else if ([dayOfWeek isEqualToString:@"Saturday"]) {
         [self.dayOne setEnabled:NO];
         [self.dayTwo setEnabled:NO];
+        self.dayThreeDate.text = @"Today";
     } else if ([dayOfWeek isEqualToString:@"Sunday"]) {
         [self.dayOne setEnabled:NO];
         [self.dayTwo setEnabled:NO];
         [self.dayThree setEnabled:NO];
+        self.dayFourDate.text = @"Today";
     } else if ([dayOfWeek isEqualToString:@"Monday"]) {
         [self.dayOne setEnabled:NO];
         [self.dayTwo setEnabled:NO];
         [self.dayThree setEnabled:NO];
         [self.dayFour setEnabled:NO];
+        self.dayFiveDate.text = @"Today";
     } else if ([dayOfWeek isEqualToString:@"Tuesday"]) {
         [self.dayOne setEnabled:NO];
         [self.dayTwo setEnabled:NO];
         [self.dayThree setEnabled:NO];
         [self.dayFour setEnabled:NO];
         [self.dayFive setEnabled:NO];
+        self.daySixDate.text = @"Today";
     } else if ([dayOfWeek isEqualToString:@"Wednesday"]) {
         [self.dayOne setEnabled:NO];
         [self.dayTwo setEnabled:NO];
@@ -171,6 +177,7 @@
         [self.dayFour setEnabled:NO];
         [self.dayFive setEnabled:NO];
         [self.daySix setEnabled:NO];
+        self.daySevenDate.text = @"Today";
     }
     
     
@@ -254,7 +261,7 @@
     y += storingView.frame.size.height + padding;
     
     scrollView.contentSize=CGSizeMake(320, y);
-    scrollView.contentInset= UIEdgeInsetsMake(0.0,0.0, 30.0,0.0);
+    scrollView.contentInset= UIEdgeInsetsMake(0.0,0.0,0.0,0.0);
     
     // shadow experiment
     for (UIView *subview in [scrollView subviews]) {

@@ -2125,7 +2125,7 @@
         <image name="background.png" width="320" height="568"/>
         <image name="background_dark.png" width="320" height="388"/>
         <image name="big_chevron.png" width="23" height="33"/>
-        <image name="calendar.png" width="17" height="20"/>
+        <image name="calendar.png" width="20" height="20"/>
         <image name="divider.png" width="290" height="1"/>
         <image name="facebook_button.png" width="320" height="44"/>
         <image name="feed_icon_deselected.png" width="16" height="28"/>
