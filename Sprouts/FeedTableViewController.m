@@ -77,7 +77,6 @@
     
     // when contentOffset is is more then cellHeight scroll floating cell
     if (scrollView.contentOffset.y > 116.0) {
-        NSLog(@"%f",scrollView.contentOffset.y);
         floatingCellFrame.origin.y = scrollView.contentOffset.y;
     } else {
         floatingCellFrame.origin.y = 116.0;
