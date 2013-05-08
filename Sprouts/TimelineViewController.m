@@ -131,11 +131,11 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 
     // Infinite scroll
-//    if (scrollView.contentSize.height - scrollView.contentOffset.y < (self.view.bounds.size.height)) {
-//        if (![self isLoading]) {
-//            [self loadNextPage];
-//        }
-//    }
+    if (scrollView.contentSize.height - scrollView.contentOffset.y < (self.view.bounds.size.height)) {
+        if (![self isLoading]) {
+            [self loadNextPage];
+        }
+    }
     
     /*
     // Sticky header
@@ -278,24 +278,27 @@
  }
  */
 
-/*
- // Override to customize the look of the cell that allows the user to load the next page of objects.
- // The default implementation is a UITableViewCellStyleDefault cell with simple labels.
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
- static NSString *CellIdentifier = @"NextPage";
- 
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
- 
- if (cell == nil) {
- cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
- }
- 
- cell.selectionStyle = UITableViewCellSelectionStyleNone;
- cell.textLabel.text = @"Load more...";
- 
- return cell;
- }
- */
+
+// Override to customize the look of the cell that allows the user to load the next page of objects.
+// The default implementation is a UITableViewCellStyleDefault cell with simple labels.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"NextPage";
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.text = @"Load more Sprouts";
+    cell.textLabel.textColor = [[Utility sharedInstance] greenColor];
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    
+    return cell;
+}
+
 
 /* Table Row Height */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

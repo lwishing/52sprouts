@@ -125,14 +125,14 @@
     
     // Ingredients
     NSArray *ingredientArray = [sproutObject objectForKey:(@"ingredients")];
-    if (ingredientArray != nil && [ingredientArray count] != 0) {
-        [_sproutIngredients setHidden:NO];
+    if (ingredientArray != nil || [ingredientArray count] != 0) {
+        [_sproutIngredients setAlpha:1.0];
         [_sproutIngredients setAutomaticResize:YES];
         [_sproutIngredients setScrollsToTop:NO];
         [_sproutIngredients setTags:ingredientArray];
         height += [_sproutIngredients fittedSize].height + 15;
     } else {
-        [_sproutIngredients setHidden:YES];
+        [_sproutIngredients setAlpha:0.0];
         // Add bottom padding
         height += 10;
     }

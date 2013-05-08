@@ -170,13 +170,13 @@
         previousFrame = tagView.frame;
         gotPreviousFrame = YES;
 
-        [tagView setBackgroundColor:[self getBackgroundColor]];
+        [tagView.layer setBackgroundColor:[self getBackgroundColor].CGColor];
 
-        // Davide Cenzi, added gesture recognizer to label
-        UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchedTag:)];
-        // if labelView is not set userInteractionEnabled, you must do so
-        [tagView setUserInteractionEnabled:YES];
-        [tagView addGestureRecognizer:gesture];
+//        // Davide Cenzi, added gesture recognizer to label
+//        UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchedTag:)];
+//        // if labelView is not set userInteractionEnabled, you must do so
+//        [tagView setUserInteractionEnabled:YES];
+//        [tagView addGestureRecognizer:gesture];
         
         [self addSubview:tagView];
 
@@ -249,8 +249,8 @@
     if (self) {
         _label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         [_label setTextColor:TEXT_COLOR];
-        [_label setShadowColor:TEXT_SHADOW_COLOR];
-        [_label setShadowOffset:TEXT_SHADOW_OFFSET];
+//        [_label setShadowColor:TEXT_SHADOW_COLOR];
+//        [_label setShadowOffset:TEXT_SHADOW_OFFSET];
         [_label setBackgroundColor:[UIColor clearColor]];
         [_label setTextAlignment:NSTextAlignmentCenter];
         [self addSubview:_label];
@@ -260,7 +260,7 @@
         [_button setFrame:self.frame];
         [self addSubview:_button];
         
-        [self.layer setMasksToBounds:YES];
+        [self.layer setMasksToBounds:NO];
         [self.layer setCornerRadius:CORNER_RADIUS];
         [self.layer setBorderColor:BORDER_COLOR];
         [self.layer setBorderWidth: BORDER_WIDTH];
