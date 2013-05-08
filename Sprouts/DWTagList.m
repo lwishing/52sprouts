@@ -22,7 +22,7 @@
 #define TEXT_COLOR [UIColor whiteColor]
 //#define TEXT_SHADOW_COLOR [UIColor whiteColor]
 #define TEXT_SHADOW_COLOR [UIColor grayColor]
-#define TEXT_SHADOW_OFFSET CGSizeMake(0.0f, 1.0f)
+#define TEXT_SHADOW_OFFSET CGSizeMake(0.0f, 0.0f)
 #define BORDER_COLOR [UIColor lightGrayColor].CGColor
 #define BORDER_WIDTH 0.0f
 #define HIGHLIGHTED_BACKGROUND_COLOR [UIColor colorWithRed:0.40 green:0.80 blue:1.00 alpha:0.5]
@@ -180,12 +180,12 @@
         
         [self addSubview:tagView];
 
-        if (!_viewOnly) {
-            [tagView.button addTarget:self action:@selector(touchDownInside:) forControlEvents:UIControlEventTouchDown];
-            [tagView.button addTarget:self action:@selector(touchUpInside:) forControlEvents:UIControlEventTouchUpInside];
-            [tagView.button addTarget:self action:@selector(touchDragExit:) forControlEvents:UIControlEventTouchDragExit];
-            [tagView.button addTarget:self action:@selector(touchDragInside:) forControlEvents:UIControlEventTouchDragInside];
-        }
+//        if (!_viewOnly) {
+//            [tagView.button addTarget:self action:@selector(touchDownInside:) forControlEvents:UIControlEventTouchDown];
+//            [tagView.button addTarget:self action:@selector(touchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+//            [tagView.button addTarget:self action:@selector(touchDragExit:) forControlEvents:UIControlEventTouchDragExit];
+//            [tagView.button addTarget:self action:@selector(touchDragInside:) forControlEvents:UIControlEventTouchDragInside];
+//        }
     }
 
     sizeFit = CGSizeMake(self.frame.size.width, previousFrame.origin.y + previousFrame.size.height + self.bottomMargin + 1.0f);
@@ -197,32 +197,32 @@
     return sizeFit;
 }
 
-- (void)touchDownInside:(id)sender
-{
-    UIButton *button = (UIButton*)sender;
-    [[button superview] setBackgroundColor:self.highlightedBackgroundColor];
-}
+//- (void)touchDownInside:(id)sender
+//{
+//    UIButton *button = (UIButton*)sender;
+//    [[button superview] setBackgroundColor:self.highlightedBackgroundColor];
+//}
+//
+//- (void)touchUpInside:(id)sender
+//{
+//    UIButton *button = (UIButton*)sender;
+//    [[button superview] setBackgroundColor:[self getBackgroundColor]];
+//    if(button && self.tagDelegate && [self.tagDelegate respondsToSelector:@selector(selectedTag:)])
+//        [self.tagDelegate selectedTag:button.accessibilityLabel];
+//}
+//
+//- (void)touchDragExit:(id)sender
+//{
+//    UIButton *button = (UIButton*)sender;
+//    [[button superview] setBackgroundColor:[self getBackgroundColor]];
+//}
+//
+//- (void)touchDragInside:(id)sender
+//{
+//    UIButton *button = (UIButton*)sender;
+//    [[button superview] setBackgroundColor:[self getBackgroundColor]];
+//}
 
-- (void)touchUpInside:(id)sender
-{
-    UIButton *button = (UIButton*)sender;
-    [[button superview] setBackgroundColor:[self getBackgroundColor]];
-    if(button && self.tagDelegate && [self.tagDelegate respondsToSelector:@selector(selectedTag:)])
-        [self.tagDelegate selectedTag:button.accessibilityLabel];
-}
-
-- (void)touchDragExit:(id)sender
-{
-    UIButton *button = (UIButton*)sender;
-    [[button superview] setBackgroundColor:[self getBackgroundColor]];
-}
-
-- (void)touchDragInside:(id)sender
-{
-    UIButton *button = (UIButton*)sender;
-    [[button superview] setBackgroundColor:[self getBackgroundColor]];
-}
-     
 - (UIColor *)getBackgroundColor
 {
      if (!lblBackgroundColor) {

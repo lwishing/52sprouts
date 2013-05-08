@@ -30,9 +30,9 @@
     UIImage *buttonImage = [[UIImage imageNamed:@"button_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(14, 4, 14, 4)];
     [settingsButton setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
-//    NSDictionary *attributes = [NSDictionary dictionaryWithObject:[[Utility sharedInstance] mediumFont]
-//                                                           forKey:UITextAttributeFont];
-//    [_segmentControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:[[Utility sharedInstance] smallFont]
+                                                           forKey:UITextAttributeFont];
+    [_segmentControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
     
     // configure chld view controller view's frame
     _sproutsView.view.frame=CGRectMake( 0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height);

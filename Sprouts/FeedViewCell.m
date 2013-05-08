@@ -114,9 +114,7 @@
     _sproutDescription.numberOfLines = 0;
     _sproutDescription.frame = CGRectMake(_sproutDescription.frame.origin.x, _sproutDescription.frame.origin.y, 280.0, descriptionLabelHeight);
     
-//    NSLog(@"Title: %f, Desc %f", titleLabelHeight, descriptionLabelHeight);
     height += titleLabelHeight + descriptionLabelHeight + 80.0;
-//    NSLog(@"FeedCell: %f", height);
     
     // Timestamp
     TTTTimeIntervalFormatter *timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
@@ -128,14 +126,10 @@
     // Ingredients
     NSArray *ingredientArray = [sproutObject objectForKey:(@"ingredients")];
     if (ingredientArray != nil && [ingredientArray count] != 0) {
-        // Ingredient array has stuff
-//        NSLog(@"%@",ingredientArray);
         [_sproutIngredients setHidden:NO];
         [_sproutIngredients setAutomaticResize:YES];
+        [_sproutIngredients setScrollsToTop:NO];
         [_sproutIngredients setTags:ingredientArray];
-        NSLog(@"Ingredients H: %f / W: %f",
-              [_sproutIngredients fittedSize].height,
-              [_sproutIngredients fittedSize].width);
         height += [_sproutIngredients fittedSize].height + 15;
     } else {
         [_sproutIngredients setHidden:YES];
