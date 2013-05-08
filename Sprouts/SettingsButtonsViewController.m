@@ -52,11 +52,11 @@
     [termsLabel setFont:[UIFont fontWithName:@"MuseoSans-500" size:14.0]];
     [contactLabel setFont:[UIFont fontWithName:@"MuseoSans-500" size:14.0]];
     
-    sproutImage.hidden = YES;
-    
-    if ([[UIScreen mainScreen] bounds].size.height == 568) {
-        sproutImage.hidden = NO;
-    }
+//    sproutImage.hidden = YES;
+//    
+//    if ([[UIScreen mainScreen] bounds].size.height == 568) {
+//        sproutImage.hidden = NO;
+//    }
     
     NSArray *buttons = [[NSArray alloc] initWithObjects: privacyButton, termsButton, websiteButton, twitterButton, nil];
     
