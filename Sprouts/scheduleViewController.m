@@ -261,7 +261,9 @@
     y += storingView.frame.size.height + padding;
     
     scrollView.contentSize=CGSizeMake(320, y);
-    scrollView.contentInset= UIEdgeInsetsMake(0.0,0.0,0.0,0.0);
+    scrollView.contentInset= UIEdgeInsetsMake(0.0,0.0,20.0,0.0);
+    UIImage *scrollBackground = [UIImage imageNamed:@"background_dark.png"];
+    scrollView.backgroundColor = [UIColor colorWithPatternImage:scrollBackground];
     
     // shadow experiment
     for (UIView *subview in [scrollView subviews]) {
