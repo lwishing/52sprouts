@@ -312,7 +312,7 @@
         localNotification.fireDate = inputDate;
         localNotification.soundName = UILocalNotificationDefaultSoundName;
         NSString *ingredientName = [[ingredient objectForKey:@"name"] lowercaseString];
-        localNotification.alertBody = [NSString stringWithFormat:@"You're cooking %@ tomorrow!", ingredientName];
+        localNotification.alertBody = [NSString stringWithFormat:@"Remember, you're supposed to cook %@ tomorrow! Make sure to go get your ingredients.", ingredientName];
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
