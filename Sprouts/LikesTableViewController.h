@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *profileName;
 @property (strong, nonatomic) IBOutlet PFImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *profileBanner;
+@property (weak, nonatomic) IBOutlet UIImageView *header;
 
 
 @end

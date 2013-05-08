@@ -25,6 +25,8 @@ static Utility *_sharedInstance;
         currentWeek = [query getFirstObject];
         currentIngredient = [currentWeek objectForKey:@"ingredient"];
         
+        buttonFont = [UIFont fontWithName:@"MuseoSans-700" size:12.0];
+        
         smallFont = [UIFont fontWithName:@"MuseoSans-500" size:12.0];
         bannerFont = [UIFont fontWithName:@"MuseoSans-500" size:14.0];
         mediumFont = [UIFont fontWithName:@"MuseoSans-500" size:16.0];
@@ -55,6 +57,10 @@ static Utility *_sharedInstance;
 
 - (PFObject *)getCurrentIngredient {
     return currentIngredient;
+}
+
+- (UIFont *)buttonFont {
+    return buttonFont;
 }
 
 - (UIFont *)bannerFont {

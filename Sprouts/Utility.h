@@ -14,6 +14,7 @@
     PFObject *currentWeek;
     PFObject *currentIngredient;
     
+    UIFont *buttonFont;
     UIFont *bannerFont;
     UIFont *mediumFont;
     
@@ -32,6 +33,7 @@
 - (PFObject *)getCurrentWeek;
 - (PFObject *)getCurrentIngredient;
 
+- (UIFont *)buttonFont;
 - (UIFont *)bannerFont;
 - (UIFont *)mediumFont;
 - (UIFont *)smallFont;

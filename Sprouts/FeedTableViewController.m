@@ -69,4 +69,21 @@
     _titleBanner.font = [util bannerFont];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [super scrollViewDidScroll:scrollView];
+    
+    // Sticky header
+    CGRect floatingCellFrame = self.header.frame;
+    
+    // when contentOffset is is more then cellHeight scroll floating cell
+    if (scrollView.contentOffset.y > 116.0) {
+        NSLog(@"%f",scrollView.contentOffset.y);
+        floatingCellFrame.origin.y = scrollView.contentOffset.y;
+    } else {
+        floatingCellFrame.origin.y = 116.0;
+    }
+    
+    self.header.frame = floatingCellFrame;
+}
+
 @end

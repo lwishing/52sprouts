@@ -136,28 +136,7 @@
             [self loadNextPage];
         }
     }
-    
-    /*
-    // Sticky header
-    CGRect floatingCellFrame = self.header.frame;
-    CGFloat floatingCellHeight = floatingCellFrame.size.height + self.ingredientBanner.frame.size.height;
-    
-    // when contentOffset is is more then cellHeight scroll floating cell
-    if (scrollView.contentOffset.y > floatingCellHeight) {
-        NSLog(@"%f",scrollView.contentOffset.y);
-        floatingCellFrame.origin.y = -scrollView.contentOffset.y + floatingCellHeight;
-        
-    // Need to add middle case for between floatingCellHeight and cell + banner height
-    } else if (scrollView.contentOffset.y < floatingCellHeight) {
-        floatingCellFrame.origin.y = floatingCellHeight;
-    
-    // when contentOffset is less then cellHeight stick it to the top of UITableView
-    } else if (scrollView.contentOffset.y < floatingCellHeight) {
-        floatingCellFrame.origin.y = 0;
-    }
 
-    self.header.frame = floatingCellFrame;
-     */
 }
 
  // Override to customize what kind of query to perform on the class. The default is to query for
@@ -246,15 +225,20 @@
             if (!error) {
                 // The count request succeeded. Log the count
                 NSNumber *likeCount = [NSNumber numberWithInt:count];
-                if (likeCount > 0){
+                if (count > 0){
                     [cell.likeButton setTitle:[likeCount stringValue] forState:UIControlStateNormal];
+                    cell.likeButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, -2.0, 0.0);
+                    [cell.likeButton sizeToFit];
                 } else {
                     [cell.likeButton setTitle:@"Yum" forState:UIControlStateNormal];
+                    cell.likeButton.titleEdgeInsets = UIEdgeInsetsMake(0, 7.0, -2.0, 0.0);
+                    [cell.likeButton sizeToFit];
                 }
 
             } else {
                 // The request failed
-                [cell.likeButton setTitle:@"Yum" forState:UIControlStateNormal];
+//                [cell.likeButton setTitle:@"YUM" forState:UIControlStateNormal];
+//                [cell.likeButton sizeToFit];
             }
         }];
         

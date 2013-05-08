@@ -58,9 +58,8 @@
     height = 0.0;
     
 //    [_commentButton addTarget:self action:@selector(didTapCommentOnSproutButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    
     [_likeButton addTarget:self action:@selector(didTapLikeSproutButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    _likeButton.titleLabel.font = [util smallFont];
+    _likeButton.titleLabel.font = [util buttonFont];
 
     //Image
     PFFile *imageFile = [sproutObject objectForKey:@"photo"];    
@@ -138,20 +137,21 @@
     }
     
     // Rounded Corners + Drop Shadow
-//    CALayer *sublayer = _sproutBody.layer;
-//    sublayer.cornerRadius = 3.0f;
-//    sublayer.masksToBounds = YES;
-//    sublayer.shouldRasterize = YES;
-//    sublayer.rasterizationScale = [[UIScreen mainScreen] scale];
+    /*
+    CALayer *sublayer = _sproutBody.layer;
+    sublayer.cornerRadius = 3.0f;
+    sublayer.masksToBounds = NO;
+    sublayer.shouldRasterize = YES;
+    sublayer.rasterizationScale = [[UIScreen mainScreen] scale];
     
-//    sublayer.shadowOffset = CGSizeMake(0, 2);
-//    sublayer.shadowRadius = 2.0;
-//    sublayer.shadowColor = [UIColor grayColor].CGColor;
-//    sublayer.shadowOpacity = 0.5;
-//    CGRect shadowFrame = _sproutBody.layer.bounds;
-//    CGPathRef shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
-//    sublayer.shadowPath = shadowPath;
-    
+    sublayer.shadowOffset = CGSizeMake(0, 2);
+    sublayer.shadowRadius = 2.0;
+    sublayer.shadowColor = [UIColor grayColor].CGColor;
+    sublayer.shadowOpacity = 0.5;
+    CGRect shadowFrame = _sproutBody.layer.bounds;
+    CGPathRef shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
+    sublayer.shadowPath = shadowPath;
+    */
 }
 
 - (CGSize)sizeOfLabel:(UILabel *)label withText:(NSString *)text {

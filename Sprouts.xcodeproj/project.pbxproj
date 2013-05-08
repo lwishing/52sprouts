@@ -372,6 +372,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C575783173A400F001794A7 /* DWTagList */ = {
+			isa = PBXGroup;
+			children = (
+				9C8D2B201738D661004B90D2 /* DWTagList.h */,
+				9C8D2B211738D661004B90D2 /* DWTagList.m */,
+			);
+			name = DWTagList;
+			sourceTree = "<group>";
+		};
 		9CBC270C1731918300CBE8B3 /* TITokenField */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,8 +523,7 @@
 		9CDB538F1720AE03002F6E41 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				9C8D2B201738D661004B90D2 /* DWTagList.h */,
-				9C8D2B211738D661004B90D2 /* DWTagList.m */,
+				9C575783173A400F001794A7 /* DWTagList */,
 				9CBC270C1731918300CBE8B3 /* TITokenField */,
 				F30240FC172B51DD00EBD5FA /* ALScrollViewPaging */,
 				9CEE1BB817267C64006C5D50 /* MBProgressHUD */,

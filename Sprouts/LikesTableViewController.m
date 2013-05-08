@@ -18,6 +18,7 @@
 @synthesize profileImage = _profileImage;
 @synthesize profileName = _profileName;
 @synthesize profileBanner = _profileBanner;
+@synthesize header = _header;
 
 - (id)initWithCoder:(NSCoder *)aCoder {
     self = [super initWithCoder:aCoder];
@@ -106,6 +107,27 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     
     return [super tableView:tableView cellForRowAtIndexPath:indexPath object:[object objectForKey:@"sprout"]];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [super scrollViewDidScroll:scrollView];
+    
+    // Sticky header
+    CGRect floatingCellFrame = self.header.frame;
+    CGRect floatingLabelFrame = self.profileBanner.frame;
+    
+    // when contentOffset is is more then cellHeight scroll floating cell
+    if (scrollView.contentOffset.y > 122.0) {
+        NSLog(@"%f",scrollView.contentOffset.y);
+        floatingCellFrame.origin.y = scrollView.contentOffset.y;
+        floatingLabelFrame.origin.y = scrollView.contentOffset.y + 5.0;
+    } else {
+        floatingCellFrame.origin.y = 122.0;
+        floatingLabelFrame.origin.y = 122.0 + 5.0;
+    }
+    
+    self.header.frame = floatingCellFrame;
+    self.profileBanner.frame = floatingLabelFrame;
 }
 
 @end
