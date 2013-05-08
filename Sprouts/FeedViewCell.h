@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sproutDescription;
 @property (weak, nonatomic) IBOutlet UILabel *sproutedAt;
 @property (weak, nonatomic) IBOutlet UIView *sproutBody;
-@property (weak, nonatomic) DWTagList *sproutIngredients;
+@property (weak, nonatomic) IBOutlet DWTagList *sproutIngredients;
 
 @property (weak, nonatomic) PFObject *sproutObject;
 

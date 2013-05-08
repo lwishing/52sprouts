@@ -125,6 +125,24 @@
     _sproutedAt.textColor = [util greyColor];
     _sproutedAt.text = timeString;
     
+    // Ingredients
+    NSArray *ingredientArray = [sproutObject objectForKey:(@"ingredients")];
+    if (ingredientArray != nil && [ingredientArray count] != 0) {
+        // Ingredient array has stuff
+//        NSLog(@"%@",ingredientArray);
+        [_sproutIngredients setHidden:NO];
+        [_sproutIngredients setAutomaticResize:YES];
+        [_sproutIngredients setTags:ingredientArray];
+        NSLog(@"Ingredients H: %f / W: %f",
+              [_sproutIngredients fittedSize].height,
+              [_sproutIngredients fittedSize].width);
+        height += [_sproutIngredients fittedSize].height + 15;
+    } else {
+        [_sproutIngredients setHidden:YES];
+        // Add bottom padding
+        height += 10;
+    }
+    
     // Rounded Corners + Drop Shadow
 //    CALayer *sublayer = _sproutBody.layer;
 //    sublayer.cornerRadius = 3.0f;
