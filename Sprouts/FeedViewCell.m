@@ -82,12 +82,20 @@
     }
     
     // User
-    NSString *name = [NSString stringWithFormat:@"%@ %@.",
-                      [[sproutObject objectForKey:@"user"] objectForKey:@"firstName"],
-                      [[[sproutObject objectForKey:@"user"] objectForKey:@"lastName"] substringToIndex:1]];
-    _userName.text = name;
+    NSString *firstName = [[sproutObject objectForKey:@"user"] objectForKey:@"firstName"];
+    
+    if ([firstName isEqual: @"52 Sprouts"]) {
+        NSString *name = [NSString stringWithFormat:@"%@",firstName];
+        _userName.text = name;
+        _userName.textColor = [util greenColor];
+    } else {
+        NSString *name = [NSString stringWithFormat:@"%@ %@.", firstName,
+                          [[[sproutObject objectForKey:@"user"] objectForKey:@"lastName"] substringToIndex:1]];
+        _userName.text = name;
+        _userName.textColor = [util darkGreyColor];
+    }
+    
     _userName.font = [util bodyFont];
-    _userName.textColor = [util darkGreyColor];
     
     // Set your placeholder image first
     _userAvatar.image = [UIImage imageNamed:@"Icon.png"];
