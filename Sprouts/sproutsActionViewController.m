@@ -168,7 +168,6 @@
     return YES;
 }
 
-
 // Ingredients Received from Add Ingredients
 - (void) receiveIngredients:(NSNotification *) notification {
     self.ingredientArray = [[notification userInfo] valueForKey:@"ingredients"];

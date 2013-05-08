@@ -37,7 +37,7 @@
     // Display name
     _profileName.text = [NSString stringWithFormat:@"%@%@%@",[currentUser objectForKey:@"firstName"],@" ",[currentUser objectForKey:@"lastName"]];
     _profileName.font = [[Utility sharedInstance] mediumFont];
-//    _profileName.textColor = [[Utility sharedInstance] greenColor];
+    _profileName.textColor = [util darkGreyColor];
     
     // Load profile image
     _profileImage.image = [UIImage imageNamed:@"loading_photo.png"];
@@ -48,6 +48,29 @@
     }];
     
     _profileBanner.font = [util bannerFont];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Sprout"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    [query setCachePolicy:kPFCachePolicyNetworkOnly];
+    [query countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
+        if (!error) {
+            // The count request succeeded. Log the count
+            switch (count) {
+                case 0:
+                    _profileBanner.text = @"SPROUTS";
+                    break;
+                case 1:
+                    _profileBanner.text = @"1 SPROUT";
+                    break;
+                default:
+                    _profileBanner.text = [NSString stringWithFormat:@"%d SPROUTS", count];
+                    break;
+            }
+        } else {
+            // The request failed
+        }
+    }];
+
 }
 
 // Override to customize what kind of query to perform on the class. The default is to query for

@@ -18,6 +18,7 @@
 @synthesize sproutDescription = _sproutDescription;
 @synthesize sproutedAt = _sproutedAt;
 @synthesize sproutBody = _sproutBody;
+@synthesize sproutIngredients = _sproutIngredients;
 
 @synthesize sproutObject = _sproutObject;
 

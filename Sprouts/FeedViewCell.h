@@ -7,6 +7,7 @@
 //
 
 #import <Parse/Parse.h>
+#import "DWTagList.h"
 
 @protocol FeedViewCellDelegate;
 
@@ -15,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *sproutTitle;
 @property (weak, nonatomic) IBOutlet UILabel *sproutDescription;
 @property (weak, nonatomic) IBOutlet UILabel *sproutedAt;
+@property (weak, nonatomic) IBOutlet UIView *sproutBody;
+@property (weak, nonatomic) DWTagList *sproutIngredients;
 
 @property (weak, nonatomic) PFObject *sproutObject;
 
@@ -24,10 +27,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet PFImageView *userAvatar;
 
-@property (weak, nonatomic) id <FeedViewCellDelegate> delegate;
-
-@property (weak, nonatomic) IBOutlet UIView *sproutBody;
 @property CGFloat height;
+@property (weak, nonatomic) id <FeedViewCellDelegate> delegate;
 
 /*!
  Configures the Like Button to match the given like status.
