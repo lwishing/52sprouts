@@ -128,8 +128,8 @@
     NSUInteger newLength = oldLength - rangeLength + replacementLength;
     
     // prevents issue of counter going to -1
-    if (newLength <= 30) {
-        characterCountTitle.text = [NSString stringWithFormat:@"%d", (30 -  newLength)];
+    if (newLength <= 40) {
+        characterCountTitle.text = [NSString stringWithFormat:@"%d", (40 -  newLength)];
     } 
     
     // disables share button if there is no title
@@ -142,7 +142,7 @@
         
     BOOL returnKey = [string rangeOfString: @"\n"].location != NSNotFound;
     
-    return newLength <= 30 || returnKey;
+    return newLength <= 40 || returnKey;
 }
 
 #pragma mark - UITextViewDelegate
