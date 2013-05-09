@@ -130,7 +130,7 @@
 - (IBAction)acknowledgementsPressed:(id)sender {
     WebViewController *webViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
     webViewController.theURL = [NSURL URLWithString:@"http://52sprouts.com/attribution"];
-    webViewController.theTitle = @"Acknowledgements";
+    webViewController.theTitle = @"Attribution";
     [self presentViewController:webViewController animated:YES completion:nil];
 }
 
