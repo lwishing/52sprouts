@@ -19,12 +19,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *termsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contactLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *sproutImage;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIButton *acknowledgementsButton;
 
 - (IBAction)privacyPressed:(id)sender;
 - (IBAction)termsPressed:(id)sender;
 - (IBAction)websitePressed:(id)sender;
 - (IBAction)twitterPressed:(id)sender;
 - (IBAction)feedbackPressed:(id)sender;
+- (IBAction)acknowledgementsPressed:(id)sender;
 - (IBAction)logoutPressed:(id)sender;
 
 @end

@@ -1201,6 +1201,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="header.png" translatesAutoresizingMaskIntoConstraints="NO" id="745-SR-4nb"/>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6Q-Fs-adx">
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="305" id="TzP-6V-NJg"/>
                                             <constraint firstAttribute="height" constant="44" id="nHG-nW-hd4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1218,7 +1219,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVZ-b3-tvR">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="r93-xr-PbS"/>
+                                            <constraint firstAttribute="width" constant="300" id="0TC-Kd-bnE"/>
                                             <constraint firstAttribute="height" constant="44" id="rBE-CQ-kL3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1238,7 +1239,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqQ-Nz-svC">
                                         <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="VKW-Ft-zNA"/>
+                                            <constraint firstAttribute="height" constant="44" type="user" id="VKW-Ft-zNA"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                         <state key="normal" title="Logout">
@@ -1291,10 +1292,9 @@
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="CONTACT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xn4-h4-mf2">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="52 SPROUTS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xn4-h4-mf2">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="0q3-cN-fnZ"/>
-                                            <constraint firstAttribute="width" constant="83" id="Yng-cu-E13"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1302,33 +1302,47 @@
                                         <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="small_sprout.png" translatesAutoresizingMaskIntoConstraints="NO" id="h6v-wI-7LY"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEC-Hw-0Cx">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Acknowledgements" backgroundImage="table_cell.png">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="acknowledgementsPressed:" destination="JM1-Lw-Yoe" eventType="touchUpInside" id="7Vc-YA-9rZ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="h6v-wI-7LY" firstAttribute="centerX" secondItem="NqQ-Nz-svC" secondAttribute="centerX" type="default" id="17w-rK-BgU"/>
+                                    <constraint firstItem="745-SR-4nb" firstAttribute="trailing" secondItem="Tgz-iJ-PR6" secondAttribute="trailing" type="default" id="8p2-3a-59q"/>
                                     <constraint firstItem="hZ4-4a-zhA" firstAttribute="top" secondItem="J6Q-Fs-adx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="91d-jk-0JS"/>
-                                    <constraint firstItem="q1b-3A-e1N" firstAttribute="leading" secondItem="J6Q-Fs-adx" secondAttribute="leading" type="default" id="BHz-DJ-Jfa"/>
                                     <constraint firstItem="hZ4-4a-zhA" firstAttribute="leading" secondItem="Tgz-iJ-PR6" secondAttribute="leading" type="default" id="BlS-6E-k62"/>
-                                    <constraint firstItem="PpV-Qo-Til" firstAttribute="trailing" secondItem="NqQ-Nz-svC" secondAttribute="trailing" type="default" id="FN1-aF-vgV"/>
+                                    <constraint firstItem="q1b-3A-e1N" firstAttribute="leading" secondItem="PpV-Qo-Til" secondAttribute="leading" type="default" id="Eb5-mx-so5"/>
                                     <constraint firstItem="PpV-Qo-Til" firstAttribute="top" secondItem="q1b-3A-e1N" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="G9b-Zn-hEF"/>
-                                    <constraint firstItem="NqQ-Nz-svC" firstAttribute="leading" secondItem="PpV-Qo-Til" secondAttribute="leading" type="default" id="HqX-Lq-nss"/>
-                                    <constraint firstItem="J6Q-Fs-adx" firstAttribute="centerX" secondItem="xn4-h4-mf2" secondAttribute="centerX" type="default" id="J33-KN-ZqA"/>
-                                    <constraint firstItem="J6Q-Fs-adx" firstAttribute="leading" secondItem="BVZ-b3-tvR" secondAttribute="leading" type="default" id="JXo-y5-eFC"/>
-                                    <constraint firstItem="NqQ-Nz-svC" firstAttribute="top" secondItem="Tgz-iJ-PR6" secondAttribute="top" constant="391" id="K0U-8S-5WO"/>
                                     <constraint firstItem="745-SR-4nb" firstAttribute="leading" secondItem="Tgz-iJ-PR6" secondAttribute="leading" type="default" id="KRm-aM-5i7"/>
-                                    <constraint firstItem="q1b-3A-e1N" firstAttribute="trailing" secondItem="PpV-Qo-Til" secondAttribute="trailing" type="default" id="NHr-a9-NRV"/>
+                                    <constraint firstItem="PpV-Qo-Til" firstAttribute="trailing" secondItem="mEC-Hw-0Cx" secondAttribute="trailing" type="default" id="KdZ-GP-6tG"/>
+                                    <constraint firstAttribute="bottom" secondItem="h6v-wI-7LY" secondAttribute="bottom" constant="45" id="OOo-7R-M7W"/>
                                     <constraint firstItem="gPq-h0-kh3" firstAttribute="top" secondItem="Tgz-iJ-PR6" secondAttribute="top" constant="10" id="R7r-gg-v71"/>
+                                    <constraint firstItem="J6Q-Fs-adx" firstAttribute="trailing" secondItem="NqQ-Nz-svC" secondAttribute="trailing" type="default" id="X3G-tA-0uC"/>
                                     <constraint firstItem="745-SR-4nb" firstAttribute="centerX" secondItem="gPq-h0-kh3" secondAttribute="centerX" type="default" id="XTr-lQ-TbK"/>
+                                    <constraint firstItem="PpV-Qo-Til" firstAttribute="leading" secondItem="mEC-Hw-0Cx" secondAttribute="leading" type="default" id="a1m-NT-UdR"/>
                                     <constraint firstItem="BVZ-b3-tvR" firstAttribute="top" secondItem="Tgz-iJ-PR6" secondAttribute="top" constant="49" id="aSu-df-86x"/>
-                                    <constraint firstItem="h6v-wI-7LY" firstAttribute="top" secondItem="Tgz-iJ-PR6" secondAttribute="top" constant="320" id="aTS-35-Rem"/>
-                                    <constraint firstItem="h6v-wI-7LY" firstAttribute="centerX" secondItem="NqQ-Nz-svC" secondAttribute="centerX" type="default" id="eLx-FL-li9"/>
-                                    <constraint firstItem="J6Q-Fs-adx" firstAttribute="trailing" secondItem="q1b-3A-e1N" secondAttribute="trailing" type="default" id="ea5-Ru-iY8"/>
+                                    <constraint firstItem="h6v-wI-7LY" firstAttribute="top" secondItem="Tgz-iJ-PR6" secondAttribute="top" constant="362" id="cLH-vP-sJx"/>
                                     <constraint firstItem="745-SR-4nb" firstAttribute="top" secondItem="Tgz-iJ-PR6" secondAttribute="top" constant="5" id="ffd-4g-JJM"/>
-                                    <constraint firstAttribute="bottom" secondItem="NqQ-Nz-svC" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="gaS-Zu-3Uq"/>
-                                    <constraint firstItem="PpV-Qo-Til" firstAttribute="leading" secondItem="q1b-3A-e1N" secondAttribute="leading" type="default" id="jSb-AF-ebT"/>
+                                    <constraint firstItem="mEC-Hw-0Cx" firstAttribute="top" secondItem="PpV-Qo-Til" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gdO-9U-p0q"/>
                                     <constraint firstItem="q1b-3A-e1N" firstAttribute="top" secondItem="hZ4-4a-zhA" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="lCs-T4-hnw"/>
-                                    <constraint firstItem="J6Q-Fs-adx" firstAttribute="trailing" secondItem="BVZ-b3-tvR" secondAttribute="trailing" type="default" id="nKw-yo-uYB"/>
-                                    <constraint firstItem="745-SR-4nb" firstAttribute="trailing" secondItem="Tgz-iJ-PR6" secondAttribute="trailing" type="default" id="nTx-AA-bPb"/>
                                     <constraint firstItem="xn4-h4-mf2" firstAttribute="top" secondItem="Tgz-iJ-PR6" secondAttribute="top" constant="158" id="nXP-Ha-ta5"/>
+                                    <constraint firstItem="BVZ-b3-tvR" firstAttribute="leading" secondItem="J6Q-Fs-adx" secondAttribute="leading" type="default" id="oRy-Jo-UHV"/>
+                                    <constraint firstItem="NqQ-Nz-svC" firstAttribute="top" secondItem="Tgz-iJ-PR6" secondAttribute="top" constant="426" id="pdY-c2-4cv"/>
+                                    <constraint firstItem="BVZ-b3-tvR" firstAttribute="centerX" secondItem="gPq-h0-kh3" secondAttribute="centerX" type="default" id="qDk-aU-9oa"/>
+                                    <constraint firstItem="q1b-3A-e1N" firstAttribute="leading" secondItem="J6Q-Fs-adx" secondAttribute="leading" type="default" id="sXr-dC-UFO"/>
                                     <constraint firstItem="hZ4-4a-zhA" firstAttribute="centerX" secondItem="xn4-h4-mf2" secondAttribute="centerX" type="default" id="t9r-8s-YMl"/>
+                                    <constraint firstItem="mEC-Hw-0Cx" firstAttribute="centerX" secondItem="h6v-wI-7LY" secondAttribute="centerX" type="default" id="uPQ-op-j3x"/>
                                     <constraint firstItem="J6Q-Fs-adx" firstAttribute="top" secondItem="BVZ-b3-tvR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="yeG-6l-k9l"/>
                                 </constraints>
                             </scrollView>
@@ -1345,9 +1359,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="RS5-oU-Jxn"/>
                     <connections>
+                        <outlet property="acknowledgementsButton" destination="mEC-Hw-0Cx" id="nUj-QY-yyA"/>
                         <outlet property="contactLabel" destination="xn4-h4-mf2" id="E9D-C8-Xhd"/>
                         <outlet property="logoutButton" destination="NqQ-Nz-svC" id="tcK-bp-C81"/>
                         <outlet property="privacyButton" destination="BVZ-b3-tvR" id="hJc-VQ-twF"/>
+                        <outlet property="scrollView" destination="Tgz-iJ-PR6" id="sdM-5R-PQK"/>
                         <outlet property="sproutImage" destination="h6v-wI-7LY" id="Bfj-oR-IeC"/>
                         <outlet property="termsButton" destination="J6Q-Fs-adx" id="CWl-LF-zAT"/>
                         <outlet property="termsLabel" destination="gPq-h0-kh3" id="HOj-K0-OPz"/>
@@ -2203,7 +2219,7 @@
         <image name="schedule_day.png" width="32" height="32"/>
         <image name="schedule_day_selected.png" width="32" height="32"/>
         <image name="small_sprout.png" width="36" height="48"/>
-        <image name="table_cell.png" width="310" height="44"/>
+        <image name="table_cell.png" width="300" height="44"/>
     </resources>
     <classes>
         <class className="DWTagList" superclassName="UIScrollView">
@@ -2285,15 +2301,18 @@
         <class className="SettingsButtonsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsButtonsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="acknowledgementsPressed:"/>
                 <relationship kind="action" name="feedbackPressed:"/>
                 <relationship kind="action" name="logoutPressed:"/>
                 <relationship kind="action" name="privacyPressed:"/>
                 <relationship kind="action" name="termsPressed:"/>
                 <relationship kind="action" name="twitterPressed:"/>
                 <relationship kind="action" name="websitePressed:"/>
+                <relationship kind="outlet" name="acknowledgementsButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="contactLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="logoutButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="privacyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="sproutImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="termsButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="termsLabel" candidateClass="UILabel"/>
@@ -2356,7 +2375,6 @@
         <class className="scheduleViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/scheduleViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backButtonPressed:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="action" name="dayPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="dayFive" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="dayFiveDate" candidateClass="UILabel"/>
