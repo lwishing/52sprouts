@@ -1109,7 +1109,7 @@
 		F3ED1A3517371EA800E676EA /* Beta */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Laura Wishingrad (H4BZSP5NT7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Arthur Che (X46D69GKU8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1125,7 +1125,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "18750A85-E8BC-4870-9841-EB5599A6D233";
+				PROVISIONING_PROFILE = "E33457E2-721C-48FC-96D1-3ECE4DB45A58";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SPROUTS_ICON_NAME_SUFFIX = _beta;
 				VALID_ARCHS = armv7;
