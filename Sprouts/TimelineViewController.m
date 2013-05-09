@@ -128,16 +128,16 @@
 }
 
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-
-    // Infinite scroll
-    if (scrollView.contentSize.height - scrollView.contentOffset.y < (self.view.bounds.size.height)) {
-        if (![self isLoading]) {
-            [self loadNextPage];
-        }
-    }
-
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//
+//    // Infinite scroll
+//    if (scrollView.contentSize.height - scrollView.contentOffset.y < (self.view.bounds.size.height)) {
+//        if (![self isLoading]) {
+//            [self loadNextPage];
+//        }
+//    }
+//
+//}
 
  // Override to customize what kind of query to perform on the class. The default is to query for
  // all objects ordered by createdAt descending.
