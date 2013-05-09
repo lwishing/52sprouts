@@ -111,12 +111,12 @@
     CGRect floatingLabelFrame = self.profileBanner.frame;
     
     // when contentOffset is is more then cellHeight scroll floating cell
-    if (scrollView.contentOffset.y > 122.0) {
+    if (scrollView.contentOffset.y > 121.0) {
         floatingCellFrame.origin.y = scrollView.contentOffset.y;
         floatingLabelFrame.origin.y = scrollView.contentOffset.y + 5.0;
     } else {
-        floatingCellFrame.origin.y = 122.0;
-        floatingLabelFrame.origin.y = 122.0 + 5.0;
+        floatingCellFrame.origin.y = 121.0;
+        floatingLabelFrame.origin.y = 121.0 + 5.0;
     }
     
     self.header.frame = floatingCellFrame;
