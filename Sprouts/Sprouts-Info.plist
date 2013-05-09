@@ -14,16 +14,16 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>Icon@2x.png</string>
-				<string>Icon.png</string>
-				<string>Icon@2x.png</string>
+				<string>Icon${SPROUTS_ICON_NAME_SUFFIX}@2x.png</string>
+				<string>Icon${SPROUTS_ICON_NAME_SUFFIX}.png</string>
+				<string>Icon${SPROUTS_ICON_NAME_SUFFIX}@2x.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.52sprouts.Sprouts</string>
+	<string>com.52sprouts.Sprouts${SPROUTS_BUNDLE_ID_SUFFIX}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

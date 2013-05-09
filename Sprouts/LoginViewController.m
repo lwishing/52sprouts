@@ -78,7 +78,7 @@
     UILabel *headerViewTwo = [[UILabel alloc] initWithFrame:CGRectMake(10, 280, (self.view.frame.size.width - 20), 60)];
     headerViewTwo.textAlignment = NSTextAlignmentCenter;
     headerViewTwo.numberOfLines = 0;
-    headerViewTwo.text = @"Each week, we pick an in season vegetable to inspire you in the kitchen.";
+    headerViewTwo.text = @"Every Thursday, we'll pick an in season vegetable to inspire you in the kitchen.";
     [headerViewTwo setFont:[[Utility sharedInstance] mediumFont]];
     headerViewTwo.textColor = [[Utility sharedInstance] greenColor];
     headerViewTwo.shadowColor = [UIColor whiteColor];
