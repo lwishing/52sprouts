@@ -227,12 +227,11 @@
                 NSNumber *likeCount = [NSNumber numberWithInt:count];
                 if (count > 0){
                     [cell.likeButton setTitle:[likeCount stringValue] forState:UIControlStateNormal];
-                    cell.likeButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, -2.0, 0.0);
                     [cell.likeButton sizeToFit];
                 } else {
-                    [cell.likeButton setTitle:@"Yum" forState:UIControlStateNormal];
-                    cell.likeButton.titleEdgeInsets = UIEdgeInsetsMake(0, 7.0, -2.0, 0.0);
-                    [cell.likeButton sizeToFit];
+//                    [cell.likeButton setTitle:@"Yum" forState:UIControlStateNormal];
+//                    cell.likeButton.titleEdgeInsets = UIEdgeInsetsMake(0, 7.0, -2.0, 0.0);
+//                    [cell.likeButton sizeToFit];
                 }
 
             } else {
@@ -378,7 +377,13 @@
     
 //    [[PAPCache sharedCache] setPhotoIsLikedByCurrentUser:photo liked:liked];
     
-    [button setTitle:[numberFormatter stringFromNumber:likeCount] forState:UIControlStateNormal];
+    if ([likeCount intValue] == 0){
+        [button setTitle:@"Yum!" forState:UIControlStateNormal];
+        [button sizeToFit];
+    } else {
+        [button setTitle:[numberFormatter stringFromNumber:likeCount] forState:UIControlStateNormal];
+        [button sizeToFit];
+    }
     
     if (liked) {
         NSLog(@"LIKED!");

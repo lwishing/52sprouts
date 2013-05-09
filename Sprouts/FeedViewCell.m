@@ -56,12 +56,46 @@
     
     _sproutObject = sproutObject;
     height = 0.0;
-    
-//    [_commentButton addTarget:self action:@selector(didTapCommentOnSproutButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [_likeButton addTarget:self action:@selector(didTapLikeSproutButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    _likeButton.titleLabel.font = [util buttonFont];
 
-    //Image
+    // Like
+    _likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _likeButton.frame = CGRectMake(12.0f, 12.0f, 20.0f, 22.0f);
+    
+    UIImage *buttonImage = [[UIImage imageNamed:@"orange_button.png"]
+                            resizableImageWithCapInsets:UIEdgeInsetsMake(0, 15, 0, 15)];
+    [_likeButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    
+    UIImage *heart = [UIImage imageNamed:@"heart_icon.png"];
+    UIImage *heart_filled = [UIImage imageNamed:@"filled_in_heart.png"];
+    
+    [_likeButton setImage:heart forState:UIControlStateNormal];
+    [_likeButton setImage:heart forState:UIControlStateHighlighted];
+    [_likeButton setImage:heart_filled forState:UIControlStateSelected];
+
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+    UIEdgeInsets titleInsets = UIEdgeInsetsMake(1.0, 7.0, -1.0, -7.0);
+    
+    CGFloat extraWidthRequiredForTitle = titleInsets.left - titleInsets.right;
+    contentInsets.right += extraWidthRequiredForTitle;
+    
+//    [_likeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [_likeButton setImageEdgeInsets:UIEdgeInsetsMake(0, 5.0, 0, -5.0)];
+    [_likeButton setContentEdgeInsets:contentInsets];
+    [_likeButton setTitleEdgeInsets:titleInsets];
+    
+    [_likeButton setTitle:@"Yum!" forState:UIControlStateNormal];
+    [_likeButton sizeToFit];
+    [_likeButton setTitleColor:[UIColor colorWithRed:(255.0/255.0) green:(127.0/255.0) blue:(0.0/255.0) alpha:1.0] forState:UIControlStateNormal];
+    [_likeButton.titleLabel setFont:[util buttonFont]];
+    [_likeButton addTarget:self action:@selector(didTapLikeSproutButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [self addSubview:_likeButton];
+    
+    self.accessoryView = _likeButton;
+    
+    // Comment
+//    [_commentButton addTarget:self action:@selector(didTapCommentOnSproutButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+
+    // Image
     PFFile *imageFile = [sproutObject objectForKey:@"photo"];    
     if (imageFile != nil) {
         // Set your placeholder image first
@@ -166,9 +200,14 @@
     return [text sizeWithFont:label.font constrainedToSize:CGSizeMake(280.0, 5000.0) lineBreakMode:NSLineBreakByWordWrapping];
 }
 
-- (void)setFrame:(CGRect)frame {
-	[super setFrame:frame];
-	[self.layer setShadowPath:[[UIBezierPath bezierPathWithRect:self.bounds] CGPath]];
+//- (void)setFrame:(CGRect)frame {
+//	[super setFrame:frame];
+//	[self.layer setShadowPath:[[UIBezierPath bezierPathWithRect:self.bounds] CGPath]];
+//}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.accessoryView.frame = CGRectMake(self.accessoryView.frame.origin.x, 12.0, self.accessoryView.frame.size.width, self.accessoryView.frame.size.height);
 }
 
 #pragma mark Event Handling

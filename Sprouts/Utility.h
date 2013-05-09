@@ -21,7 +21,7 @@
     UIFont *headerFont;
     UIFont *bodyFont;
     UIFont *smallFont;
-    
+
     UIColor *greenColor;
     UIColor *greyColor;
     UIColor *darkGreyColor;
